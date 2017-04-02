@@ -27,6 +27,7 @@
 				id: 				user.id,
 				username: 			user.username,
 				isAdmin: 			user.isAdmin,
+				centro: 			user.centro,
 				lastRequestTime:	Date.now() 														// crea la variable lastRequestTime para guardar a que hora empezo la sesion
 			};
 			res.redirect(req.session.redir.toString());												// redirección a path anterior a login

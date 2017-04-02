@@ -11,6 +11,11 @@
 
             },
 
+            centro: {
+                type: DataTypes.STRING
+
+            },
+
             marca: {
                 type: DataTypes.STRING
             },

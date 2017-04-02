@@ -10,16 +10,19 @@
 			respuesta: {
 				type: DataTypes.STRING
 			},
-			tema: {															// guarda el centro que la graba
+/*			tema: {															// guarda el centro que la graba
 				type: DataTypes.STRING,
 				validate: {notEmpty: {msg: "--> Falta Centro"}}
-			},
+			}, */
 			image: {
 				type: DataTypes.BLOB
 			},
 			proveedor: {													// guarda el proveedor que la origina
 				type: DataTypes.STRING,
 				validate: {notEmpty: {msg: "--> Falta Proveedor"}}
+			},
+			centro: {													// guarda el centro que la origina
+				type: DataTypes.STRING
 			},
 			proceso: {
 				type: DataTypes.BOOLEAN,

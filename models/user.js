@@ -6,14 +6,14 @@
 
     module.exports = function(sequelize, DataTypes) {
         var User = sequelize.define(
-            'User', 
+            'User',
             {
                 username: {
                     type: DataTypes.STRING,
                     unique: true,
-                    validate: { 
+                    validate: {
                         notEmpty: {msg: "-> Falta username"},
-                        isUnique: function (value, next) {                              // comprueba que username sea unico 
+                        isUnique: function (value, next) {                              // comprueba que username sea unico
                             var self = this;
                             User.find({where: {username: value}})                       // busca username en la tabla User
                             .then(function (user) {
@@ -43,9 +43,9 @@
                     type: DataTypes.BOOLEAN,
                     defaultValue: false
                 },
-                usertype: {
-                    type: DataTypes.STRING
-//                    validate: {notEmpty: {msg: "-> Falta tipo"}}
+                centro: {
+                    type: DataTypes.STRING,
+                    validate: {notEmpty: {msg: "-> Falta centro"}}
                 }
             },
             {
@@ -54,7 +54,7 @@
                         var encripted = crypto.createHmac('sha1', key).update(password).digest('hex');
                         return encripted === this.password;
                     }
-                }    
+                }
             }
         );
         return User;

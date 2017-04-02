@@ -46,7 +46,7 @@
 	router.post('/quizes/mes_index_show',				sessionController.loginRequired, quizController.mes_index_show);	// accede a la lista de partes /quizes/index.ejs selecionando mes y año
 	router.get('/quizes/resumen_index',			 		sessionController.loginRequired, quizController.resumen_index);		// formulario para seleccionar mes y año del resumen
 	router.post('/quizes/resumen',			 			sessionController.loginRequired, quizController.resumen);			// genera el informe
-	router.get('/quizes/imprimir_resumen',	 			sessionController.loginRequired, quizController.imprimir_resumen);	
+	router.get('/quizes/imprimir_resumen',	 			sessionController.loginRequired, quizController.imprimir_resumen);
 	router.get('/quizes/opened',			 			quizController.opened);												// accede a la lista de partes abiertos /quizes/index.ejs
 	router.get('/quizes/closed',			 			quizController.closed);												// accede a la lista de partes cerrados /quizes/index.ejs
 	router.get('/quizes/:quizId(\\d+)',					sessionController.loginRequired, quizController.show);				// accede a una pregunta en concreto. envia al quizController la peticion GET con el parametro quizId (indice)

@@ -33,19 +33,27 @@
 					<th class="text-center">Fecha</th>
 					<th class="text-center">Parte</th>
 					<th class="text-center">User</th>
+					<th class="text-center">Centro</th>
 					<th class="text-center">Revisado</th>
 <!--					<th>Proveedor</th>
 					<th>Motivo</th> -->
 				</tr>
 			</thead>
+
+
+
 			<tbody>
 				<% for (var i in quizes) { %>
+
+<!--					<% if (session.user.centro == quizes[i].centro) {%> -->
+
 					<tr>
 <!--						<td><a name="<%= quizes[i].tema %>" href="/temas/<%= quizes[i].tema %>"><%= quizes[i].tema %> </a></td> -->
 
 						<td class="text-center"><a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].dia %>-<%= quizes[i].mes %>-<%= quizes[i].anio %></a></td>
 						<td class="text-center"><a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].id %></a></td>
 						<td class="text-center"><%= quizes[i].UserName %></td>
+						<td class="text-center"><%= quizes[i].centro %></td>
 						<% if (quizes[i].proceso) {%>
 							<td class="text-center"><span class="" aria-hidden="true"></span></td>
 						<%} else {%>
@@ -73,6 +81,9 @@
 							<%}%>
 						<%}%>
 					</tr>
+
+<!--					<% } %> -->
+
 				<% } %>
 			</tbody>
 		</table>

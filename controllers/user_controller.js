@@ -51,7 +51,7 @@
 
 	exports.new = function(req, res) {										// GET /user
 	    var user = models.User.build( 										// crea objeto user
-	        {username: "", password: ""}
+	        {username: "", password: "", isAdmin: false, centro: ""}
 	    );
 	    res.render('user/new', {user: user, errors: []});
 	};
@@ -66,7 +66,7 @@
 			res.render('user/new', {user: user, errors: errores});
 		} else {
 			user 																// save: guarda en DB campos pregunta y respuesta de quiz
-			.save({fields: ["username", "password", "usertype"]})
+			.save({fields: ["username", "password", "isAdmin", "centro"]})
 			.then(function() {res.redirect('/user')});
 		};
 	};
@@ -74,6 +74,8 @@
 	exports.update = function(req, res, next) {								// PUT /user/:id
 		req.user.username  = req.body.user.username;
 	  	req.user.password  = req.body.user.password;
+	  	req.user.isAdmin  = req.body.user.isAdmin;
+	  	req.user.centro  = req.body.user.centro;
 	  	var errors = req.user.validate();											// objeto errors no tiene then(
 		if (errors) {
 			var i = 0;
@@ -82,7 +84,7 @@
 			res.render('user/new', {user: req.user, errors: errores});
 		} else {
 			req.user 																// save: guarda en DB campos pregunta y respuesta de quiz
-			.save({fields: ["username", "password", "usertype"]})
+			.save({fields: ["username", "password", "isAdmin", "centro"]})
 			.then(function() {res.redirect('/user')});
 		};
 	};

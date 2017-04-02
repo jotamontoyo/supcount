@@ -23,6 +23,9 @@
     exports.index = function(req, res, next) {
 
 	  	models.Contador.findAll({
+
+            where: {centro: req.session.user.centro},
+
             order: [
 				['id', 'ASC']
 			]
@@ -43,6 +46,7 @@
 		var contador = models.Contador.build( 																				// crea el objeto quiz, lo construye con buid() metodo de sequilize
 			{
                 nombre: "",
+                centro: "",
                 marca: "",
                 modelo: "",
                 deposito: false,
@@ -62,6 +66,7 @@
     exports.create = function(req, res) {														// POST /quizes/create
 
 		var contador = models.Contador.build( req.body.contador );											// construccion de objeto quiz para luego introducir en la tabla
+        contador.centro = req.session.user.centro;
 
 
 		var errors = contador.validate();

@@ -50,7 +50,7 @@
 
 	  	if (req.user) {									// req.user se crea en autoload de user_controller si hay un GET con un user logueado
 			options = {
-				where: {UserId: req.user.id, mes: mes, anio: anio},
+				where: {UserId: req.user.id, centro: req.session.user.centro, mes: mes, anio: anio},
 				order: [['fecha', 'ASC']]
 			};
 	  	};
@@ -101,6 +101,7 @@
 			options = {
 				where: {
 					UserId: req.user.id,
+					centro: req.session.user.centro,
 					mes: mes,
 					anio: anio
 				},
@@ -162,12 +163,14 @@
 			where: Sequelize.or(				// segun la version de Sequelize he de usar una u otra estructura de consulta
 				Sequelize.and(
 					{mes: mes},
-					{anio: anio}
+					{anio: anio},
+					{centro: req.session.user.centro}
 				),
 				Sequelize.and(
 					{dia: 1},
 					{mes: mes_siguiente},
-					{anio: anio_siguiente}
+					{anio: anio_siguiente},
+					{centro: req.session.user.centro}
 				)
 			),
 			include: [{model: models.Comment}],
@@ -176,7 +179,11 @@
 
 		models.Quiz.findAll(options).then(function(quizes) {
 			models.Contador.findAll({
+
+				where: {centro: req.session.user.centro},
+
 				order: [['id', 'ASC']]
+				
 			}).then(function(contadores) {
 				var anterior = 0;
 				for (let i in quizes) {								// hallar consumo
@@ -240,7 +247,7 @@
 		var anio = fecha.getUTCFullYear();
 
 		var quiz = models.Quiz.build( 																				// crea el objeto quiz, lo construye con buid() metodo de sequilize
-			{pregunta: "Motivo", respuesta: "Respuesta", proveedor: "Proveedor", dia: dia, mes: mes, anio: anio}		// asigna literales a los campos pregunta y respuestas para que se vea el texto en el <input> cuando creemos el formulario
+			{pregunta: "Motivo", respuesta: "Respuesta", proveedor: "Proveedor", centro: "Central", dia: dia, mes: mes, anio: anio}		// asigna literales a los campos pregunta y respuestas para que se vea el texto en el <input> cuando creemos el formulario
 		);
 
 		models.Proveedor.findAll().then(function(proveedor) {
@@ -261,6 +268,7 @@
 
 		req.body.quiz.UserId = req.session.user.id;												// referenciamos el quiz con el UserId
 		req.body.quiz.UserName = req.session.user.username;
+		req.body.quiz.centro = req.session.user.centro;
 
 		var quiz = models.Quiz.build( req.body.quiz );											// construccion de objeto quiz para luego introducir en la tabla
 		quiz.fecha = new Date(req.body.quiz.anio, req.body.quiz.mes - 1, req.body.quiz.dia);     // captura la fecha del form y la añade al quiz con clase Date()
@@ -273,10 +281,12 @@
 			res.render('quizes/new', {quiz: quiz, errors: errores});
 		} else {
 			quiz
-			.save({fields: ["pregunta", "respuesta", "tema", "UserId", "UserName", "proveedor", "fecha", "dia", "mes", "anio"]})
+			.save({fields: ["pregunta", "respuesta", "tema", "UserId", "UserName", "proveedor", "centro", "fecha", "dia", "mes", "anio"]})
 			.then(function() {
 
 				models.Contador.findAll({
+
+					where: {centro: req.session.user.centro},
 
 		            order: [['id', 'ASC']]
 
@@ -371,7 +381,7 @@
 
 		req.quiz.pregunta = req.body.quiz.pregunta;
 		req.quiz.respuesta = req.body.quiz.respuesta;
-		req.quiz.tema = req.body.quiz.tema;
+		req.quiz.centro = req.body.quiz.centro;
 		req.quiz.proveedor = req.body.quiz.proveedor;
 		req.quiz.proceso = req.body.quiz.proceso;
 
@@ -387,7 +397,7 @@
 			res.render('quizes/edit', {quiz: req.quiz, errors: errores});
 		} else {
 			req.quiz 															// save: guarda en DB campos pregunta y respuesta de quiz
-			.save({fields: ["fecha", "pregunta", "respuesta", "tema", "proveedor", "proceso", "fecha", "dia", "mes", "anio"]})
+			.save({fields: ["fecha", "pregunta", "respuesta", "centro", "proveedor", "proceso", "fecha", "dia", "mes", "anio"]})
 			.then(function() {res.redirect('/quizes')});
 		};
 	};

@@ -59,8 +59,8 @@
 
 				User.bulkCreate(
 
-	        		[ {username: 'admin', password: '1234', isAdmin: true},
-	          		{username: 'pepe', password: '5678'}] 					// el valor por defecto de isAdmin es 'false'
+	        		[ {username: 'admin', password: '1234', isAdmin: true, centro: 'Central'},
+	          		{username: 'pepe', password: '5678', isAdmin: false, centro: 'Central'}] 					// el valor por defecto de isAdmin es 'false'
 
 	        	).then(function() {
 
@@ -68,9 +68,9 @@
 	        		Quiz.count().then(function( count ) {
 	          			if(count === 0) {   																			// la tabla se inicializa solo si está vacía
 	            			Quiz.bulkCreate(
-	              				[ {pregunta: 'faltas', respuesta: 'Roma', tema: 'Central', proveedor: 'Central', proceso: 'true', UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0}, 			// estos quizes pertenecen al usuario pepe (2)
-	                			{pregunta: 'retraso', respuesta: 'Lisboa', tema: 'Central', proveedor: 'Central', proceso: 'true', UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0},
-	                			{pregunta: 'retraso', respuesta: 'Lisboa', tema: 'Central', proveedor: 'Central', proceso: 'true', UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0}]
+	              				[ {pregunta: 'faltas', respuesta: 'Roma', centro: "Central", proveedor: 'Central', proceso: 'true', UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0}, 			// estos quizes pertenecen al usuario pepe (2)
+	                			{pregunta: 'retraso', respuesta: 'Lisboa', centro: "Central", proveedor: 'Central', proceso: 'true', UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0},
+	                			{pregunta: 'retraso', respuesta: 'Lisboa', centro: "Central", proveedor: 'Central', proceso: 'true', UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0}]
 	              			).then(function(){console.log('Base de datos: tabla parte inicializada')});
 	          			};
 	        		});
@@ -91,6 +91,7 @@
 								[
 									{ codigo: 1,
 									nombre: 'contador 1',
+									centro: 'Central',
 									marca: 'marca',
 									modelo: 'modelo',
 									deposito: false,
@@ -104,6 +105,7 @@
 
 									{ codigo: 2,
 									nombre: 'contador 2',
+									centro: 'Central',
 									marca: 'marca',
 									modelo: 'modelo',
 									deposito: false,
@@ -117,6 +119,7 @@
 
 									{ codigo: 3,
 									nombre: 'contador 3',
+									centro: 'Central',
 									marca: 'marca',
 									modelo: 'modelo',
 									deposito: false,
