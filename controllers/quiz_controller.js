@@ -83,8 +83,6 @@
 
 
 
-
-
 	// GET /quizes   										--->>> GET sin req.user
 	// GET /users/:userId/quizes							--->>> GET con req.user
 	exports.mes_index_show = function(req, res, next) {
@@ -183,7 +181,7 @@
 				where: {centro: req.session.user.centro},
 
 				order: [['id', 'ASC']]
-				
+
 			}).then(function(contadores) {
 				var anterior = 0;
 				for (let i in quizes) {								// hallar consumo
