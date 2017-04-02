@@ -44,10 +44,7 @@
 	    }).catch(function(error){callback(error)});
 	};
 
-	exports.edit = function(req, res) {										// GET /user/:id/edit
-	  res.render('user/edit', { user: req.user, errors: []});				// req.user: instancia de user cargada con autoload
 
-	};
 
 	exports.new = function(req, res) {										// GET /user
 	    var user = models.User.build( 										// crea objeto user
@@ -58,6 +55,11 @@
 
 	exports.create = function(req, res) {									// POST /user
 	    var user = models.User.build( req.body.user );
+		if (req.body.user.isAdmin) {
+			user.isAdmin  = true;
+		} else {
+			user.isAdmin  = false;
+		};
 		var errors = user.validate();											// objeto errors no tiene then(
 		if (errors) {
 			var i = 0;
@@ -71,10 +73,23 @@
 		};
 	};
 
+
+
+
+
+	exports.edit = function(req, res) {										// GET /user/:id/edit
+	  res.render('user/edit', { user: req.user, errors: []});				// req.user: instancia de user cargada con autoload
+
+	};
+
 	exports.update = function(req, res, next) {								// PUT /user/:id
 		req.user.username  = req.body.user.username;
 	  	req.user.password  = req.body.user.password;
-	  	req.user.isAdmin  = req.body.user.isAdmin;
+		if (req.body.user.isAdmin) {
+			req.user.isAdmin  = true;
+		} else {
+			req.user.isAdmin  = false;
+		};
 	  	req.user.centro  = req.body.user.centro;
 	  	var errors = req.user.validate();											// objeto errors no tiene then(
 		if (errors) {

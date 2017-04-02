@@ -91,7 +91,8 @@
 						<%if(!session.user){%>
 							<li><a href="/user"><i class="fa fa-sign-in"></i> Sign up</a> - <a href="/login"><i class="fa fa-key"></i> Login&nbsp;</a></li>
 						<%}else{%>
-							<li><%=session.user.username%> -
+							<li><img src="/images/user2.png" alt=""> <%=session.user.username%> -
+								<img src="/images/centro.png" alt=""> <%=session.user.centro%> -
 								<a href="/user/<%=session.user.id%>/quizes">
 									<img src="/images/home.png" width="18px;" alt="Home"></a> -
 								<a href="/user/<%=session.user.id%>/edit">
