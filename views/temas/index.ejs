@@ -1,0 +1,18 @@
+
+<div class="container" style="max-width: 660px">
+
+	<h4>Centros</h4>
+
+	<div class="panel panel-default table-responsive" id="temas-panel">
+		<table class="table">
+			
+				<% var i; for (i=0; i < quizes.length; i++) { %>
+				<tr>
+					<td><a name="<%= quizes[i].tema %>" href="temas/<%= quizes[i].tema %>"><%= quizes[i].tema %> </a></td>
+				</tr>
+				<% } %>
+			
+		</table>
+	</div>
+
+</div>

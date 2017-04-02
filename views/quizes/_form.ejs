@@ -1,0 +1,144 @@
+
+<div class="container" id="parte_form">
+	<!-- <div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Fecha:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="fecha" name="quiz[fecha]" value="<%= quiz.fecha %>" placeholder="fecha"/>
+		</div>
+	</div>
+
+	<div class="input-group date datepicker" data-provide="datepicker">
+
+		<div class="input-group-addon">
+	        <span class="glyphicon glyphicon-th"></span>
+	    </div>
+	    <input type="text" class="form-control datepicker" id="fecha"
+
+			value="<%= quiz.dia %>/<%= quiz.mes %>/<%= quiz.anio %>">
+
+	</div>
+
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+
+
+			$('.datepicker').datepicker({
+				autoclose: true
+			});
+
+
+
+			$('#grabar').click(function() {
+
+				var parseFecha = $('#fecha').val().match(/(\d+)/g);
+
+				console.log(parseFecha);
+
+				quiz.dia = parseFecha[0];
+				quiz.mes = parseFecha[1];
+				quiz.anio = parseFecha[2];
+
+			});
+
+
+			$("#fecha").datepicker(
+            {
+                dateFormat: "dd/mm/yyyy",
+                dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+                dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+                firstDay: 1,
+                gotoCurrent: true,
+                monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre" ]
+            }
+        );
+
+
+
+		});
+
+
+
+	</script> -->
+
+
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Día:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="dia" name="quiz[dia]" value="<%= quiz.dia %>" placeholder="mes"/>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Mes:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="mes" name="quiz[mes]" value="<%= quiz.mes %>" placeholder="mes"/>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Año:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="anio" name="quiz[anio]" value="<%= quiz.anio %>" placeholder="fecha"/>
+		</div>
+	</div>
+
+
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Motivo:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" placeholder="motivo"/>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Proveedor:</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="pro" name="quiz[proveedor]">
+				<% for (var index in proveedor) {%>
+					<option value="<%=proveedor[index].nombre%>" <% if (quiz.proveedor===proveedor[index].nombre) {%> selected <%}%>><%=proveedor[index].nombre%></option>
+				<%}%>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Centro:</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="tema" name="quiz[tema]">
+				<option value="Central" <%if (quiz.tema==="Central"){%> selected <%}%>>Central</option>
+				<option value="Gala" <%if (quiz.tema==="Gala"){%> selected <%}%>>Gala</option>
+				<option value="La Siesta" <%if (quiz.tema==="La Siesta"){%> selected <%}%>>La Siesta</option>
+				<option value="Troya" <%if (quiz.tema==="Troya"){%> selected <%}%>>Troya</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Status:</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="proceso" name="quiz[proceso]">
+				<option value=true <%if (quiz.proceso) {%> selected <%}%>>Pendiente</option>
+				<option value=false <%if (!quiz.proceso) {%> selected <%}%>>Revisado</option>
+			</select>
+		</div>
+	</div>
+
+
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<a href="/quizes">
+				<button class="btn btn-danger btn-sm">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+				</button>
+			</a>
+			<button class="btn btn-success btn-sm" type="submit" id="grabar" value="Salvar">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
+			</button>
+		</div>
+	</div>
+
+</div>

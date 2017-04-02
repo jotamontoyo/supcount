@@ -1,0 +1,14 @@
+
+    <div class="container" id="new-edit">
+
+    	<h4>Modificar contador</h4>
+
+    	<form class="form-horizontal"
+    			method="post"
+    			action="/contadores/<%= contador.id %>/update?_method=put">
+
+    		<% include _form.ejs %>
+
+    	</form>
+
+    </div>

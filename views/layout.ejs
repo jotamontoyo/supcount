@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--	<meta name="google-site-verification" content="qB4EJYsedM-QXqZpbtiVOtYFr9TI50Nb8UF3xkLRq6A"/> -->
+	<title>Contadores</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/pc.css"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/tablet.css"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/movil.css"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/animate.css"/>
+<!--	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-datepicker.css"/> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<!--	<link rel="stylesheet" type="text/css" href="/stylesheets/carousel.css"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/mypath.css"/> -->
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/holder.js"></script>
+	<script type="text/javascript" src="/js/transition.js"></script>
+<!--	<script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script> -->
+<!--	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="/js/gmaps.js"></script>
+	<script type="text/javascript" src="/js/geoRoutes.js"></script> -->
+
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<script>
+		window.onload = function() {
+			var pos = window.name || 0;
+			window.scrollTo(0, pos);
+		};
+
+		window.onunload = function() {
+			window.name=self.pageYOffset || (document.documentElement.scrollTop+document.body.scrollTop);
+		};
+
+	</script>
+
+<div class="container-fluid">
+	<nav class="navbar navbar-inverse" id="menu-inicio">
+
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-inicio-items">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+			</div>
+
+
+			<div class="collapse navbar-collapse" id="menu-inicio-items">
+				<ul class="nav navbar-nav">
+
+					<li><a href="/"><img src="/images/home.png" alt="" /> Inicio <span class="sr-only">(current)</span></a></li>
+					<li><a href="/quizes"><img src="/images/partes3.png" alt="" /> Partes </a></li>
+					<li><a href="/contadores"><img src="/images/contador2.png" alt="" /> Contadores </a></li>
+					<li><a href="/quizes/resumen_index"><img src="/images/consumos2.png" alt="" /> Consumos </a></li>
+					<li><a href="/temas"><img src="/images/centros.png" alt=""> Centros </a></li>
+					<li><a href="/proveedores"><i class="fa fa-lemon-o"></i> Proveedores </a></li>
+					<li><a href="/quizes/statistics"><i class="fa fa-newspaper-o"></i> Estadísticas </a></li>
+					<li><a href="/db/index"><i class="fa fa-database"></i> DB </a></li>
+
+				</ul>
+
+<!--				<form class="navbar-form navbar-left" method="get" role="search" action="/quizes?search=search">
+					<div class="form-group">
+						<input name="search" type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default" value="Enviar">Submit</button>
+				</form> -->
+
+				<ul class="nav navbar-nav navbar-right">
+					<div class="form-group" style="color: white">
+						<%if(!session.user){%>
+							<li><a href="/user"><i class="fa fa-sign-in"></i> Sign up</a> - <a href="/login"><i class="fa fa-key"></i> Login&nbsp;</a></li>
+						<%}else{%>
+							<li><%=session.user.username%> -
+								<a href="/user/<%=session.user.id%>/quizes">
+									<img src="/images/home.png" width="18px;" alt="Home"></a> -
+								<a href="/user/<%=session.user.id%>/edit">
+									<img src="/images/settings2.png" width="18px;" alt="Settings"></a> -
+								<a href="/logout">
+									<img src="/images/logoff2.png" width="18px;" alt="Log off">&nbsp;</a>
+							</li>
+						<%}%>
+					</div>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container-fluid" id="principal">
+		<% if (errors.length) { %>
+			<span id='ErrorMsgs'>Corregir errores:<br/>
+				<% for (var i in errors) { %>
+					<span> <%= errors[i].message %> </span><br/>
+				<% } %>
+			</span>
+		<% } %>
+		<%- body %>	<!-- directiva ejs. body: convenio para cargar las vistas que se rendericen desde cualquier enrutador: index.js, quiz_controller.js -->
+	</div>
+
+
+<!--	<div class="row"  style="position: relative; bottom: 10px;">
+		<p class="text-center">&copy; 2017 jotaCompany, Inc. &middot; <a href="https://github.com/jotamontoyo/incipro">GitHub</a> &middot; <a href="#">Terms</a></p>
+	</div> -->
+
+</div>
+
+
+</body>
+
+</html>

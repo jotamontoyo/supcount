@@ -1,0 +1,90 @@
+
+<div class="container" id="contador_form">
+
+    <h4><i class="fa fa-dashboard"></i> Contador</h4>
+    <br>
+
+
+<!--    <div class="form-group">
+        <label for="num" class="col-md-2 control-label">Número:</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="numero" name="contador[codigo]" value="<%= contador.codigo %>" placeholder="código"/>
+        </div>
+    </div> -->
+
+    <div class="form-group">
+        <label for="nombre" class="col-md-3 control-label">Nombre:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="nombre" name="contador[nombre]" value="<%= contador.nombre %>" placeholder="nombre"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="marca" class="col-md-3 control-label">Marca:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="marca" name="contador[marca]" value="<%= contador.marca %>" placeholder="marca"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="modelo" class="col-md-3 control-label">Modelo:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="modelo" name="contador[modelo]" value="<%= contador.modelo %>" placeholder="modelo"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="deposito" class="col-md-3 control-label">Depósito:</label>
+        <div class="col-md-1">
+            <% if (contador.deposito) { %>
+                <input type="checkbox" class="form-control" checked id="deposito" name="contador[deposito]" value="<%= contador.deposito %>" placeholder="deposito"/>
+            <%} else { %>
+                <input type="checkbox" class="form-control" id="deposito" name="contador[deposito]" value="<%= contador.deposito %>" placeholder="deposito"/>
+            <%}%>
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="ubicacion" class="col-md-3 control-label">Ubicación:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="ubicacion" name="contador[ubicacion]" value="<%= contador.ubicacion %>" placeholder="ubicacion"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="fecha_revision" class="col-md-3 control-label">Ültima revisión:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="fecha_revision" name="contador[fecha_revision]" value="<%= contador.fecha_revision %>" placeholder="fecha ultima revision"/>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="tolerancia" class="col-md-3 control-label">% Tolerancia:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="tolerancia" name="contador[tolerancia]" value="<%= contador.tolerancia %>" placeholder="tolerancia"/>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="form-group">
+		<div class="col-md-10" style="margin-left: 18vw;">
+			<a href="/contadores">
+				<button class="btn btn-danger btn-sm">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+				</button>
+			</a>
+			<button class="btn btn-success btn-sm" type="submit" value="Salvar">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
+			</button>
+		</div>
+	</div>
+
+
+</div>

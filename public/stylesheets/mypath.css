@@ -1,0 +1,139 @@
+	
+	body{
+		font-family: 'Droid Sans', 'Helvetica', Arial, sans-serif;
+
+	}
+	
+	#map{
+		display: block;
+		margin: auto;
+		padding: 0;
+		height: 400px;
+		width: auto;
+	 		/* posición   */
+
+		 /* background: hsla(220, 100%, 50%, 0.5); /* azul si no hay mapa */
+	}
+
+	iframe {
+		display: block;
+		margin: auto;
+		padding: 0;
+		width: 90%;
+
+	}
+	
+	#panel {
+        position: 			absolute;
+        top: 				5px;
+        left: 				50%;
+        margin-left: 		-180px;
+        z-index: 			5;
+        background-color: 	#fff;
+        padding: 			5px;
+        border: 			1px solid #999;
+    }
+	
+	#info {
+		visibility: hidden;
+		background-color: 	rgba(255, 168, 105, 0.5);
+		position: 			absolute;
+		height: 			150px;
+		margin-right: 		15px;
+		bottom: 			5%;
+        left: 				15px;
+		padding: 			5px;
+		border: 			1px solid #999;
+		-moz-box-shadow: 	rgb(150,150,150) 5px 5px;
+		-webkit-box-shadow: rgb(150,150,150) 5px 5px;
+		box-shadow: 		rgb(150,150,150) 5px 5px 10px;
+	}
+	
+	#instructions {
+		overflow-y: 		scroll;
+		max-height: 		100px;
+        background-color: 	rgba(255, 102, 0, 0.5);
+        padding: 			5px;
+        border: 			1px solid #999;
+    }
+	
+	#distancia {
+        background-color: 	rgba(255, 102, 0, 0.5);
+		margin-top: 		5px;
+        padding: 			5px;
+        border: 			1px solid #999;
+    }
+	
+/*	#panorama {
+        position: absolute;
+		height:300px;
+		background:#6699cc;
+        bottom: 100px;
+        right: 15px;
+        border: 1px solid #999;
+    }
+		
+	#pie {
+		bottom: 0;
+		left: 45%;
+		position: fixed;
+		width: 50px;
+		height: 50px;
+		display: block;
+		background: url('botonArriba.png');
+		background-repeat: no-repeat;
+		background-size: 70%;
+ 		-webkit-transition: all 0.7s ease-in-out;
+		-moz-transition: all 0.7s ease-in-out;
+		transition: all 0.7s ease-in-out; 
+	} */
+	
+	div #pie li {
+		display: inline;
+		width: 50px;
+		/* margin: 2%; */
+	}
+	
+	div #pie:hover {						/* por encima de #pie */
+		height: 60px;
+		width: 100%;
+		left: 2%;
+		background: url('');
+	}
+	
+	div #pie li img {						/* cada img detro de un li en la division #pie */
+		visibility: hidden;
+ 		height: 30px;
+		width: 30px;
+		-webkit-transition: all 0.7s ease-in-out;
+		-moz-transition: all 0.7s ease-in-out;
+		transition: all 0.7s ease-in-out;
+
+	}
+	
+	 div #pie:hover li img{					/* cada img dentro de un li cuando por encima de #pie */
+		visibility: visible;
+		-moz-transform: rotate(360deg) translate(0px);
+		-webkit-transform: rotate(360deg) translate(0px);
+	}
+	
+	div #pie li img:hover {
+		-webkit-transition: all 0.1s ease-in-out;
+		-moz-transition: all 0.1s ease-in-out;
+		transition: all 0.1s ease-in-out;
+ 		-moz-transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+	}
+	
+	a {
+		color: #4e4a46;
+		text-decoration: none;
+		outline: none;
+	}
+	
+	
+
+	
+
+	
+		

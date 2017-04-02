@@ -1,0 +1,30 @@
+
+
+<div class="panel panel-default table-responsive" id="db-panel">
+  <div class="panel-heading">Tabla Preguntas</div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User</th>
+          <th>Centro</th>
+          <th>Título</th>
+          <th>Fecha Creación</th>
+          <th>Fecha Actualización</th>
+        </tr>
+      </thead>
+      <tbody>
+  		  <% var i; for (i=0; i < results.length; i++) {%>
+         	<tr>
+     		    <td><%=results[i].id%></td>
+                <td><%=results[i].UserName%></td>
+     		    <td><a href="/temas/<%=results[i].tema %>"><%=results[i].tema%></a></td>
+     		    <td><a href="/quizes/<%=results[i].id %>"><%=results[i].pregunta%></a></td>
+     		    <td><%=results[i].createdAt%></td>
+     		    <td><%=results[i].updatedAt%></td>
+ 		      </tr>
+  		  <%}%>
+  	 <tbody>
+    </table>
+  </div>
+</div>

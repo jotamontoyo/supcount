@@ -1,0 +1,120 @@
+
+<div class="container animated animated-fast fadeIn">
+
+	<div class="row">
+
+
+
+
+
+			<h5>Contador nº: <strong><%= contador.id %> </strong></h5>
+			<h5>Nombre: <strong><%= contador.nombre %> </strong></h5>
+			<h5>Depósito:
+
+				<strong>
+
+					<% if (contador.deposito) { %>
+						Sí
+					<%} else {%>
+						No
+					<%}%>
+
+				</strong>
+			</h5>
+
+
+<!--			<div class="row">
+
+
+				<div class="col-md-2 col-xs-2">
+					<h5>Contador nº:</h5>
+				</div>
+				<div class="col-md-6 col-xs-6">
+					<h4><%= contador.id %></h4>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-md-2 col-xs-2">
+					<h5>Nombre:</h5>
+				</div>
+				<div class="col-md-6 col-xs-6">
+					<h4><%= contador.nombre %></h4>
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-md-2 col-xs-2">
+					<h5>Depósito:</h5>
+				</div>
+				<div class="col-md-1 col-xs-1">
+					<h4><%= contador.deposito %></h4>
+				</div>
+
+			</div> -->
+
+
+
+
+
+
+	</div>
+
+	<div class="container">
+
+		<br>
+		<p><strong>Criterios:</strong></p>
+
+
+
+				<% for (var index in criterios) {%>
+
+					<div class="col-sm-4">
+
+							<div id="criterios">
+
+								<div class="container-fluid">
+
+										<h5>Mes: <strong><%= criterios[index].mes %></strong></h5>
+										<h5>Máximo: <strong><%= (criterios[index].max).formatNumber(2, ',', '.') %></strong></h5>
+										<h5>Mínimo: <strong><%= (criterios[index].min).formatNumber(2, ',', '.') %></strong></h5>
+
+								</div>
+
+								<br>
+
+								<% if (session.user) {
+	                                if (session.user.isAdmin) {%>
+
+										<form method="post" action="/contadores/<%=contador.id%>/criterios/<%=criterios[index].id%>/destroy?_method=delete">
+											<button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('Borrar Criterio del mes: <%= criterios[index].mes %>');">
+												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+											</button>
+										</form>
+
+									<%}%>
+								<%}%>
+
+							</div>
+
+					</div>
+
+				<%}%>
+
+
+
+
+	</div>
+
+	<% if (session.user) {
+		if (session.user.isAdmin) {%>
+			<a href="/contadores/<%= contador.id %>/criterios/new"><button type="button" class="btn btn-primary">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo criterio</button>
+			</a>
+		<%}%>
+	<%}%>
+
+</div>

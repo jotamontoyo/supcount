@@ -1,0 +1,53 @@
+<div class="container">
+
+
+
+	<form class="form-horizontal">         	
+		<div class="form-group">
+
+			<h3>Parte nº: <%= quiz.id %> </h3>
+			<h3>Motivo: <%= quiz.pregunta %> </h3>
+			<h3>Proveedor: <%= quiz.proveedor %> </h3>
+			<h3>Status: <%= quiz.proceso %> </h3>
+		</div>
+	</form>
+
+	<form class="form-horizontal" method="get" action="/quizes/<%= quiz.id %>/image">         	
+		<div class="form-group">
+			<%if (quiz.image) {%>
+				<img class="img-responsive" src="/quizes/<%=quiz.id%>/image">  
+			<%}%>
+		</div>
+	</form>
+
+	<div class="container" style="max-width: 660px">
+		<p><strong>Comentarios:</strong></p>
+		<div class="panel panel-default table-responsive">
+			<table class="table table-hover">
+				<% for (var index in quiz.comments) {%>
+					<tr>
+						<% if (quiz.comments[index].publicado) {%>
+							<td class="comment-panel">
+								<div class="container-fluid">
+									<textarea class="form-control comment-row" rows="5"><%=quiz.comments[index].texto%></textarea>
+								</div>
+								<div class="container-fluid">
+									<h6><span class="badge">#<%=quiz.comments[index].id%></span>
+									<small><%=quiz.comments[index].createdAt.toLocaleString()%></small></h6>
+								</div>
+							</td>
+						<%}%>
+					</tr>
+				<%}%>
+			</table>
+		</div>
+
+		<p><a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-primary">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo comentario</button></a>
+		</p>
+
+	</div>
+
+	
+
+</div>

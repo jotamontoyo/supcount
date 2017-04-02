@@ -1,0 +1,48 @@
+
+    <div class="container">
+        <h4>Añadir criterio:</h4>
+
+        <div class="container" id="criterio_form">
+
+            <form class="form-horizontal" method="post" action="/contadores/<%=contadorid%>/criterios/create" >
+
+
+                <div class="form-group">
+                    <label for="mes" class="col-md-5 control-label">Mes:</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="mes" name="criterio[mes]"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mes" class="col-md-5 control-label">Límite máximo:</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="max" name="criterio[max]" step="0.01"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mes" class="col-md-5 control-label">Límite mínimo:</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="min" name="criterio[min]" step="0.01"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+            		<div class="col-md-10" style="margin-left: 18vw;">
+            			<a href="/contadores">
+            				<button class="btn btn-danger btn-sm">
+            					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+            				</button>
+            			</a>
+            			<button class="btn btn-success btn-sm" type="submit" value="Salvar">
+            				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
+            			</button>
+            		</div>
+            	</div>
+
+            </form>
+
+        </div>
+
+    </div>

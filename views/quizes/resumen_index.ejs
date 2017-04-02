@@ -1,0 +1,92 @@
+
+
+<div class="container animated animated-fast fadeIn centrado-v-h" id="resumen_index">
+
+    <div class="panel">
+
+        <h4>Resumen mensual de consumos</h4>
+        <br>
+
+        <form class="form-horizontal" action="/quizes/resumen" method="post">
+
+<!--            <div class="form-group">
+                <label for="mes" class="col-sm-2">Mes:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mes" name="resumen[mes]" value="<%= resumen.mes %>" placeholder="mes"/>
+                </div>
+            </div> -->
+
+
+            <div class="form-group">
+        		<label for="mes" class="col-sm-2">Mes:</label>
+        		<div class="col-sm-10">
+        			<select class="form-control" id="mes" name="resumen[mes]">
+
+                        <option value=1 <%if (resumen.mes===1) {%> selected <%}%>>Enero</option>
+                        <option value=2 <%if (resumen.mes===2) {%> selected <%}%>>Febrero</option>
+                        <option value=3 <%if (resumen.mes===3) {%> selected <%}%>>Marzo</option>
+                        <option value=4 <%if (resumen.mes===4) {%> selected <%}%>>Abril</option>
+                        <option value=5 <%if (resumen.mes===5) {%> selected <%}%>>Mayo</option>
+                        <option value=6 <%if (resumen.mes===6) {%> selected <%}%>>Junio</option>
+                        <option value=7 <%if (resumen.mes===7) {%> selected <%}%>>Julio</option>
+                        <option value=8 <%if (resumen.mes===8) {%> selected <%}%>>Agosto</option>
+                        <option value=9 <%if (resumen.mes===9) {%> selected <%}%>>Septiembre</option>
+                        <option value=10 <%if (resumen.mes===10) {%> selected <%}%>>Octubre</option>
+                        <option value=11 <%if (resumen.mes===11) {%> selected <%}%>>Noviembre</option>
+                        <option value=12 <%if (resumen.mes===12) {%> selected <%}%>>Diciembre</option>
+
+
+        			</select>
+
+        		</div>
+        	</div>
+
+
+            <div class="form-group">
+        		<label for="anio" class="col-sm-2">Año:</label>
+        		<div class="col-sm-10">
+        			<select class="form-control" id="anio" name="resumen[anio]">
+
+        				<option value=2015 <%if (resumen.anio===2015) {%> selected <%}%>>2015</option>
+        				<option value=2016 <%if (resumen.anio===2016) {%> selected <%}%>>2016</option>
+        				<option value=2017 <%if (resumen.anio===2017) {%> selected <%}%>>2017</option>
+        				<option value=2018 <%if (resumen.anio===2018) {%> selected <%}%>>2018</option>
+        				<option value=2019 <%if (resumen.anio===2019) {%> selected <%}%>>2019</option>
+        				<option value=2020 <%if (resumen.anio===2020) {%> selected <%}%>>2020</option>
+
+        			</select>
+        		</div>
+        	</div>
+
+
+
+
+
+
+
+
+
+
+<!--             <div class="form-group">
+                <label for="anio" class="col-sm-2">Año:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="anio" name="resumen[anio]" value="<%= resumen.anio %>" placeholder="año"/>
+                </div>
+            </div> -->
+
+            <div class="form-group text-center">
+
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ver resumen</button>
+
+            </div>
+
+
+
+        </form>
+
+
+    </div>
+
+
+
+</div>

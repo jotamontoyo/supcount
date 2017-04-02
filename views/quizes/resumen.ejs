@@ -1,0 +1,268 @@
+
+
+<div class="container-fluid animated animated-fast fadeIn" id="resumen">
+
+    <div class="row" id="head_consumos">
+
+        <h4>&nbsp;&nbsp;<img src="/images/consumos2.png" alt="" /> Consumos</h4>
+
+
+        <a class="noprint" role="button" data-toggle="collapse" data-parent="#accordion" href="#leyenda" aria-expanded="true" aria-controls="collapseOne">
+            <img src="/images/info8.png"/>
+        </a>
+
+<!--        <a class="noprint" type="button" name="imprimir" value="imprimir" onclick="doPrint();">
+            <img src="/images/printer.png"/>
+        </a> -->
+
+        <a type="button" name="imprimir" value="imprimir" href="/quizes/imprimir_resumen">
+            <img src="/images/printer.png"/>
+        </a>
+
+
+        <div id="leyenda" class="panel-collapse collapse text-center" role="tabpanel">
+            <div class="panel-body">
+
+
+                <div class="col-md-2">
+
+<!--                    <a
+                        data-toggle="modal"
+        				data-target="#alerta-modal"> -->
+        					<img src="/images/info4.png"> Alerta</img>
+<!--        			</a> -->
+
+
+                </div>
+                <div class="col-md-2">
+
+                    <img src="/images/alert2.png" /> Alerta/Comentario
+
+                </div>
+                <div class="col-md-2">
+
+                    <img src="/images/info7.png" style="width: 20px" /> Aviso
+
+                </div>
+                <div class="col-md-2">
+
+                    <img src="/images/alert1.png" /> Aviso/Comentario
+
+                </div><div class="col-md-2">
+
+                    <img src="/images/info5.png"> Cumple/Comentario</img>
+
+                </div><div class="col-md-2">
+
+                    <img src="/images/ok.png" /> Cumple
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>  <!-- .end head_consumos -->
+
+    <br>
+
+    <!-- ALERTA MODAL ===================================================================================== -->
+	<div class="modal fade" id="alerta-modal" tabindex="-1" role="dialog" aria-labelledby="alerta" aria-hidden="true" style="padding-left: 0px">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header text-center">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                <h2>inciPro</h2>
+
+				</div>
+
+				<div class="modal-body">
+<!-- 				<img class="img-responsive animated fadeIn" src="/images/marcas/mediterraneo-modal.jpg" alt="">
+					<div class="texto-modelo ocultar">
+						<img src="/images/logos/el-sol-mediterraneo.jpg" style="left: 0px;"></img>
+		        	</div>
+					<br> -->
+					<p>
+						inciPro es una aplicación para la gestión de consumos procedentes de suministros externos o depósitos.
+						Su ámbito de aplicación es en todas aquellas instalaciones que consten de sistemas de distribución de aguas, combustibles o electricidad.
+					</p>
+					<p>Permite obtener en tiempo inmediato los informes sobre consumos, generando avisos sobre posibles desvíos.</p>
+					<p>Reduce alrededor de un 80% el tiempo empleado en sistemas tradicionales.<p>
+					<p>Web Developer: José Juan Montoyo Coronati</p>
+					<p class="text-center">&copy; 2017 cosilsCompany, Inc. &middot;	</p>
+				</div>
+
+				<div class="modal-footer">
+					<button type="btn btn-small" class="btn btn-warning btn-xs" data-dismiss="modal">
+						Cerrar
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+    <div class="panel panel-default table-responsive">
+
+        <table class="table table-striped table-hover">
+
+            <thead>
+                <tr>
+                    <th class="text-center">Fecha</th>
+                    <th class="text-center noprint">Parte</th>
+                    <th class="text-center">Usuario</th>
+                    <th class="text-center">Revisado</th>
+                    <% for (var i in contadores) { %>
+                        <th style="text-align:right"><%= contadores[i].nombre %></th>
+                    <%}%>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <% for (var i=0; i < quizes.length - 1; i++) { %>       <!-- muestra todos menos el ultimo, que es el 1er dia del mes siguiente, o en cualquier caso no tiene consumos-->
+
+                    <tr>
+
+                        <td class="text-center"><a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].dia %>-<%= quizes[i].mes %>-<%= quizes[i].anio %></a></td>
+                        <td class="text-center noprint"><a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].id %></a></td>
+                        <td class="text-center"><%= quizes[i].UserName %></td>
+                        <% if (quizes[i].proceso) {%>
+							<td class="text-center"><span class="" aria-hidden="true"></span></td>
+						<%} else {%>
+							<td class="text-center"><img src="/images/check.png" /></td>
+						<%}%>
+
+
+
+                        <% for (var x in quizes[i].comments) { %>
+
+                            <% if (quizes[i].comments[x].cumple) {%>
+
+                                <td class="dato_consumo" style="color:black">
+
+                                    <% if (quizes[i].comments[x].texto) {%>
+
+
+                                        <a style="color:black;" role="button" data-toggle="collapse" data-parent="#accordion" href="#<%= quizes[i].comments[x].id %>" aria-expanded="true" aria-controls="collapseOne">
+                                            <%= (quizes[i].comments[x].consumo).formatNumber(2, ',', '.') %>
+                                            <img src="/images/info5.png" />
+                                        </a>
+
+                                        <div id="<%= quizes[i].comments[x].id %>" class="info_desvio panel-collapse collapse" role="tabpanel">
+                                            <div class="panel-body">
+
+                                                <h6><%= quizes[i].UserName %>: "<%= quizes[i].comments[x].texto %>"</h6>
+
+                                            </div>
+                                        </div>
+
+                                    <%} else { %>
+
+                                        <%= (quizes[i].comments[x].consumo).formatNumber(2, ',', '.') %>
+                                        <img src="/images/ok.png" />
+
+                                    <%}%>
+
+                                </td>
+
+                            <%}%>
+
+
+
+
+                            <% if (!quizes[i].comments[x].cumple) {%>
+
+                                <td class="dato_consumo" style="color:black">
+
+                                    <a class="btn-ver-comentario" style="color: black;" role="button" data-toggle="collapse" data-parent="#accordion" href="#<%= quizes[i].comments[x].id %>" aria-expanded="true" aria-controls="collapseOne">
+
+                                        <%= (quizes[i].comments[x].consumo).formatNumber(2, ',', '.') %>
+
+                                        <% if (quizes[i].comments[x].texto) {%>
+
+                                            <!-- no cumple y esta fuera de la tolerancia  -->
+                                            <% if (quizes[i].comments[x].consumo >= (quizes[i].comments[x].maximo + ((quizes[i].comments[x].consumo * quizes[i].comments[x].tolerancia)/100))) {%>
+                                                <img src="/images/alert2.png" />
+                                            <%}%>
+
+                                            <!-- no cumple pero esta dentro de la tolerancia  -->
+                                            <% if ((quizes[i].comments[x].consumo < (quizes[i].comments[x].maximo + ((quizes[i].comments[x].consumo * quizes[i].comments[x].tolerancia)/100))) && (quizes[i].comments[x].consumo > quizes[i].comments[x].maximo)) {%>
+                                                <img src="/images/alert1.png" />
+                                            <%}%>
+
+
+
+                                        <%} else {%>
+
+
+
+                                            <% if (quizes[i].comments[x].consumo >= (quizes[i].comments[x].maximo + ((quizes[i].comments[x].consumo * quizes[i].comments[x].tolerancia)/100))) {%>
+
+                                                <img src="/images/info4.png" />
+
+                                            <%}%>
+
+                                            <% if ((quizes[i].comments[x].consumo < (quizes[i].comments[x].maximo + ((quizes[i].comments[x].consumo * quizes[i].comments[x].tolerancia)/100))) && (quizes[i].comments[x].consumo > quizes[i].comments[x].maximo)) {%>
+
+                                                <img src="/images/info7.png" style="width: 14px" />
+
+                                            <%}%>
+
+
+                                        <%}%>
+
+                                    </a>
+
+                                    <div id="<%= quizes[i].comments[x].id %>" class="info_desvio panel-collapse collapse" role="tabpanel">
+                                        <div class="panel-body panel_info_desvio">
+
+                                            <h6>Máximo: <%= quizes[i].comments[x].maximo %></h6>
+                                            <h6>Tolerancia: <%= quizes[i].comments[x].tolerancia %>%</h6>
+                                            <h6>Desvío: +<%= (((quizes[i].comments[x].consumo - quizes[i].comments[x].maximo) / quizes[i].comments[x].maximo)*100).formatNumber(2, ',', '.') %>%</h6>
+                                            <% if (quizes[i].comments[x].texto) {%>
+                                                <hr>
+                                                <h6><%= quizes[i].UserName %>: "<%= quizes[i].comments[x].texto %>"</h6>
+                                            <%}%>
+
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                            <%}%>
+
+
+
+                        <%}%>
+
+
+
+                    </tr>
+
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+
+    <script language="JavaScript">
+        function doPrint() {
+/*            $(".noprint").css('visibility', 'hidden');
+            window.print();
+            $(".noprint").css('visibility', 'visible'); */
+
+        }
+    </script>
+
+
+</div>

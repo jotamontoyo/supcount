@@ -1,0 +1,18 @@
+
+<div class="container" style="max-width: 660px">
+
+	<h4>Página de estadísticas</h4>
+
+	<div class="panel panel-default table-responsive" id="stats-panel">
+		<table class="table">
+			<tr><td>Preguntas: <%= statistics.quizes %></td></tr>
+			<tr><td>Preguntas con comentarios: <%= statistics.commented_quizes %></td></tr>
+			<tr><td>Preguntas sin comentarios: <%= statistics.no_commented %></td></tr>
+			<tr><td>Comentarios: <%= statistics.comments %></td></tr>
+			<tr><td>Comentarios por pregunta: <%= statistics.average_comments %></td></tr>
+			<tr><td>Comentarios publicados: <%= statistics.comments_published %></td></tr>
+			<tr><td>Comentarios sin publicar: <%= statistics.comments_no_published %></td></tr>
+		</table>
+	</div>
+
+</div>

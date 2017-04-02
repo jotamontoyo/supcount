@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+npm-debug.log
+quiz.sqlite
+public/media
+public/img
+.settings/settings.json
+.env

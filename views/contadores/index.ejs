@@ -1,0 +1,67 @@
+
+    <div class="container animated animated-fast fadeIn" id="contadores">
+
+        <h4><img src="/images/contador2.png" alt="" /> Contadores</h4>
+
+
+        <div class="panel panel-default table-responsive" id="contadores-panel">
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Nombre</th>
+                        <th>Depósito</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Ubicación</th>
+                        <th>Fecha revisión</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (i in contadores) { %>
+                        <tr>
+
+                            <td><a href="/contadores/<%= contadores[i].id %>"><%= contadores[i].id %></a></td>
+                            <td><a href="/contadores/<%= contadores[i].id %>"><%= contadores[i].nombre %></a></td>
+                            <td>
+                                <% if (contadores[i].deposito) {%>
+                                    <i class="fa fa-check"></i>
+                                <%}%>
+
+                            </td>
+                            <td><%= contadores[i].marca %></td>
+                            <td><%= contadores[i].modelo %></td>
+                            <td><%= contadores[i].ubicacion %></td>
+                            <td><%= contadores[i].fecha_revision %></td>
+
+                            <% if (session.user) {
+                                if (session.user.isAdmin) {%>
+                                    <td style="width:40px"> <a class="" href="/contadores/<%= contadores[i].id %>/edit">
+                                        <img src="/images/edit3.png" style="width: 20px;"/>
+                                    </a></td>
+                                    <td style="width:40px">
+                                        <form method="post" action="contadores/<%= contadores[i].id %>/destroy?_method=delete">
+                                            <button class="btn btn-danger btn-xs" type="submit" onClick="return confirm('Borrar el Contador: <%= contadores[i].nombre %>');">
+                                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                <%}%>
+                            <%}%>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+
+        <% if (session.user) {
+            if (session.user.isAdmin) {%>
+                <p><a href="/contadores/new"><button type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear contador</button></a>
+
+                </p>
+            <%}%>
+        <%}%>
+
+    </div>

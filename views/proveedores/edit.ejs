@@ -1,0 +1,14 @@
+
+<div class="container" id="new-edit">
+
+	<h4>Edite el proveedor</h4>
+
+	<form class="form-horizontal" 
+			method="post" 
+			action="/proveedores/<%= proveedor.id %>?_method=put">							
+	    							
+		<% include _form.ejs %>
+		
+	</form>
+
+</div>
