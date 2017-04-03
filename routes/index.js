@@ -33,12 +33,16 @@
 	router.get('/logout', 								sessionController.destroy); 		// destruir sesión
 
 	// Definición de rutas de cuenta
-	router.get('/user',  								userController.new);     			// formulario sign
-	router.post('/user',  								userController.create);     		// registrar usuario
+	router.get('/user',                                 sessionController.loginRequired, userController.index);
+	router.get('/user/new',  							sessionController.loginRequired, userController.new);     			// formulario sign
+	router.post('/user/create',  						sessionController.loginRequired, userController.create);     		// registrar usuario
+
 	router.get('/user/:userId(\\d+)/edit',  			sessionController.loginRequired, userController.ownershipRequired, userController.edit);     	// editar información de cuenta
 	router.put('/user/:userId(\\d+)',  					sessionController.loginRequired, userController.ownershipRequired, userController.update);     	// actualizar información de cuenta
 	router.delete('/user/:userId(\\d+)',  				sessionController.loginRequired, userController.ownershipRequired, userController.destroy);
-	router.get('/user/:userId(\\d+)/quizes',			quizController.index);
+	router.get('/user/:userId(\\d+)/quizes',			sessionController.loginRequired, quizController.index);
+
+
 
 	// Definición de rutas de quizes
 	router.get('/quizes',			 					sessionController.loginRequired, quizController.index);				// accede a la lista completa de partes /quizes/index.ejs

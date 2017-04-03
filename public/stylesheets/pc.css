@@ -203,6 +203,34 @@
 
 
 
+
+	/* USUARIOS ******************************************************************************************/
+
+	#usuarios {
+
+		max-width: 960px;
+
+	}
+
+	#usuarios-panel {
+
+		text-align: center;
+
+	}
+
+	#usuarios img {
+
+		width: 32px;
+
+	}
+
+
+
+
+
+
+
+
 	/* INICIO ******************************************************************************************/
 
 	#menu-inicio {
@@ -383,15 +411,22 @@
 
 
 
-	/* ========= FORMULARIO CONTADOR y PARTE ===================== */
+	/* ========= FORMULARIO CONTADOR PARTE USUARIO ===================== */
 
-	#contador_form, #parte_form {
+	#contador_form, #parte_form, #user_form {
 
 		max-width: 600px;
 		padding: 20px 20px 20px 20px;
 
 		border: 1px solid #D8D8D8;
 
+
+	}
+
+	#borrar_cuenta {
+
+		padding: 10px;
+		text-align: center;
 
 	}
 

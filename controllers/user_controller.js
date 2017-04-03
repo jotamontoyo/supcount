@@ -46,6 +46,36 @@
 
 
 
+
+
+	exports.index = function(req, res, next) {
+
+
+		var options = {
+			where: {centro: req.session.user.centro},
+			order: [['id', 'ASC']]
+		};
+
+		if (req.user) {									// req.user se crea en autoload de user_controller si hay un GET con un user logueado
+			options = {
+				where: {centro: req.session.user.centro},
+				order: [['id', 'ASC']]
+			};
+		};
+
+		models.User.findAll(options).then(					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id
+			function(user) {
+				res.render('user/index.ejs', {user: user, errors: []});
+			}
+		).catch(function(error){next(error)});
+
+	};
+
+
+
+
+
+
 	exports.new = function(req, res) {										// GET /user
 	    var user = models.User.build( 										// crea objeto user
 	        {username: "", password: "", isAdmin: false, centro: ""}
