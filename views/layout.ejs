@@ -74,9 +74,9 @@
 					<li><a href="/quizes/resumen_index"><img src="/images/consumos2.png" alt="" /> Consumos </a></li>
 					<li><a href="/temas"><img src="/images/centros.png" alt=""> Centros </a></li>
 					<li><a href="/user"><img src="/images/user.png" alt=""> Usuarios </a></li>
-					<li><a href="/proveedores"><i class="fa fa-lemon-o"></i> Proveedores </a></li>
+<!-- 					<li><a href="/proveedores"><i class="fa fa-lemon-o"></i> Proveedores </a></li>
 					<li><a href="/quizes/statistics"><i class="fa fa-newspaper-o"></i> Estadísticas </a></li>
-					<li><a href="/db/index"><i class="fa fa-database"></i> DB </a></li>
+					<li><a href="/db/index"><i class="fa fa-database"></i> DB </a></li> -->
 
 				</ul>
 
@@ -90,10 +90,10 @@
 				<ul class="nav navbar-nav navbar-right">
 					<div class="form-group" style="color: white">
 						<%if(!session.user){%>
-							<li><a href="/user"><i class="fa fa-sign-in"></i> Sign up</a> - <a href="/login"><i class="fa fa-key"></i> Login&nbsp;</a></li>
+							<a href="/login"><img src="/images/user2.png" alt=""> Login&nbsp;</a></li>
 						<%}else{%>
 							<li><img src="/images/user2.png" alt=""> <%=session.user.username%> -
-								<img src="/images/centro.png" alt=""> <%=session.user.centro%> -
+								<img src="/images/centros.png" alt=""> <%=session.user.centro%> -
 								<a href="/user/<%=session.user.id%>/quizes">
 									<img src="/images/home.png" width="18px;" alt="Home"></a> -
 								<a href="/user/<%=session.user.id%>/edit">
