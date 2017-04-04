@@ -1,0 +1,14 @@
+
+    <div class="container" id="new-edit">
+
+    	<h4>Modificar centro</h4>
+
+    	<form class="form-horizontal"
+    			method="post"
+    			action="/centros/<%= centro.id %>/update?_method=put">
+
+    		<% include _form.ejs %>
+
+    	</form>
+
+    </div>

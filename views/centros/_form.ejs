@@ -1,0 +1,62 @@
+
+<div class="container" id="centro_form">
+
+    <h4><i class="fa fa-dashboard"></i> Centro</h4>
+    <br>
+
+
+
+    <div class="form-group">
+        <label for="nombre" class="col-md-3 control-label">Nombre:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="nombre" name="centro[nombre]" value="<%= centro.nombre %>" placeholder="nombre"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="direccion" class="col-md-3 control-label">Dirección:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="direccion" name="centro[direccion]" value="<%= centro.direccion %>" placeholder="direccion"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contacto" class="col-md-3 control-label">Contacto:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="contacto" name="centro[contacto]" value="<%= centro.contacto %>" placeholder="contacto"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="telefono" class="col-md-3 control-label">Teléfono:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="telefono" name="centro[telefono]" value="<%= centro.telefono %>" placeholder="telefono"/>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="email" class="col-md-3 control-label">email:</label>
+        <div class="col-md-9">
+            <input type="email" class="form-control" id="email" name="centro[email]" value="<%= centro.email %>" placeholder="email"/>
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-10" style="margin-left: 18vw;">
+            <a href="/centros">
+                <button class="btn btn-danger btn-sm" type="button">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+                </button>
+            </a>
+            <button class="btn btn-success btn-sm" type="submit" value="Salvar">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
+            </button>
+        </div>
+    </div>
+
+
+</div>

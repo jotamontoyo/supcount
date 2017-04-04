@@ -43,6 +43,10 @@
                     type: DataTypes.BOOLEAN,
                     defaultValue: false
                 },
+                isSuperAdmin: {                                                              // indica si es super administrador
+                    type: DataTypes.BOOLEAN,
+                    defaultValue: false
+                },
                 centro: {
                     type: DataTypes.STRING,
                     validate: {notEmpty: {msg: "-> Falta centro"}}

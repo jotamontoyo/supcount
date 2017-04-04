@@ -14,6 +14,7 @@
 	var userController = require('../controllers/user_controller');
 	var proveedorController = require('../controllers/proveedor_controller');
 	var invitadoController = require('../controllers/invitado_controller');
+	var centroController = require('../controllers/centro_controller');
 
 	router.get('/', function (req, res) {													/* GET home page. */
 		res.render('index', {title: 'inciPro', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
@@ -26,6 +27,7 @@
 	router.param('proveedorId',							proveedorController.load);
 	router.param('contadorId',							contadorController.load);
 	router.param('criterioId',							criterioController.load);
+	router.param('centroId',							centroController.load);
 
 	// Definición de rutas de sesion
 	router.get('/login',  								sessionController.new);     		// formulario login
@@ -80,13 +82,43 @@
 
 
 	// Deficion de rutas de Contadores
-	router.get('/contadores',													contadorController.index);
-	router.get('/contadores/new',												contadorController.new);
-	router.post('/contadores/create',											contadorController.create);
-	router.get('/contadores/:contadorId(\\d+)/edit',							contadorController.edit);
-	router.put('/contadores/:contadorId(\\d+)/update',							contadorController.update);
-	router.get('/contadores/:contadorId(\\d+)',									contadorController.show);
-	router.delete('/contadores/:contadorId(\\d+)/destroy',						contadorController.destroy);
+	router.get('/contadores',													sessionController.loginRequired, contadorController.index);
+	router.get('/contadores/new',												sessionController.loginRequired, contadorController.new);
+	router.post('/contadores/create',											sessionController.loginRequired, contadorController.create);
+	router.get('/contadores/:contadorId(\\d+)/edit',							sessionController.loginRequired, contadorController.edit);
+	router.put('/contadores/:contadorId(\\d+)/update',							sessionController.loginRequired, contadorController.update);
+	router.get('/contadores/:contadorId(\\d+)',									sessionController.loginRequired, contadorController.show);
+	router.delete('/contadores/:contadorId(\\d+)/destroy',						sessionController.loginRequired, contadorController.destroy);
+
+
+
+
+
+
+
+
+
+
+
+	// Deficion de rutas de Centros
+	router.get('/centros',													sessionController.loginRequired, centroController.index);
+	router.get('/centros/new',												sessionController.loginRequired, centroController.new);
+	router.post('/centros/create',											sessionController.loginRequired, centroController.create);
+	router.get('/centros/:centroId(\\d+)/edit',								sessionController.loginRequired, centroController.edit);
+	router.put('/centros/:centroId(\\d+)/update',							sessionController.loginRequired, centroController.update);
+	router.delete('/centros/:centroId(\\d+)/destroy',						sessionController.loginRequired, centroController.destroy);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	// Deficion de rutas de Criterios

@@ -27,6 +27,7 @@
 				id: 				user.id,
 				username: 			user.username,
 				isAdmin: 			user.isAdmin,
+				isSuperAdmin:		user.isSuperAdmin,
 				centro: 			user.centro,
 				lastRequestTime:	Date.now() 														// crea la variable lastRequestTime para guardar a que hora empezo la sesion
 			};

@@ -405,6 +405,22 @@
 	}
 
 
+	/* CENTROS ===========================================================================*/
+
+	#centros img {
+
+		width: 30px;
+
+	}
+
+	#centros-panel tr th, #centros-panel tr td {
+
+		text-align: center;
+
+	}
+
+
+
 
 
 
@@ -413,7 +429,7 @@
 
 	/* ========= FORMULARIO CONTADOR PARTE USUARIO ===================== */
 
-	#contador_form, #parte_form, #user_form {
+	#contador_form, #parte_form, #user_form, #centro_form {
 
 		max-width: 600px;
 		padding: 20px 20px 20px 20px;

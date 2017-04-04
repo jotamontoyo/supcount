@@ -50,17 +50,28 @@
 
 	exports.index = function(req, res, next) {
 
+		var centro = req.session.user.centro;
+
+
 
 		var options = {
-			where: {centro: req.session.user.centro},
+			where: {centro: centro},
 			order: [['id', 'ASC']]
 		};
 
-		if (req.user) {									// req.user se crea en autoload de user_controller si hay un GET con un user logueado
-			options = {
-				where: {centro: req.session.user.centro},
+
+		if (req.session.user.isSuperAdmin) {
+			options = {									// muestra todos los centros si isSuperAdmin
 				order: [['id', 'ASC']]
 			};
+		} else {
+			if (req.user) {									// req.user se crea en autoload de user_controller si hay un GET con un user logueado
+				options = {								// muestra solo los centros del user
+					where: {centro: centro},
+					order: [['id', 'ASC']]
+				};
+			};
+
 		};
 
 		models.User.findAll(options).then(					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id

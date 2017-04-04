@@ -33,6 +33,7 @@
 	var Proveedor = sequelize.import(path.join(__dirname, 'proveedor'));	// importar estructura y definicion de la tabla Provider
 	var Contador = sequelize.import(path.join(__dirname, 'contador'));		// importar estructura y definicion de la tabla Contador
 	var Criterio = sequelize.import(path.join(__dirname, 'criterio'));		// importar estructura y definicion de la tabla Criterio
+	var Centro = sequelize.import(path.join(__dirname, 'centro'));			// importar estructura y definicion de la tabla Centro
 
 	Quiz.belongsTo(User);												// integridad referncial. Cada Quiz es hijo de User
 	User.hasMany(Quiz);													// cada User puede tener varios Quiz
@@ -50,6 +51,7 @@
 	exports.Proveedor = Proveedor;
 	exports.Contador = Contador;
 	exports.Criterio = Criterio;
+	exports.Centro = Centro;
 
 	sequelize.sync().then(function() {									// sequelize.sync() inicializa tabla de preguntas en DB
 
@@ -58,10 +60,11 @@
 	    	if(count === 0) {   											// la tabla se inicializa solo si está vacía
 
 				User.bulkCreate(
-
-	        		[ {username: 'admin', password: '1234', isAdmin: true, centro: 'Central'},
-	          		{username: 'pepe', password: '5678', isAdmin: false, centro: 'Central'}] 					// el valor por defecto de isAdmin es 'false'
-
+	        		[
+						{username: 'sAdminCentral', password: '1973654qzpm', isAdmin: true, isSuperAdmin: true, centro: 'Central'},
+						{username: 'admin', password: '1234', isAdmin: true, centro: 'Central'},
+	          			{username: 'pepe', password: '5678', isAdmin: false, centro: 'Central'}
+					]
 	        	).then(function() {
 
 	        		console.log('Base de datos: tabla user inicializada');
@@ -81,6 +84,14 @@
 	              				[ {nombre: 'provider1', telefono: '999999999', email: 'somenone@host.com'},
 	                			{nombre: 'provider2', telefono: '999999999', email: 'someoneelse@host.com'}]
 	              		    ).then(function(){console.log('Base de datos: tabla proveedor inicializada')});
+	          			};
+	        		});
+
+	        		Centro.count().then(function( count ) {
+	          			if(count === 0) {   																			// la tabla se inicializa solo si está vacía
+	            			Centro.bulkCreate(
+	              				[{nombre: 'Central', direccion: 'central', contacto: 'contacto', telefono: '999999999', email: 'somenone@host.com'}]
+	              		    ).then(function(){console.log('Base de datos: tabla centros inicializada')});
 	          			};
 	        		});
 

@@ -15,26 +15,37 @@
 			</div>
 		</div>
 
-		<div class="form-group">
-			<label for="admin" class="col-md-3 control-label">Administrador:</label>
-			<div class="col-md-1">
-				<% if (user.isAdmin) { %>
-					<input type="checkbox" class="form-control" checked id="admin" name="user[isAdmin]" value="<%= user.isAdmin %>"/>
-				<%} else { %>
-					<input type="checkbox" class="form-control" id="admin" name="user[isAdmin]" value="<%= user.isAdmin %>"/>
-				<%}%>
+
+		<% if (session.user.isSuperAdmin) {%>
+
+			<div class="form-group">
+				<label for="admin" class="col-md-3 control-label">Administrador:</label>
+				<div class="col-md-1">
+					<% if (user.isAdmin) { %>
+						<input type="checkbox" class="form-control" checked id="admin" name="user[isAdmin]" value="<%= user.isAdmin %>"/>
+					<%} else { %>
+						<input type="checkbox" class="form-control" id="admin" name="user[isAdmin]" value="<%= user.isAdmin %>"/>
+					<%}%>
 
 
+				</div>
 			</div>
-		</div>
 
 
-		<div class="form-group">
-			<label for="centro" class="col-sm-3 control-label">Centro:</label>
-			<div class="col-sm-9">
-				<input type="text" class="form-control" id="centro" name="user[centro]" value="<%= user.centro %>"/>
+			<div class="form-group">
+				<label for="centro" class="col-sm-3 control-label">Centro:</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" id="centro" name="user[centro]" value="<%= user.centro %>"/>
+				</div>
 			</div>
-		</div>
+
+		<%} else {%>
+
+			<% user.centro = session.user.centro %>
+			<input type="text" class="form-control hidden" id="centro" name="user[centro]" value="<%= user.centro %>"/>
+
+		<%}%>
+
 
 		<div class="form-group">
 			<div class="col-sm-12 text-center">
