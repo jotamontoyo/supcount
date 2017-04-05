@@ -29,16 +29,19 @@
 	router.param('criterioId',							criterioController.load);
 	router.param('centroId',							centroController.load);
 
+
+
 	// Definición de rutas de sesion
 	router.get('/login',  								sessionController.new);     		// formulario login
 	router.post('/login', 								sessionController.create);  		// crear sesión
 	router.get('/logout', 								sessionController.destroy); 		// destruir sesión
 
+
+
 	// Definición de rutas de cuenta
 	router.get('/user',                                 sessionController.loginRequired, userController.index);
 	router.get('/user/new',  							sessionController.loginRequired, userController.new);     			// formulario sign
 	router.post('/user/create',  						sessionController.loginRequired, userController.create);     		// registrar usuario
-
 	router.get('/user/:userId(\\d+)/edit',  			sessionController.loginRequired, userController.ownershipRequired, userController.edit);     	// editar información de cuenta
 	router.put('/user/:userId(\\d+)',  					sessionController.loginRequired, userController.ownershipRequired, userController.update);     	// actualizar información de cuenta
 	router.delete('/user/:userId(\\d+)',  				sessionController.loginRequired, userController.ownershipRequired, userController.destroy);
@@ -92,14 +95,6 @@
 
 
 
-
-
-
-
-
-
-
-
 	// Deficion de rutas de Centros
 	router.get('/centros',													sessionController.loginRequired, centroController.index);
 	router.get('/centros/new',												sessionController.loginRequired, centroController.new);
@@ -110,22 +105,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 	// Deficion de rutas de Criterios
 	router.get('/contadores/:contadorId(\\d+)/criterios/new',								criterioController.new);						// carga el formulario new
 	router.post('/contadores/:contadorId(\\d+)/criterios/create',							criterioController.create);
 	router.delete('/contadores/:contadorId(\\d+)/criterios/:criterioId(\\d+)/destroy',   	criterioController.destroy);
-
 
 
 

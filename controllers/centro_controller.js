@@ -62,7 +62,7 @@
 
 		if (errors) {
 			var i = 0;
-			var errores = new Array();															// se convierte en [] con la propiedad message por compatibilidad con layout
+			var errores = new Array();											// se convierte en [] con la propiedad message por compatibilidad con layout
 			for (var prop in errors) errores[i++] = {message: errors[prop]};
 			res.render('centros/new', {centro: centro, errors: errores});
 		} else {
