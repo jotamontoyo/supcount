@@ -1,19 +1,6 @@
 
 
-<!--	<div class="row" id="inicio-panel">
-			<h1><%= title %></h1>
-			<p>Gestión de lecturas y consumos.</p>
-			<h6>Procedentes de suministros externos o depósitos.</h6><p>
 
-			<br>
-
-			<button class="btn btn-default"
-				data-toggle="modal"
-				data-target="#ver-mas-modal">
-					Ver más
-			</button>
-
-	</div> -->
 
 
 
@@ -27,10 +14,26 @@
 		<img class="bgfade responsive" src="/images/inicio/06.jpg">
 	</div> -->
 
-	<div class="container-fluid bordes text-center" id="inicio">
+	<div class="container-fluid bordes text-center animated fadeIn" id="inicio">
 
 
-			<img class="responsive" width="100%" position="center" src="/images/inicio/06.jpg" >
+		<img src="/images/inicio/07.jpg" >
+
+		<div id="inicio-panel">
+				<h1>Gestión de Contadores</h1>
+				<h1><%= title %></h1>
+				<h3>Lecturas y consumos de suministros externos o depósitos</h3>
+
+
+				<br>
+
+				<button class="btn btn-info"
+					data-toggle="modal"
+					data-target="#ver-mas-modal">
+						Entrar
+				</button>
+
+		</div>
 
 
 
@@ -42,6 +45,48 @@
 	<div class="container-fluid bordes" id="seccion_01">
 
 		<div class="row" id="seccion_01_items">
+
+			<div class="col-md-4 seccion_item">
+
+				<h3><img src="/images/seccion01/globe.png" alt=""></h3>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+				<button class="btn btn-info" name="button">boton</button>
+
+			</div>
+
+		  	<div class="col-md-4 seccion_item">
+
+				<h3><img src="/images/seccion01/phone.png" alt=""></h3>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+				<button class="btn btn-info" name="button">boton</button>
+
+			</div>
+
+		  	<div class="col-md-4 seccion_item">
+
+				<h3><img src="/images/seccion01/phone.png" alt=""></h3>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+				<button class="btn btn-info" name="button">boton</button>
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<!-- SECCION 02 =================================================================================== -->
+
+	<div class="container-fluid bordes" id="seccion_02">
+
+		<div class="row" id="seccion_02_items">
 
 			<div class="col-md-4 seccion_item">
 
@@ -82,7 +127,7 @@
 
 
 
-	</div>
+
 
 
 
@@ -98,7 +143,7 @@
 
 					<div class="modal-header text-center">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		                <h2>inciPro</h2>
+		                <h2>SupCounter</h2>
 
 					</div>
 
@@ -109,8 +154,8 @@
 			        	</div>
 						<br> -->
 						<p>
-							inciPro es una aplicación para la gestión de consumos procedentes de suministros externos o depósitos.
-							Su ámbito de aplicación es en todas aquellas instalaciones que consten de sistemas de distribución de aguas, combustibles o electricidad.
+							SupCounter es una aplicación para la gestión de consumos procedentes de suministros externos o depósitos.
+							Su ámbito de aplicación es en todas aquellas instalaciones que consten de sistemas de distribución de agua, combustible o electricidad.
 						</p>
 						<p>Permite obtener en tiempo inmediato los informes sobre consumos, generando avisos sobre posibles desvíos.</p>
 						<p>Reduce alrededor de un 80% el tiempo empleado en sistemas tradicionales.<p>
@@ -124,6 +169,7 @@
 						</p>
 					</div>
 
+					<a id="acceso" href="/login"><img src="/images/user2.png" alt=""> Login&nbsp;</a>
 					<div class="modal-footer">
 						<button type="btn btn-small" class="btn btn-warning btn-xs" data-dismiss="modal">
 							Cerrar

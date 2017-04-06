@@ -23,14 +23,40 @@
     } */
 
 
+    /* INICIO =============================================================== */
+
+
+    #inicio h1 {
+
+        font-size: 24px;
+    }
+
+    #inicio h3 {
+
+        font-size: 18px;
+    }
+
+
+
+
+
+
+
     /* SECCION 01 =============================================================== */
     /* SECCION 01 =============================================================== */
     /* SECCION 01 =============================================================== */
 
+
+    #seccion_01 {
+
+		max-height: 100%;
+
+    }
 
     #seccion_01_items {
 
         margin-top: 2vh;
+        margin-bottom: 2vh;
 
         margin-left: 20px;
         margin-right: 20px;
@@ -46,6 +72,9 @@
         margin-bottom: 40px;
         padding-right: 10px;
         padding-left: 10px;
+        padding-bottom: 10px;
+
+        border: 1px solid #E6E6E6;
 
     }
 
@@ -64,9 +93,14 @@
     }
 
 
-    .seccion_item:nth-child(1) {
-        border-left: 1px solid #999999;
-    }
+/*    .seccion_item:nth-child(1) {
+        border-left: 1px solid #E6E6E6;
+    } */
+
+
+    /* SECCION 02 =============================================================== */
+    /* SECCION 02 =============================================================== */
+    /* SECCION 02 =============================================================== */
 
 
 

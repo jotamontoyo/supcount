@@ -17,7 +17,7 @@
 	var centroController = require('../controllers/centro_controller');
 
 	router.get('/', function (req, res) {													/* GET home page. */
-		res.render('index', {title: 'inciPro', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
+		res.render('index', {title: 'SupCounter', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
 	});
 
 	router.param('quizId', 								quizController.load);				// autoload de comandos. peticiones GET con SQL

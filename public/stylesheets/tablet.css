@@ -15,6 +15,22 @@
     /* SECCION 01 =============================================================== */
     /* SECCION 01 =============================================================== */
 
+    #seccion_01 {
+
+		max-height: 100%;
+
+        margin-bottom: 0px;
+
+    }
+
+    #seccion_01_items {
+
+        margin-top: 5vh;
+		margin-bottom: 5vh;
+
+
+    }
+
     .seccion_item {
 
         margin-bottom: 80px;
@@ -24,7 +40,7 @@
 
 
     .seccion_item:nth-child(1) {
-        border-left: 1px solid #999999;
+        border-left: 1px solid #E6E6E6;
     }
 
 
