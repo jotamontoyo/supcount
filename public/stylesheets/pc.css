@@ -54,6 +54,24 @@
 
 	}
 
+
+	a:active, a:focus, a:hover {
+		text-decoration: none;
+		color: #eb9837;
+		outline: 0;
+	}
+
+	.nav #menu-inicio-item ul li a:active, a:focus, a:hover {
+
+		text-decoration: none;
+		color: #eb9837;
+		outline: 0;
+
+	}
+
+
+
+
 	.bordes {
 /*		border-top: 	2px inset black;
 		border-bottom: 	2px groove #c6c7cc; */
@@ -61,7 +79,7 @@
 /*		border-top: 2px solid rgba(256, 256, 256, 0.8); */
 /*		width: 80%; */
 /*		border-top: 1px solid #c6c7cc; */
-		border-bottom: 1px solid #c6c7cc; */
+		border-bottom: 1px solid #c6c7cc;
 
 
 	}
@@ -130,10 +148,16 @@
 	}
 
 
-	#ver-mas-modal, #lopd-modal {
 
-		text-align: justify;
+	#ver-mas-modal, #lopd  {
+
+		color: #585858;
+		text-align: left;
+
+
 	}
+
+
 
 
 
@@ -248,7 +272,7 @@
 		padding-top: 10vh;
 		padding-bottom: 10vh;
 
-		background-color: rgba(0, 0, 0, 0.6);
+/*		background-color: rgba(0, 0, 0, 1.0); */
 
 		border: 		1px solid #D8D8D8;
 
@@ -316,19 +340,19 @@
 	}
 
 
-	/* ============ INICIO ================================================================== */
-	/* ============ INICIO ================================================================== */
-	/* ============ INICIO ================================================================== */
+	/* ====SECCION INICIO ================================================================== */
+	/* ====SECCION INICIO ================================================================== */
+	/* ====SECCION INICIO ================================================================== */
 
 
 	#inicio {
 
 /*		background: url(/images/inicio/07.jpg) no-repeat fixed center; */
 		max-height: 70vh;
-		min-height: 230px;
+		min-height: 400px;
 		padding: 0px;
 
-		color: white;
+		color: rgba(0, 0, 0, 1.0);
 		overflow: 	hidden;
 
 	}
@@ -396,6 +420,44 @@
 		z-index: -1;
 	}
 
+	.alerta-cookies {													/* etilo aviso cookies */
+		max-width: 300px;
+		margin-left: 25px;
+		margin-top: 25px;
+		position: fixed;
+
+		z-index: 3;
+		visibility: visible;
+	}
+
+
+	.alerta-panel {
+		color: #FAFAFA;
+		background-image: none;
+/*		background-color: rgba(30, 144, 255, 0.7); */
+		background-color: rgba(0, 0, 0, 0.7);
+
+
+	}
+
+	.alerta-panel a {
+
+		color: rgba(30, 144, 255, 0.7);
+		text-align: center;
+
+	}
+
+	.alerta-panel a:hover {
+
+ 		color: #eb9837;
+
+	}
+
+	.alerta-panel p {
+
+		text-align: justify;
+	}
+
 
 
 
@@ -413,6 +475,14 @@
 		overflow: 	hidden;
 
 
+		display: 			-webkit-flex;
+		display: 			flex;
+		-webkit-flex-direction: 	column;
+		flex-direction: 			column;
+		-webkit-justify-content: 	space-around;
+		justify-content: 			space-around;
+
+
 
 
 	}
@@ -426,18 +496,24 @@
 	}
 
 
-	.seccion_item {
+	#seccion_01_items .seccion_item {
+
+		min-height: 250px;
 
 		padding-right: 60px;
 		padding-left: 60px;
 
+		text-align: center;
+
 
 	}
+
+
 
 	.seccion_item h3 {
 
 		margin-bottom: 30px;
-		color: rgb(0, 206, 209);
+		color: rgba(30, 144, 255, 0.8);
 
 		text-align: center;
 
@@ -459,6 +535,15 @@
 		margin-bottom: 30px;
 		line-height: 30px;
 
+
+	}
+
+	#seccion_01_items .seccion_item p {
+
+
+		color: #848484;
+
+
 	}
 
 
@@ -469,6 +554,9 @@
         border-left: 1px solid #E6E6E6;
     }
 	.seccion_item:nth-child(3) {
+        border-left: 1px solid #E6E6E6;
+    }
+	.seccion_item:nth-child(4) {
         border-left: 1px solid #E6E6E6;
     }
 
@@ -482,26 +570,109 @@
 	#seccion_02 {
 
 		height: 	auto;
-		max-height: 700px;
+
 		padding: 0px;
 /*		min-height: 550px;					/* si cambias este parametro, tambien el  #wrap */
 		position: relative;
+		background-color: rgba(30, 144, 255, 0.8);
+
 		overflow: 	hidden;
+
+		display: 			-webkit-flex;
+		display: 			flex;
+		-webkit-flex-direction: 	column;
+		flex-direction: 			column;
+		-webkit-justify-content: 	space-around;
+		justify-content: 			space-around;
 
 
 
 	}
+
+
 
 
 	#seccion_02_items {
 
-		margin-top: 20vh;
-		margin-bottom: 20vh;
-
-		margin-left: 40px;
-		margin-right: 40px;
+		margin: 15vh 40px 20vh 40px;
 
 
+
+	}
+
+	#seccion_02_items .seccion_item {
+
+		min-height: 250px;
+
+		padding-right: 30px;
+		padding-left: 30px;
+
+		text-align: center;
+
+
+	}
+
+	#seccion_02 h2 {
+
+		margin-top: 50px;
+
+	}
+
+
+	#seccion_02_items .seccion_item p, #seccion_02_items .seccion_item h3, #seccion_02 h2 {
+
+
+		color: #FAFAFA;
+
+
+	}
+
+
+	/* ====================================================================================== */
+	/* SECCION CONTACTO ===================================================================== */
+	/* ====================================================================================== */
+
+
+	#contacto {
+
+
+
+		background-color: white;
+
+		color: #848484;
+
+		display: 			-webkit-flex;
+		display: 			flex;
+		-webkit-flex-direction: 	column;
+		flex-direction: 			column;
+		-webkit-justify-content: 	space-around;
+		justify-content: 			space-around;
+
+
+
+
+
+
+	}
+
+	#contacto_form {
+
+		max-width: 600px;
+
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+
+
+
+
+
+	}
+
+	#check_lopd {
+
+		margin-top: 10px;
 
 
 	}
@@ -509,30 +680,38 @@
 
 
 
-	/*******************************************************************************************/
 
 
 
-	a:active, a:focus, a:hover {
-		text-decoration: none;
-		color: #eb9837;
-		outline: 0;
+	/* PIE ===========================================================================*/
+	/* PIE ===========================================================================*/
+	/* PIE ===========================================================================*/
+
+
+
+	#pie {
+
+
+		min-height: 150px;
+
+		background-color: rgba(0, 0, 0, 0.8);
+
+
+
+		text-align: center;
+		display: 			-webkit-flex;
+		display: 			flex;
+		-webkit-flex-direction: 	column;
+		flex-direction: 			column;
+		-webkit-justify-content: 	space-around;
+		justify-content: 			space-around;
 	}
 
-	.nav #menu-inicio-item ul li a:active, a:focus, a:hover {
+	#pie  p {
 
-		text-decoration: none;
-		color: #eb9837;
-		outline: 0;
+		color: #A4A4A4;
 
 	}
-
-
-
-
-	/* PRIMERA ===========================================================================*/
-
-
 
 
 
@@ -644,7 +823,24 @@
 
 
 
+	/* CONTACTOS ******************************************************************************************/
 
+	#contactos {
+
+		max-width: 800px;
+	}
+
+
+	#contactos img {
+
+		width: 32px;
+	}
+
+	#contactos_panel tr th, #contactos_panel tr td {
+
+		text-align: center;
+
+	}
 
 
 
@@ -652,7 +848,7 @@
 
 	/* ========= FORMULARIO CONTADOR PARTE USUARIO ===================== */
 
-	#contador_form, #parte_form, #user_form, #centro_form {
+	#contador_form, #parte_form, #user_form, #centro_form, #contacto_form {
 
 		max-width: 600px;
 		padding: 20px 20px 20px 20px;
@@ -662,7 +858,14 @@
 
 	}
 
-	#borrar_cuenta {
+	#contador_form img, #parte_form img, #user_form img, #centro_form img, #contacto_form img {
+
+
+		width: 32px;
+
+	}
+
+	#borrar_cuenta. #borrar_contacto {
 
 		padding: 10px;
 		text-align: center;

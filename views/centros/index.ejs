@@ -18,7 +18,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% for (i in centros) { %>
+                    <% for (let i in centros) { %>
                         <tr>
 
                             <% if (session.user) {
@@ -35,8 +35,8 @@
                                         <img src="/images/edit3.png" style="width: 20px;"/>
                                     </a></td>
                                     <td style="width:40px">
-                                        <form method="post" action="centros/<%= centros[i].id %>/destroy?_method=delete">
-                                            <button class="btn btn-danger btn-xs" type="submit" onClick="return confirm('Borrar el Contador: <%= centros[i].nombre %>');">
+                                        <form method="post" action="/centros/<%= centros[i].id %>/destroy?_method=delete">
+                                            <button class="btn btn-danger btn-xs" type="submit" onClick="return confirm('Borrar el Centro: <%= centros[i].nombre %>');">
                                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                             </button>
                                         </form>

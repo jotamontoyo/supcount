@@ -1,0 +1,94 @@
+<div class="container" id="contacto_form">
+
+    <h4><img src="/images/contacts.png" alt="" /> Contacto</h4>
+
+
+
+    <div class="form-group">
+    	<label for="nombre" class="col-sm-3 control-label">Nombre:</label>
+    	<div class="col-sm-9">
+    		<input type="text" class="form-control" id="nombre" name="contacto[nombre]" value="<%= contacto.nombre %>" placeholder="nombre"/>
+    	</div>
+    </div>
+
+    <div class="form-group">
+    	<label for="direccion" class="col-sm-3 control-label">Dirección:</label>
+    	<div class="col-sm-9">
+    		<input type="text" class="form-control" id="direccion" name="contacto[direccion]" value="<%= contacto.direccion %>" placeholder="direccion"/>
+    	</div>
+    </div>
+
+    <div class="form-group">
+    	<label for="poblacion" class="col-sm-3 control-label">Población:</label>
+    	<div class="col-sm-9">
+    		<input type="text" class="form-control" id="poblacion" name="contacto[poblacion]" value="<%= contacto.poblacion %>" placeholder="poblacion"/>
+    	</div>
+    </div>
+    <div class="form-group">
+    	<label for="provincia" class="col-sm-3 control-label">Provincia:</label>
+    	<div class="col-sm-9">
+    		<input type="text" class="form-control" id="provincia" name="contacto[provincia]" value="<%= contacto.provincia %>" placeholder="provincia"/>
+    	</div>
+    </div>
+
+    <div class="form-group">
+    	<label for="cp" class="col-sm-3 control-label">Código Postal:</label>
+    	<div class="col-sm-9">
+    		<input type="text" class="form-control" id="cp" name="contacto[cp]" value="<%= contacto.cp %>" placeholder="código postal"/>
+    	</div>
+    </div>
+
+    <div class="form-group">
+    	<label for="email" class="col-sm-3 control-label">email:</label>
+    	<div class="col-sm-9">
+    		<input type="email" class="form-control" id="email" name="contacto[email]" value="<%= contacto.email %>" placeholder="email"/>
+    	</div>
+    </div>
+
+    <div class="form-group">
+    	<label for="telefono" class="col-sm-3 control-label">Teléfono:</label>
+    	<div class="col-sm-9">
+    		<input type="text" class="form-control" id="telefono" name="contacto[telefono]" value="<%= contacto.telefono %>" placeholder="teléfono"/>
+    	</div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label for="lopd" class="col-md-3 control-label">LOPD:</label>
+        <div class="col-md-1">
+            <% if (contacto.lopd) { %>
+                <input type="checkbox" class="form-control" checked id="lopd" name="contacto[lopd]" value="<%= contacto.lopd %>" />
+            <%} else { %>
+                <input type="checkbox" class="form-control" id="lopd" name="contacto[lopd]" value="<%= contacto.lopd %>" />
+            <%}%>
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+    	<label for="comentario" class="col-sm-2 control-label">Comentarios:</label>
+    	<textarea class="form-control" id="comentario" name="contacto[comentario]" rows="6" value="<%= contacto.comentario %>" placeholder="aquí tus comentarios"><%= contacto.comentario %></textarea>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+		<div class="col-md-10" style="margin-left: 18vw;">
+			<a href="/contactos">
+				<button class="btn btn-danger btn-sm" type="button">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+				</button>
+			</a>
+			<button class="btn btn-success btn-sm" type="submit" value="Salvar">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
+			</button>
+		</div>
+	</div>
+
+
+</div>

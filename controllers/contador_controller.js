@@ -116,7 +116,6 @@
 
     exports.update = function(req, res) {										     // modifica un contador
 
-//        req.contador.codigo = req.body.contador.codigo;
         req.contador.nombre = req.body.contador.nombre;
         req.contador.marca = req.body.contador.marca;
         req.contador.modelo = req.body.contador.modelo;

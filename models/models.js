@@ -34,6 +34,7 @@
 	var Contador = sequelize.import(path.join(__dirname, 'contador'));		// importar estructura y definicion de la tabla Contador
 	var Criterio = sequelize.import(path.join(__dirname, 'criterio'));		// importar estructura y definicion de la tabla Criterio
 	var Centro = sequelize.import(path.join(__dirname, 'centro'));			// importar estructura y definicion de la tabla Centro
+	var Contacto = sequelize.import(path.join(__dirname, 'contacto'));		// importar estructura y definicion de la tabla Contacto
 
 	Quiz.belongsTo(User);												// integridad referncial. Cada Quiz es hijo de User
 	User.hasMany(Quiz);													// cada User puede tener varios Quiz
@@ -52,6 +53,7 @@
 	exports.Contador = Contador;
 	exports.Criterio = Criterio;
 	exports.Centro = Centro;
+	exports.Contacto = Contacto;
 
 	sequelize.sync().then(function() {									// sequelize.sync() inicializa tabla de preguntas en DB
 
@@ -92,6 +94,14 @@
 	            			Centro.bulkCreate(
 	              				[{nombre: 'Central', direccion: 'central', contacto: 'contacto', telefono: '999999999', email: 'somenone@host.com'}]
 	              		    ).then(function(){console.log('Base de datos: tabla centros inicializada')});
+	          			};
+	        		});
+
+					Contacto.count().then(function( count ) {
+	          			if(count === 0) {   																			// la tabla se inicializa solo si está vacía
+	            			Contacto.bulkCreate(
+	              				[{nombre: 'nombre', email: 'email', comentario: 'comentario', lopd: false}]
+	              		    ).then(function(){console.log('Base de datos: tabla contacto inicializada')});
 	          			};
 	        		});
 

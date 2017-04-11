@@ -91,8 +91,15 @@
 	    var user = models.User.build( 										// crea objeto user
 	        {username: "", password: "", isAdmin: false, centro: ""}
 	    );
-	    res.render('user/new', {user: user, errors: []});
+
+		models.Centro.findAll().then(function(centros) {
+
+	    	res.render('user/new', {user: user, centros: centros, errors: []});
+
+		});
 	};
+
+
 
 	exports.create = function(req, res) {									// POST /user
 	    var user = models.User.build( req.body.user );
@@ -119,7 +126,15 @@
 
 
 	exports.edit = function(req, res) {										// GET /user/:id/edit
-	  res.render('user/edit', { user: req.user, errors: []});				// req.user: instancia de user cargada con autoload
+
+		models.Centro.findAll().then(function(centros) {
+
+			res.render('user/edit', { user: req.user, centros: centros, errors: []});				// req.user: instancia de user cargada con autoload
+
+		});
+
+
+
 
 	};
 

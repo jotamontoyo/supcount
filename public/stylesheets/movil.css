@@ -9,21 +9,16 @@
 
 @media handheld, only screen and (max-width: 767px) {			/* movil */
 
-    .container-fluid {
 
-        padding-right: 5px;
-        padding-left: 5px;
-
-
-    }
-
-/*    #principal, #partes_index,  {               añadir los index y los shows de partes, contadores, resumen....................
-        padding-right: 0px;
-        padding-left: 0px;
-    } */
 
 
     /* INICIO =============================================================== */
+
+    #inicio {
+
+        min-height: 0%;
+
+    }
 
 
     #inicio h1 {
@@ -55,8 +50,8 @@
 
     #seccion_01_items {
 
-        margin-top: 2vh;
-        margin-bottom: 2vh;
+        margin-top: 25px;
+        margin-bottom: 0px;
 
         margin-left: 20px;
         margin-right: 20px;
@@ -69,12 +64,21 @@
 
     .seccion_item {
 
-        margin-bottom: 40px;
+        margin-bottom: 25px;
         padding-right: 10px;
         padding-left: 10px;
         padding-bottom: 10px;
 
         border: 1px solid #E6E6E6;
+
+
+
+    	display: 			-webkit-flex;
+    	display: 			flex;
+    	-webkit-flex-direction: 	column;
+    	flex-direction: 			column;
+    	-webkit-justify-content: 	space-around;
+    	justify-content: 			space-around;
 
     }
 
@@ -97,10 +101,34 @@
         border-left: 1px solid #E6E6E6;
     } */
 
+    .alerta-cookies {													/* etilo aviso cookies */
+
+		margin-left: 5px;
+        margin-right: 5px;
+		margin-top: 5px;
+	}
+
+
+
+
 
     /* SECCION 02 =============================================================== */
     /* SECCION 02 =============================================================== */
     /* SECCION 02 =============================================================== */
+
+
+
+    #seccion_02_items {
+
+        margin: 5px 25px 5px 25px;
+
+    }
+
+    #seccion_02 h2 {
+
+		margin-top: 10px;
+
+	}
 
 
 

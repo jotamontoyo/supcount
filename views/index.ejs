@@ -1,5 +1,19 @@
 
-
+	<div class="row alerta-cookies animated fadeIn text-center">
+		<div class="alert alert-warning alert-dismissible alerta-panel" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<p><strong>¡Uso de cookies!</strong> Este sitio web utiliza cookies para que usted tenga la mejor experiencia de usuario. Si continúa navegando está dando su consentimiento para la aceptación de las mencionadas cookies y la aceptación de nuestra política de cookies, pinche el enlace
+			<a class="button"
+				style="cursor: pointer"
+				data-toggle="modal"
+				data-target="#lopd-modal">
+				<span> política de privacidad</span>
+			</a>
+			para más información.</p>
+			<br>
+			<button type="button" class="btn btn-success btn-sm" data-dismiss="alert" aria-label="Close">Aceptar</button>
+		</div>
+	</div>
 
 
 
@@ -42,38 +56,37 @@
 
 	<!-- SECCION 01 =================================================================================== -->
 
-	<div class="container-fluid bordes" id="seccion_01">
+	<div class="container-fluid bordes animated animated-fast fadeIn" id="seccion_01">
 
 		<div class="row" id="seccion_01_items">
 
 			<div class="col-md-4 seccion_item">
 
-				<h3><img src="/images/seccion01/globe.png" alt=""></h3>
+				<h3><img src="/images/seccion01/pc.png" alt=""></h3>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+				<h3>Sencilla</h3>
 
-				<button class="btn btn-info" name="button">boton</button>
-
-			</div>
-
-		  	<div class="col-md-4 seccion_item">
-
-				<h3><img src="/images/seccion01/phone.png" alt=""></h3>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-
-				<button class="btn btn-info" name="button">boton</button>
+				<p>Desarrollada para trabajo de campo.</p>
 
 			</div>
 
 		  	<div class="col-md-4 seccion_item">
 
-				<h3><img src="/images/seccion01/phone.png" alt=""></h3>
+				<h3><img src="/images/seccion01/reloj.png" alt=""></h3>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+				<h3>Rápida</h3>
 
-				<button class="btn btn-info" name="button">boton</button>
+				<p>Empiece hoy a gestionar sus consumos.</p>
 
+			</div>
+
+		  	<div class="col-md-4 seccion_item">
+
+				<h3><img src="/images/seccion01/calculadora.png" alt=""></h3>
+
+				<h3>Rentable</h3>
+
+				<p>Ahorre hasta el 80% del tiempo.</p>
 
 			</div>
 
@@ -86,43 +99,134 @@
 
 	<div class="container-fluid bordes" id="seccion_02">
 
+		<h2 class="text-center">Así de fácil...</h2>
+
 		<div class="row" id="seccion_02_items">
 
-			<div class="col-md-4 seccion_item">
+			<div class="col-md-3 seccion_item">
 
-				<h3>Ventaja 1</h3>
+				<h3>Paso 1</h3>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-
-				<button class="btn btn-info" name="button">boton</button>
+				<p><strong>Solicite una clave de prueba gratuita.</strong> Cumplimente el formulario de abajo sin nigún compromiso.</p>
 
 			</div>
 
-		  	<div class="col-md-4 seccion_item">
+			<div class="col-md-3 seccion_item">
 
-				<h3>Ventaja 2</h3>
+				<h3>Paso 2</h3>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-
-				<button class="btn btn-info" name="button">boton</button>
+				<p><strong>Configure su instalación.</strong> Defina los contadores y sus parámetros de consumo.</p>
 
 			</div>
 
-		  	<div class="col-md-4 seccion_item">
+		  	<div class="col-md-3 seccion_item">
 
-				<h3>Ventaja 3</h3>
+				<h3>Paso 3</h3>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+				<p><strong>Dé de alta usuarios.</strong> Cada uno tendrá su própio ámbito de trabajo.</p>
 
-				<button class="btn btn-info" name="button">boton</button>
 
 
 			</div>
+
+		  	<div class="col-md-3 seccion_item">
+
+				<h3>Paso 4</h3>
+
+				<p><strong>Cree los partes de lecturas.</strong> Revise los consumos y sus posibles desvíos.</p>
+
+
+			</div>
+
 
 		</div>
 
+	</div>
 
 
+	<!-- CONTACTO =================================================================================== -->
+
+	<div class="container-fluid bordes" id="contacto">
+
+		<div class="row">
+			<form class="form-horizontal" method="post" action="/contactos/webcreate" id="contacto_form">
+
+				<div class="form-group">
+					<label for="nombre" class="col-md-3 control-label">Nombre:</label>
+					<div class="col-md-7">
+						<input type="text" class="form-control" id="nombre" name="nombre" required />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="email" class="col-md-3 control-label">email:</label>
+					<div class="col-md-7">
+						<input type="text" class="form-control" id="email" name="email" required />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="comentario" class="col-md-3 control-label">Comentarios:</label>
+					<div class="col-md-7">
+						<textarea class="form-control" id="comentario" name="comentario" rows="6"></textarea>
+					</div>
+				</div>
+
+
+
+				<div class="form-group">
+					<div class="col-md-12 text-center" id="check_lopd">
+						<label>
+							<input type="checkbox" id="lopd" name="lopd" required> Acepto la
+								<a class="button"
+									data-toggle="modal"
+									data-target="#lopd-modal">
+									<span> política de privacidad</span>
+								</a>
+							</input>
+						</label>
+					</div>
+
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-md-12 text-center">
+
+						<button class="btn btn-info btn-md" type="submit" id="grabar" value="Salvar">
+							<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Solicitar clave
+						</button>
+					</div>
+				</div>
+
+
+			</form>
+
+
+		</div>
+
+	</div>
+
+
+
+
+
+		<!-- PIE =================================================================================== -->
+
+		<div class="footer" id="pie">
+
+
+			<p>&copy; 2017 cosilsCompany, Inc. &middot;
+
+				<a
+					data-toggle="modal"
+					data-target="#lopd-modal">Terms
+				</a>
+
+			</p>
+
+
+		</div>
 
 
 
@@ -154,7 +258,7 @@
 			        	</div>
 						<br> -->
 						<p>
-							SupCounter es una aplicación para la gestión de consumos procedentes de suministros externos o depósitos.
+							SupCounter es una aplicación para la gestión administrativa de consumos procedentes de suministros externos o depósitos.
 							Su ámbito de aplicación es en todas aquellas instalaciones que consten de sistemas de distribución de agua, combustible o electricidad.
 						</p>
 						<p>Permite obtener en tiempo inmediato los informes sobre consumos, generando avisos sobre posibles desvíos.</p>
@@ -193,9 +297,9 @@
 
 						<h3 class="text-center">Política de Privacidad</h3>
 						<br>
-						<p>A efectos de lo dispuesto en la normativa vigente en materia de protección de datos de carácter personal, mediante esta Política de Privacidad, cosilsCompany, Inc. (en adelante, “cosilsCompany” informa a los usuarios (en adelante, el “Usuario” o “Usuarios”) de su sitio Web https://incipro.herokuapp.com (en adelante, el “Sitio Web”) acerca de su política de protección de los datos de carácter personal recogidos de los Usuarios del Sitio Web, para que éstos determinen libre y voluntariamente si desean facilitar a cosilsCompany los datos personales que se les puedan requerir o que se puedan obtener sobre los mismos con ocasión de su acceso y uso del Sitio Web.</p>
+						<p>A efectos de lo dispuesto en la normativa vigente en materia de protección de datos de carácter personal, mediante esta Política de Privacidad, cosilsCompany, Inc. (en adelante, “cosilsCompany” informa a los usuarios (en adelante, el “Usuario” o “Usuarios”) de su sitio Web https://supcounter.herokuapp.com (en adelante, el “Sitio Web”) acerca de su política de protección de los datos de carácter personal recogidos de los Usuarios del Sitio Web, para que éstos determinen libre y voluntariamente si desean facilitar a cosilsCompany los datos personales que se les puedan requerir o que se puedan obtener sobre los mismos con ocasión de su acceso y uso del Sitio Web.</p>
 
-						<p>Los únicos datos personales a los que cosilsCompany tendrá acceso a través del Sitio Web serán aquellos que el Usuario facilite voluntariamente, así como aquellos otros recogidos a través de las cookies instaladas y cuya Política de Privacidad puede consultar en el siguiente enlace https://incipro.herokuapp.com/cookies.</p>
+						<p>Los únicos datos personales a los que cosilsCompany tendrá acceso a través del Sitio Web serán aquellos que el Usuario facilite voluntariamente, así como aquellos otros recogidos a través de las cookies instaladas y cuya Política de Privacidad puede consultar en el siguiente enlace https://supcounter.herokuapp.com/cookies.</p>
 
 						<p>En cumplimiento de la normativa vigente, cosilsCompany adopta las medidas técnicas y organizativas necesarias para mantener el nivel de seguridad requerido en atención a los datos personales tratados. Asimismo está dotado de los mecanismos precisos a su alcance para evitar en la medida de lo posible accesos no autorizados, sustracciones y modificaciones ilícitas y la pérdida de los datos.</p>
 

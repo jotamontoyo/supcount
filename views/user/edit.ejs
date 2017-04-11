@@ -1,25 +1,26 @@
 
-<div class="container margen_superior" id="new-edit">
-	<h4>Editar cuenta de usuario</h4>
+	<div class="container margen_superior" id="new-edit">
 
-	<form class="form-horizontal"
-		method="post"
-		action="/user/<%= user.id %>?_method=put" >
-	  		<% include _form.ejs %>
-	</form>
-
-	<div class="row" id="borrar_cuenta">
+		<h4>Editar cuenta de usuario</h4>
 
 		<form class="form-horizontal"
 			method="post"
-			action="/user/<%= user.id %>?_method=delete">
-				<button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('Borrar cuenta: <%= user.username %>');">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar cuenta
-				</button>
+			action="/user/<%= user.id %>?_method=put" >
+		  		<% include _form.ejs %>
 		</form>
 
+<!--		<div class="row" id="borrar_cuenta">
+
+			<form class="form-horizontal"
+				method="post"
+				action="/user/<%= user.id %>?_method=delete">
+					<button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('Borrar cuenta: <%= user.username %>');">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar cuenta
+					</button>
+			</form>
+
+		</div> -->
+
+
+
 	</div>
-
-
-
-</div>

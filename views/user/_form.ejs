@@ -1,6 +1,9 @@
 
 	<div class="container" id="user_form">
 
+		<h4><img src="/images/user2.png" alt=""> Usuario</h4>
+	    <br>
+
 		<div class="form-group">
 			<label for="preg" class="col-sm-3 control-label">Usuario:</label>
 			<div class="col-sm-9">
@@ -35,9 +38,14 @@
 			<div class="form-group">
 				<label for="centro" class="col-sm-3 control-label">Centro:</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control" id="centro" name="user[centro]" value="<%= user.centro %>"/>
+					<select class="form-control" id="centro" name="user[centro]">
+						<% for (var index in centros) {%>
+							<option value="<%=centros[index].nombre%>" <% if (user.centro===centros[index].nombre) {%> selected <%}%>><%=centros[index].nombre%></option>
+						<%}%>
+					</select>
 				</div>
 			</div>
+
 
 		<%} else {%>
 

@@ -88,7 +88,6 @@
 
     exports.update = function(req, res) {										     // modifica un centro
 
-//        req.centro.codigo = req.body.centro.codigo;
         req.centro.nombre = req.body.centro.nombre;
         req.centro.direccion = req.body.centro.direccion;
         req.centro.contacto = req.body.centro.contacto;
@@ -114,13 +113,6 @@
 
     exports.destroy = function(req, res) {
 		req.centro.destroy().then(function() {
-            models.Criterio.findAll({
-                where: 		{centroId: Number(req.centro.id)}
-            }).then(function( criterios  ) {
-                for (var i in criterios) {
-    				criterios[i].destroy();
-    			};
-                res.redirect('/centros');
-            });
+			res.redirect('/centros');
 		}).catch(function(error) {next(error)});
 	};

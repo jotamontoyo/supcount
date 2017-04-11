@@ -3,7 +3,8 @@
 		if (req.session.user) {
 			next();
 		} else {
-			res.redirect('/login');
+//			res.redirect('/login');
+			res.redirect('/');
 		}
 	};
 

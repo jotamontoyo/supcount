@@ -15,6 +15,7 @@
 	var proveedorController = require('../controllers/proveedor_controller');
 	var invitadoController = require('../controllers/invitado_controller');
 	var centroController = require('../controllers/centro_controller');
+	var contactoController = require('../controllers/contacto_controller');
 
 	router.get('/', function (req, res) {													/* GET home page. */
 		res.render('index', {title: 'SupCounter', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
@@ -28,6 +29,7 @@
 	router.param('contadorId',							contadorController.load);
 	router.param('criterioId',							criterioController.load);
 	router.param('centroId',							centroController.load);
+	router.param('contactoId',							contactoController.load);
 
 
 
@@ -44,7 +46,7 @@
 	router.post('/user/create',  						sessionController.loginRequired, userController.create);     		// registrar usuario
 	router.get('/user/:userId(\\d+)/edit',  			sessionController.loginRequired, userController.ownershipRequired, userController.edit);     	// editar información de cuenta
 	router.put('/user/:userId(\\d+)',  					sessionController.loginRequired, userController.ownershipRequired, userController.update);     	// actualizar información de cuenta
-	router.delete('/user/:userId(\\d+)',  				sessionController.loginRequired, userController.ownershipRequired, userController.destroy);
+	router.delete('/user/:userId(\\d+)/destroy',		sessionController.loginRequired, userController.ownershipRequired, userController.destroy);
 	router.get('/user/:userId(\\d+)/quizes',			sessionController.loginRequired, quizController.index);
 
 
@@ -95,6 +97,14 @@
 
 
 
+	// Deficion de rutas de Criterios
+	router.get('/contadores/:contadorId(\\d+)/criterios/new',								criterioController.new);						// carga el formulario new
+	router.post('/contadores/:contadorId(\\d+)/criterios/create',							criterioController.create);
+	router.delete('/contadores/:contadorId(\\d+)/criterios/:criterioId(\\d+)/destroy',   	criterioController.destroy);
+
+
+
+
 	// Deficion de rutas de Centros
 	router.get('/centros',													sessionController.loginRequired, centroController.index);
 	router.get('/centros/new',												sessionController.loginRequired, centroController.new);
@@ -105,10 +115,26 @@
 
 
 
-	// Deficion de rutas de Criterios
-	router.get('/contadores/:contadorId(\\d+)/criterios/new',								criterioController.new);						// carga el formulario new
-	router.post('/contadores/:contadorId(\\d+)/criterios/create',							criterioController.create);
-	router.delete('/contadores/:contadorId(\\d+)/criterios/:criterioId(\\d+)/destroy',   	criterioController.destroy);
+
+
+
+	// Definición de rutas de Contacto
+	router.get('/contactos',			 					sessionController.loginRequired, contactoController.index);				// accede a la lista completa de proveedores
+//	router.get('/contactos/:contactoId(\\d+)',				contactoController.show);												// accede a una pregunta en concreto. envia al proveedorController la peticion GET con el parametro proveedorId (indice)
+	router.get('/contactos/new',							sessionController.loginRequired, contactoController.new);				// carga el formulario /proveedores/new si sessionController.loginRequired()
+	router.post('/contactos/create',						sessionController.loginRequired, contactoController.create);			// dispara controlador create cuando el boton <salvar> del formulario tanto del index ppral como de la vista webform
+	router.post('/contactos/webcreate',						contactoController.webcreate);											// dispara controlador webcreate cuando el boton <salvar> del formulario new.js
+	router.get('/contactos/:contactoId(\\d+)/edit',			sessionController.loginRequired, contactoController.edit);				// carga formulario proveedores/proveedores:Id(\\d+)/edit y dispara el controlador edit de proveedorController
+	router.put('/contactos/:contactoId(\\d+)/update',		sessionController.loginRequired, contactoController.update);			// dispara controlador update cuando el boton <salvar> del formulario edit.js
+	router.delete('/contactos/:contactoId(\\d+)/destroy',	sessionController.loginRequired, contactoController.destroy);
+
+
+
+
+
+
+
+
 
 
 
