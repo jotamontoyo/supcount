@@ -1,15 +1,14 @@
 
-	<div class="row alerta-cookies animated fadeIn text-center">
+	<div class="row alerta-cookies animated bounceInDown text-center">
 		<div class="alert alert-warning alert-dismissible alerta-panel" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<!--			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
 			<p><strong>¡Uso de cookies!</strong> Este sitio web utiliza cookies para que usted tenga la mejor experiencia de usuario. Si continúa navegando está dando su consentimiento para la aceptación de las mencionadas cookies y la aceptación de nuestra política de cookies, pinche el enlace
 			<a 	data-toggle="modal"
 				data-target="#lopd-modal">
 				<span> política de privacidad</span>
 			</a>
-			para más información.</p>
-			<br>
-			<button type="button" class="btn btn-success btn-sm" data-dismiss="alert" aria-label="Close">Aceptar</button>
+			para más información.
+			<button type="button" class="btn btn-success btn-sm" data-dismiss="alert" aria-label="Close">Aceptar</button></p>
 		</div>
 	</div>
 
@@ -31,20 +30,45 @@
 
 		<img src="/images/inicio/09.jpg" >
 
+
+		<div id="login_inicio">
+
+
+			<form class="form-horizontal" method='POST' action='/login' id="inicio_form">
+
+				<div class="form-group">
+
+						<div class="col-md-4 col-sm-4 col-xs-4 input-login-incio">
+							<input class="form-control" type="text" id="login" name="login"  placeholder="usuario"/>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 input-login-incio">
+							<input class="form-control" type="password" id="password" name="password" placeholder="clave"/>
+						</div>
+						<div class="col-md-3 col-smd-3 col-xs-3 input-login-incio">
+							<button class="btn btn-success btn-xs" type="submit"><i class="fa fa-check"></i></button>
+						</div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+
+
+
+
+
 		<div id="inicio-panel">
 				<h1>Gestión de Contadores</h1>
 				<h1><%= title %></h1>
 				<h3>Lecturas y consumos de suministros externos o depósitos</h3>
-
-
 				<br>
-
 				<button class="btn btn-info"
 					data-toggle="modal"
 					data-target="#ver-mas-modal">
-						Entrar
+						<i class="fa fa-plus"></i> Info
 				</button>
-
 		</div>
 
 

@@ -7,8 +7,8 @@
         $(window).scroll(function() {
 
             iScroll = $(window).scrollTop();                                            // animacion aviso cookies
-            if ((iScroll > 200) && (aviso_cookies)) {
-                $('.alerta-cookies').removeClass('animated fadeIn');
+            if ((iScroll > 250) && (aviso_cookies)) {
+                $('.alerta-cookies').removeClass('animated bounceInDown');
                 $('.alerta-cookies').toggleClass('animated bounceOutLeft');
                 aviso_cookies = false;
             };
