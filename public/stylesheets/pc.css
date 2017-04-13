@@ -248,36 +248,34 @@
 		width: 28px;
 	}
 
+
 	#login {
 
 
 
+
 	}
 
-	#login input-group {
-		margin-right: 20px;
-		margin-left: 20px;
-	}
+
 
 	#login-panel {
 
-
 		max-width: 600px;
-
 		margin-top: 20vh;
 		margin-right: auto;
 		margin-left: auto;
-
-
 		padding-top: 10vh;
 		padding-bottom: 10vh;
-
-/*		background-color: rgba(0, 0, 0, 1.0); */
-
 		border: 		1px solid #D8D8D8;
 
-/*		margin-top: 20vh; */
+	}
 
+
+	#login-panel .input-group {
+
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 260px;
 
 	}
 
@@ -470,17 +468,18 @@
 
 
 
-	#login_inicio {
+	#login_inicio {								/* login de la pantalla de inicio */
 
 		width: 100%;
 		position: absolute;
-		top: 2vh;
+		top: 5px;
 		z-index: 5;
 	}
 
 	#inicio_form {
 
 		margin-right: 40px;
+
 		float: right;
 
 
@@ -490,9 +489,10 @@
 
 	#inicio_form input {
 
-		max-width: 100px;
-		height: 25px;
+		max-width: 150px;
+		height: 22px;
 		padding-left: 0px;
+		font-size: 12px;
 
 
 
@@ -501,18 +501,29 @@
 
 	.input-login-incio {
 
+		max-width: 150px;
+
 		padding-left: 5px;
 		padding-right: 0px;
+
+		text-align: left;
 	}
 
 	.input-login-incio button {
 
-		margin-top: 2px;
+
+
+		margin-top: 0px;
 
 
 	}
 
+	.input-login-incio .input-group .input-group-addon {
 
+		padding: 2px 5px 2px 5px;
+
+
+	}
 
 
 
@@ -649,7 +660,7 @@
 		background: -o-radial-gradient(center, ellipse cover, rgba(73,155,234,1) 0%, rgba(73,155,234,1) 12%, rgba(17,82,194,1) 77%, rgba(17,82,194,1) 100%);
 		background: -ms-radial-gradient(center, ellipse cover, rgba(73,155,234,1) 0%, rgba(73,155,234,1) 12%, rgba(17,82,194,1) 77%, rgba(17,82,194,1) 100%);
 		background: radial-gradient(ellipse at center, rgba(73,155,234,1) 0%, rgba(73,155,234,1) 12%, rgba(17,82,194,1) 77%, rgba(17,82,194,1) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#1152c2', GradientType=1 );
+
 
 
 	}
