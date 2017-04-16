@@ -27,4 +27,10 @@
 
         });
 
+        $('#contacto_form').submit(function() {
+
+            swal("¡Solicitud enviada!", "success");
+
+        });
+
     });
