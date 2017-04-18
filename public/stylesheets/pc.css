@@ -688,11 +688,11 @@
 	/* ====================================================================================== */
 
 
-	#contacto {
+	#pie_banner {
 
 
 
-		background-color: white;
+		background-color: #3d4045;
 
 		color: #848484;
 
@@ -710,24 +710,55 @@
 
 	}
 
-	#contacto_form {
+	#pie_banner_contenedor {
 
-		max-width: 600px;
-
-		margin-left: auto;
-		margin-right: auto;
 		margin-top: 50px;
-		margin-bottom: 50px;
-
-
-
 
 
 	}
 
+
+
+
+	#pie_banner_contenedor img {
+
+		width: 15px;
+		vertical-align: text-bottom;
+
+
+	}
+
+
+
+
+
+
+	#contacto_form {
+
+		max-width: 220px;
+
+		margin-left: auto;
+		margin-right: auto;
+
+		margin-bottom: 50px;
+
+	}
+
+
+
+	#contacto_form input, #contacto_form textarea {
+
+		color: white;
+		border-color: rgba(255,255,255,.05);
+    	background-color: rgba(255,255,255,.03);
+
+	}
+
+
+
 	#check_lopd {
 
-		margin-top: 10px;
+		margin-top: 6px;
 
 
 	}
@@ -758,7 +789,6 @@
 
 
 
-
 		text-align: center;
 		display: 			-webkit-flex;
 		display: 			flex;
@@ -768,11 +798,7 @@
 		justify-content: 			space-around;
 	}
 
-	#pie  p {
 
-		color: #A4A4A4;
-
-	}
 
 
 
@@ -909,7 +935,7 @@
 
 	/* ========= FORMULARIO CONTADOR PARTE USUARIO ===================== */
 
-	#contador_form, #parte_form, #user_form, #centro_form, #contacto_form {
+	#contador_form, #parte_form, #user_form, #centro_form  {
 
 		max-width: 600px;
 		padding: 20px 20px 20px 20px;

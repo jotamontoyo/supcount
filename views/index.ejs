@@ -64,7 +64,7 @@
 
 		<div id="inicio-panel">
 				<h1>Gestión de Contadores</h1>
-				<h1><%= title %><span style="font-size: 18px">&copy;</span></h1>
+				<h1><%= title %><span style="font-size: 18px"> &copy;</span></h1>
 				<h3>Lecturas y consumos de suministros externos o depósitos</h3>
 				<br>
 				<button class="btn btn-info"
@@ -122,7 +122,7 @@
 
 	<!-- SECCION 02 =================================================================================== -->
 
-	<div class="container-fluid bordes" id="seccion_02">
+	<div class="container-fluid" id="seccion_02">
 
 
 
@@ -171,64 +171,172 @@
 	</div>
 
 
-	<!-- CONTACTO =================================================================================== -->
+	<!-- PIE BANNER =================================================================================== -->
 
-	<div class="container-fluid bordes" id="contacto">
+	<div class="container-fluid" id="pie_banner">
 
-		<div class="row">
-			<form class="form-horizontal" method="post" action="/contactos/webcreate" id="contacto_form">
-
-				<div class="form-group">
-					<label for="nombre" class="col-md-3 control-label">Nombre:</label>
-					<div class="col-md-7">
-						<input type="text" class="form-control" id="nombre" name="nombre" required />
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="email" class="col-md-3 control-label">email:</label>
-					<div class="col-md-7">
-						<input type="text" class="form-control" id="email" name="email" required />
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="comentario" class="col-md-3 control-label">Comentarios:</label>
-					<div class="col-md-7">
-						<textarea class="form-control" id="comentario" name="comentario" rows="6"></textarea>
-					</div>
-				</div>
+		<div class="container" id="pie_banner_contenedor">
 
 
 
-				<div class="form-group">
-					<div class="col-md-12 text-center" id="check_lopd">
-						<label>
-							<input type="checkbox" id="lopd" name="lopd" required> Acepto la
-								<a class="button"
-									data-toggle="modal"
-									data-target="#lopd-modal">
-									<span> política de privacidad</span>
-								</a>
-							</input>
-						</label>
-					</div>
+			<div class="row">
 
-				</div>
+				<div class="col-md-3">
+
+					<table>
+
+						<thead>
+
+								<th><h4>CONTACTO</h4></th>
+
+						</thead>
+
+						<tbody>
+							<tr>
+								<td><h5><i class="fa fa-industry"></i> &copy; 2017 cosilsCompany, Inc.</h5></td>
+							</tr>
+							<tr>
+								<td><h5><i class="fa fa-home"></i> Partida Moralet, 137-A - 03699 - Alicante</h5></td>
+							</tr>
+							<tr>
+								<td><h5><i class="fa fa-phone"></i> 0034658214679</h5></td>
+							</tr>
+							<tr>
+								<td><h5><i class="fa fa-envelope"></i> jotamontoyo@hotmail.es</h5></td>
+							</tr>
+						</tbody>
 
 
-				<div class="form-group">
-					<div class="col-md-12 text-center">
+					</table>
 
-						<button class="btn btn-info btn-md" type="submit" id="grabar" value="Salvar">
-							<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Solicitar clave
-						</button>
-					</div>
+
+
+
 				</div>
 
 
-			</form>
 
+
+
+				<div class="col-md-3">
+
+					<form class="form-horizontal" method="post" action="/contactos/webcreate" id="contacto_form">
+
+						<h4 class="text-center">CONTACTO</h4>
+						<br>
+
+						<div class="form-group">
+							<input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Nombre"/>
+						</div>
+
+						<div class="form-group">
+							<input type="text" class="form-control" id="email" name="email" required placeholder="Email"/>
+						</div>
+
+						<div class="form-group">
+							<textarea class="form-control" id="comentario" name="comentario" rows="6" placeholder="Comentarios"></textarea>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12 text-center" id="check_lopd">
+
+									<input type="checkbox" id="lopd" name="lopd" required> Acepto la
+										<a class="button"
+											data-toggle="modal"
+											data-target="#lopd-modal">
+											<span> política de privacidad</span>
+										</a>
+									</input>
+
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12 text-center">
+
+								<button class="btn btn-info btn-md" type="submit" id="grabar" value="Salvar">
+									<span class="glyphicon glyphicon-send" aria-hidden="true"></span> Solicitar clave
+								</button>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+
+
+
+				<div class="col-md-3">
+
+					<table>
+
+						<thead>
+
+								<th><h4>CONTACTO</h4></th>
+
+						</thead>
+
+						<tbody>
+							<tr>
+								<td><h5><i class="fa fa-industry"></i> &copy; 2017 cosilsCompany, Inc.</h5></td>
+							</tr>
+							<tr>
+								<td><h5><i class="fa fa-home"></i> Partida Moralet, 137-A - 03699 - Alicante</h5></td>
+							</tr>
+							<tr>
+								<td><h5><i class="fa fa-phone"></i> 0034658214679</h5></td>
+							</tr>
+							<tr>
+								<td><h5><i class="fa fa-envelope"></i> jotamontoyo@hotmail.es</h5></td>
+							</tr>
+						</tbody>
+
+
+					</table>
+
+
+
+
+				</div>
+
+				<div class="col-md-3">
+
+					<table>
+
+						<thead>
+
+								<th><h4>CONTACTO</h4></th>
+
+						</thead>
+
+						<tbody>
+							<tr>
+								<td><h5><i class="fa fa-industry"></i> &copy; 2017 cosilsCompany, Inc.</h5></td>
+							</tr>
+							<tr>
+								<td><h5><i class="fa fa-home"></i> Partida Moralet, 137-A - 03699 - Alicante</h5></td>
+							</tr>
+							<tr>
+								<td><h5><i class="fa fa-phone"></i> 0034658214679</h5></td>
+							</tr>
+							<tr>
+								<td><h5><i class="fa fa-envelope"></i> jotamontoyo@hotmail.es</h5></td>
+							</tr>
+						</tbody>
+
+
+					</table>
+
+
+
+
+				</div>
+
+
+
+
+			</div>
 
 		</div>
 
@@ -247,7 +355,12 @@
 
 			<a
 				data-toggle="modal"
-				data-target="#lopd-modal">Terms
+				data-target="#lopd-modal">Política de privacidad &middot;
+			</a>
+
+			<a
+				data-toggle="modal"
+				data-target="#cookies-modal">Política de cookies
 			</a>
 
 		</h5>
@@ -275,7 +388,7 @@
 
 					<div class="modal-header text-center">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		                <h2>SupCounter<span style="font-size: 15px; margin-top: 2px;">&copy;</span></h2>
+		                <h2>SupCounter<span style="font-size: 15px;">&copy;</span></h2>
 
 					</div>
 
@@ -286,18 +399,22 @@
 			        	</div>
 						<br> -->
 						<p>
-							SupCounter es una aplicación para la gestión administrativa de consumos procedentes de suministros externos o depósitos.
+							SupCounter<span style="font-size: 9px;">&copy;</span> es una aplicación para la gestión administrativa de consumos procedentes de suministros externos o depósitos.
 							Su ámbito de aplicación es en todas aquellas instalaciones que consten de sistemas de distribución de agua, combustible o electricidad.
 						</p>
 						<p>Permite obtener en tiempo inmediato los informes sobre consumos, generando avisos sobre posibles desvíos.</p>
 						<p>Reduce alrededor de un 80% el tiempo empleado en sistemas tradicionales.<p>
 						<p>Desarrollado por:</p>
 						<p class="text-center">&copy; 2017 cosilsCompany, Inc. &middot;
-							<a href="mailto:jotamontoyo@hotmail.es">jotamontoyo@hotmail.es</a> &middot;
 							<a
 								data-toggle="modal"
-								data-target="#lopd-modal">Terms
+								data-target="#lopd-modal">Política de privacidad &middot;
 							</a>
+							<a
+								data-toggle="modal"
+								data-target="#cookies-modal">Política de cookies
+							</a>
+
 						</p>
 					</div>
 
@@ -327,15 +444,7 @@
 						<br>
 						<p>A efectos de lo dispuesto en la normativa vigente en materia de protección de datos de carácter personal, mediante esta Política de Privacidad, cosilsCompany, Inc. (en adelante, “cosilsCompany” informa a los usuarios (en adelante, el “Usuario” o “Usuarios”) de su sitio Web https://supcounter.herokuapp.com (en adelante, el “Sitio Web”) acerca de su política de protección de los datos de carácter personal recogidos de los Usuarios del Sitio Web, para que éstos determinen libre y voluntariamente si desean facilitar a cosilsCompany los datos personales que se les puedan requerir o que se puedan obtener sobre los mismos con ocasión de su acceso y uso del Sitio Web.</p>
 
-						<p>Los únicos datos personales a los que cosilsCompany tendrá acceso a través del Sitio Web serán aquellos que el Usuario facilite voluntariamente, así como aquellos otros recogidos a través de las cookies instaladas y cuyas condiciones de uso puede consultar en el enlace
-
-							<a
-								data-toggle="modal"
-								data-target="#cookies-modal">política de cookies.
-							</a>
-
-
-						</p>
+						<p>Los únicos datos personales a los que cosilsCompany tendrá acceso a través del Sitio Web serán aquellos que el Usuario facilite voluntariamente, así como aquellos otros recogidos a través de las cookies instaladas y cuyas condiciones de uso puede consultar nuestra política de cookies.</p>
 
 						<p>En cumplimiento de la normativa vigente, cosilsCompany adopta las medidas técnicas y organizativas necesarias para mantener el nivel de seguridad requerido en atención a los datos personales tratados. Asimismo está dotado de los mecanismos precisos a su alcance para evitar en la medida de lo posible accesos no autorizados, sustracciones y modificaciones ilícitas y la pérdida de los datos.</p>
 
@@ -400,8 +509,6 @@
 						<p><strong>Cookies de terceros:</strong> La Web de SupCounter puede utilizar servicios de terceros que, por cuenta de cosilsCompany, recopilarán información con fines estadísticos, de uso del Site por parte del usuario y para la prestacion de otros servicios relacionados con la actividad del Website y otros servicios de Internet.</p>
 
 						<p>En particular, este sitio Web utiliza Google Analytics, un servicio analítico de web prestado por Google, Inc. con domicilio en los Estados Unidos con sede central en 1600 Amphitheatre Parkway, Mountain View, California 94043.  Para la prestación de estos servicios, estos utilizan cookies que recopilan la información, incluida la dirección IP del usuario, que será transmitida, tratada y almacenada por Google en los términos fijados en la Web Google.com. Incluyendo la posible transmisión de dicha información a terceros por razones de exigencia legal o cuando dichos terceros procesen la información por cuenta de Google.</p>
-
-
 
 					</div>
 					<div class="modal-footer">
