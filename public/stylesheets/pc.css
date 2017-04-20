@@ -696,12 +696,12 @@
 
 		color: #848484;
 
-		display: 			-webkit-flex;
+/*		display: 			-webkit-flex;
 		display: 			flex;
 		-webkit-flex-direction: 	column;
 		flex-direction: 			column;
 		-webkit-justify-content: 	space-around;
-		justify-content: 			space-around;
+		justify-content: 			space-around; */
 
 
 
@@ -778,7 +778,7 @@
 	#pie {
 
 		width: 100%;
-		min-height: 50px;
+		min-height: 70px;
 
 /*		position: fixed;
 		bottom: 0px; */

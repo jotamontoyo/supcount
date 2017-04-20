@@ -160,14 +160,35 @@
 	}
 
 
+
     /* ============================================================  */
-    /* ======= CONTACTO =============================================  */
+    /* ======= pie_banner =========================================  */
     /* ============================================================  */
 
-        #contacto_form {
 
-            margin: 10px;
-        }
+    #pie_banner {
+
+        display: 			-webkit-flex;
+    	display: 			flex;
+    	-webkit-flex-direction: 	column;
+    	flex-direction: 			column;
+    	-webkit-justify-content: 	space-around;
+    	justify-content: 			space-around;
+
+    }
+
+
+
+    #contacto_form {
+            margin-top: 50px;
+
+    }
+
+
+
+
+
+
 
 
 
