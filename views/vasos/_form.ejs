@@ -1,0 +1,298 @@
+
+<div class="container" id="vaso_form">
+
+    <h4><img src="/images/vasos.png" alt="" /> Vaso</h4>
+    <br>
+
+
+
+    <div class="form-group">
+        <label for="nombre" class="col-md-3 control-label">Nombre:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="nombre" name="vaso[nombre]" value="<%= vaso.nombre %>" placeholder="nombre"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="ubicacion" class="col-md-3 control-label">Ubicación:</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control" id="ubicacion" name="vaso[ubicacion]" value="<%= vaso.ubicacion %>" placeholder="ubicacion"/>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="ph_max" class="col-md-7 control-label">ph Máximo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="ph_max" name="vaso[ph_max]" value="<%= vaso.ph_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="ph_min" class="col-md-7 control-label">ph Mínimo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="ph_min" name="vaso[ph_min]" value="<%= vaso.ph_min.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="redox_max" class="col-md-7 control-label">Redox Máximo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="redox_max" name="vaso[redox_max]" value="<%= vaso.redox_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="redox_min" class="col-md-7 control-label">Redox Mínimo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="redox_min" name="vaso[redox_min]" value="<%= vaso.redox_min.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="temp_max" class="col-md-7 control-label">Temperatura Máxima:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="temp_max" name="vaso[temp_max]" value="<%= vaso.temp_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="temp_min" class="col-md-7 control-label">Temperatura Mínima:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="temp_min" name="vaso[temp_min]" value="<%= vaso.temp_min.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="recirculacion" class="col-md-7 control-label">Recirculación:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="recirculacion" name="vaso[recirculacion]" value="<%= vaso.recirculacion.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+    		<label for="transparencia" class="col-md-7 control-label">Transparencia:</label>
+    		<div class="col-sm-5">
+    			<select class="form-control" id="transparencia" name="vaso[transparencia]">
+    				<option value=true <%if (vaso.transparencia) {%> selected <%}%>>Ok</option>
+    				<option value=false <%if (!vaso.transparencia) {%> selected <%}%>>Negativo</option>
+    			</select>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+    		<label for="extranios" class="col-md-7 control-label">Cuerpos Extraños:</label>
+    		<div class="col-sm-5">
+    			<select class="form-control" id="extranios" name="vaso[extranios]">
+    				<option value=true <%if (vaso.extranios) {%> selected <%}%>>Ok</option>
+    				<option value=false <%if (!vaso.extranios) {%> selected <%}%>>Negativo</option>
+    			</select>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="turbidez_max" class="col-md-7 control-label">Turbidez Máxima:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="turbidez_max" name="vaso[turbidez_max]" value="<%= vaso.turbidez_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="isocianuro_max" class="col-md-7 control-label">Isocianuro Máximo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="isocianuro_max" name="vaso[isocianuro_max]" value="<%= vaso.isocianuro_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="cloro_combinado_max" class="col-md-7 control-label">Cl Combinado Máximo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="cloro_combinado_max" name="vaso[cloro_combinado_max]" value="<%= vaso.cloro_combinado_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="cloro_max" class="col-md-7 control-label">Cl Máximo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="cloro_max" name="vaso[cloro_max]" value="<%= vaso.cloro_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="cloro_min" class="col-md-7 control-label">Cl Mínimo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="cloro_min" name="vaso[cloro_min]" value="<%= vaso.cloro_min.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="bromo_max" class="col-md-7 control-label">Br Máximo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="bromo_max" name="vaso[bromo_max]" value="<%= vaso.bromo_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="bromo_min" class="col-md-7 control-label">Br Mínimo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="bromo_min" name="vaso[bromo_min]" value="<%= vaso.bromo_min.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="co2_interior" class="col-md-7 control-label">CO2 Interior:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="co2_interior" name="vaso[co2_interior]" value="<%= vaso.co2_interior.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="co2_exterior" class="col-md-7 control-label">CO2 Exterior:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="co2_exterior" name="vaso[co2_exterior]" value="<%= vaso.co2_exterior.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="langelier_max" class="col-md-7 control-label">Langelier Máximo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="langelier_max" name="vaso[langelier_max]" value="<%= vaso.langelier_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="langelier_min" class="col-md-7 control-label">Langelier Mínimo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="langelier_min" name="vaso[langelier_min]" value="<%= vaso.langelier_min.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="legionella_max" class="col-md-7 control-label">Legionella Máximo:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="legionella_max" name="vaso[legionella_max]" value="<%= vaso.legionella_max.toFixed(2) %>" step="0.01"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+    		<label for="ecoli" class="col-md-7 control-label">Ecoli:</label>
+    		<div class="col-sm-5">
+    			<select class="form-control" id="ecoli" name="vaso[ecoli]">
+    				<option value=true <%if (vaso.ecoli) {%> selected <%}%>>Ok</option>
+    				<option value=false <%if (!vaso.ecoli) {%> selected <%}%>>Negativo</option>
+    			</select>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+    		<label for="pseudomona" class="col-md-7 control-label">Pseudomona:</label>
+    		<div class="col-sm-5">
+    			<select class="form-control" id="pseudomona" name="vaso[pseudomona]">
+    				<option value=true <%if (vaso.pseudomona) {%> selected <%}%>>Ok</option>
+    				<option value=false <%if (!vaso.pseudomona) {%> selected <%}%>>Negativo</option>
+    			</select>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+    		<label for="enterococos" class="col-md-7 control-label">Enterococos:</label>
+    		<div class="col-sm-5">
+    			<select class="form-control" id="enterococos" name="vaso[enterococos]">
+    				<option value=true <%if (vaso.enterococos) {%> selected <%}%>>Ok</option>
+    				<option value=false <%if (!vaso.enterococos) {%> selected <%}%>>Negativo</option>
+    			</select>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+    		<label for="staphlylococcus" class="col-md-7 control-label">Staphlylococcus:</label>
+    		<div class="col-sm-5">
+    			<select class="form-control" id="staphlylococcus" name="vaso[staphlylococcus]">
+    				<option value=true <%if (vaso.staphlylococcus) {%> selected <%}%>>Ok</option>
+    				<option value=false <%if (!vaso.staphlylococcus) {%> selected <%}%>>Negativo</option>
+    			</select>
+    		</div>
+    	</div>
+    </div>
+
+
+
+
+
+
+
+
+    <% if (session.user) {
+        if (session.user.isAdmin) {%>
+
+
+            <div class="col-md-12">
+                <div class="form-group">
+            		<div class="text-center" style="margin-top: 10px;">
+            			<a href="/vasos">
+            				<button class="btn btn-danger btn-sm" type="button">
+            					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+            				</button>
+            			</a>
+            			<button class="btn btn-success btn-sm" type="submit" value="Salvar">
+            				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
+            			</button>
+            		</div>
+            	</div>
+            </div>
+
+
+        <%}%>
+    <%}%>
+
+</div>

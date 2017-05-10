@@ -16,6 +16,7 @@
 	var invitadoController = require('../controllers/invitado_controller');
 	var centroController = require('../controllers/centro_controller');
 	var contactoController = require('../controllers/contacto_controller');
+	var vasoController = require('../controllers/vaso_controller');
 
 	router.get('/', function (req, res) {													/* GET home page. */
 		res.render('index', {title: 'SupCounter', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
@@ -30,6 +31,7 @@
 	router.param('criterioId',							criterioController.load);
 	router.param('centroId',							centroController.load);
 	router.param('contactoId',							contactoController.load);
+	router.param('vasoId',								vasoController.load);
 
 
 
@@ -132,8 +134,13 @@
 
 
 
-
-
+	// Deficion de rutas de Vaso
+	router.get('/vasos',									sessionController.loginRequired, vasoController.index);
+	router.get('/vasos/new',								sessionController.loginRequired, vasoController.new);				// carga el formulario /proveedores/new si sessionController.loginRequired()
+	router.post('/vasos/create',							sessionController.loginRequired, vasoController.create);			// dispara controlador create cuando el boton <salvar> del formulario tanto del index ppral como de la vista webform
+	router.get('/vasos/:vasoId(\\d+)/edit',					sessionController.loginRequired, vasoController.edit);				// carga formulario proveedores/proveedores:Id(\\d+)/edit y dispara el controlador edit de proveedorController
+	router.put('/vasos/:vasoId(\\d+)/update',				sessionController.loginRequired, vasoController.update);			// dispara controlador update cuando el boton <salvar> del formulario edit.js
+	router.delete('/vasos/:vasoId(\\d+)/destroy',			sessionController.loginRequired, vasoController.destroy);
 
 
 

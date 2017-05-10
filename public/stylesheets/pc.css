@@ -73,6 +73,14 @@
 
 
 
+	.grupo_campos {
+
+
+		border: 1px solid #000;
+	}
+
+
+
 	/* ========== CONTENEDOR INICIAL - LAYOUT ================================================ */
 	/* ========== CONTENEDOR INICIAL - LAYOUT ================================================ */
 	/* ========== CONTENEDOR INICIAL - LAYOUT ================================================ */
@@ -756,6 +764,8 @@
 
 
 
+
+
 	#check_lopd {
 
 		margin-top: 6px;
@@ -932,6 +942,32 @@
 
 
 
+	/* VASOS ******************************************************************************************/
+
+	#vasos img {
+
+		width: 32px;
+
+	}
+
+
+
+	#vasos_panel tr th, #vasos_panel tr td {
+
+		text-align: center;
+
+	}
+
+	#vaso_form {
+
+		max-width: 900px;
+		padding: 20px 20px 20px 20px;
+
+		border: 1px solid #D8D8D8;
+
+	}
+
+
 
 	/* ========= FORMULARIO CONTADOR PARTE USUARIO ===================== */
 
@@ -945,7 +981,7 @@
 
 	}
 
-	#contador_form img, #parte_form img, #user_form img, #centro_form img, #contacto_form img {
+	#contador_form img, #parte_form img, #user_form img, #centro_form img, #contacto_form img, #vaso_form img {
 
 
 		width: 32px;

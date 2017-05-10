@@ -10,10 +10,6 @@
 			respuesta: {
 				type: DataTypes.STRING
 			},
-/*			tema: {															// guarda el centro que la graba
-				type: DataTypes.STRING,
-				validate: {notEmpty: {msg: "--> Falta Centro"}}
-			}, */
 			image: {
 				type: DataTypes.BLOB
 			},

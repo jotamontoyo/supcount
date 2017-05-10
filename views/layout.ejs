@@ -78,9 +78,14 @@
 				<ul class="nav navbar-nav">
 
 					<li><a href="/"><img src="/images/home.png" alt="" /> Inicio <span class="sr-only">(current)</span></a></li>
-					<li><a href="/quizes"><img src="/images/partes3.png" alt="" /> Partes </a></li>
+					<li><a href="/quizes"><img src="/images/partes3.png" alt="" /> Partes de Lecturas </a></li>
 					<li><a href="/contadores"><img src="/images/contador2.png" alt="" /> Contadores </a></li>
 					<li><a href="/quizes/resumen_index"><img src="/images/consumos2.png" alt="" /> Consumos </a></li>
+
+					<li><a href="/siloes"><img src="/images/siloes.png" alt="" /> Partes de Siloes </a></li>
+					<li><a href="/vasos"><img src="/images/vasos.png" alt="" /> Vasos </a></li>
+
+
 					<% if (session.user) {
 						if (session.user.isSuperAdmin) {%>
 							<li><a href="/centros"><img src="/images/centros.png" alt=""> Centros </a></li>

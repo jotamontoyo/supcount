@@ -35,6 +35,7 @@
 	var Criterio = sequelize.import(path.join(__dirname, 'criterio'));		// importar estructura y definicion de la tabla Criterio
 	var Centro = sequelize.import(path.join(__dirname, 'centro'));			// importar estructura y definicion de la tabla Centro
 	var Contacto = sequelize.import(path.join(__dirname, 'contacto'));		// importar estructura y definicion de la tabla Contacto
+	var Vaso = sequelize.import(path.join(__dirname, 'vaso'));				// importar estructura y definicion de la tabla Vaso
 
 	Quiz.belongsTo(User);												// integridad referncial. Cada Quiz es hijo de User
 	User.hasMany(Quiz);													// cada User puede tener varios Quiz
@@ -54,6 +55,7 @@
 	exports.Criterio = Criterio;
 	exports.Centro = Centro;
 	exports.Contacto = Contacto;
+	exports.Vaso = Vaso;
 
 	sequelize.sync().then(function() {									// sequelize.sync() inicializa tabla de preguntas en DB
 
@@ -155,6 +157,20 @@
 								]
 
 	              		    ).then(function() {console.log('Base de datos: tabla contador inicializada')});
+	          			};
+	        		});
+
+					Vaso.count().then(function( count ) {
+	          			if(count === 0) {   																			// la tabla se inicializa solo si está vacía
+	            			Vaso.bulkCreate(
+	              				[{
+									nombre: 'Piscina principal',
+									centro: 'Central',
+									ubicacion: '',
+									lopd: false
+
+								}]
+	              		    ).then(function(){console.log('Base de datos: tabla vaso inicializada')});
 	          			};
 	        		});
 

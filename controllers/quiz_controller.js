@@ -128,7 +128,7 @@
 
 		var resumen = {
 			mes: fecha.getUTCMonth() + 1,
-			nombre_mes: '',
+//			nombre_mes: '',
 			anio: fecha.getUTCFullYear()
 		};
 
@@ -177,11 +177,8 @@
 
 		models.Quiz.findAll(options).then(function(quizes) {
 			models.Contador.findAll({
-
 				where: {centro: req.session.user.centro},
-
 				order: [['id', 'ASC']]
-
 			}).then(function(contadores) {
 				var anterior = 0;
 				for (let i in quizes) {								// hallar consumo
@@ -395,7 +392,7 @@
 			res.render('quizes/edit', {quiz: req.quiz, errors: errores});
 		} else {
 			req.quiz 															// save: guarda en DB campos pregunta y respuesta de quiz
-			.save({fields: ["fecha", "pregunta", "respuesta", "centro", "proveedor", "proceso", "fecha", "dia", "mes", "anio"]})
+			.save({fields: ["fecha", "pregunta", "respuesta", "centro", "proveedor", "proceso", "dia", "mes", "anio"]})
 			.then(function() {res.redirect('/quizes')});
 		};
 	};
