@@ -36,6 +36,8 @@
 	var Centro = sequelize.import(path.join(__dirname, 'centro'));			// importar estructura y definicion de la tabla Centro
 	var Contacto = sequelize.import(path.join(__dirname, 'contacto'));		// importar estructura y definicion de la tabla Contacto
 	var Vaso = sequelize.import(path.join(__dirname, 'vaso'));				// importar estructura y definicion de la tabla Vaso
+	var Siloe = sequelize.import(path.join(__dirname, 'siloe'));			// importar estructura y definicion de la tabla Siloe
+	var Ensayo = sequelize.import(path.join(__dirname, 'ensayo'));			// importar estructura y definicion de la tabla Ensayo
 
 	Quiz.belongsTo(User);												// integridad referncial. Cada Quiz es hijo de User
 	User.hasMany(Quiz);													// cada User puede tener varios Quiz
@@ -45,6 +47,12 @@
 
 	Criterio.belongsTo(Contador);
 	Contador.hasMany(Criterio);
+
+	Siloe.belongsTo(User);												// integridad referncial. Cada Siloe es hijo de User
+	User.hasMany(Siloe);
+
+	Ensayo.belongsTo(Siloe);
+	Siloe.hasMany(Ensayo);
 
 
 	exports.Quiz = Quiz;												// exportar tablas
@@ -56,6 +64,10 @@
 	exports.Centro = Centro;
 	exports.Contacto = Contacto;
 	exports.Vaso = Vaso;
+	exports.Siloe = Siloe;
+	exports.Ensayo = Ensayo;
+
+
 
 	sequelize.sync().then(function() {									// sequelize.sync() inicializa tabla de preguntas en DB
 
@@ -72,13 +84,22 @@
 	        	).then(function() {
 
 	        		console.log('Base de datos: tabla user inicializada');
+
 	        		Quiz.count().then(function( count ) {
 	          			if(count === 0) {   																			// la tabla se inicializa solo si está vacía
 	            			Quiz.bulkCreate(
-	              				[ {pregunta: 'faltas', respuesta: 'Roma', centro: "Central", proveedor: 'Central', proceso: 'true', UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0}, 			// estos quizes pertenecen al usuario pepe (2)
-	                			{pregunta: 'retraso', respuesta: 'Lisboa', centro: "Central", proveedor: 'Central', proceso: 'true', UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0},
-	                			{pregunta: 'retraso', respuesta: 'Lisboa', centro: "Central", proveedor: 'Central', proceso: 'true', UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0}]
+	              				[ {pregunta: 'faltas', respuesta: 'Roma', centro: "Central", proveedor: 'Central', proceso: true, UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0}, 			// estos quizes pertenecen al usuario pepe (2)
+	                			{pregunta: 'retraso', respuesta: 'Lisboa', centro: "Central", proveedor: 'Central', proceso: true, UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0},
+	                			{pregunta: 'retraso', respuesta: 'Lisboa', centro: "Central", proveedor: 'Central', proceso: true, UserId: 2, UserName: 'pepe', dia: 0, mes: 0, anio: 0}]
 	              			).then(function(){console.log('Base de datos: tabla parte inicializada')});
+	          			};
+	        		});
+
+	        		Siloe.count().then(function( count ) {
+	          			if(count === 0) {   																			// la tabla se inicializa solo si está vacía
+	            			Siloe.bulkCreate(
+	              				[{centro: "Central", UserId: 2, UserName: "pepe", proceso: true, dia: 0, mes: 0, anio: 0}]
+	              			).then(function(){console.log('Base de datos: siloe parte inicializada')});
 	          			};
 	        		});
 

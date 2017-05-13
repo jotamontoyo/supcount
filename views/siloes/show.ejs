@@ -1,0 +1,230 @@
+<div class="container animated animated-fast fadeIn margen_superior">
+
+
+<!--		<div class="form-group">
+
+			<h5>Parte nº: <strong><%= siloe.id %></strong></h5>
+			<h5>Fecha: <strong><%= siloe.dia %>-<%= siloe.mes %>-<%= siloe.anio %></strong></h5>
+			<h5>Usuario: <strong><%= siloe.UserName %></strong></h5>
+			<h5>Centro: <strong><%= siloe.centro %></strong></h5>  -->
+<!--			<h4>Proveedor: <%= siloe.proveedor %> </h4>
+			<h4>Status: <%= siloe.proceso %> </h4> -->
+
+<!--		</div> -->
+
+
+
+<!--	<div class="container"> -->
+
+		<h4>Ensayos <%= siloe.dia %>-<%= siloe.mes %>-<%= siloe.anio %>:</h4>
+
+		<br>
+
+				<% for (var index in ensayos) {%>
+
+<!--					<div class="container"> -->
+
+						<% if (!session.user && ensayos[index].publicado) {%>
+
+							<div class="comment-panel">
+
+								<div class="container-fluid">
+
+									<div class="form-group">
+
+										<h5>id: <%= ensayos[index].id %></h5>
+										<h5>Código: <%= ensayos[index].vasoId %></h5>
+										<h5>Nombre: <%= ensayos[index].nombre %></h5>
+										<h5>Lectura: <%= ensayos[index].lectura_actual %></h5>
+
+									</div>
+
+								</div>
+								<div class="container-fluid">
+									<h6><span class="badge">#<%= ensayos[index].id %></span>
+									<small><%= ensayos[index].createdAt.toLocaleString() %></small></h6>
+								</div>
+							</div>
+						<%}%>
+
+						<% if (session.user) {%>
+							<div class="ensayo-panel">
+
+								<div class="container-fluid">
+
+									<% if ((session.user.isAdmin || (session.user && siloe.UserId === session.user.id))) {%>
+
+
+										<h5><span class="badge">#<%=ensayos[index].id%></span></h5>
+										<h5>Vaso: <strong><%= ensayos[index].vasoId %> - <%= ensayos[index].nombre %></strong></h5>
+										<h5>Ubicación: <strong><%= ensayos[index].ubicacion %></strong></h5>
+										<h5>Capacidad: <strong><%= ensayos[index].capacidad %></strong></h5>
+
+										<br>
+
+
+										<form class="form-horizontal" method="post" action="/siloes/<%=siloe.id%>/ensayos/<%=ensayos[index].id%>/update?_method=put">
+
+<!--											<input type="text" class="form-control hidden" id="vasoId" name="ensayo[vasoId]" value="<%=ensayos[index].vasoId%>" pattern="[0-9]{1,}"/></h5> -->
+
+
+											<div class="col-md-2">
+												<div class="form-group">
+													<div class="col-md-6 item_ensayo">
+														<label for="ph">Ph m</label>
+													</div>
+													<div class="col-md-6">
+														<input type="text" class="form-control" id="ph_m" name="ensayo[ph_m]" value="<%= (ensayos[index].ph_m).toFixed(1) %>" step="0.01"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-6 item_ensayo">
+														<label for="ph">Ph t</label>
+													</div>
+													<div class="col-md-6">
+														<input type="text" class="form-control" id="ph_t" name="ensayo[ph_t]" value="<%= (ensayos[index].ph_t).toFixed(1) %>" step="0.01"/>
+													</div>
+												</div>
+											</div>
+
+
+											<div class="col-md-2">
+												<div class="form-group">
+													<div class="col-md-6 item_ensayo">
+														<label for="redox">Redox m</label>
+													</div>
+													<div class="col-md-6">
+														<input type="text" class="form-control" id="redox_m" name="ensayo[redox_m]" value="<%= (ensayos[index].redox_m).toFixed(1) %>" step="0.01"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-6 item_ensayo">
+														<label for="redox">Redox t</label>
+													</div>
+													<div class="col-md-6">
+														<input type="text" class="form-control" id="redox_t" name="ensayo[redox_t]" value="<%= (ensayos[index].redox_t).toFixed(1) %>" step="0.01"/>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-2">
+												<div class="form-group">
+													<div class="col-md-6 item_ensayo">
+														<label for="temp">Temp m</label>
+													</div>
+													<div class="col-md-6">
+														<input type="text" class="form-control" id="temp_m" name="ensayo[temp_m]" value="<%= (ensayos[index].temp_m).toFixed(1) %>" step="0.01"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-6 item_ensayo">
+														<label for="temp">Temp t</label>
+													</div>
+													<div class="col-md-6">
+														<input type="text" class="form-control" id="temp_t" name="ensayo[temp_t]" value="<%= (ensayos[index].temp_t).toFixed(1) %>" step="0.01"/>
+													</div>
+												</div>
+											</div>
+
+
+
+
+											<div class="col-md-2">
+												<div class="form-group">
+													<div class="col-md-6" style="margin-top: 6px;">
+														<label for="lectura_actual">Lectura</label>
+													</div>
+													<div class="col-md-6">
+														<input type="text" class="form-control" id="lectura_actual" name="ensayo[lectura_actual]" value="<%= (ensayos[index].lectura_actual).toFixed(2) %>" step="0.01"/>
+													</div>
+												</div>
+											</div>
+
+
+
+											<div class="col-md-12">
+
+					                            <div class="panel-group" id="agregar-comentario" role="tablist" aria-multiselectable="true">
+
+					                                <div class="faq">
+					                                    <div class="panel-heading" role="tab" id="agregar">
+					                                        <h4 class="panel-title">
+					                                            <a id="ver-textaera" role="button" data-toggle="collapse" data-parent="#agregar-comentario" href="#<%=ensayos[index].id%>" aria-expanded="true" aria-controls="collapseOne">
+																	<% if (!ensayos[index].texto) { %>
+																		<i class="fa fa-plus"></i> Añadir comentarios
+																	<%} else {%>
+																		<i class="fa fa-arrow-down"></i> Ver comentarios
+
+																	<%}%>
+
+
+					                                            </a>
+					                                        </h4>
+					                                    </div>
+					                                    <div id="<%=ensayos[index].id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="agregar">
+					                                        <div class="panel-body">
+
+					                                            <div class="form-group">
+
+					                			    				<textarea class="form-control comment-row" rows="5" name="ensayo[texto]"><%=ensayos[index].texto%></textarea>
+
+					                							</div>
+
+					                                        </div>
+					                                    </div>
+					                                </div>
+
+					                            </div>
+											</div>
+
+											<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Enviar</button>
+
+
+										</form>
+
+
+									<%} else if (ensayos[index].publicado) {%>
+
+
+										<h5><span class="badge">#<%=ensayos[index].id%></span></h5>
+										<h5>Código: <%= ensayos[index].codigo %></h5>
+										<h5>Nombre: <%= ensayos[index].nombre %></h5>
+										<h5>Lectura: <%= (ensayos[index].lectura_actual).toFixed(2) %></h5>
+
+
+
+
+									<%}%>
+
+								</div>
+
+								<br>
+
+								<div class="container-fluid">
+									<%if ((session.user.isAdmin || (session.user && siloe.UserId === session.user.id))) {%>
+
+										<a href="/siloes/<%= siloe.id %>/ensayos/<%=ensayos[index].id%>/destroy">
+											<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Eliminar">
+												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+											</button>
+										</a>
+
+										</h6>
+
+									<%}%>
+								</div>
+
+							</div>
+						<%}%>
+<!--					</div> -->
+				<%}%>
+
+
+
+<!--		<p><a href="/siloees/<%= siloe.id %>/ensayos/new"><button type="button" class="btn btn-primary">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo comentario</button></a>
+		</p> -->
+
+<!--	</div> -->
+
+</div>

@@ -17,6 +17,8 @@
 	var centroController = require('../controllers/centro_controller');
 	var contactoController = require('../controllers/contacto_controller');
 	var vasoController = require('../controllers/vaso_controller');
+	var siloeController = require('../controllers/siloe_controller');
+	var ensayoController = require('../controllers/ensayo_controller');
 
 	router.get('/', function (req, res) {													/* GET home page. */
 		res.render('index', {title: 'SupCounter', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
@@ -32,6 +34,9 @@
 	router.param('centroId',							centroController.load);
 	router.param('contactoId',							contactoController.load);
 	router.param('vasoId',								vasoController.load);
+	router.param('vasoId',								vasoController.load);
+	router.param('siloeId',								siloeController.load);
+	router.param('ensayoId',							ensayoController.load);
 
 
 
@@ -141,6 +146,25 @@
 	router.get('/vasos/:vasoId(\\d+)/edit',					sessionController.loginRequired, vasoController.edit);				// carga formulario proveedores/proveedores:Id(\\d+)/edit y dispara el controlador edit de proveedorController
 	router.put('/vasos/:vasoId(\\d+)/update',				sessionController.loginRequired, vasoController.update);			// dispara controlador update cuando el boton <salvar> del formulario edit.js
 	router.delete('/vasos/:vasoId(\\d+)/destroy',			sessionController.loginRequired, vasoController.destroy);
+
+
+
+
+
+	// Definición de rutas de Siloe
+	router.get('/siloes',			 						sessionController.loginRequired, siloeController.index);				// accede a la lista completa de partes /siloes/index.ejs
+	router.get('/siloes/new',								sessionController.loginRequired, siloeController.new);					// carga el formulario /siloes/new si sessionController.loginRequired()
+	router.post('/siloes/create',							sessionController.loginRequired, siloeController.create);				// dispara controlador create cuando el boton <salvar> del formulario new.js
+	router.get('/siloes/:siloeId(\\d+)/edit',				sessionController.loginRequired, siloeController.ownershipRequired, siloeController.edit);				// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
+	router.put('/siloes/:siloeId(\\d+)',					sessionController.loginRequired, siloeController.ownershipRequired, siloeController.update);	// dispara controlador update cuando el boton <salvar> del formulario edit.js
+	router.get('/siloes/:siloeId(\\d+)',					sessionController.loginRequired, siloeController.show);					// accede a una pregunta en concreto. envia al quizController la peticion GET con el parametro quizId (indice)
+	router.delete('/siloes/:siloeId(\\d+)/destroy',			sessionController.loginRequired, siloeController.destroy);
+
+
+
+
+	// Definición de rutas de Ensayo
+	router.put('/siloes/:siloeId(\\d+)/ensayos/:ensayoId(\\d+)/update',				sessionController.loginRequired, ensayoController.ownershipRequired, ensayoController.update);
 
 
 

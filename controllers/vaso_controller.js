@@ -44,6 +44,7 @@
                 nombre: "",
                 centro: "",
                 ubicacion: "",
+// activar cuando vuelva a crear la DB ------------->>>  capacidad: 0.0,
                 ph_max: 8.0,
                 ph_min: 7.2,
                 redox_max: 900,
@@ -130,6 +131,7 @@
 
         req.vaso.nombre = req.body.vaso.nombre;
         req.vaso.ubicacion = req.body.vaso.ubicacion;
+// activar cuando vuelva a crear la DB ------------->>>        req.vaso.capacidad = req.body.vaso.capacidad;
         req.vaso.ph_max = req.body.vaso.ph_max;
         req.vaso.ph_min = req.body.vaso.ph_min;
         req.vaso.redox_max = req.body.vaso.redox_max;

@@ -11,29 +11,25 @@
                     <tr>
                         <th>Número</th>
                         <th>Nombre</th>
-                        <th>Depósito</th>
-                        <th>Marca</th>
                         <th>Ubicación</th>
-                        <th>Fecha revisión</th>
+                        <th>Capacidad</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% for (var i in vasos) { %>
                         <tr>
 
-                            <td><a href="/vasos/<%= vasos[i].id %>"><%= vasos[i].id %></a></td>
-                            <td><a href="/vasos/<%= vasos[i].id %>"><%= vasos[i].nombre %></a></td>
-                            <td><%= vasos[i].marca %></td>
-                            <td><%= vasos[i].modelo %></td>
+                            <td><a href="/vasos/<%= vasos[i].id %>/edit"><%= vasos[i].id %></a></td>
+                            <td><a href="/vasos/<%= vasos[i].id %>/edit"><%= vasos[i].nombre %></a></td>
                             <td><%= vasos[i].ubicacion %></td>
-                            <td><%= vasos[i].fecha_revision %></td>
+                            <td><%= vasos[i].capacidad %></td>
 
-                            <% if (session.user) {%>
-                                <td style="width:40px"> <a class="" href="/vasos/<%= vasos[i].id %>/edit">
-                                    <img src="/images/edit3.png" style="width: 20px;"/>
-                                </a></td>
-                                <% if (session.user.isAdmin) {%>
 
+                            <% if (session.user) {
+                                if (session.user.isAdmin) {%>
+                                    <td style="width:40px"> <a class="" href="/vasos/<%= vasos[i].id %>/edit">
+                                        <img src="/images/edit3.png" style="width: 20px;"/>
+                                    </a></td>
                                     <td style="width:40px">
                                         <form method="post" action="vasos/<%= vasos[i].id %>/destroy?_method=delete">
                                             <button class="btn btn-danger btn-xs" type="submit" onClick="return confirm('Borrar el Vaso: <%= vasos[i].nombre %>');">
@@ -43,6 +39,7 @@
                                     </td>
                                 <%}%>
                             <%}%>
+
                         </tr>
                     <% } %>
                 </tbody>

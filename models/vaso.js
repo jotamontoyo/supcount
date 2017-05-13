@@ -15,6 +15,12 @@
                 type: DataTypes.STRING
             },
 
+/*            capacidad: {               activar cuando nueva DB
+                type: DataTypes.FLOAT,
+                defaultValue: 0.0
+            }, */
+
+
 
             ph_max: {
                 type: DataTypes.FLOAT,

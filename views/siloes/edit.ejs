@@ -1,0 +1,14 @@
+
+	<div class="container margen_superior" id="new-edit">
+
+		<h4>Edite el parte</h4>
+
+		<form class="form-horizontal"
+				method="post"
+				action="/siloes/<%= siloe.id %>?_method=put">
+
+			<% include _form.ejs %>
+
+		</form>
+
+	</div>

@@ -968,10 +968,54 @@
 	}
 
 
+	/* ****SILOE******************************************************* */
+
+	#siloes_index {
+
+		max-width: 900px;
+	}
+
+	#siloes_index img {
+
+		width: 20px;
+
+	}
+
+
+	.ensayo-panel {
+
+		min-height: 340px;
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+
+
+		border: 		1px solid #D8D8D8;
+		font-size: 14px;
+
+
+	}
+
+
+	.ensayo-panel input {
+
+		font-size: 12px;
+	}
+
+
+	.item_ensayo {
+
+		margin-top: 6px;
+
+		text-align: right;
+
+	}
+
+
+
 
 	/* ========= FORMULARIO CONTADOR PARTE USUARIO ===================== */
 
-	#contador_form, #parte_form, #user_form, #centro_form  {
+	#contador_form, #parte_form, #user_form, #centro_form, #siloe_form  {
 
 		max-width: 600px;
 		padding: 20px 20px 20px 20px;
@@ -981,7 +1025,7 @@
 
 	}
 
-	#contador_form img, #parte_form img, #user_form img, #centro_form img, #contacto_form img, #vaso_form img {
+	#contador_form img, #parte_form img, #user_form img, #centro_form img, #contacto_form img, #vaso_form img, #siloe_form img {
 
 
 		width: 32px;

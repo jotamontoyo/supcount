@@ -1,0 +1,73 @@
+
+<div class="container" id="siloe_form">
+
+	<h4><img src="/images/siloes.png" alt=""> Parte</h4>
+	<br>
+
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Día:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="dia" name="siloe[dia]" value="<%= siloe.dia %>" placeholder="mes"/>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Mes:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="mes" name="siloe[mes]" value="<%= siloe.mes %>" placeholder="mes"/>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Año:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="anio" name="siloe[anio]" value="<%= siloe.anio %>" placeholder="fecha"/>
+		</div>
+	</div>
+
+
+
+
+
+
+<!--	<div class="form-group">
+		<label for="centro" class="col-sm-2 control-label">Centro:</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="centro" name="siloe[centro]">
+				<option value="Central" <%if (siloe.centro==="Central"){%> selected <%}%>>Central</option>
+				<option value="Gala" <%if (siloe.centro==="Gala"){%> selected <%}%>>Gala</option>
+				<option value="La Siesta" <%if (siloe.centro==="La Siesta"){%> selected <%}%>>La Siesta</option>
+				<option value="Troya" <%if (siloe.centro==="Troya"){%> selected <%}%>>Troya</option>
+			</select>
+		</div>
+	</div> -->
+
+
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Status:</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="proceso" name="siloe[proceso]">
+				<option value=true <%if (siloe.proceso) {%> selected <%}%>>Pendiente</option>
+				<option value=false <%if (!siloe.proceso) {%> selected <%}%>>Revisado</option>
+			</select>
+		</div>
+	</div>
+
+
+
+	<div class="form-group text-center">
+		<div class="col-sm-offset-2 col-sm-10">
+			<a href="/siloes">
+				<button class="btn btn-danger btn-sm" type="button">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+				</button>
+			</a>
+			<button class="btn btn-success btn-sm" type="submit" id="grabar" value="Salvar">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
+			</button>
+		</div>
+	</div>
+
+</div>
