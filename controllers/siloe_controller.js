@@ -19,9 +19,6 @@
 			include: 	[{model: models.Ensayo}],				// incluye la tabla Comment como hijo
 			order:		[[models.Ensayo, 'vasoId', 'ASC']]		// y la ordena por codigo
 			}).then(function(siloe) {
-
-				console.log('siloe load:...... : + ' + siloe.id);
-
 				if (siloe) {
 					req.siloe = siloe;
 					next();
@@ -303,32 +300,120 @@
 							vasoId: vasos[i].id,
 							nombre: vasos[i].nombre,
 							ubicacion: vasos[i].ubicacion,
+							capacidad: vasos[i].capacidad,
 
 							ph_max: vasos[i].ph_max,
 							ph_min: vasos[i].ph_min,
 							ph_m: 0,
 							ph_t: 0,
+							ph_cumple: false,
 
 							redox_max: vasos[i].redox_max,
 							redox_min: vasos[i].redox_min,
 							redox_m: 0,
 							redox_t: 0,
+							redox_cumple: false,
 
 							temp_max: vasos[i].temp_max,
 							temp_min: vasos[i].temp_min,
 							temp_m: 0,
 							temp_t: 0,
+							temp_cumple: false,
 
+							recirculacion: vasos[i].recirculacion,
+							recirculacion_m: 0,
+							recirculacion_t: 0,
+							recirculacion_cumple: false,
 
+							transparencia: vasos[i].transparencia,
+							transparencia_m: true,
+							transparencia_t: true,
+							transparencia_cumple: true,
 
-							lectura_actual: 0,
+							lectura_m: 0,
+							lectura_t: 0,
+							lectura_cumple: false,
+
+							extranios: vasos[i].extranios,
+							extranios_m: false,
+							extranios_t: false,
+							extranios_cumple: true,
+
+							turbidez_max: vasos[i].turbidez_max,
+							turbidez_m: 0,
+							turbidez_t: 0,
+							turbidez_cumple: false,
+
+							isocianuro_max: vasos[i].isocianuro_max,
+							isocianuro_m: 0,
+							isocianuro_t: 0,
+							isocianuro_cumple: false,
+
+							bromo_max: vasos[i].bromo_max,
+							bromo_min: vasos[i].bromo_min,
+							bromo_m: 0,
+							bromo_t: 0,
+							bromo_cumple: false,
+
+							cloro_max: vasos[i].cloro_max,
+							cloro_min: vasos[i].cloro_min,
+							cloro_m: 0,
+							cloro_t: 0,
+							cloro_cumple: false,
+
+							cloro_combinado_max: vasos[i].cloro_combinado_max,
+							cloro_combinado_m: 0,
+							cloro_combinado_t: 0,
+							cloro_combinado_cumple: false,
+
+							humedad_max: vasos[i].humedad_max,
+							humedad_m: 0,
+							humedad_t: 0,
+							humedad_cumple: false,
+
+							co2_interior_max: vasos[i].co2_interior,
+							co2_interior_m: 0,
+							co2_interior_t: 0,
+							co2_interior_cumple: false,
+
+							co2_exterior_max: vasos[i].co2_exterior_max,
+							co2_exterior_m: 0,
+							co2_exterior_t: 0,
+							co2_exterior_cumple: false,
+
+							ecoli: vasos[i].ecoli,
+							ecoli_m: false,
+							ecoli_t: false,
+							ecoli_cumple: true,
+
+							legionella_max: vasos[i].legionella_max,
+							legionella_m: 0,
+							legionella_t: 0,
+							legionella_cumple: false,
+
+							pseudomona: vasos[i].pseudomona,
+							pseudomona_m: false,
+							pseudomona_t: false,
+							pseudomona_cumple: true,
+
+							enterococos: vasos[i].enterococos,
+							enterococos_m: false,
+							enterococos_t: false,
+							enterococos_cumple: true,
+
+							staphlylococcus: vasos[i].staphlylococcus,
+							staphlylococcus_m: false,
+							staphlylococcus_t: false,
+							staphlylococcus_cumple: true,
+
+							langelier_max: vasos[i].langelier_max,
+							langelier_min: vasos[i].langelier_min,
+							langelier_m: 0,
+							langelier_t: 0,
+							langelier_cumple: false,
+
 							publicado: true,
-
-//							capacidad: vasos[i].capacidad,  activar cuando nueva db
-
-
 							texto: '',
-
 							fecha: siloe.fecha,
 							dia: siloe.dia,
 							mes: siloe.mes,

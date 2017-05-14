@@ -1,4 +1,4 @@
-<div class="container animated animated-fast fadeIn margen_superior">
+<div class="container-fluid animated animated-fast fadeIn margen_superior">
 
 
 <!--		<div class="form-group">
@@ -67,115 +67,749 @@
 
 <!--											<input type="text" class="form-control hidden" id="vasoId" name="ensayo[vasoId]" value="<%=ensayos[index].vasoId%>" pattern="[0-9]{1,}"/></h5> -->
 
+											<div class="row"> <!-- 1er bloque de datos -->
 
-											<div class="col-md-2">
-												<div class="form-group">
-													<div class="col-md-6 item_ensayo">
-														<label for="ph">Ph m</label>
+
+
+												<div class="col-md-2 grupo_items_ensayo">  <!-- ph -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group centrado-v-h">
+															<div class="col-md-6 item_ensayo">
+																<label for="ph">Ph m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="ph_m" name="ensayo[ph_m]" value="<%= (ensayos[index].ph_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="ph">Ph t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="ph_t" name="ensayo[ph_t]" value="<%= (ensayos[index].ph_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].ph_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
 													</div>
-													<div class="col-md-6">
-														<input type="text" class="form-control" id="ph_m" name="ensayo[ph_m]" value="<%= (ensayos[index].ph_m).toFixed(1) %>" step="0.01"/>
-													</div>
+
 												</div>
-												<div class="form-group">
-													<div class="col-md-6 item_ensayo">
-														<label for="ph">Ph t</label>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- redox -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="redox">Redox m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="redox_m" name="ensayo[redox_m]" value="<%= (ensayos[index].redox_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="redox">Redox t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="redox_t" name="ensayo[redox_t]" value="<%= (ensayos[index].redox_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].redox_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
 													</div>
-													<div class="col-md-6">
-														<input type="text" class="form-control" id="ph_t" name="ensayo[ph_t]" value="<%= (ensayos[index].ph_t).toFixed(1) %>" step="0.01"/>
-													</div>
+
 												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- temperatura -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="temp">Temp m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="temp_m" name="ensayo[temp_m]" value="<%= (ensayos[index].temp_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="temp">Temp t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="temp_t" name="ensayo[temp_t]" value="<%= (ensayos[index].temp_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].temp_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- recirculacion -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="recirculacion">Recirc m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="recirculacion_m" name="ensayo[recirculacion_m]" value="<%= (ensayos[index].recirculacion_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="recirculacion">Recirc t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="recirculacion_t" name="ensayo[recirculacion_t]" value="<%= (ensayos[index].recirculacion_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].recirculacion_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
+													</div>
+
+												</div>
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- transparencia -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+												    		<label for="transparencia" class="col-md-6 control-label">Transp m</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="transparencia_m" name="ensayo[transparencia_m]">
+												    				<option value=true <%if (ensayos[index].transparencia) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].transparencia) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<div class="form-group">
+												    		<label for="transparencia" class="col-md-6 control-label">Transp t</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="transparencia_t" name="ensayo[transparencia_t]">
+												    				<option value=true <%if (ensayos[index].transparencia) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].transparencia) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<% if (!ensayos[index].transparencia_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- lectura -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="lectura">Lectura m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="lectura_m" name="ensayo[lectura_m]" value="<%= (ensayos[index].lectura_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="lectura">Lectura t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="lectura_t" name="ensayo[lectura_t]" value="<%= (ensayos[index].lectura_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+													</div>
+
+												</div>
+
+
+
 											</div>
 
 
-											<div class="col-md-2">
-												<div class="form-group">
-													<div class="col-md-6 item_ensayo">
-														<label for="redox">Redox m</label>
+
+
+											<div class="row"> <!-- 2º bloque de datos -->
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- extranios -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+												    		<label for="extranios" class="col-md-6 control-label">Extraños m</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="extranios_m" name="ensayo[extranios_m]">
+												    				<option value=true <%if (ensayos[index].extranios) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].extranios) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<div class="form-group">
+												    		<label for="extranios" class="col-md-6 control-label">Extraños t</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="extranios_t" name="ensayo[extranios_t]">
+												    				<option value=true <%if (ensayos[index].extranios) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].extranios) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<% if (!ensayos[index].extranios_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
 													</div>
-													<div class="col-md-6">
-														<input type="text" class="form-control" id="redox_m" name="ensayo[redox_m]" value="<%= (ensayos[index].redox_m).toFixed(1) %>" step="0.01"/>
-													</div>
+
 												</div>
-												<div class="form-group">
-													<div class="col-md-6 item_ensayo">
-														<label for="redox">Redox t</label>
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- turbidez -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="turbidez">Turbidez m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="turbidez_m" name="ensayo[turbidez_m]" value="<%= (ensayos[index].turbidez_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="turbidez">Turbidez t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="turbidez_t" name="ensayo[turbidez_t]" value="<%= (ensayos[index].turbidez_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].turbidez_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
 													</div>
-													<div class="col-md-6">
-														<input type="text" class="form-control" id="redox_t" name="ensayo[redox_t]" value="<%= (ensayos[index].redox_t).toFixed(1) %>" step="0.01"/>
-													</div>
+
 												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- isocianuro -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="isocianuro">Isocianuro m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="isocianuro_m" name="ensayo[isocianuro_m]" value="<%= (ensayos[index].isocianuro_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="isocianuro">Isocianuro t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="isocianuro_t" name="ensayo[isocianuro_t]" value="<%= (ensayos[index].isocianuro_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].isocianuro_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- bromo -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="bromo">Bromo m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="bromo_m" name="ensayo[bromo_m]" value="<%= (ensayos[index].bromo_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="bromo">Bromo t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="bromo_t" name="ensayo[bromo_t]" value="<%= (ensayos[index].bromo_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].bromo_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- cloro -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="cloro">Cloro m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="cloro_m" name="ensayo[cloro_m]" value="<%= (ensayos[index].cloro_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="cloro">Cloro t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="cloro_t" name="ensayo[cloro_t]" value="<%= (ensayos[index].cloro_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].cloro_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- cloro_combinado -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="cloro_combinado">Cloro C m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="cloro_combinado_m" name="ensayo[cloro_combinado_m]" value="<%= (ensayos[index].cloro_combinado_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="cloro_combinado">Cloro C t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="cloro_combinado_t" name="ensayo[cloro_combinado_t]" value="<%= (ensayos[index].cloro_combinado_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].cloro_combinado_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+													</div>
+
+												</div>
+
+
+
 											</div>
 
-											<div class="col-md-2">
-												<div class="form-group">
-													<div class="col-md-6 item_ensayo">
-														<label for="temp">Temp m</label>
+
+
+											<div class="row"> <!-- 3er bloque de datos -->
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- humedad -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="humedad">Humedad m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="humedad_m" name="ensayo[humedad_m]" value="<%= (ensayos[index].humedad_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="humedad">Humedad t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="humedad_t" name="ensayo[humedad_t]" value="<%= (ensayos[index].humedad_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].humedad_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
 													</div>
-													<div class="col-md-6">
-														<input type="text" class="form-control" id="temp_m" name="ensayo[temp_m]" value="<%= (ensayos[index].temp_m).toFixed(1) %>" step="0.01"/>
-													</div>
+
 												</div>
-												<div class="form-group">
-													<div class="col-md-6 item_ensayo">
-														<label for="temp">Temp t</label>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- co2_interior -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="co2_interior">CO2 Int m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="co2_interior_m" name="ensayo[co2_interior_m]" value="<%= (ensayos[index].co2_interior_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="co2_interior">CO2 Int t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="co2_interior_t" name="ensayo[co2_interior_t]" value="<%= (ensayos[index].co2_interior_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].co2_interior_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
 													</div>
-													<div class="col-md-6">
-														<input type="text" class="form-control" id="temp_t" name="ensayo[temp_t]" value="<%= (ensayos[index].temp_t).toFixed(1) %>" step="0.01"/>
-													</div>
+
 												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- co2_exterior -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="co2_exterior">CO2 Ext m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="co2_exterior_m" name="ensayo[co2_exterior_m]" value="<%= (ensayos[index].co2_exterior_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="co2_exterior">CO2 Ext t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="co2_exterior_t" name="ensayo[co2_exterior_t]" value="<%= (ensayos[index].co2_exterior_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].co2_exterior_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- ecoli -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+												    		<label for="ecoli" class="col-md-6 control-label">Ecoli m</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="ecoli_m" name="ensayo[ecoli_m]">
+												    				<option value=true <%if (ensayos[index].ecoli) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].ecoli) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<div class="form-group">
+												    		<label for="ecoli" class="col-md-6 control-label">Ecoli t</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="ecoli_t" name="ensayo[ecoli_t]">
+												    				<option value=true <%if (ensayos[index].ecoli) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].ecoli) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<% if (!ensayos[index].ecoli_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- legionella -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="legionella">Legionella m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="legionella_m" name="ensayo[legionella_m]" value="<%= (ensayos[index].legionella_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="legionella">Legionella t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="legionella_t" name="ensayo[legionella_t]" value="<%= (ensayos[index].legionella_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].legionella_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- pseudomona -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+												    		<label for="pseudomona" class="col-md-6 control-label">Pseudomona m</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="pseudomona_m" name="ensayo[pseudomona_m]">
+												    				<option value=true <%if (ensayos[index].pseudomona) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].pseudomona) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<div class="form-group">
+												    		<label for="pseudomona" class="col-md-6 control-label">Pseudomona t</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="pseudomona_t" name="ensayo[pseudomona_t]">
+												    				<option value=true <%if (ensayos[index].pseudomona) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].pseudomona) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<% if (!ensayos[index].pseudomona_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
+													</div>
+
+												</div>
+
+
+
+
+
+											</div>
+
+
+											<div class="row"> <!-- 4º bloque de datos-->
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- enterococos -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+												    		<label for="enterococos" class="col-md-6 control-label">Enterococos m</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="enterococos_m" name="ensayo[enterococos_m]">
+												    				<option value=true <%if (ensayos[index].enterococos) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].enterococos) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<div class="form-group">
+												    		<label for="enterococos" class="col-md-6 control-label">Enterococos t</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="enterococos_t" name="ensayo[enterococos_t]">
+												    				<option value=true <%if (ensayos[index].enterococos) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].enterococos) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<% if (!ensayos[index].enterococos_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- staphlylococcus -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+												    		<label for="staphlylococcus" class="col-md-6 control-label">Staphlylococcus m</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="staphlylococcus_m" name="ensayo[staphlylococcus_m]">
+												    				<option value=true <%if (ensayos[index].staphlylococcus) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].staphlylococcus) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<div class="form-group">
+												    		<label for="staphlylococcus" class="col-md-6 control-label">Staphlylococcus t</label>
+												    		<div class="col-sm-6">
+												    			<select class="form-control" id="staphlylococcus_t" name="ensayo[staphlylococcus_t]">
+												    				<option value=true <%if (ensayos[index].staphlylococcus) {%> selected <%}%>>Ok</option>
+												    				<option value=false <%if (!ensayos[index].staphlylococcus) {%> selected <%}%>>Negativo</option>
+												    			</select>
+												    		</div>
+												    	</div>
+
+														<% if (!ensayos[index].staphlylococcus_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+
+													</div>
+
+												</div>
+
+
+
+												<div class="col-md-2 grupo_items_ensayo"> <!-- langelier -->
+
+													<div class="marco_item_ensayo">
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="langelier">Langelier m</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="langelier_m" name="ensayo[langelier_m]" value="<%= (ensayos[index].langelier_m).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-md-6 item_ensayo">
+																<label for="langelier">Langelier t</label>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control" id="langelier_t" name="ensayo[langelier_t]" value="<%= (ensayos[index].langelier_t).toFixed(1) %>" step="0.01"/>
+															</div>
+														</div>
+
+														<% if (!ensayos[index].langelier_cumple) {%>
+															<img class="center-block" src="/images/info4.png" alt="" />
+														<%}%>
+													</div>
+
+												</div>
+
+
+
+
 											</div>
 
 
 
+											<div class="row">
 
-											<div class="col-md-2">
-												<div class="form-group">
-													<div class="col-md-6" style="margin-top: 6px;">
-														<label for="lectura_actual">Lectura</label>
-													</div>
-													<div class="col-md-6">
-														<input type="text" class="form-control" id="lectura_actual" name="ensayo[lectura_actual]" value="<%= (ensayos[index].lectura_actual).toFixed(2) %>" step="0.01"/>
-													</div>
+												<div class="col-md-6">
+
+						                            <div class="panel-group" id="agregar-comentario" role="tablist" aria-multiselectable="true">
+
+						                                <div class="faq">
+						                                    <div class="panel-heading" role="tab" id="agregar">
+						                                        <h4 class="panel-title">
+						                                            <a id="ver-textaera" role="button" data-toggle="collapse" data-parent="#agregar-comentario" href="#<%=ensayos[index].id%>" aria-expanded="true" aria-controls="collapseOne">
+																		<% if (!ensayos[index].texto) { %>
+																			<i class="fa fa-plus"></i> Añadir comentarios
+																		<%} else {%>
+																			<i class="fa fa-arrow-down"></i> Ver comentarios
+
+																		<%}%>
+
+
+						                                            </a>
+						                                        </h4>
+						                                    </div>
+						                                    <div id="<%=ensayos[index].id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="agregar">
+						                                        <div class="panel-body">
+
+						                                            <div class="form-group">
+
+						                			    				<textarea class="form-control comment-row" rows="5" name="ensayo[texto]"><%=ensayos[index].texto%></textarea>
+
+						                							</div>
+
+						                                        </div>
+						                                    </div>
+						                                </div>
+
+						                            </div>
 												</div>
+
+
 											</div>
 
 
-
-											<div class="col-md-12">
-
-					                            <div class="panel-group" id="agregar-comentario" role="tablist" aria-multiselectable="true">
-
-					                                <div class="faq">
-					                                    <div class="panel-heading" role="tab" id="agregar">
-					                                        <h4 class="panel-title">
-					                                            <a id="ver-textaera" role="button" data-toggle="collapse" data-parent="#agregar-comentario" href="#<%=ensayos[index].id%>" aria-expanded="true" aria-controls="collapseOne">
-																	<% if (!ensayos[index].texto) { %>
-																		<i class="fa fa-plus"></i> Añadir comentarios
-																	<%} else {%>
-																		<i class="fa fa-arrow-down"></i> Ver comentarios
-
-																	<%}%>
-
-
-					                                            </a>
-					                                        </h4>
-					                                    </div>
-					                                    <div id="<%=ensayos[index].id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="agregar">
-					                                        <div class="panel-body">
-
-					                                            <div class="form-group">
-
-					                			    				<textarea class="form-control comment-row" rows="5" name="ensayo[texto]"><%=ensayos[index].texto%></textarea>
-
-					                							</div>
-
-					                                        </div>
-					                                    </div>
-					                                </div>
-
-					                            </div>
-											</div>
 
 											<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Enviar</button>
 

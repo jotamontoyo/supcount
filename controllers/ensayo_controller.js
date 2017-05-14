@@ -37,49 +37,8 @@
 		}).catch(function(error){next(error)});
 	};
 
-/*	exports.new = function(req, res) {	//********** se elimina porque se crean con el quiz segun los contadores creados en la tabla Contador	// GET /quizes/:quizId/comments/new, baja el formulario /views/comment.ejs
-		res.render('comments/new.ejs', {quizid: req.params.quizId, errors: []}); 			// renderiza la vista comments/new del quiz -->> quizid: req.params.quizId
-	};
-
-	exports.create = function(req, res, next) {													// POST /quizes/:quizId/comments
-		if (req.body.comment.texto) {
-			var comment = models.Comment.build({												// construccion objeto comment para lugego introducir en la tabla
-				texto: req.body.comment.texto,													// texto que llega del formulario
-				QuizId: req.params.quizId														// al comment se le pasa el quizId del quiz para establecer la integridad referencial entre Quiz y Comment. indice secundario de Comment
-			});
-			var errors = comment.validate();
-			if (errors) {
-				var i = 0;
-				var errores = new Array();
-				for (var prop in errors) errores[i++] = {message: errors[prop]};
-				res.render('comments/new', {comment: comment, errors: errores});
-			} else {
-				comment 																		// save: guarda en DB campos pregunta y respuesta de quiz
-				.save()
-				.then(function() {res.redirect('/quizes/' + req.params.quizId)});
-			};
-		} else {
-			next(new Error('Introuzca un texto'));
-		};
-	}; */
 
 
-
-/*	exports.edit = function(req, res) {															// carga formulario
-
-		console.log('edit..............:' + req.quiz.comments)
-
-			res.render('comments/edit', {
-				quiz: req.quiz,
-				comment: req.quiz.comments,
-				errors: []
-			});
-
-
-
-
-
-	}; */
 
 
 
@@ -91,17 +50,90 @@
 
 		req.ensayo.ph_m = req.body.ensayo.ph_m;
 		req.ensayo.ph_t = req.body.ensayo.ph_t;
+		if ((req.ensayo.ph_m > req.ensayo.ph_max) ||
+			(req.ensayo.ph_m < req.ensayo.ph_min) ||
+			(req.ensayo.ph_t > req.ensayo.ph_max) ||
+			(req.ensayo.ph_t < req.ensayo.ph_min)) {
+				req.ensayo.ph_cumple = false;
+		} else {
+			req.ensayo.ph_cumple = true;
+		};
+
 		req.ensayo.redox_m = req.body.ensayo.redox_m;
 		req.ensayo.redox_t = req.body.ensayo.redox_t;
+		if ((req.ensayo.redox_m > req.ensayo.redox_max) ||
+			(req.ensayo.redox_m < req.ensayo.redox_min) ||
+			(req.ensayo.redox_t > req.ensayo.redox_max) ||
+			(req.ensayo.redox_t < req.ensayo.redox_min)) {
+				req.ensayo.redox_cumple = false;
+		} else {
+			req.ensayo.redox_cumple = true;
+		};
+
 		req.ensayo.temp_m = req.body.ensayo.temp_m;
 		req.ensayo.temp_t = req.body.ensayo.temp_t;
+		if ((req.ensayo.temp_m > req.ensayo.temp_max) ||
+			(req.ensayo.temp_m < req.ensayo.temp_min) ||
+			(req.ensayo.temp_t > req.ensayo.temp_max) ||
+			(req.ensayo.temp_t < req.ensayo.temp_min)) {
+				req.ensayo.temp_cumple = false;
+		} else {
+			req.ensayo.temp_cumple = true;
+		};
 
-		req.ensayo.lectura_actual = req.body.ensayo.lectura_actual;
+		req.ensayo.recirculacion_m = req.body.ensayo.recirculacion_m;
+		req.ensayo.recirculacion_t = req.body.ensayo.recirculacion_t;
+		if ((req.ensayo.recirculacion_m > req.ensayo.recirculacion_max) ||
+			(req.ensayo.recirculacion_m < req.ensayo.recirculacion_min) ||
+			(req.ensayo.recirculacion_t > req.ensayo.recirculacion_max) ||
+			(req.ensayo.recirculacion_t < req.ensayo.recirculacion_min)) {
+				req.ensayo.recirculacion_cumple = false;
+		} else {
+			req.ensayo.recirculacion_cumple = true;
+		};
+
+		req.ensayo.transparencia_m = req.body.ensayo.transparencia_m;
+		req.ensayo.transparencia_t = req.body.ensayo.transparencia_t;
+		if ((req.ensayo.transparencia_m != req.ensayo.transparencia) ||
+			(req.ensayo.transparencia_t != req.ensayo.transparencia)) {
+				req.ensayo.transparencia_cumple = false;
+		} else {
+			req.ensayo.transparencia_cumple = true;
+		};
+
+		req.ensayo.lectura_m = req.body.ensayo.lectura_m;
+		req.ensayo.lectura_t = req.body.ensayo.lectura_t;
+
+		req.ensayo.extranios_m = req.body.ensayo.extranios_m;
+		req.ensayo.extranios_t = req.body.ensayo.extranios_t;
+		if ((req.ensayo.extranios_m != req.ensayo.extranios) ||
+			(req.ensayo.extranios_t != req.ensayo.extranios)) {
+				req.ensayo.extranios_cumple = false;
+		} else {
+			req.ensayo.extranios_cumple = true;
+		};
+
+		req.ensayo.turbidez_m = req.body.ensayo.turbidez_m;
+		req.ensayo.turbidez_t = req.body.ensayo.turbidez_t;
+		if ((req.ensayo.turbidez_m > req.ensayo.turbidez_max) ||
+			(req.ensayo.turbidez_m < req.ensayo.turbidez_min) ||
+			(req.ensayo.turbidez_t > req.ensayo.turbidez_max) ||
+			(req.ensayo.turbidez_t < req.ensayo.turbidez_min)) {
+				req.ensayo.turbidez_cumple = false;
+		} else {
+			req.ensayo.turbidez_cumple = true;
+		};
+
+
+
+
 
 		req.ensayo.texto = req.body.ensayo.texto;
 
 		req.ensayo.save()
-			.then(function() {res.redirect('/siloes/' + req.params.siloeId);})
+			.then(function() {
+				res.redirect('/siloes/' + req.params.siloeId);
+			})
 			.catch(function(error) {next(error)});
 
 

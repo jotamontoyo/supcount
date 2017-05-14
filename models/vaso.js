@@ -15,10 +15,10 @@
                 type: DataTypes.STRING
             },
 
-/*            capacidad: {               activar cuando nueva DB
+            capacidad: {
                 type: DataTypes.FLOAT,
                 defaultValue: 0.0
-            }, */
+            },
 
 
 

@@ -972,7 +972,7 @@
 
 	#siloes_index {
 
-		max-width: 900px;
+		max-width: 1200px;
 	}
 
 	#siloes_index img {
@@ -984,13 +984,19 @@
 
 	.ensayo-panel {
 
-		min-height: 340px;
+
+
 		margin-bottom: 20px;
 		padding-bottom: 10px;
 
 
-		border: 		1px solid #D8D8D8;
+
+
 		font-size: 14px;
+
+		background-color: #3d4045;
+
+		color: #848484;
 
 
 	}
@@ -998,13 +1004,46 @@
 
 	.ensayo-panel input {
 
-		font-size: 12px;
+
 	}
+
+
+	.ensayo-panel input, .ensayo-panel textarea {
+
+
+		font-size: 12px;
+		color: white;
+		border-color: rgba(255, 255, 255, 0.05);
+
+    	background-color: rgba(255, 255, 255, 0.03);
+
+	}
+
+
+	.grupo_items_ensayo {
+
+
+
+	}
+
+
+
+	.marco_item_ensayo {
+
+		min-height: 160px;
+		margin-bottom: 30px;
+		padding: 10px;
+		border:	1px solid #585858;
+		border-radius: 5px;
+		font-size: 12px;
+
+	}
+
 
 
 	.item_ensayo {
 
-		margin-top: 6px;
+
 
 		text-align: right;
 

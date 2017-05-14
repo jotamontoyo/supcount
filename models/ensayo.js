@@ -27,6 +27,10 @@
 			ubicacion: {
                 type: DataTypes.STRING
             },
+			capacidad: {
+				type: DataTypes.FLOAT
+			},
+
 
 
 
@@ -44,6 +48,9 @@
             ph_t: {
                 type: DataTypes.FLOAT
             },
+			ph_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
             redox_max: {
@@ -58,6 +65,9 @@
             redox_t: {
                 type: DataTypes.FLOAT
             },
+			redox_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -74,6 +84,9 @@
             temp_t: {
                 type: DataTypes.FLOAT
             },
+			temp_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -87,6 +100,10 @@
             recirculacion_t: {
                 type: DataTypes.FLOAT
             },
+			recirculacion_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+
 
 
 
@@ -99,6 +116,9 @@
             transparencia_t: {
                 type: DataTypes.BOOLEAN
             },
+			transparencia_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -113,6 +133,9 @@
             extranios_t: {
                 type: DataTypes.BOOLEAN
             },
+			extranios_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -120,12 +143,15 @@
             turbidez_max: {
                 type: DataTypes.FLOAT
             },
-            turbidez_max_m: {
+            turbidez_m: {
                 type: DataTypes.FLOAT
             },
-            turbidez_max_t: {
+            turbidez_t: {
                 type: DataTypes.FLOAT
             },
+			turbidez_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -133,12 +159,15 @@
             isocianuro_max: {
                 type: DataTypes.FLOAT
             },
-            isocianuro_max_m: {
+            isocianuro_m: {
                 type: DataTypes.FLOAT
             },
-            isocianuro_max_t: {
+            isocianuro_t: {
                 type: DataTypes.FLOAT
             },
+			isocianuro_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -155,6 +184,9 @@
             bromo_t: {
                 type: DataTypes.FLOAT
             },
+			bromo_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -170,6 +202,9 @@
             cloro_t: {
                 type: DataTypes.FLOAT
             },
+			cloro_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -177,27 +212,33 @@
             cloro_combinado_max: {
                 type: DataTypes.FLOAT
             },
-            cloro_combinado_max_m: {
+            cloro_combinado_m: {
                 type: DataTypes.FLOAT
             },
-            cloro_combinado_max_t: {
+            cloro_combinado_t: {
                 type: DataTypes.FLOAT
             },
+			cloro_combinado_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
             humedad_max: {
                 type: DataTypes.FLOAT
             },
-            humedad_max_m: {
+            humedad_m: {
                 type: DataTypes.FLOAT
             },
-            humedad_max_t: {
+            humedad_t: {
                 type: DataTypes.FLOAT
             },
+			humedad_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
-            co2_interior: {
+            co2_interior_max: {
                 type: DataTypes.FLOAT
             },
             co2_interior_m: {
@@ -206,7 +247,12 @@
             co2_interior_t: {
                 type: DataTypes.FLOAT
             },
-            co2_exterior: {
+			co2_interior_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+
+
+            co2_exterior_max: {
                 type: DataTypes.FLOAT
             },
             co2_exterior_m: {
@@ -215,6 +261,9 @@
             co2_exterior_t: {
                 type: DataTypes.FLOAT
             },
+			co2_exterior_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
             ecoli: {
@@ -226,18 +275,24 @@
             ecoli_t: {
                 type: DataTypes.BOOLEAN
             },
+			ecoli_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
             legionella_max: {
                 type: DataTypes.FLOAT
             },
-            legionella_max_m: {
+            legionella_m: {
                 type: DataTypes.FLOAT
             },
-            legionella_max_t: {
+            legionella_t: {
                 type: DataTypes.FLOAT
             },
+			legionella_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -250,6 +305,9 @@
             pseudomona_t: {
                 type: DataTypes.BOOLEAN
             },
+			pseudomona_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -262,6 +320,9 @@
             enterococos_t: {
                 type: DataTypes.BOOLEAN
             },
+			enterococos_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -274,6 +335,9 @@
             staphlylococcus_t: {
                 type: DataTypes.BOOLEAN
             },
+			staphlylococcus_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -289,6 +353,9 @@
             langelier_t: {
                 type: DataTypes.FLOAT
             },
+			langelier_cumple: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 			// *****************
@@ -296,9 +363,16 @@
 
 
 
-            lectura_actual: {						// lectura contador recirculacion
+            lectura_m: {						// lectura contador recirculacion
                 type: DataTypes.FLOAT
             },
+            lectura_t: {						// lectura contador recirculacion
+                type: DataTypes.FLOAT
+            },
+			lectura_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+
 
 
 			cumple: {
