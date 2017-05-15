@@ -991,12 +991,11 @@
 
 
 
-
+		border: 1px solid #D8D8D8;
 		font-size: 14px;
 
-		background-color: #3d4045;
-
-		color: #848484;
+/*		background-color: #3d4045;
+		color: #848484; */
 
 
 	}
@@ -1012,10 +1011,9 @@
 
 
 		font-size: 12px;
-		color: white;
+/*		color: white;
 		border-color: rgba(255, 255, 255, 0.05);
-
-    	background-color: rgba(255, 255, 255, 0.03);
+    	background-color: rgba(255, 255, 255, 0.03); */
 
 	}
 

@@ -92,26 +92,47 @@
 			req.ensayo.recirculacion_cumple = true;
 		};
 
+
+
+
+
 		req.ensayo.transparencia_m = req.body.ensayo.transparencia_m;
 		req.ensayo.transparencia_t = req.body.ensayo.transparencia_t;
-		if ((req.ensayo.transparencia_m != req.ensayo.transparencia) ||
-			(req.ensayo.transparencia_t != req.ensayo.transparencia)) {
-				req.ensayo.transparencia_cumple = false;
-		} else {
+		if (!req.ensayo.transparencia_m || !req.ensayo.transparencia_t) {
+			req.ensayo.transparencia_cumple = false;
+		};
+		if (req.ensayo.transparencia_m && req.ensayo.transparencia_t) {
 			req.ensayo.transparencia_cumple = true;
 		};
+		console.log('transparencia:  ' + req.ensayo.transparencia);
+		console.log('transparencia m:  ' + req.ensayo.transparencia_m);
+		console.log('transparencia t:  ' + req.ensayo.transparencia_t);
+
+
 
 		req.ensayo.lectura_m = req.body.ensayo.lectura_m;
 		req.ensayo.lectura_t = req.body.ensayo.lectura_t;
 
+
+
+
+
+
 		req.ensayo.extranios_m = req.body.ensayo.extranios_m;
 		req.ensayo.extranios_t = req.body.ensayo.extranios_t;
-		if ((req.ensayo.extranios_m != req.ensayo.extranios) ||
-			(req.ensayo.extranios_t != req.ensayo.extranios)) {
-				req.ensayo.extranios_cumple = false;
+		if ((req.ensayo.extranios_m === req.ensayo.extranios) &&
+			(req.ensayo.extranios_t === req.ensayo.extranios)) {
+				req.ensayo.extranios_cumple = true;
 		} else {
-			req.ensayo.extranios_cumple = true;
+			req.ensayo.extranios_cumple = false;
 		};
+
+
+
+
+
+
+
 
 		req.ensayo.turbidez_m = req.body.ensayo.turbidez_m;
 		req.ensayo.turbidez_t = req.body.ensayo.turbidez_t;
@@ -122,6 +143,109 @@
 				req.ensayo.turbidez_cumple = false;
 		} else {
 			req.ensayo.turbidez_cumple = true;
+		};
+
+		req.ensayo.isocianuro_m = req.body.ensayo.isocianuro_m;
+		req.ensayo.isocianuro_t = req.body.ensayo.isocianuro_t;
+		if ((req.ensayo.isocianuro_m > req.ensayo.isocianuro_max) ||
+			(req.ensayo.isocianuro_m < req.ensayo.isocianuro_min) ||
+			(req.ensayo.isocianuro_t > req.ensayo.isocianuro_max) ||
+			(req.ensayo.isocianuro_t < req.ensayo.isocianuro_min)) {
+				req.ensayo.isocianuro_cumple = false;
+		} else {
+			req.ensayo.isocianuro_cumple = true;
+		};
+
+		req.ensayo.bromo_m = req.body.ensayo.bromo_m;
+		req.ensayo.bromo_t = req.body.ensayo.bromo_t;
+		if ((req.ensayo.bromo_m > req.ensayo.bromo_max) ||
+			(req.ensayo.bromo_m < req.ensayo.bromo_min) ||
+			(req.ensayo.bromo_t > req.ensayo.bromo_max) ||
+			(req.ensayo.bromo_t < req.ensayo.bromo_min)) {
+				req.ensayo.bromo_cumple = false;
+		} else {
+			req.ensayo.bromo_cumple = true;
+		};
+
+		req.ensayo.cloro_m = req.body.ensayo.cloro_m;
+		req.ensayo.cloro_t = req.body.ensayo.cloro_t;
+		if ((req.ensayo.cloro_m > req.ensayo.cloro_max) ||
+			(req.ensayo.cloro_m < req.ensayo.cloro_min) ||
+			(req.ensayo.cloro_t > req.ensayo.cloro_max) ||
+			(req.ensayo.cloro_t < req.ensayo.cloro_min)) {
+				req.ensayo.cloro_cumple = false;
+		} else {
+			req.ensayo.cloro_cumple = true;
+		};
+
+		req.ensayo.cloro_combinado_m = req.body.ensayo.cloro_combinado_m;
+		req.ensayo.cloro_combinado_t = req.body.ensayo.cloro_combinado_t;
+		if ((req.ensayo.cloro_combinado_m > req.ensayo.cloro_combinado_max) || (req.ensayo.cloro_combinado_t > req.ensayo.cloro_combinado_max)) {
+				req.ensayo.cloro_combinado_cumple = false;
+		} else {
+			req.ensayo.cloro_combinado_cumple = true;
+		};
+
+		req.ensayo.humedad_m = req.body.ensayo.humedad_m;
+		req.ensayo.humedad_t = req.body.ensayo.humedad_t;
+		if ((req.ensayo.humedad_m > req.ensayo.humedad_max) || (req.ensayo.humedad_t > req.ensayo.humedad_max)) {
+				req.ensayo.humedad_cumple = false;
+		} else {
+			req.ensayo.humedad_cumple = true;
+		};
+
+		req.ensayo.co2_interior_m = req.body.ensayo.co2_interior_m;
+		req.ensayo.co2_interior_t = req.body.ensayo.co2_interior_t;
+		if ((req.ensayo.co2_interior_m > req.ensayo.co2_interior_max) || (req.ensayo.co2_interior_t > req.ensayo.co2_interior_max)) {
+				req.ensayo.co2_interior_cumple = false;
+		} else {
+			req.ensayo.co2_interior_cumple = true;
+		};
+
+		req.ensayo.co2_exterior_m = req.body.ensayo.co2_exterior_m;
+		req.ensayo.co2_exterior_t = req.body.ensayo.co2_exterior_t;
+		if ((req.ensayo.co2_exterior_m > req.ensayo.co2_exterior_max) || (req.ensayo.co2_exterior_t > req.ensayo.co2_exterior_max)) {
+				req.ensayo.co2_exterior_cumple = false;
+		} else {
+			req.ensayo.co2_exterior_cumple = true;
+		};
+
+
+
+
+// faltan campos desplegables aqui
+
+
+
+
+
+
+		req.ensayo.legionella_m = req.body.ensayo.legionella_m;
+		req.ensayo.legionella_t = req.body.ensayo.legionella_t;
+		if ((req.ensayo.legionella_m > req.ensayo.legionella_max) || (req.ensayo.legionella_t > req.ensayo.legionella_max)) {
+				req.ensayo.legionella_cumple = false;
+		} else {
+			req.ensayo.legionella_cumple = true;
+		};
+
+
+
+// faltan campos desplegables aqui
+
+
+
+
+
+
+		req.ensayo.langelier_m = req.body.ensayo.langelier_m;
+		req.ensayo.langelier_t = req.body.ensayo.langelier_t;
+		if ((req.ensayo.langelier_m > req.ensayo.langelier_max) ||
+			(req.ensayo.langelier_m < req.ensayo.langelier_min) ||
+			(req.ensayo.langelier_t > req.ensayo.langelier_max) ||
+			(req.ensayo.langelier_t < req.ensayo.langelier_min)) {
+				req.ensayo.langelier_cumple = false;
+		} else {
+			req.ensayo.langelier_cumple = true;
 		};
 
 
