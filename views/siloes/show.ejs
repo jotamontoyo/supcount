@@ -222,9 +222,18 @@
 												    		</div>
 												    	</div>
 
-														<% if (!ensayos[index].transparencia_cumple) {%>
+
+
+														<% if ((ensayos[index].transparencia_m  !== ensayos[index].transparencia)  ||
+																(ensayos[index].transparencia_t !== ensayos[index].transparencia)) { %>
+
 															<img class="center-block" src="/images/info4.png" alt="" />
+
+
 														<%}%>
+
+														<h6><%= ensayos[index].transparencia_cumple %></h6>
+
 
 													</div>
 

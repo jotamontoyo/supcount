@@ -98,15 +98,31 @@
 
 		req.ensayo.transparencia_m = req.body.ensayo.transparencia_m;
 		req.ensayo.transparencia_t = req.body.ensayo.transparencia_t;
-		if (!req.ensayo.transparencia_m || !req.ensayo.transparencia_t) {
-			req.ensayo.transparencia_cumple = false;
+
+		if ((req.ensayo.transparencia_m !== req.ensayo.transparencia) ||
+			(req.ensayo.transparencia_t !== req.ensayo.transparencia)) {
+
+				req.ensayo.transparencia_cumple = false;
+
 		};
-		if (req.ensayo.transparencia_m && req.ensayo.transparencia_t) {
-			req.ensayo.transparencia_cumple = true;
+
+		if ((req.ensayo.transparencia_m === req.ensayo.transparencia) &&
+			(req.ensayo.transparencia_t === req.ensayo.transparencia)) {
+
+				req.ensayo.transparencia_cumple = true;
+
 		};
-		console.log('transparencia:  ' + req.ensayo.transparencia);
+
+
+
+		console.log('transparencia flag:  ' + req.ensayo.transparencia);
+		console.log('transparencia cumple:  ' + req.ensayo.transparencia_cumple);
 		console.log('transparencia m:  ' + req.ensayo.transparencia_m);
 		console.log('transparencia t:  ' + req.ensayo.transparencia_t);
+
+
+
+
 
 
 
@@ -120,12 +136,18 @@
 
 		req.ensayo.extranios_m = req.body.ensayo.extranios_m;
 		req.ensayo.extranios_t = req.body.ensayo.extranios_t;
-		if ((req.ensayo.extranios_m === req.ensayo.extranios) &&
-			(req.ensayo.extranios_t === req.ensayo.extranios)) {
-				req.ensayo.extranios_cumple = true;
-		} else {
+
+		if ((req.ensayo.extranios_m == false) && (req.ensayo.extranios_t == false)) {
+			req.ensayo.extranios_cumple = true;
+			console.log('extranios_cumple:  ' + req.ensayo.extranios_cumple);
+		};
+
+		if ((req.ensayo.extranios_m == true) || (req.ensayo.extranios_t == true)) {
 			req.ensayo.extranios_cumple = false;
 		};
+
+
+
 
 
 
@@ -254,7 +276,8 @@
 
 		req.ensayo.texto = req.body.ensayo.texto;
 
-		req.ensayo.save()
+		req.ensayo
+			.save()
 			.then(function() {
 				res.redirect('/siloes/' + req.params.siloeId);
 			})
