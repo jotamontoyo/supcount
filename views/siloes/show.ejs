@@ -97,6 +97,7 @@
 															<img class="center-block" src="/images/info4.png" alt="" />
 														<%}%>
 
+
 													</div>
 
 												</div>
@@ -202,6 +203,8 @@
 
 													<div class="marco_item_ensayo">
 
+													<!-- 	<input type="text" class="form-control hidden" id="transparencia_cumple" name="ensayo[transparencia_cumple]" value="<%= ensayos[index].transparencia_cumple %>" /></h5> -->
+
 														<div class="form-group">
 												    		<label for="transparencia" class="col-md-6 control-label">Transp m</label>
 												    		<div class="col-sm-6">
@@ -301,9 +304,15 @@
 												    		</div>
 												    	</div>
 
-														<% if (!ensayos[index].extranios_cumple) {%>
+														<% if ((ensayos[index].extranios_m  !== ensayos[index].extranios)  ||
+																(ensayos[index].extranios_t !== ensayos[index].extranios)) { %>
+
 															<img class="center-block" src="/images/info4.png" alt="" />
+
+
 														<%}%>
+
+														<h6><%= ensayos[index].extranios_cumple %></h6>
 
 													</div>
 

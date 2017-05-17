@@ -504,7 +504,7 @@
 
 
 
-	exports.destroy = function(req, res, next) {
+	exports.destroy = function(req, res, next) {    // ojo no borra detalles. corregir ***************************************************** 
 		req.siloe.destroy().then(function() {
 			for (var i in req.siloe.ensayos) {
 				req.siloe.ensayos[i].destroy();

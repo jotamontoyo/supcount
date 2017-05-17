@@ -95,7 +95,7 @@
 
 
 
-
+		req.ensayo.transparencia_cumple = req.body.ensayo.transparencia_cumple;
 		req.ensayo.transparencia_m = req.body.ensayo.transparencia_m;
 		req.ensayo.transparencia_t = req.body.ensayo.transparencia_t;
 
@@ -112,8 +112,6 @@
 				req.ensayo.transparencia_cumple = true;
 
 		};
-
-
 
 		console.log('transparencia flag:  ' + req.ensayo.transparencia);
 		console.log('transparencia cumple:  ' + req.ensayo.transparencia_cumple);
@@ -137,13 +135,18 @@
 		req.ensayo.extranios_m = req.body.ensayo.extranios_m;
 		req.ensayo.extranios_t = req.body.ensayo.extranios_t;
 
-		if ((req.ensayo.extranios_m == false) && (req.ensayo.extranios_t == false)) {
-			req.ensayo.extranios_cumple = true;
-			console.log('extranios_cumple:  ' + req.ensayo.extranios_cumple);
+		if ((req.ensayo.extranios_m !== req.ensayo.extranios) ||
+			(req.ensayo.extranios_t !== req.ensayo.extranios)) {
+
+				req.ensayo.extranios_cumple = false;
+
 		};
 
-		if ((req.ensayo.extranios_m == true) || (req.ensayo.extranios_t == true)) {
-			req.ensayo.extranios_cumple = false;
+		if ((req.ensayo.extranios_m === req.ensayo.extranios) &&
+			(req.ensayo.extranios_t === req.ensayo.extranios)) {
+
+				req.ensayo.extranios_cumple = true;
+
 		};
 
 
