@@ -3,6 +3,10 @@
 	process.env.DATABASE_STORAGE = "quiz.sqlite";
 	process.env.PASSWORD_ENCRYPTION_KEY= "asdfghjklzxcvbnmqwertyuiop"
 
+	process.env.SENDGRID_API_KEY = "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";
+	process.env.SENDGRID_PASSWORD = "x7rvlfio9243";
+	process.env.SENDGRID_USERNAME = "app66046690@heroku.com";
+
 	var express = require('express');
 	var busboy = require('connect-busboy'); //middleware for form/file upload
 	var path = require('path');

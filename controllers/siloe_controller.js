@@ -292,8 +292,7 @@
 
 		        }).then(function(vasos) {
 
-					for (let i in vasos) {											// crea tantas ensayos como Vasos
-
+					for (let i in vasos) {										// crea tantas ensayos como Vasos
 
 						var ensayo = models.Ensayo.build({						// se crea en ensayo
 
@@ -430,11 +429,45 @@
 						} else {
 							ensayo 																		// save: guarda en DB campos pregunta y respuesta de quiz
 							.save()
-							.then(function() {res.redirect('/siloes')});
+							.then(function() {
+//								res.redirect('/siloes');
+							});
 						};
 
 					};
 
+				});
+
+				// using SendGrid's v3 Node.js Library
+				// https://github.com/sendgrid/sendgrid-nodejs
+				var helper = require('sendgrid').mail;
+				var fromEmail = new helper.Email('jotamontoyo@gmail.com');
+				var toEmail = new helper.Email('jotamontoyo@gmail.com');
+				var subject = 'Sending with SendGrid is Fun';
+				var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js');
+				var mail = new helper.Mail(fromEmail, subject, toEmail, content);
+
+				var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+				var request = sg.emptyRequest({
+					method: 'POST',
+				  	path: '/v3/mail/send',
+				  	body: mail.toJSON(),
+					template: [
+						{
+							id: "b1a4d073-26ed-4f77-beff-89c601493068",
+							default_version_id: "",
+							name: "Aviso_parte_siloe"
+						}
+					]
+				});
+
+				sg.API(request, function (error, response) {
+					if (error) {
+				    	console.log('Error response received');
+					};
+					console.log(response.statusCode);
+					console.log(response.body);
+				  	console.log(response.headers);
 				});
 
 				res.redirect('/siloes');
@@ -504,7 +537,7 @@
 
 
 
-	exports.destroy = function(req, res, next) {    // ojo no borra detalles. corregir ***************************************************** 
+	exports.destroy = function(req, res, next) {    // ojo no borra detalles. corregir *****************************************************
 		req.siloe.destroy().then(function() {
 			for (var i in req.siloe.ensayos) {
 				req.siloe.ensayos[i].destroy();
