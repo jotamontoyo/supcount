@@ -324,7 +324,7 @@
 							} else {
 								comment 																		// save: guarda en DB campos pregunta y respuesta de quiz
 								.save()
-								.then(function() {res.redirect('/quizes')});
+								.then(function() {});
 							};
 
 						});

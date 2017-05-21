@@ -35,6 +35,7 @@
 			</div>
 
 
+
 			<div class="form-group">
 				<label for="centro" class="col-sm-3 control-label">Centro:</label>
 				<div class="col-sm-9">
@@ -50,7 +51,9 @@
 		<%} else {%>
 
 			<% user.centro = session.user.centro %>
+
 			<input type="text" class="form-control hidden" id="centro" name="user[centro]" value="<%= user.centro %>"/>
+<!--			<input type="text" class="form-control hidden" id="isAdmin" name="user[isAdmin]" value="<%= user.isAdmin %>"/> -->
 
 		<%}%>
 

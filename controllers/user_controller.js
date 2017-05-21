@@ -14,17 +14,18 @@
 
 	// Autoload :id
 	exports.load = function(req, res, next, userId) {
-	  models.User.find({
-	            where: {
-	                id: Number(userId)
-	            }
-	        }).then(function(user) {
-	      if (user) {
-	        req.user = user;
-	        next();
-	      } else{next(new Error('No existe userId=' + userId))}
-	    }
-	  ).catch(function(error){next(error)});
+
+//		console.log('userId.......: ' + userId);
+
+	  	models.User.find({
+	        where: {id: Number(userId)}
+	    }).then(function(user) {
+	    	if (user) {
+				console.log('isAdmin.......: ' + user.isAdmin);
+	        	req.user = user;
+	        	next();
+	      	} else{next(new Error('No existe userId=' + userId))}
+	    }).catch(function(error){next(error)});
 	};
 
 	// Comprueba si el usuario esta registrado en users
@@ -139,13 +140,18 @@
 	};
 
 	exports.update = function(req, res, next) {								// PUT /user/:id
+
 		req.user.username  = req.body.user.username;
 	  	req.user.password  = req.body.user.password;
-		if (req.body.user.isAdmin) {
+
+/*		if (req.body.user.isAdmin) {
 			req.user.isAdmin  = true;
-		} else {
+		} else if (!req.body.user.isAdmin) {
 			req.user.isAdmin  = false;
-		};
+		}; */
+
+		console.log('isAdmin........: ' + req.body.user.isAdmin);
+
 	  	req.user.centro  = req.body.user.centro;
 	  	var errors = req.user.validate();											// objeto errors no tiene then(
 		if (errors) {

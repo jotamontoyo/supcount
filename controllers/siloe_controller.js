@@ -430,12 +430,14 @@
 						} else {
 							ensayo 																		// save: guarda en DB campos pregunta y respuesta de quiz
 							.save()
-							.then(function() {res.redirect('/siloes')});
+							.then(function() {});
 						};
 
 					};
 
 				});
+
+				
 
 				res.redirect('/siloes');
 
@@ -504,7 +506,7 @@
 
 
 
-	exports.destroy = function(req, res, next) {    // ojo no borra detalles. corregir ***************************************************** 
+	exports.destroy = function(req, res, next) {    // ojo no borra detalles. corregir *****************************************************
 		req.siloe.destroy().then(function() {
 			for (var i in req.siloe.ensayos) {
 				req.siloe.ensayos[i].destroy();
