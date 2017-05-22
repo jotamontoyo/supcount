@@ -55,7 +55,7 @@
 						<% if (siloes[i].proceso) {%>
 							<td class="text-center"><span class="" aria-hidden="true"></span></td>
 						<%} else {%>
-							<td class="text-center"><img src="/images/check.png" /></td>
+							<td class="text-center"><i class="fa fa-check"></i></td>
 						<%}%>
 <!--						<td><%= siloes[i].proveedor %></td>
 						<td><%= siloes[i].pregunta %></td> -->
@@ -65,7 +65,7 @@
 									<img src="/images/edit3.png" style="width: 20px;"/>
 								</a></td>
 								<td style="width:40px">
-									<form method="post" action="siloes/<%= siloes[i].id %>/destroy?_method=delete">
+									<form method="post" action="/siloes/<%= siloes[i].id %>/destroy?_method=delete">
 										<button class="btn btn-danger btn-xs" type="submit" onClick="return confirm('Borrar el Parte de fecha: <%= siloes[i].dia %>-<%= siloes[i].mes %>-<%= siloes[i].anio %>');">
 											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 										</button>

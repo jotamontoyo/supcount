@@ -106,9 +106,9 @@
 			};
 	  	};
 
-	  	models.Quiz.findAll(options).then(					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id
-	    	function(quizes) {
-	      		res.render('quizes/index.ejs', {quizes: quizes, errors: []});
+	  	models.Siloe.findAll(options).then(					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id
+	    	function(siloes) {
+	      		res.render('siloes/index.ejs', {siloes: siloes, errors: []});
 	    	}
 	  	).catch(function(error){next(error)});
 
@@ -131,7 +131,7 @@
 			anio: fecha.getUTCFullYear()
 		};
 
-		res.render('quizes/resumen_index', {resumen: resumen, errors: []});
+		res.render('siloes/resumen_index', {resumen: resumen, errors: []});
 
 	};
 
@@ -437,7 +437,7 @@
 
 				});
 
-				
+
 
 				res.redirect('/siloes');
 
@@ -495,7 +495,38 @@
 		} else {
 			req.siloe 															// save: guarda en DB campos pregunta y respuesta de siloe
 			.save()
-			.then(function() {res.redirect('/siloes')});
+			.then(function() {
+
+				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra
+
+					var helper = require('sendgrid').mail;
+					var fromEmail = new helper.Email('jotamontoyo@gmail.com');
+					var toEmail = new helper.Email('jotamontoyo@gmail.com');
+					var subject = 'Sending with SendGrid is Fun';
+					var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js');
+					var mail = new helper.Mail(fromEmail, subject, toEmail, content);
+
+					var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+					var request = sg.emptyRequest({
+						method: 'POST',
+						path: '/v3/mail/send',
+						body: mail.toJSON()
+					});
+
+					sg.API(request, function (error, response) {
+						if (error) {
+							console.log('Error response received');
+						};
+						console.log(response.statusCode);
+						console.log(response.body);
+						console.log(response.headers);
+					});
+
+				};
+
+				res.redirect('/siloes');
+
+			});
 		};
 	};
 
