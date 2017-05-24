@@ -50,6 +50,9 @@
                 centro: {
                     type: DataTypes.STRING,
                     validate: {notEmpty: {msg: "-> Falta centro"}}
+                },
+                email: {
+                    type: DataTypes.STRING
                 }
             },
             {

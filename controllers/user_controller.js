@@ -90,7 +90,7 @@
 
 	exports.new = function(req, res) {										// GET /user
 	    var user = models.User.build( 										// crea objeto user
-	        {username: "", password: "", isAdmin: false, centro: ""}
+	        {username: "", password: "", email: "", isAdmin: false, centro: ""}
 	    );
 
 		models.Centro.findAll().then(function(centros) {
@@ -117,7 +117,7 @@
 			res.render('user/new', {user: user, errors: errores});
 		} else {
 			user 																// save: guarda en DB campos pregunta y respuesta de quiz
-			.save({fields: ["username", "password", "isAdmin", "centro"]})
+			.save({fields: ["username", "password", "email", "isAdmin", "centro"]})
 			.then(function() {res.redirect('/user')});
 		};
 	};
@@ -143,6 +143,7 @@
 
 		req.user.username  = req.body.user.username;
 	  	req.user.password  = req.body.user.password;
+	  	req.user.email  = req.body.user.email;
 
 /*		if (req.body.user.isAdmin) {
 			req.user.isAdmin  = true;
@@ -150,7 +151,7 @@
 			req.user.isAdmin  = false;
 		}; */
 
-		console.log('isAdmin........: ' + req.body.user.isAdmin);
+//		console.log('isAdmin........: ' + req.body.user.isAdmin);
 
 	  	req.user.centro  = req.body.user.centro;
 	  	var errors = req.user.validate();											// objeto errors no tiene then(
@@ -161,7 +162,7 @@
 			res.render('user/new', {user: req.user, errors: errores});
 		} else {
 			req.user 																// save: guarda en DB campos pregunta y respuesta de quiz
-			.save({fields: ["username", "password", "isAdmin", "centro"]})
+			.save({fields: ["username", "password", "email", "isAdmin", "centro"]})
 			.then(function() {res.redirect('/user')});
 		};
 	};

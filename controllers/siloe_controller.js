@@ -437,8 +437,6 @@
 
 				});
 
-
-
 				res.redirect('/siloes');
 
 			});
@@ -471,21 +469,32 @@
 
 
 
-	exports.update = function(req, res) {										// modifica un quiz
-//		req.siloe.fecha = req.body.siloe.fecha;
+	exports.update = function(req, res) {										// modifica un siloe
 
 		req.siloe.fecha = new Date(req.body.siloe.anio, req.body.siloe.mes - 1, req.body.siloe.dia);
 		req.siloe.dia = req.body.siloe.dia;
 		req.siloe.mes = req.body.siloe.mes;
 		req.siloe.anio = req.body.siloe.anio;
 
-		req.siloe.centro = req.body.siloe.centro;
+//		req.siloe.centro = req.body.siloe.centro;
 		req.siloe.proceso = req.body.siloe.proceso;
 
 
-/*		if (req.file) {
-			req.siloe.image = req.file.buffer;
-		}; */
+
+		var email = "";												// busca email administrador del centro
+		models.User.find({
+			where: {
+				centro: req.session.user.centro,
+				isAdmin: true,
+				isSuperAdmin: false
+			}
+		}).then(function(user_admin) {
+			email = user_admin.email;
+		});
+
+
+
+
 		var errors = req.siloe.validate();
 		if (errors) {
 			var i = 0;
@@ -497,13 +506,20 @@
 			.save()
 			.then(function() {
 
-				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra
+//				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
 
 					var helper = require('sendgrid').mail;
-					var fromEmail = new helper.Email('jotamontoyo@gmail.com');
-					var toEmail = new helper.Email('jotamontoyo@gmail.com');
-					var subject = 'Sending with SendGrid is Fun';
-					var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js');
+					var fromEmail = new helper.Email(req.session.user.email);
+					var toEmail = new helper.Email(String(email));				// email del administrador del centro
+					var subject = 'Parte de Ensayos revisado';
+					var content = new helper.Content(
+						'text/plain', 'El usuario '
+						+ req.session.user.username
+						+ ' del centro '
+						+ req.session.user.centro
+						+ ' ha revisado y confirmado un parte. Entre en '
+						+ 'https://supcounter/herokuapp.com para ver los resultados'
+					);
 					var mail = new helper.Mail(fromEmail, subject, toEmail, content);
 
 					var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
@@ -522,7 +538,7 @@
 						console.log(response.headers);
 					});
 
-				};
+//				};
 
 				res.redirect('/siloes');
 

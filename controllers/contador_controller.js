@@ -68,6 +68,13 @@
 		var contador = models.Contador.build( req.body.contador );											// construccion de objeto quiz para luego introducir en la tabla
         contador.centro = req.session.user.centro;
 
+        if (req.body.contador.deposito) {
+            contador.deposito = true;
+        };
+        if (!req.body.contador.deposito) {
+            contador.deposito = false;
+        };
+
 
 		var errors = contador.validate();
 
