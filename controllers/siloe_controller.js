@@ -506,7 +506,7 @@
 			.save()
 			.then(function() {
 
-//				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
+				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
 
 					var helper = require('sendgrid').mail;
 					var fromEmail = new helper.Email(req.session.user.email);	// email del usuario
@@ -544,7 +544,7 @@
 						console.log(response.headers);
 					});
 
-//				};
+				};
 
 				res.redirect('/siloes');
 
