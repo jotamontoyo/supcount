@@ -88,14 +88,32 @@
 	</div>
 
 	<% if (session.user) { %>
-		<p><a href="/siloes/new"><button type="button" class="btn btn-primary">
+<!--		<p><a href="/siloes/new"><button type="button" class="btn btn-primary">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear parte</button></a>
 			<a href="/siloes/mes_index">
 				<button type="button" class="btn btn-primary"><i class="fa fa-calendar"></i> Seleccioinar Mes</button>
 			</a>
-<!--			<a href="/siloes/page"><button type="button" class="btn btn-primary">
+			<a href="/siloes/page"><button type="button" class="btn btn-primary">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Mas Resultados</button></a>
 		</p> -->
+
+		<ul class="tira_botones">
+
+
+
+			<li><a class="btn btn_gral" href="/siloes/new">
+				Crear Parte
+			</a></li>
+
+
+			<li><a class="btn btn_gral" href="/siloes/mes_index">
+				Selecionar mes
+			</a></li>
+
+		</ul>
+
+
+
 	<% } %>
 
 </div>

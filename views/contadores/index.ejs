@@ -57,10 +57,18 @@
 
         <% if (session.user) {
             if (session.user.isAdmin) {%>
-                <p><a href="/contadores/new"><button type="button" class="btn btn-primary">
+<!--                <p><a href="/contadores/new"><button type="button" class="btn btn-primary">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear contador</button></a>
 
-                </p>
+                </p> -->
+
+        		<ul class="tira_botones">
+        			<li><a class="btn btn_gral" href="/contadores/new">
+        				Crear Contador
+        			</a></li>
+        		</ul>
+
+
             <%}%>
         <%}%>
 

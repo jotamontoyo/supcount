@@ -72,12 +72,65 @@
 	}
 
 
-
 	.grupo_campos {
 
 
 		border: 1px solid #000;
 	}
+
+
+
+
+	.tira_botones {
+		margin: 0px;
+		padding: 0px;
+	}
+
+
+
+	.tira_botones li {
+		position: relative;
+		display: inline;
+
+
+	}
+
+	.tira_botones button {
+		color: #337ab7;
+	}
+
+	.btn_gral {
+		width: 180px;
+		margin-top: 4px;
+		position: relative;
+/*		color: #eb9837; */
+		background-color: transparent;
+		text-align: center;
+		border: 1px solid #81BEF7;
+		border-radius: 0;
+/*		border-radius: 5px 5px 5px 5px; */
+		text-decoration: none;
+		outline: 0;
+
+	}
+
+	.btn_cancelar {
+
+		border: 1px solid #FA5858;
+
+	}
+
+
+
+
+
+	.btn_gral:hover {
+
+		color: #eb9837;
+
+	}
+
+
 
 
 
