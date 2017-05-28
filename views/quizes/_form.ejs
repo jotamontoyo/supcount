@@ -4,91 +4,27 @@
 	<h4><img src="/images/partes3.png" alt=""> Parte</h4>
 	<br>
 
-	<!-- <div class="form-group">
-		<label for="preg" class="col-sm-2 control-label">Fecha:</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control" id="fecha" name="quiz[fecha]" value="<%= quiz.fecha %>" placeholder="fecha"/>
-		</div>
-	</div>
-
-	<div class="input-group date datepicker" data-provide="datepicker">
-
-		<div class="input-group-addon">
-	        <span class="glyphicon glyphicon-th"></span>
-	    </div>
-	    <input type="text" class="form-control datepicker" id="fecha"
-
-			value="<%= quiz.dia %>/<%= quiz.mes %>/<%= quiz.anio %>">
-
-	</div>
-
-	<script type="text/javascript">
-
-		$(document).ready(function() {
-
-
-			$('.datepicker').datepicker({
-				autoclose: true
-			});
-
-
-
-			$('#grabar').click(function() {
-
-				var parseFecha = $('#fecha').val().match(/(\d+)/g);
-
-				console.log(parseFecha);
-
-				quiz.dia = parseFecha[0];
-				quiz.mes = parseFecha[1];
-				quiz.anio = parseFecha[2];
-
-			});
-
-
-			$("#fecha").datepicker(
-            {
-                dateFormat: "dd/mm/yyyy",
-                dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
-                dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
-                firstDay: 1,
-                gotoCurrent: true,
-                monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre" ]
-            }
-        );
-
-
-
-		});
-
-
-
-	</script> -->
-
-
 
 	<div class="form-group">
 		<label for="preg" class="col-sm-2 control-label">Día:</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="dia" name="quiz[dia]" value="<%= quiz.dia %>" placeholder="mes"/>
+			<input type="number" min="1" max="31" class="form-control" id="dia" name="quiz[dia]" value="<%= quiz.dia %>" placeholder="mes"/>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="preg" class="col-sm-2 control-label">Mes:</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="mes" name="quiz[mes]" value="<%= quiz.mes %>" placeholder="mes"/>
+			<input type="number" min="1" max="12" class="form-control" id="mes" name="quiz[mes]" value="<%= quiz.mes %>" placeholder="mes"/>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="preg" class="col-sm-2 control-label">Año:</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="anio" name="quiz[anio]" value="<%= quiz.anio %>" placeholder="fecha"/>
+			<input type="number" min="2016" max="2030" class="form-control" id="anio" name="quiz[anio]" value="<%= quiz.anio %>" placeholder="fecha"/>
 		</div>
 	</div>
-
-
 
 	<div class="form-group">
 		<label for="preg" class="col-sm-2 control-label">Motivo:</label>
@@ -108,20 +44,6 @@
 		</div>
 	</div>
 
-<!--	<div class="form-group">
-		<label for="centro" class="col-sm-2 control-label">Centro:</label>
-		<div class="col-sm-10">
-			<select class="form-control" id="centro" name="quiz[centro]">
-				<option value="Central" <%if (quiz.centro==="Central"){%> selected <%}%>>Central</option>
-				<option value="Gala" <%if (quiz.centro==="Gala"){%> selected <%}%>>Gala</option>
-				<option value="La Siesta" <%if (quiz.centro==="La Siesta"){%> selected <%}%>>La Siesta</option>
-				<option value="Troya" <%if (quiz.centro==="Troya"){%> selected <%}%>>Troya</option>
-			</select>
-		</div>
-	</div> -->
-
-
-
 	<div class="form-group">
 		<label for="preg" class="col-sm-2 control-label">Status:</label>
 		<div class="col-sm-10">
@@ -131,8 +53,6 @@
 			</select>
 		</div>
 	</div>
-
-
 
 	<div class="form-group text-center">
 		<div class="col-sm-offset-2 col-sm-10">

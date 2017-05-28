@@ -456,9 +456,9 @@
 
 
 
-	exports.edit = function(req, res) {									// carga formulario edit.ejs
+	exports.edit = function(req, res) {											// carga formulario edit.ejs
 
-		res.render('siloes/edit', {siloe: req.siloe, errors: []});   		// renderiza la vista quizes/edit junto con la lista de todos los proveedores
+		res.render('siloes/edit', {siloe: req.siloe, errors: []});   			// renderiza la vista quizes/edit
 
 	};
 
@@ -481,15 +481,15 @@
 
 
 
-		var email = "";												// busca email administrador del centro
+		var admin_email = "";															// busca email administrador del centro
 		models.User.find({
 			where: {
 				centro: req.session.user.centro,
 				isAdmin: true,
 				isSuperAdmin: false
 			}
-		}).then(function(user_admin) {
-			email = user_admin.email;
+		}).then(function(admin) {
+			admin_email = admin.email;
 		});
 
 
@@ -502,23 +502,29 @@
 			for (var prop in errors) errores[i++] = {message: errors[prop]};
 			res.render('siloes/edit', {siloe: req.siloe, errors: errores});
 		} else {
-			req.siloe 															// save: guarda en DB campos pregunta y respuesta de siloe
+			req.siloe 															// save: guarda en DB campos de siloe
 			.save()
 			.then(function() {
 
 //				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
 
 					var helper = require('sendgrid').mail;
-					var fromEmail = new helper.Email(req.session.user.email);
-					var toEmail = new helper.Email(String(email));				// email del administrador del centro
-					var subject = 'Parte de Ensayos revisado';
+					var fromEmail = new helper.Email(req.session.user.email);	// email del usuario
+					var toEmail = new helper.Email(admin_email);				// email del administrador del centro
+					var subject = 'Parte de Ensayos nº: '
+						+ req.siloe.id
+						+ ' de fecha '
+						+ req.siloe.dia
+						+ '-' + req.siloe.mes
+						+ '-' + req.siloe.anio
+						+ ' ha sido revisado';
 					var content = new helper.Content(
 						'text/plain', 'El usuario '
 						+ req.session.user.username
 						+ ' del centro '
 						+ req.session.user.centro
 						+ ' ha revisado y confirmado un parte. Entre en '
-						+ 'https://supcounter/herokuapp.com para ver los resultados'
+						+ 'https://supcounter.herokuapp.com para ver los resultados'
 					);
 					var mail = new helper.Mail(fromEmail, subject, toEmail, content);
 

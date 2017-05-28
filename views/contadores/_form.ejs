@@ -54,7 +54,7 @@
     </div>
 
     <div class="form-group">
-        <label for="fecha_revision" class="col-md-3 control-label">Ültima revisión:</label>
+        <label for="fecha_revision" class="col-md-3 control-label">Última revisión:</label>
         <div class="col-md-9">
             <input type="text" class="form-control" id="fecha_revision" name="contador[fecha_revision]" value="<%= contador.fecha_revision %>" placeholder="fecha ultima revision"/>
         </div>
@@ -64,7 +64,7 @@
     <div class="form-group">
         <label for="tolerancia" class="col-md-3 control-label">% Tolerancia:</label>
         <div class="col-md-9">
-            <input type="text" class="form-control" id="tolerancia" name="contador[tolerancia]" value="<%= contador.tolerancia %>" placeholder="tolerancia"/>
+            <input type="number" min="0" max="100" class="form-control" id="tolerancia" name="contador[tolerancia]" value="<%= contador.tolerancia %>" placeholder="tolerancia"/>
         </div>
     </div>
 

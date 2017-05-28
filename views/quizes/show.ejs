@@ -73,7 +73,7 @@
 													<label for="lectura_actual">Lectura</label>
 												</div>
 												<div class="col-md-9">
-													<input type="text" class="form-control" id="lectura_actual" name="comment[lectura_actual]" value="<%= (quiz.comments[index].lectura_actual).toFixed(2) %>" step="0.01"/>
+													<input type="number" min="0.0" class="form-control" id="lectura_actual" name="comment[lectura_actual]" value="<%= (quiz.comments[index].lectura_actual).toFixed(2) %>" step="0.1"/>
 												</div>
 											</div>
 
@@ -84,7 +84,7 @@
 														<label for="carga">Carga</label>
 													</div>
 													<div class="col-md-9">
-														<input type="text" class="form-control" id="carga" name="comment[carga]" value="<%= (quiz.comments[index].carga).toFixed(2) %>" step="0.01"/>
+														<input type="number" min="0" class="form-control" id="carga" name="comment[carga]" value="<%= (quiz.comments[index].carga).toFixed(2) %>" step="0.1"/>
 													</div>
 												</div>
 											<%} else {%>
