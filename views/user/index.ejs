@@ -54,10 +54,13 @@
 
         <% if (session.user) {
             if (session.user.isAdmin) {%>
-                <p><a href="/user/new"><button type="button" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear usuario</button></a>
+                <ul class="tira_botones">
 
-                </p>
+					<li><a class="btn btn_gral" href="/user/new">
+						Crear Usuario
+					</a></li>
+
+				</ul>
             <%}%>
         <%}%>
 

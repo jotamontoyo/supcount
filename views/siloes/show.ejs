@@ -24,7 +24,7 @@
 
 <!--					<div class="container"> -->
 
-						<% if (!session.user && ensayos[index].publicado) {%>
+<!--						<% if (!session.user && ensayos[index].publicado) {%>
 
 							<div class="comment-panel">
 
@@ -45,7 +45,7 @@
 									<small><%= ensayos[index].createdAt.toLocaleString() %></small></h6>
 								</div>
 							</div>
-						<%}%>
+						<%}%> -->
 
 						<% if (session.user) {%>
 							<div class="ensayo-panel">
@@ -681,8 +681,6 @@
 
 											<div class="row"> <!-- 4º bloque de datos-->
 
-
-
 												<div class="col-md-2 col-sm-4 grupo_items_ensayo"> <!-- enterococos -->
 
 													<div class="marco_item_ensayo">
@@ -824,27 +822,18 @@
 						                            </div>
 												</div>
 
-
 											</div>
-
-
 
 											<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Enviar</button>
 
-
 										</form>
 
-
-									<%} else if (ensayos[index].publicado) {%>
-
+									<%} else {%>
 
 										<h5><span class="badge">#<%=ensayos[index].id%></span></h5>
-										<h5>Código: <%= ensayos[index].codigo %></h5>
-										<h5>Nombre: <%= ensayos[index].nombre %></h5>
-										<h5>Lectura: <%= (ensayos[index].lectura_actual).toFixed(2) %></h5>
-
-
-
+										<h5>Vaso: <strong><%= ensayos[index].vasoId %> - <%= ensayos[index].nombre %></strong></h5>
+										<h5>Ubicación: <strong><%= ensayos[index].ubicacion %></strong></h5>
+										<h5>Capacidad: <strong><%= ensayos[index].capacidad %></strong></h5>
 
 									<%}%>
 

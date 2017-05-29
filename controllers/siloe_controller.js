@@ -511,7 +511,7 @@
 					var helper = require('sendgrid').mail;
 					var fromEmail = new helper.Email(req.session.user.email);	// email del usuario
 					var toEmail = new helper.Email(admin_email);				// email del administrador del centro
-					var subject = 'Parte de Ensayos nº: '
+					var subject = 'El Parte de Ensayos nº: '
 						+ req.siloe.id
 						+ ' de fecha '
 						+ req.siloe.dia

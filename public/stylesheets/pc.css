@@ -19,6 +19,13 @@
 	}
 
 
+	.panel {
+
+		border-radius: 0px;
+
+	}
+
+
 	.table-striped > tbody > tr:nth-of-type(2n+1) {			/* estilo de los row impares de todas las tablas */
 
 		padding: 5px;
@@ -236,7 +243,7 @@
 
 	#partes_index img {
 
-		width: 32px;
+		width: 28px;
 	}
 
 	#partes_index table img {
@@ -364,7 +371,7 @@
 		width: 100%;
 		margin-right: 10px;
 
-		position: fixed;
+		position: absolute;
 		z-index: 3;
 
 	}
@@ -1030,7 +1037,7 @@
 
 	#siloes_index img {
 
-		width: 20px;
+		width: 30px;
 
 	}
 
@@ -1149,7 +1156,7 @@
 
 	#contadores img {
 
-		width: 30px;
+		width: 28px;
 
 	}
 
