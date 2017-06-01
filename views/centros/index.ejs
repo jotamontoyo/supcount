@@ -53,10 +53,11 @@
 
         <% if (session.user) {
             if (session.user.isSuperAdmin) {%>
-                <p><a href="/centros/new"><button type="button" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear centro</button></a>
-
-                </p>
+                <ul class="tira_botones">
+					<li><a class="btn btn_gral" href="/centros/new">
+						Crear Centro
+					</a></li>
+				</ul>
             <%}%>
         <%}%>
 

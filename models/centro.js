@@ -27,6 +27,14 @@
 
             email: {
                 type: DataTypes.STRING
+            },
+
+            max_contadores: {
+                type: DataTypes.FLOAT
+            },
+
+            max_vasos: {
+                type: DataTypes.FLOAT
             }
 
         })

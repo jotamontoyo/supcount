@@ -42,8 +42,7 @@
 
     exports.new = function(req, res) {																				// GET /quizes/new, baja el formulario
 
-
-		var contador = models.Contador.build( 																				// crea el objeto quiz, lo construye con buid() metodo de sequilize
+        var contador = models.Contador.build( 																				// crea el objeto quiz, lo construye con buid() metodo de sequilize
 			{
                 nombre: "",
                 centro: "",
@@ -59,35 +58,38 @@
 
 		res.render('contadores/new', {contador: contador, errors: []});
 
-
 	};
 
 
     exports.create = function(req, res) {														// POST /quizes/create
 
-		var contador = models.Contador.build( req.body.contador );											// construccion de objeto quiz para luego introducir en la tabla
-        contador.centro = req.session.user.centro;
-
-        if (req.body.contador.deposito) {
-            contador.deposito = true;
-        };
-        if (!req.body.contador.deposito) {
-            contador.deposito = false;
-        };
-
-
-		var errors = contador.validate();
-
-		if (errors) {
-			var i = 0;
-			var errores = new Array();															// se convierte en [] con la propiedad message por compatibilidad con layout
-			for (var prop in errors) errores[i++] = {message: errors[prop]};
-			res.render('contadores/new', {contador: contador, errors: errores});
-		} else {
-			contador 																// save: guarda en DB campos pregunta y respuesta de quiz
-			.save()
-			.then(function() {res.redirect('/contadores')});
-		};
+        models.Centro.find({
+            where: 		{nombre: req.session.user.centro}                           // busca el centro del user para pasar los datos al nuevo contador
+        }).then(function(centro) {
+            models.Contador.count({                                                 // saber cuantos contadores hay creados en el centro
+                where: {centro: centro.nombre}
+            }).then(function(cantidad_contadores) {
+                if (cantidad_contadores < centro.max_contadores) {                  // comprobar si puede crear mas
+                    var contador = models.Contador.build( req.body.contador );		// construccion de objeto para luego introducir en la tabla
+                    contador.centro = centro.nombre;
+                    if (req.body.contador.deposito) {contador.deposito = true};
+                    if (!req.body.contador.deposito) {contador.deposito = false};
+                    var errors = contador.validate();
+            		if (errors) {
+            			var i = 0;
+            			var errores = new Array();															// se convierte en [] con la propiedad message por compatibilidad con layout
+            			for (var prop in errors) errores[i++] = {message: errors[prop]};
+            			res.render('contadores/new', {contador: contador, errors: errores});
+            		} else {
+            			contador
+            			.save()
+            			.then(function() {res.redirect('/contadores')});
+            		}
+                } else {
+                    res.render('avisos/aviso_max_contadores', {errors: []});
+                };
+            });
+        });
 
 	};
 

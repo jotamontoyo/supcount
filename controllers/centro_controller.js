@@ -44,7 +44,9 @@
                 direccion: "",
                 contacto: "",
                 telefono: "",
-                email: ""
+                email: "",
+                max_contadores: "",
+                max_vasos: ""
             }
 		);
 
@@ -93,6 +95,8 @@
         req.centro.contacto = req.body.centro.contacto;
         req.centro.telefono = req.body.centro.telefono;
         req.centro.email = req.body.centro.email;
+        req.centro.max_contadores = req.body.centro.max_contadores;
+        req.centro.max_vasos = req.body.centro.max_vasos;
 
         var errors = req.centro.validate();
         if (errors) {

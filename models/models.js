@@ -99,7 +99,7 @@
 	          			if(count === 0) {   																			// la tabla se inicializa solo si está vacía
 	            			Siloe.bulkCreate(
 	              				[{centro: "Central", UserId: 2, UserName: "pepe", proceso: true, dia: 0, mes: 0, anio: 0}]
-	              			).then(function(){console.log('Base de datos: siloe parte inicializada')});
+	              			).then(function(){console.log('Base de datos: tabla siloe inicializada')});
 	          			};
 	        		});
 
@@ -115,7 +115,15 @@
 	        		Centro.count().then(function( count ) {
 	          			if(count === 0) {   																			// la tabla se inicializa solo si está vacía
 	            			Centro.bulkCreate(
-	              				[{nombre: 'Central', direccion: 'central', contacto: 'contacto', telefono: '999999999', email: 'somenone@host.com'}]
+	              				[{
+									nombre: 'Central',
+									direccion: 'central',
+									contacto: 'contacto',
+									telefono: '999999999',
+									email: 'somenone@host.com',
+									max_contadores: 3,
+									max_vasos: 3
+								}]
 	              		    ).then(function(){console.log('Base de datos: tabla centros inicializada')});
 	          			};
 	        		});

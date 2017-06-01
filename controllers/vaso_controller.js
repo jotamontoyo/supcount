@@ -85,7 +85,7 @@
 
     exports.create = function(req, res) {														// POST /quizes/create
 
-		var vaso = models.Vaso.build( req.body.vaso );											// construccion de objeto quiz para luego introducir en la tabla
+/*		var vaso = models.Vaso.build( req.body.vaso );											// construccion de objeto quiz para luego introducir en la tabla
         vaso.centro = req.session.user.centro;
 
 		var errors = vaso.validate();
@@ -98,7 +98,34 @@
 			vaso 																// save: guarda en DB campos pregunta y respuesta de quiz
 			.save()
 			.then(function() {res.redirect('/vasos')});
-		};
+		}; */
+
+
+        models.Centro.find({
+            where: 		{nombre: req.session.user.centro}                           // busca el centro del user para pasar los datos al nuevo contador
+        }).then(function(centro) {
+            models.Vaso.count({                                                 // saber cuantos vasos hay creados en el centro
+                where: {centro: centro.nombre}
+            }).then(function(cantidad_vasos) {
+                if (cantidad_vasos < centro.max_vasos) {                             // comprobar si puede crear mas
+                    var vaso = models.Vaso.build( req.body.vaso );		        // construccion de objeto para luego introducir en la tabla
+                    vaso.centro = centro.nombre;
+                    var errors = vaso.validate();
+            		if (errors) {
+            			var i = 0;
+            			var errores = new Array();															// se convierte en [] con la propiedad message por compatibilidad con layout
+            			for (var prop in errors) errores[i++] = {message: errors[prop]};
+            			res.render('vasos/new', {vaso: vaso, errors: errores});
+            		} else {
+            			vaso
+            			.save()
+            			.then(function() {res.redirect('/vasos')});
+            		}
+                } else {
+                    res.render('avisos/aviso_max_vasos', {errors: []});
+                };
+            });
+        });
 
 	};
 

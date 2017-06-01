@@ -42,21 +42,36 @@
         </div>
     </div>
 
-
-
-
     <div class="form-group">
-        <div class="col-md-10" style="margin-left: 18vw;">
-            <a href="/centros">
-                <button class="btn btn-danger btn-sm" type="button">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
-                </button>
-            </a>
-            <button class="btn btn-success btn-sm" type="submit" value="Salvar">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
-            </button>
+        <label for="max_contadores" class="col-md-3 control-label">Máximo Contadores:</label>
+        <div class="col-md-9">
+            <input type="number" class="form-control" id="max_contadores" name="centro[max_contadores]" value="<%= centro.max_contadores %>" />
         </div>
     </div>
+
+    <div class="form-group">
+        <label for="max_vasos" class="col-md-3 control-label">Máximo Vasos:</label>
+        <div class="col-md-9">
+            <input type="number" class="form-control" id="max_vasos" name="centro[max_vasos]" value="<%= centro.max_vasos %>" />
+        </div>
+    </div>
+
+
+    <div class="form-group text-center">
+
+		<ul class="tira_botones">
+
+			<li><a class="btn btn_gral btn_cancelar" href="/centros">
+				Cancelar
+			</a></li>
+
+			<li><button class="btn btn_gral" type="submit" id="grabar" value="Salvar">
+				Grabar
+			</button></li>
+
+		</ul>
+
+	</div>
 
 
 </div>
