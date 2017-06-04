@@ -475,11 +475,7 @@
 		req.siloe.dia = req.body.siloe.dia;
 		req.siloe.mes = req.body.siloe.mes;
 		req.siloe.anio = req.body.siloe.anio;
-
-//		req.siloe.centro = req.body.siloe.centro;
 		req.siloe.proceso = req.body.siloe.proceso;
-
-
 
 		var admin_email = "";															// busca email administrador del centro
 		models.User.find({
@@ -491,9 +487,6 @@
 		}).then(function(admin) {
 			admin_email = admin.email;
 		});
-
-
-
 
 		var errors = req.siloe.validate();
 		if (errors) {

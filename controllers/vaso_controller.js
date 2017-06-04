@@ -44,7 +44,7 @@
                 nombre: "",
                 centro: "",
                 ubicacion: "",
-// activar cuando vuelva a crear la DB ------------->>>  capacidad: 0.0,
+                capacidad: 0.0,
                 ph_max: 8.0,
                 ph_min: 7.2,
                 redox_max: 900,
@@ -84,22 +84,6 @@
 
 
     exports.create = function(req, res) {														// POST /quizes/create
-
-/*		var vaso = models.Vaso.build( req.body.vaso );											// construccion de objeto quiz para luego introducir en la tabla
-        vaso.centro = req.session.user.centro;
-
-		var errors = vaso.validate();
-		if (errors) {
-			var i = 0;
-			var errores = new Array();															// se convierte en [] con la propiedad message por compatibilidad con layout
-			for (var prop in errors) errores[i++] = {message: errors[prop]};
-			res.render('vasos/new', {vaso: vaso, errors: errores});
-		} else {
-			vaso 																// save: guarda en DB campos pregunta y respuesta de quiz
-			.save()
-			.then(function() {res.redirect('/vasos')});
-		}; */
-
 
         models.Centro.find({
             where: 		{nombre: req.session.user.centro}                           // busca el centro del user para pasar los datos al nuevo contador
@@ -158,7 +142,7 @@
 
         req.vaso.nombre = req.body.vaso.nombre;
         req.vaso.ubicacion = req.body.vaso.ubicacion;
-// activar cuando vuelva a crear la DB ------------->>>        req.vaso.capacidad = req.body.vaso.capacidad;
+        req.vaso.capacidad = req.body.vaso.capacidad;
         req.vaso.ph_max = req.body.vaso.ph_max;
         req.vaso.ph_min = req.body.vaso.ph_min;
         req.vaso.redox_max = req.body.vaso.redox_max;
