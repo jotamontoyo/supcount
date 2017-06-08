@@ -380,21 +380,29 @@
 		req.quiz.proveedor = req.body.quiz.proveedor;
 		req.quiz.proceso = req.body.quiz.proceso;
 
+		var fecha_actual = new Date();
 
-/*		if (req.file) {
-			req.quiz.image = req.file.buffer;
-		}; */
 		var errors = req.quiz.validate();
 		if (errors) {
 			var i = 0;
-			var errores = new Array();											// se convierte en [] con la propiedad message por compatibilidad con layout
+			var errores = new Array();																				// se convierte en [] con la propiedad message por compatibilidad con layout
 			for (var prop in errors) errores[i++] = {message: errors[prop]};
 			res.render('quizes/edit', {quiz: req.quiz, errors: errores});
 		} else {
-			req.quiz 															// save: guarda en DB campos pregunta y respuesta de quiz
-			.save({fields: ["fecha", "pregunta", "respuesta", "centro", "proveedor", "proceso", "dia", "mes", "anio"]})
-			.then(function() {res.redirect('/quizes')});
+			if (((fecha_actual - req.quiz.fecha) < (48*60*60*1000)) || (req.session.user.isAdmin)) {				// control de la antiguedad del parte
+
+				req.quiz
+				.save({fields: ["fecha", "pregunta", "respuesta", "centro", "proveedor", "proceso", "dia", "mes", "anio"]})
+				.then(function() {res.redirect('/quizes')});
+
+			} else {
+
+				res.render('avisos/aviso_max_antiguedad', {errors: []});
+
+			};
+
 		};
+
 	};
 
 
