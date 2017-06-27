@@ -30,7 +30,13 @@
 			capacidad: {
 				type: DataTypes.FLOAT
 			},
-
+			interior: {
+                type: DataTypes.BOOLEAN
+            },
+			tipo_ensayo: {
+                type: DataTypes.STRING,
+                defaultValue: "Completo"
+            },
 
 
 

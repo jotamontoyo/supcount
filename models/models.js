@@ -196,7 +196,8 @@
 									nombre: 'Piscina principal',
 									centro: 'Central',
 									ubicacion: '',
-									lopd: false
+									interior: false,
+									tipo_ensayo: 'Completo'
 
 								}]
 	              		    ).then(function(){console.log('Base de datos: tabla vaso inicializada')});

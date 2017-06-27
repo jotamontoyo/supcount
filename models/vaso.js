@@ -14,11 +14,19 @@
             ubicacion: {
                 type: DataTypes.STRING
             },
-
             capacidad: {
                 type: DataTypes.FLOAT,
                 defaultValue: 0.0
             },
+            interior: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false
+            },
+            tipo_ensayo: {
+                type: DataTypes.STRING,
+                defaultValue: "Completo"
+            },
+
 
 
 

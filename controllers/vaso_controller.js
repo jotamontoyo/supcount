@@ -45,6 +45,8 @@
                 centro: "",
                 ubicacion: "",
                 capacidad: 0.0,
+                interior: false,
+                tipo_ensayo: "Completo",
                 ph_max: 8.0,
                 ph_min: 7.2,
                 redox_max: 900,
@@ -94,6 +96,11 @@
                 if (cantidad_vasos < centro.max_vasos) {                             // comprobar si puede crear mas
                     var vaso = models.Vaso.build( req.body.vaso );		        // construccion de objeto para luego introducir en la tabla
                     vaso.centro = centro.nombre;
+
+                    if (req.body.vaso.interior) {vaso.interior = true};
+                    if (!req.body.vaso.interior) {vaso.interior = false};
+
+
                     var errors = vaso.validate();
             		if (errors) {
             			var i = 0;
@@ -138,11 +145,20 @@
 
 
 
-    exports.update = function(req, res) {										     // modifica un contador
+    exports.update = function(req, res) {										     // modifica un vaso
 
         req.vaso.nombre = req.body.vaso.nombre;
         req.vaso.ubicacion = req.body.vaso.ubicacion;
         req.vaso.capacidad = req.body.vaso.capacidad;
+
+        if (req.body.vaso.interior) {
+            req.vaso.interior = true;
+        } else {
+            req.vaso.interior = false;
+        };
+
+        req.vaso.tipo_ensayo = req.body.vaso.tipo_ensayo;
+
         req.vaso.ph_max = req.body.vaso.ph_max;
         req.vaso.ph_min = req.body.vaso.ph_min;
         req.vaso.redox_max = req.body.vaso.redox_max;

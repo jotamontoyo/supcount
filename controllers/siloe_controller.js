@@ -301,6 +301,8 @@
 							nombre: vasos[i].nombre,
 							ubicacion: vasos[i].ubicacion,
 							capacidad: vasos[i].capacidad,
+							interior: vasos[i].interior,
+							tipo_ensayo: vasos[i].tipo_ensayo,
 
 							ph_max: vasos[i].ph_max,
 							ph_min: vasos[i].ph_min,

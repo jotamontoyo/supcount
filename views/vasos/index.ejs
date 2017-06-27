@@ -13,6 +13,8 @@
                         <th>Nombre</th>
                         <th>Ubicación</th>
                         <th>Capacidad</th>
+                        <th>Interior</th>
+                        <th>Ensayo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,7 +25,13 @@
                             <td><a href="/vasos/<%= vasos[i].id %>/edit"><%= vasos[i].nombre %></a></td>
                             <td><%= vasos[i].ubicacion %></td>
                             <td><%= vasos[i].capacidad %></td>
+                            <td>
+                                <% if (vasos[i].interior) {%>
+                                    <i class="fa fa-check"></i>
+                                <%}%>
 
+                            </td>
+                            <td><%= vasos[i].tipo_ensayo %></td>
 
                             <% if (session.user) {
                                 if (session.user.isAdmin) {%>

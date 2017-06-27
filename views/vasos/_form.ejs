@@ -27,6 +27,31 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="interior" class="col-md-3 control-label">Interior:</label>
+        <div class="col-md-1">
+            <% if (vaso.interior) { %>
+                <input type="checkbox" class="form-control" checked id="interior" name="vaso[interior]" value="<%= vaso.interior %>" />
+            <%} else { %>
+                <input type="checkbox" class="form-control" id="interior" name="vaso[interior]" value="<%= vaso.interior %>" />
+            <%}%>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="tipo_ensayo" class="col-sm-3 control-label">Tipo de Ensayo:</label>
+        <div class="col-sm-3">
+            <select class="form-control" id="tipo_ensayo" name="vaso[tipo_ensayo]">
+                <option value="Completo" <%if (vaso.tipo_ensayo==="Completo") {%> selected <%}%>>Completo</option>
+                <option value="Parcial" <%if (vaso.tipo_ensayo==="Parcial") {%> selected <%}%>>Parcial</option>
+            </select>
+        </div>
+    </div>
+
+
+
     <br>
 
     <div class="col-md-6">
