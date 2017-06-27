@@ -388,7 +388,7 @@
 			var errores = new Array();																				// se convierte en [] con la propiedad message por compatibilidad con layout
 			for (var prop in errors) errores[i++] = {message: errors[prop]};
 			res.render('quizes/edit', {quiz: req.quiz, errors: errores});
-		} else {
+		} else { 
 			if (((fecha_actual - req.quiz.fecha) < (48*60*60*1000)) || (req.session.user.isAdmin)) {				// control de la antiguedad del parte
 
 				req.quiz
