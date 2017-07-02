@@ -155,6 +155,8 @@
 	router.get('/siloes',			 						sessionController.loginRequired, siloeController.index);				// accede a la lista completa de partes /siloes/index.ejs
 	router.get('/siloes/mes_index',	 						sessionController.loginRequired, siloeController.mes_index);			// formulario para seleccionar mes y año
 	router.post('/siloes/mes_index_show',					sessionController.loginRequired, siloeController.mes_index_show);		// accede a la lista de partes /quizes/index.ejs selecionando mes y año
+	router.get('/siloes/resumen_index',			 			sessionController.loginRequired, siloeController.resumen_index);		// formulario para seleccionar mes y año del resumen
+	router.post('/siloes/resumen',			 				sessionController.loginRequired, siloeController.resumen);			// genera el informe
 	router.get('/siloes/new',								sessionController.loginRequired, siloeController.new);					// carga el formulario /siloes/new si sessionController.loginRequired()
 	router.post('/siloes/create',							sessionController.loginRequired, siloeController.create);				// dispara controlador create cuando el boton <salvar> del formulario new.js
 	router.get('/siloes/:siloeId(\\d+)/edit',				sessionController.loginRequired, siloeController.ownershipRequired, siloeController.edit);				// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller

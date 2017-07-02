@@ -19,6 +19,10 @@
                 type: DataTypes.INTEGER
             },
 
+			centro: {
+				type: DataTypes.STRING
+			},
+
 			nombre: {
                 type: DataTypes.STRING
 

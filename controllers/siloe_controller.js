@@ -126,7 +126,7 @@
 		var fecha = new Date();
 
 		var resumen = {
-			mes: fecha.getUTCMonth() + 1,
+//			mes: fecha.getUTCMonth() + 1,
 //			nombre_mes: '',
 			anio: fecha.getUTCFullYear()
 		};
@@ -146,56 +146,212 @@
 
 	exports.resumen = function(req, res, next) {
 
-		var mes = parseInt(req.body.resumen.mes),
-			mes_siguiente = mes + 1,
-			anio = parseInt(req.body.resumen.anio),
-			anio_siguiente = anio;
 
-		if (mes === 12) {
-			mes_siguiente = 1;
-			anio_siguiente = anio + 1;
+		var	anio = parseInt(req.body.resumen.anio);
+		var ph_true = 0;
+		var ph_false = 0;
+		var ph_maximo = 0;
+		var ph_minimo = 0;
+		var ph_total = 0;
+
+
+
+		var options_vasos = {
+
+			where: {centro: req.session.user.centro, nombre: 'ACS'},
+			order: [['id', 'ASC']]
+
 		};
 
-		var options = {
+
+
+
+		models.Vaso.find(options_vasos).then( vaso => {
+
+
+
+
+//			for (let i in vasos) {
+
+				var options_ensayos = {
+					where: {vasoId: vaso.id, anio: anio, ph_cumple: true}
+				};
+				models.Ensayo.count(options_ensayos).then( c => {
+					ph_true = c;
+				});
+
+
+
+				options_ensayos = {
+					where: {vasoId: vaso.id, anio: anio, ph_cumple: false}
+				};
+				models.Ensayo.count(options_ensayos).then( c => {
+					ph_false = c;
+				});
+
+
+
+				options_ensayos = {
+					where: {vasoId: vaso.id, anio: anio}
+				};
+				models.Ensayo.max('ph_m', options_ensayos).then( c => {
+					ph_maximo = c;
+
+				});
+				models.Ensayo.max('ph_t', options_ensayos).then( c => {
+					if (c > ph_maximo) { ph_maximo = c };
+				});
+
+
+
+				options_ensayos = {
+					where: {vasoId: vaso.id, anio: anio}
+				};
+				models.Ensayo.min('ph_m', options_ensayos).then( c => {
+					ph_minimo = c;
+
+				});
+				models.Ensayo.min('ph_t', options_ensayos).then( c => {
+					if (c < ph_minimo) { ph_minimo = c };
+				});
+
+
+
+				options_ensayos = {
+					where: {vasoId: vaso.id, anio: anio}
+				};
+				models.Ensayo.count(options_ensayos).then( c => {
+					ph_total = c;
+					res.render('siloes/resumen', {vaso: vaso, ph_true: ph_true, ph_false: ph_false, ph_maximo: ph_maximo, ph_minimo: ph_minimo, ph_total: ph_total, errors: []});
+				});
+
+
+
+
+/*				models.Ensayo.count({
+
+					options_ensayos
+
+				}).then(function(ensayos_ph) {
+
+					ph = ensayos_ph;
+
+					console.log('ensayos.....:' + ph);
+
+					res.render('siloes/resumen', {vaso: vaso, ph: ph, errors: []});
+
+/*					for (let x in ensayos) {
+
+						for (let z in ensayos[x].ph_m) {
+
+							if (ensayos[x].ph_m[z] > 0) {
+
+								ph = ph + 1;
+
+								console.log('ensayos.....:' + ph);
+
+							};
+
+						};
+
+					}; */
+
+
+
+
+/*				}).catch(function(error){next(error)}); */
+
+
+
+
+//			};
+
+
+
+
+
+
+		}).catch(function(error){next(error)});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*		var options = {
 			where: Sequelize.or(				// segun la version de Sequelize he de usar una u otra estructura de consulta
 				Sequelize.and(
-					{mes: mes},
 					{anio: anio},
 					{centro: req.session.user.centro}
 				),
 				Sequelize.and(
 					{dia: 1},
-					{mes: mes_siguiente},
-					{anio: anio_siguiente},
+					{mes: 1},
+					{anio: anio + 1},
 					{centro: req.session.user.centro}
 				)
 			),
-			include: [{model: models.Comment}],
-			order: [['fecha', 'ASC'], [models.Comment, 'codigo', 'ASC' ]]
+			include: [{model: models.Ensayo}],
+			order: [['fecha', 'ASC'], [models.Ensayo, 'id', 'ASC' ]]
 		};
 
-		models.Quiz.findAll(options).then(function(quizes) {
-			models.Contador.findAll({
+
+
+		models.Siloe.findAll(options).then(function(siloes) {
+			models.Vaso.findAll({
 				where: {centro: req.session.user.centro},
 				order: [['id', 'ASC']]
-			}).then(function(contadores) {
-				var anterior = 0;
-				for (let i in quizes) {								// hallar consumo
+			}).then(function(vasos) { */
+
+
+/*				var anterior = 0;
+				for (let i in siloes) {								// hallar consumo
+
 					if (i > 0) {anterior = i - 1};
-					for (let x in quizes[i].comments) {
-						if (quizes[anterior].comments[x]) {						// por si no hay lectura anterior. para que no dé error undefined
-							if (!quizes[anterior].comments[x].deposito) {		// pregunta si es o no deposito para hacer el calculo
-								quizes[anterior].comments[x].consumo = (quizes[i].comments[x].lectura_actual - quizes[anterior].comments[x].lectura_actual);
+
+					for (let x in siloes[i].ensayos) {
+						if (siloes[anterior].ensayos[x]) {						// por si no hay lectura anterior. para que no dé error undefined
+							if (!siloes[anterior].ensayos[x].deposito) {		// pregunta si es o no deposito para hacer el calculo
+								siloes[anterior].ensayos[x].consumo = (siloes[i].ensayos[x].lectura_actual - siloes[anterior].ensayos[x].lectura_actual);
 							} else {
-								quizes[anterior].comments[x].consumo = (quizes[anterior].comments[x].lectura_actual - (quizes[i].comments[x].lectura_actual - quizes[anterior].comments[x].carga)); // .replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+								siloes[anterior].ensayos[x].consumo = (siloes[anterior].ensayos[x].lectura_actual - (siloes[i].ensayos[x].lectura_actual - siloes[anterior].ensayos[x].carga)); // .replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 							};
-							if (quizes[anterior].comments[x].consumo > quizes[anterior].comments[x].maximo) { quizes[anterior].comments[x].cumple = false };
+							if (siloes[anterior].ensayos[x].consumo > siloes[anterior].ensayos[x].maximo) { siloes[anterior].ensayos[x].cumple = false };
 						};
 					};
-				};
-				res.render('quizes/resumen', {quizes: quizes, contadores: contadores, errors: []});
+
+
+				}; */
+
+/*				models.Ensayo.count({
+					attributes: [Sequelize.col('ph_m'), Sequelize.col('ph_t')]
+				}).then(function(cantidad) {
+
+					var ph = {
+						muestreos: cantidad
+					};
+
+					console.log('ph........: ' + ph.muestreos);
+
+					res.render('siloes/resumen', {siloes: siloes, vasos: vasos, ph: ph, errors: []});
+
+				});
+
+
+
+
+
 			}).catch(function(error){next(error)});
-		}).catch(function(error){next(error)});
+
+		}).catch(function(error){next(error)}); */
 
 	};
 
@@ -298,6 +454,7 @@
 						var ensayo = models.Ensayo.build({						// se crea en ensayo
 
 							vasoId: vasos[i].id,
+							centro: vasos[i].centro,
 							nombre: vasos[i].nombre,
 							ubicacion: vasos[i].ubicacion,
 							capacidad: vasos[i].capacidad,
@@ -555,10 +712,23 @@
 
 
 	exports.destroy = function(req, res, next) {    // ojo no borra detalles. corregir *****************************************************
+
+
+
 		req.siloe.destroy().then(function() {
-			for (var i in req.siloe.ensayos) {
-				req.siloe.ensayos[i].destroy();
-			};
+
+			models.Ensayo.findAll({
+
+				where: {SiloId: req.siloe.id}
+
+			}).then(function(ensayos) {
+
+				for (var i in ensayos) {
+					ensayos[i].destroy();
+				};
+
+			});
+
 			res.redirect('/siloes');
 		}).catch(function(error) {next(error)});
 	};
