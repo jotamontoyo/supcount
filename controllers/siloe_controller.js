@@ -176,54 +176,80 @@
 				var options_ensayos = {
 					where: {vasoId: vaso.id, anio: anio, ph_cumple: true}
 				};
+
 				models.Ensayo.count(options_ensayos).then( c => {
+
 					ph_true = c;
+
+					options_ensayos = {
+						where: {vasoId: vaso.id, anio: anio, ph_cumple: false}
+					};
+
+					models.Ensayo.count(options_ensayos).then( c => {
+
+						ph_false = c;
+
+						options_ensayos = {
+							where: {vasoId: vaso.id, anio: anio}
+						};
+
+						models.Ensayo.max('ph_m', options_ensayos).then( c => {
+
+							ph_maximo = c;
+
+							models.Ensayo.max('ph_t', options_ensayos).then( c => {
+
+								if (c > ph_maximo) { ph_maximo = c };
+
+								options_ensayos = {
+									where: {vasoId: vaso.id, anio: anio}
+								};
+								models.Ensayo.min('ph_m', options_ensayos).then( c => {
+
+									ph_minimo = c;
+
+									models.Ensayo.min('ph_t', options_ensayos).then( c => {
+
+										if (c < ph_minimo) { ph_minimo = c };
+
+										options_ensayos = {
+											where: {vasoId: vaso.id, anio: anio}
+										};
+										models.Ensayo.count(options_ensayos).then( c => {
+
+											ph_total = c;
+
+											res.render('siloes/resumen', {vaso: vaso, ph_true: ph_true, ph_false: ph_false, ph_maximo: ph_maximo, ph_minimo: ph_minimo, ph_total: ph_total, errors: []});
+										});
+
+									});
+
+								});
+
+							});
+
+						});
+
+					});
+
 				});
 
 
 
-				options_ensayos = {
-					where: {vasoId: vaso.id, anio: anio, ph_cumple: false}
-				};
-				models.Ensayo.count(options_ensayos).then( c => {
-					ph_false = c;
-				});
 
 
 
-				options_ensayos = {
-					where: {vasoId: vaso.id, anio: anio}
-				};
-				models.Ensayo.max('ph_m', options_ensayos).then( c => {
-					ph_maximo = c;
-
-				});
-				models.Ensayo.max('ph_t', options_ensayos).then( c => {
-					if (c > ph_maximo) { ph_maximo = c };
-				});
 
 
 
-				options_ensayos = {
-					where: {vasoId: vaso.id, anio: anio}
-				};
-				models.Ensayo.min('ph_m', options_ensayos).then( c => {
-					ph_minimo = c;
-
-				});
-				models.Ensayo.min('ph_t', options_ensayos).then( c => {
-					if (c < ph_minimo) { ph_minimo = c };
-				});
 
 
 
-				options_ensayos = {
-					where: {vasoId: vaso.id, anio: anio}
-				};
-				models.Ensayo.count(options_ensayos).then( c => {
-					ph_total = c;
-					res.render('siloes/resumen', {vaso: vaso, ph_true: ph_true, ph_false: ph_false, ph_maximo: ph_maximo, ph_minimo: ph_minimo, ph_total: ph_total, errors: []});
-				});
+
+
+
+
+
 
 
 

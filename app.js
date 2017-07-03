@@ -1,8 +1,8 @@
 
-//	process.env.DATABASE_URL = "postgres://hryunemkdxivdl:a8efaba43764a4b9eeb1414016031b0764b15b1d85a88157a71d39b29fb1c34a@ec2-50-19-218-160.compute-1.amazonaws.com:5432/d9j6v0ib8d2kph?ssl=true"; // URL HerokuPostgres
+	process.env.DATABASE_URL = "postgres://rkybjxyluotzej:43099e66b7cf8f864aace6eeabe25f4e4ac7331fd379dd32dd71e420313ae87f@ec2-23-21-246-11.compute-1.amazonaws.com:5432/denu1l0mihcu43?ssl=true"; // URL HerokuPostgres
 //	process.env.DATABASE_URL = "mysql://ngqai7nm2awsuiyn:c72b9s4jpfcl9w3c@r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/q545n56wuza1pnfx"; // URL mysqul
-//	process.env.DATABASE_STORAGE = "quiz.sqlite";
-//	process.env.PASSWORD_ENCRYPTION_KEY= "asdfghjklzxcvbnmqwertyuiop"
+	process.env.DATABASE_STORAGE = "quiz.sqlite";
+	process.env.PASSWORD_ENCRYPTION_KEY= "asdfghjklzxcvbnmqwertyuiop"
 
 	process.env.SENDGRID_API_KEY = "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";
 	process.env.SENDGRID_PASSWORD = "eu0coa3b6878";
