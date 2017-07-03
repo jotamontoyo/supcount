@@ -148,15 +148,24 @@
 
 
 		var	anio = parseInt(req.body.resumen.anio);
+
 		var ph_true = 0;
 		var ph_false = 0;
 		var ph_maximo = 0;
 		var ph_minimo = 0;
 		var ph_total = 0;
+		var ph_medio = 0;
+
+		var redox_true = 0;
+		var redox_false = 0;
+		var redox_maximo = 0;
+		var redox_minimo = 0;
+		var redox_total = 0;
+		var redox_medio = 0;
 
 
 
-		var options_vasos = {
+		var sql_vasos = {
 
 			where: {centro: req.session.user.centro, nombre: 'ACS'},
 			order: [['id', 'ASC']]
@@ -166,60 +175,68 @@
 
 
 
-		models.Vaso.find(options_vasos).then( vaso => {
-
+		models.Vaso.find(sql_vasos).then( vaso => {
 
 
 
 //			for (let i in vasos) {
 
-				var options_ensayos = {
-					where: {vasoId: vaso.id, anio: anio, ph_cumple: true}
+				var sql_ensayos = {
+					where: {vasoId: vaso.id, anio: anio, ph_cumple: true, redox_cumple: true}
 				};
 
-				models.Ensayo.count(options_ensayos).then( c => {
+				models.Ensayo.findAll(sql_ensayos).then( c => {
 
-					ph_true = c;
+					ph_true = c.length;
+					redox_true = c.length;
 
-					options_ensayos = {
-						where: {vasoId: vaso.id, anio: anio, ph_cumple: false}
+					for (var i in c) {											// itera para acumular los valores solo de los seleccionador
+						ph_medio = ph_medio + c[i].ph_m + c[i].ph_t;			// tanto de la mañana como la tarde
 					};
 
-					models.Ensayo.count(options_ensayos).then( c => {
+					ph_medio = ph_medio / (ph_true * 2);						// la condicion true aplica al conjunto de valores de mañana y tarde. por ello para la media se multiplica por dos la cantidad de casos true
+
+					sql_ensayos = {
+						where: {vasoId: vaso.id, anio: anio, ph_cumple: false, redox_cumple: false}
+					};
+
+					models.Ensayo.count(sql_ensayos).then( c => {
 
 						ph_false = c;
+						redox_false = c;
 
-						options_ensayos = {
+						sql_ensayos = {
 							where: {vasoId: vaso.id, anio: anio}
 						};
 
-						models.Ensayo.max('ph_m', options_ensayos).then( c => {
+						models.Ensayo.max('ph_m', sql_ensayos).then( c => {
 
 							ph_maximo = c;
 
-							models.Ensayo.max('ph_t', options_ensayos).then( c => {
+							models.Ensayo.max('ph_t', sql_ensayos).then( c => {
 
 								if (c > ph_maximo) { ph_maximo = c };
 
-								options_ensayos = {
+								sql_ensayos = {
 									where: {vasoId: vaso.id, anio: anio}
 								};
-								models.Ensayo.min('ph_m', options_ensayos).then( c => {
+								models.Ensayo.min('ph_m', sql_ensayos).then( c => {
 
 									ph_minimo = c;
 
-									models.Ensayo.min('ph_t', options_ensayos).then( c => {
+									models.Ensayo.min('ph_t', sql_ensayos).then( c => {
 
 										if (c < ph_minimo) { ph_minimo = c };
 
-										options_ensayos = {
+										sql_ensayos = {
 											where: {vasoId: vaso.id, anio: anio}
 										};
-										models.Ensayo.count(options_ensayos).then( c => {
+										models.Ensayo.count(sql_ensayos).then( c => {
 
 											ph_total = c;
 
-											res.render('siloes/resumen', {vaso: vaso, ph_true: ph_true, ph_false: ph_false, ph_maximo: ph_maximo, ph_minimo: ph_minimo, ph_total: ph_total, errors: []});
+											res.render('siloes/resumen', {vaso: vaso, ph_true: ph_true, ph_false: ph_false, ph_maximo: ph_maximo,
+												ph_minimo: ph_minimo, ph_total: ph_total, ph_medio: ph_medio, redox_true: redox_true, redox_false: redox_false, errors: []});
 										});
 
 									});
@@ -233,6 +250,76 @@
 					});
 
 				});
+
+
+
+
+/*				var sql_redox = {
+					where: {vasoId: vaso.id, anio: anio, redox_cumple: true}
+				};
+
+				models.Ensayo.findAll(sql_redox).then( c => {
+
+					redox_true = c.length;
+
+					for (var i in c) {											// itera para acumular los valores solo de los seleccionador
+						redox_medio = redox_medio + c[i].ph_m + c[i].ph_t;			// tanto de la mañana como la tarde
+					};
+
+					redox_medio = redox_medio / (redox_true * 2);						// la condicion true aplica al conjunto de valores de mañana y tarde. por ello para la media se multiplica por dos la cantidad de casos true
+
+					sql_redox = {
+						where: {vasoId: vaso.id, anio: anio, redox_cumple: false}
+					};
+
+					models.Ensayo.count(sql_redox).then( c => {
+
+						redox_false = c;
+
+						sql_redox = {
+							where: {vasoId: vaso.id, anio: anio}
+						};
+
+						models.Ensayo.max('redox_m', sql_redox).then( c => {
+
+							redox_maximo = c;
+
+							models.Ensayo.max('redox_t', sql_redox).then( c => {
+
+								if (c > redox_maximo) { redox_maximo = c };
+
+								sql_redox = {
+									where: {vasoId: vaso.id, anio: anio}
+								};
+								models.Ensayo.min('redox_m', sql_redox).then( c => {
+
+									redox_minimo = c;
+
+									models.Ensayo.min('redox_t', sql_redox).then( c => {
+
+										if (c < redox_minimo) { redox_minimo = c };
+
+										sql_redox = {
+											where: {vasoId: vaso.id, anio: anio}
+										};
+										models.Ensayo.count(sql_redox).then( c => {
+
+											redox_total = c;
+
+											res.render('siloes/resumen', {vaso: vaso, redox_true: redox_true, redox_false: redox_false, redox_maximo: redox_maximo, redox_minimo: redox_minimo, redox_total: redox_total, redox_medio: redox_medio, errors: []});
+										});
+
+									});
+
+								});
+
+							});
+
+						});
+
+					});
+
+				}); */
 
 
 
