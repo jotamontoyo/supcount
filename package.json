@@ -29,6 +29,7 @@
     "promises": "^0.2.5",
     "sendgrid": "^5.1.0",
     "sequelize": "^1.7.11",
-    "serve-favicon": "^2.1.7"
+    "serve-favicon": "^2.1.7",
+    "squel": "^5.11.1"
   }
 }

@@ -201,29 +201,29 @@
 
 
 
+
+
+
+/*				var ph_array = new Array();
+
 				var sql_ensayos = {
 					where: {vasoId: vaso.id, anio: anio}
 				};
 
 				models.Ensayo.findAll(sql_ensayos).then( ensayos => {
 
+
 					for (var i in ensayos) {
 
 						if (ensayos[i].ph_cumple) {
 							ph_true = ph_true + 1;
-						}; 
+						};
 
-
+						ph_array[i] = ensayos[i].ph_m;
 
 					};
 
-
-					ph_maximo = Math.max(ensayos.ph_m);
-
-
-
-
-
+					ph_maximo = Math.max(...ph_array);
 
 					console.log(ph_true);
 					console.log(ph_maximo);
@@ -231,13 +231,244 @@
 
 				});
 
+				ph_true = 0; */
+
+
+
+
+
+
+
+
+
+
+
+
+/*				var squel = require('squel').useFlavour('postgres');
+
+				var pg = require('pg');
+				var client = new pg.Client("postgres://rkybjxyluotzej:43099e66b7cf8f864aace6eeabe25f4e4ac7331fd379dd32dd71e420313ae87f@ec2-23-21-246-11.compute-1.amazonaws.com:5432/denu1l0mihcu43?ssl=true");
+
+				var query = squel.select({ separator: "\n" })
+				        .from("client.Ensayo")
+						.where("vasoId = vaso.id")
+						.where("anio = anio")
+//				        .field("ph_m")
+//				        .field("MIN(ph_m)")
+				        .field("MAX(ph_m)")
+//				        .field("GROUP_CONCAT(DISTINCT ph_m ORDER BY ph_m DESC SEPARATOR ' ')")
+//				        .group("ph_m")
+				        .toString();
+
+
+
+
+
+			client.connect(function (err, data) {
+
+			if (err) {
+				console.log("'Error connecting to PG'", err);
+
+	    	} else {
+
+					client.query(query.toString(), function (err, res) {
+				        if (err) throw err;
+
+						console.log("result " + JSON.stringify(res));
+
+
+		/*		        var x = JSON.stringify(res);
+				        var y = x.split(",")
+				        // console.log(y[7])
+				        console.log(y.length);
+				        for (var i=0; i<y.length; i++){
+				            // console.log(y[i]);
+				            if (y[i].indexOf('"asnumber":') > 0)
+				            {
+				                console.log(y[i])
+				                outputJSON.push(y[i]);
+				            }
+				        };
+				        // console.log("result "+JSON.stringify(res))
+						}); */
+/*					});
+
+				};
+			}); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*				var p = new Promise(function (resolve, reject) {
+				    models.Ensayo.findAll(sql_ensayos, function(err, ensayos) {
+				    	if (err)
+				            reject(err);
+				        else
+				            resolve(ensayos);
+				    });
+				});
+
+				p.then(function(result) {
+
+					ph_true = result.length;
+					console.log('ph_true cantidad.....:' + ph_true);
+				    return res.json(result);
+
+				}).catch(function(err) {
+
+				    next(err);
+
+				}); */
 
 
 
 
 				var sql_ensayos = {
-					where: {vasoId: vaso.id, anio: anio, ph_cumple: true, redox_cumple: true}
+					where: {vasoId: vaso.id, anio: anio, ph_cumple: true}
 				};
+
+
+
+
+/*				var contarEnsayos = function(sql_ensayos) {
+
+			  		return new Promise((resolve, reject) => {
+
+				    	models.Ensayo.count(sql_ensayos).then(function(ensayos) {
+				      		resolve(ensayos);
+				    	}).catch(function(error) {
+				      		reject(error)
+				    	});
+
+					});
+
+				};
+
+
+				var mediaEnsayos = function(sql_ensayos) {
+
+			  		return new Promise((resolve, reject) => {
+
+				    	models.Ensayo.findAll(sql_ensayos).then(function(ensayos) {
+				      		resolve(ensayos);
+				    	}).catch(function(error) {
+				      		reject(error)
+				    	});
+
+					});
+
+				};
+
+
+
+
+
+
+
+				contarEnsayos(sql_ensayos)
+					.then( ensayos => {
+
+						console.log('ensayos...: ' + ensayos);
+						ph_true = ensayos;
+
+					}).catch( err => {
+						next(error);
+					});
+
+
+
+
+
+				sql_ensayos = {
+					where: {vasoId: vaso.id, anio: anio, redox_cumple: true}
+				};
+
+				contarEnsayos(sql_ensayos)
+					.then( ensayos => {
+
+						console.log('ensayos...: ' + ensayos);
+						redox_true = ensayos;
+
+					}).catch( err => {
+						next(error);
+					});
+
+
+
+
+
+				sql_ensayos = {
+					where: {vasoId: vaso.id, anio: anio, ph_cumple: false}
+				};
+
+				contarEnsayos(sql_ensayos)
+					.then( ensayos => {
+
+						console.log('ensayos...: ' + ensayos);
+						ph_false = ensayos;
+
+					}).catch( err => {
+						next(error);
+					});
+
+
+
+
+
+
+
+
+				sql_ensayos = {
+					where: {vasoId: vaso.id, anio: anio, ph_cumple: true},
+					attributes: ['ph_m', [models.sequelize.fn('AVG', models.sequelize.col('ph_m')), 'ph_m_count']],
+					group: 'ph_m',
+					order: [[models.sequelize.fn('AVG', models.sequelize.col('ph_m')), 'DESC']]
+				};
+
+				mediaEnsayos(sql_ensayos)
+					.then( ensayos => {
+
+
+/*						for (var i in ensayos) {													// itera para acumular los valores solo de los seleccionados
+							ph_medio = ph_medio + ensayos[i].ph_m + ensayos[i].ph_t;				// tanto de la mañana como la tarde
+						};
+
+
+						console.log('ph_true.......: ' + ph_true);
+						ph_medio = ph_medio / (ph_true * 2);	*/									// la condicion true aplica al conjunto de valores de mañana y tarde. por ello para la media se multiplica por dos la cantidad de casos true
+
+
+/*						ph_medio = ensayos;
+						console.log('ph_medio.......: ' + ph_medio);
+
+
+					}).catch( err => {
+						next(error);
+					}); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 				models.Ensayo.findAll(sql_ensayos).then( c => {
 
@@ -251,7 +482,7 @@
 					ph_medio = ph_medio / (ph_true * 2);						// la condicion true aplica al conjunto de valores de mañana y tarde. por ello para la media se multiplica por dos la cantidad de casos true
 
 					sql_ensayos = {
-						where: {vasoId: vaso.id, anio: anio, ph_cumple: false, redox_cumple: false}
+						where: {vasoId: vaso.id, anio: anio, ph_cumple: false}
 					};
 
 					models.Ensayo.count(sql_ensayos).then( c => {
@@ -291,7 +522,7 @@
 
 											res.render('siloes/resumen', {vaso: vaso, ph_true: ph_true, ph_false: ph_false, ph_maximo: ph_maximo,
 												ph_minimo: ph_minimo, ph_total: ph_total, ph_medio: ph_medio, redox_true: redox_true, redox_false: redox_false,
-												redox_maximo: redox_maximo, errors: []});
+												redox_maximo: redox_maximo, redox_medio: redox_medio, errors: []});
 										});
 
 									});
@@ -733,7 +964,7 @@
 
 
 
-	exports.destroy = function(req, res, next) {    // ojo no borra detalles. corregir *****************************************************
+	exports.destroy = function(req, res, next) {
 
 
 

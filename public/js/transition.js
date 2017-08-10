@@ -10,4 +10,16 @@
 		}
 		anim();
 
+
+        $('#subir-inicio-icon').css('opacity', '0.8');                                  // control de opacity/visibility del icono subir
+        clearTimeout($.data(this, 'scrollTimer'));
+        $.data(this, 'scrollTimer', setTimeout(function() {
+            $('#subir-inicio-icon').css('opacity', '0.3');
+        }, 250));
+        if ($(window).scrollTop() === 0) {
+            $('#subir-inicio').css('visibility', 'hidden');
+        } else {
+            $('#subir-inicio').css('visibility', 'visible');
+        };
+
     });

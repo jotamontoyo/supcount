@@ -95,12 +95,12 @@
 
 
 
-		req.ensayo.transparencia_cumple = req.body.ensayo.transparencia_cumple;
+//		req.ensayo.transparencia_cumple = req.body.ensayo.transparencia_cumple;
 		req.ensayo.transparencia_m = req.body.ensayo.transparencia_m;
 		req.ensayo.transparencia_t = req.body.ensayo.transparencia_t;
 
-		if ((req.ensayo.transparencia_m !== req.ensayo.transparencia) ||
-			(req.ensayo.transparencia_t !== req.ensayo.transparencia)) {
+		if ((req.ensayo.transparencia_m != req.ensayo.transparencia) ||
+			(req.ensayo.transparencia_t != req.ensayo.transparencia)) {
 
 				req.ensayo.transparencia_cumple = false;
 

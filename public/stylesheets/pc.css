@@ -118,6 +118,32 @@
 	}
 
 
+	/* BOTON subir-inicio ************************************************************* */
+
+/*	#subir-inicio {
+		width: auto;
+		position: fixed;
+		bottom: 10px;
+		right: 15px;
+		visibility: visible;
+		z-index: 1000;
+
+
+		-moz-transition: all 0.3s;
+		-o-transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+
+	#subir-inicio-icon {
+		background-color: transparent;
+		-moz-transition: all 0.3s;
+		-o-transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+		transition: all 0.3s;
+	} */
+
+
 
 
 	/*  ESTILO DE LOS BOTONES DE LOS FORM ************************************************** */
