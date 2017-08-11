@@ -30,6 +30,7 @@
     "sendgrid": "^5.1.0",
     "sequelize": "^1.7.11",
     "serve-favicon": "^2.1.7",
-    "squel": "^5.11.1"
+    "squel": "^5.11.1",
+    "mysql": ">=2.5.0"
   }
 }
