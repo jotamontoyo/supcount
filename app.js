@@ -1,8 +1,10 @@
 
 //	process.env.DATABASE_URL = "postgres://rkybjxyluotzej:43099e66b7cf8f864aace6eeabe25f4e4ac7331fd379dd32dd71e420313ae87f@ec2-23-21-246-11.compute-1.amazonaws.com:5432/denu1l0mihcu43?ssl=true"; // URL HerokuPostgres
 //	process.env.DATABASE_URL = "mysql://ngqai7nm2awsuiyn:c72b9s4jpfcl9w3c@r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/q545n56wuza1pnfx"; // URL mysqul
-	process.env.DATABASE_URL = "mysql://supcounter_user:42!s1zZe@vcloud.mysql.sumamoos.com:3306/supcounter_db"; // URL registrosdemantenimiento.com
+//	process.env.DATABASE_URL = "mysql://supcounter_user:42!s1zZe@vcloud.mysql.sumamoos.com:3306/supcounter_db"; // URL registrosdemantenimiento.com
+    process.env.DATABASE_URL = "sqlite://:@:/";
     process.env.DATABASE_STORAGE = "quiz.sqlite";
+
 	process.env.PASSWORD_ENCRYPTION_KEY= "asdfghjklzxcvbnmqwertyuiop"
 
 	process.env.SENDGRID_API_KEY = "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";
