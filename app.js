@@ -7,11 +7,13 @@
 //    process.env.DATABASE_URL = "sqlite://:@:/";           // activar para local
     process.env.DATABASE_STORAGE = "quiz.sqlite";
 
-	process.env.PASSWORD_ENCRYPTION_KEY= "asdfghjklzxcvbnmqwertyuiop"
+	process.env.PASSWORD_ENCRYPTION_KEY= "asdfghjklzxcvbnmqwertyuiop";
 
-	process.env.SENDGRID_API_KEY = "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";
+    process.env.NODE_SMTP_PASS = "j@3eC05o";
+
+/*	process.env.SENDGRID_API_KEY = "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";
 	process.env.SENDGRID_PASSWORD = "eu0coa3b6878";
-	process.env.SENDGRID_USERNAME = "app66046690@heroku.com";
+	process.env.SENDGRID_USERNAME = "app66046690@heroku.com"; */
 
 	var express = require('express');
 	var busboy = require('connect-busboy'); //middleware for form/file upload

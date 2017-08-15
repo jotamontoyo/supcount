@@ -911,45 +911,29 @@
 			.save()
 			.then(function() {
 
-				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
+//				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
 
-					var helper = require('sendgrid').mail;
-					var fromEmail = new helper.Email(req.session.user.email);	// email del usuario
-					var toEmail = new helper.Email(admin_email);				// email del administrador del centro
-					var subject = 'El Parte de Ensayos nº: '
-						+ req.siloe.id
-						+ ' de fecha '
-						+ req.siloe.dia
-						+ '-' + req.siloe.mes
-						+ '-' + req.siloe.anio
-						+ ' ha sido revisado';
-					var content = new helper.Content(
-						'text/plain', 'El usuario '
-						+ req.session.user.username
-						+ ' del centro '
-						+ req.session.user.centro
-						+ ' ha revisado y confirmado un parte. Entre en '
-						+ 'https://supcounter.herokuapp.com para ver los resultados'
-					);
-					var mail = new helper.Mail(fromEmail, subject, toEmail, content);
 
-					var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
-					var request = sg.emptyRequest({
-						method: 'POST',
-						path: '/v3/mail/send',
-						body: mail.toJSON()
+					var mail = require('mail').Mail({
+						host: 'smtp.registrosdemantenimiento.com',
+						username: 'contacto@registrosdemantenimiento.com',
+						password: process.env.NODE_SMTP_PASS
 					});
 
-					sg.API(request, function (error, response) {
-						if (error) {
-							console.log('Error response received');
-						};
-						console.log(response.statusCode);
-						console.log(response.body);
-						console.log(response.headers);
+
+					mail.message({
+						from: req.session.user.email,
+					  	to: [admin_email],
+					  	subject: 'Hello from Node.JS'})
+					.body('Node speaks SMTP!')
+					.send(function(err) {
+						if (err) throw err;
+					  	console.log('Sent!');
 					});
 
-				};
+
+
+//				};
 
 				res.redirect('/siloes');
 
