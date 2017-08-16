@@ -914,24 +914,81 @@
 //				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
 
 
-					var mail = require('mail').Mail({
-						host: 'smtp.registrosdemantenimiento.com',
-						username: 'contacto@registrosdemantenimiento.com',
-						password: process.env.NODE_SMTP_PASS
+					'use strict';
+					const nodemailer = require('nodemailer');
+
+					// create reusable transporter object using the default SMTP transport
+					let transporter = nodemailer.createTransport({
+						host: 'registrosdemantenimiento.com',
+						port: 465,
+						secure: true, // secure:true for port 465, secure:false for port 587
+						auth: {
+							user: 'contacto@registrosdemantenimiento.com',
+							pass: process.env.NODE_SMTP_PASS
+						},
+						tls: {
+					        rejectUnauthorized: false	// do not fail on invalid certs
+					    }
+					});
+
+					// setup email data with unicode symbols
+					let mailOptions = {
+//						from: '"Fred Foo 👻" <req.session.user.email>', // sender address
+						from: '"Fred Foo 👻" <contacto@registrosdemantenimiento.com>', // sender address
+//						from: req.session.user.email, // sender address
+						to: admin_email, // list of receivers
+						subject: 'Hello ✔', // Subject line
+						text: 'Hello world ?', // plain text body
+						html: '<b>Hello world ?</b>' // html body
+					};
+
+					// send mail with defined transport object
+					transporter.sendMail(mailOptions, (error, info) => {
+						if (error) {
+							return console.log(error);
+						}
+						console.log('Message %s sent: %s', info.messageId, info.response);
 					});
 
 
-					mail.message({
-						from: req.session.user.email,
-					  	to: [admin_email],
-					  	subject: 'Hello from Node.JS'})
-					.body('Node speaks SMTP!')
-					.send(function(err) {
-						if (err) throw err;
-					  	console.log('Sent!');
+
+
+
+/*					var helper = require('sendgrid').mail;
+					var fromEmail = new helper.Email(req.session.user.email);	// email del usuario
+					var toEmail = new helper.Email(admin_email);				// email del administrador del centro
+					var subject = 'El Parte de Ensayos nº: '
+						+ req.siloe.id
+						+ ' de fecha '
+						+ req.siloe.dia
+						+ '-' + req.siloe.mes
+						+ '-' + req.siloe.anio
+						+ ' ha sido revisado';
+					var content = new helper.Content(
+						'text/plain', 'El usuario '
+						+ req.session.user.username
+						+ ' del centro '
+						+ req.session.user.centro
+						+ ' ha revisado y confirmado un parte. Entre en '
+						+ 'https://supcounter.herokuapp.com para ver los resultados'
+					);
+					var mail = new helper.Mail(fromEmail, subject, toEmail, content);
+
+					var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+					var request = sg.emptyRequest({
+						method: 'POST',
+						path: '/v3/mail/send',
+						body: mail.toJSON()
 					});
 
-
+					sg.API(request, function (error, response) {
+						if (error) {
+							console.log('Error response received');
+						};
+						console.log(response.statusCode);
+						console.log(response.body);
+						console.log(response.headers);
+					}); */
 
 //				};
 

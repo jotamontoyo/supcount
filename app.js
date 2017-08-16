@@ -3,13 +3,14 @@
 //	process.env.DATABASE_URL = "mysql://ngqai7nm2awsuiyn:c72b9s4jpfcl9w3c@r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/q545n56wuza1pnfx"; // URL mysqul
 
 
-	process.env.DATABASE_URL = "mysql://supcounter_user:42!s1zZe@vcloud.mysql.sumamoos.com:3306/supcounter_db"; // URL registrosdemantenimiento.com
-//    process.env.DATABASE_URL = "sqlite://:@:/";           // activar para local
+//	process.env.DATABASE_URL = "mysql://supcounter_user:42!s1zZe@vcloud.mysql.sumamoos.com:3306/supcounter_db"; // URL registrosdemantenimiento.com
+    process.env.DATABASE_URL = "sqlite://:@:/";           // activar para local
     process.env.DATABASE_STORAGE = "quiz.sqlite";
 
 	process.env.PASSWORD_ENCRYPTION_KEY= "asdfghjklzxcvbnmqwertyuiop";
 
     process.env.NODE_SMTP_PASS = "j@3eC05o";
+//    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 /*	process.env.SENDGRID_API_KEY = "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";
 	process.env.SENDGRID_PASSWORD = "eu0coa3b6878";
