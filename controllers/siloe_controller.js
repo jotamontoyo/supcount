@@ -135,7 +135,7 @@
         
         /// BEGIN: PRUEBA DE ENVIO DE EMAIL
                     'use strict';
-					const nodemailer = require('nodemailer');
+					const nodemailer = require('nodem4ailer');
 
 					// create reusable transporter object using the default SMTP transport
 					let transporter = nodemailer.createTransport({
