@@ -144,7 +144,7 @@
 						secure: true, // secure:true for port 465, secure:false for port 587
 						auth: {
 							user: 'contacto@registrosdemantenimiento.com',
-							pass: process.env.NODE_SMTP_PASS
+							pass: 'j@3eC05o'
 						},
 						tls: {
 					        rejectUnauthorized: false	// do not fail on invalid certs
