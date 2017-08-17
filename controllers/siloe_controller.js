@@ -135,7 +135,7 @@
         
         /// BEGIN: PRUEBA DE ENVIO DE EMAIL
                     'use strict';
-					const nodemailer = require('nodem4ailer');
+					const nodemailer = require('nodemailer');
 
 					// create reusable transporter object using the default SMTP transport
 					let transporter = nodemailer.createTransport({
@@ -161,7 +161,7 @@
 						text: 'Hello world ?', // plain text body
 						html: '<b>Hello world ?</b>' // html body
 					};
-
+console.log('Enviaremos el email'+ process.env.NODE_SMTP_PASS);
 					// send mail with defined transport object
 					transporter.sendMail(mailOptions, (error, info) => {
 						if (error) {
