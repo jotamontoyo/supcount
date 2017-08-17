@@ -913,40 +913,43 @@
 
 //				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
 
-
 					'use strict';
 					const nodemailer = require('nodemailer');
 
-					// create reusable transporter object using the default SMTP transport
-					let transporter = nodemailer.createTransport({
+					let transporter = nodemailer.createTransport({				// create reusable transporter object using the default SMTP transport
 						host: 'registrosdemantenimiento.com',
 						port: 465,
-						secure: true, // secure:true for port 465, secure:false for port 587
+						secure: true, 											// secure:true for port 465, secure:false for port 587
 						auth: {
-							user: 'contacto@registrosdemantenimiento.com',
+							user: 'noreply@registrosdemantenimiento.com',
 							pass: process.env.NODE_SMTP_PASS
 						},
 						tls: {
-					        rejectUnauthorized: false	// do not fail on invalid certs
+					        rejectUnauthorized: false							// do not fail on invalid certs
 					    }
 					});
 
-					// setup email data with unicode symbols
-					let mailOptions = {
-//						from: '"Fred Foo 👻" <req.session.user.email>', // sender address
-						from: '"Fred Foo 👻" <contacto@registrosdemantenimiento.com>', // sender address
-//						from: req.session.user.email, // sender address
-						to: admin_email, // list of receivers
-						subject: 'Hello ✔', // Subject line
-						text: 'Hello world ?', // plain text body
-						html: '<b>Hello world ?</b>' // html body
+					let mailOptions = {																// setup email data with unicode symbols
+//						from: "Fred Foo 👻 '&#937'; " + user_email, 											// sender address
+						from: '"Supcounter \u00A9 - no responder - " <noreply@registrosdemantenimiento.com>',	 			// sender address
+//						from: req.session.user.email, 												// sender address
+						to: admin_email, 															// list of receivers
+						subject: 'Cierre de parte #' + req.siloe.id, 				// Subject line
+						text: 'Ha confirmado un parte de Ensayos', 											// plain text body
+						html:
+							'<p>El usuario ' + req.session.user.username
+							+ ' del centro ' + req.session.user.centro
+							+ ' ha confirmado un parte de Ensayos. </p>'
+//							+ '<br>'
+							+ '<p>Email: ' + req.session.user.email + '</p>'
+//							+ '<br>'
+							+ '<h5>Por favor no responda a este email. Si quiere puede ponerse en contacto con el usuario en su email personal arriba indicado.</h5>'
 					};
 
-					// send mail with defined transport object
-					transporter.sendMail(mailOptions, (error, info) => {
+					transporter.sendMail(mailOptions, (error, info) => {							// send mail with defined transport object
 						if (error) {
 							return console.log(error);
-						}
+						};
 						console.log('Message %s sent: %s', info.messageId, info.response);
 					});
 

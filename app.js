@@ -9,7 +9,7 @@
 
 	process.env.PASSWORD_ENCRYPTION_KEY= "asdfghjklzxcvbnmqwertyuiop";
 
-    process.env.NODE_SMTP_PASS = "j@3eC05o";
+    process.env.NODE_SMTP_PASS = "Y3kxw4_0";
 //    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 /*	process.env.SENDGRID_API_KEY = "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";
