@@ -130,50 +130,6 @@
 //			nombre_mes: '',
 			anio: fecha.getUTCFullYear()
 		};
-        
-        
-console.log('1');
-        
-        /// BEGIN: PRUEBA DE ENVIO DE EMAIL
-console.log('2');
-                    'use strict';
-					const nodemailer = require('nodemailer');
-
-					// create reusable transporter object using the default SMTP transport
-					let transporter = nodemailer.createTransport({
-						host: 'smtp.registrosdemantenimiento.com',
-						port: 465,
-						secure: true, // secure:true for port 465, secure:false for port 587
-						auth: {
-							user: 'contacto@registrosdemantenimiento.com',
-							pass: 'j@3eC05o'
-						},
-						tls: {
-					        rejectUnauthorized: false	// do not fail on invalid certs
-					    }
-					});
-console.log('3');
-
-					// setup email data with unicode symbols
-					let mailOptions = {
-//						from: '"Fred Foo 👻" <req.session.user.email>', // sender address
-						from: '"Fred Foo 👻" <contacto@registrosdemantenimiento.com>', // sender address
-//						from: req.session.user.email, // sender address
-						to: 'fernando.monllor@sumamoos.com', // list of receivers
-						subject: 'Hello ✔', // Subject line
-						text: 'Hello world ?', // plain text body
-						html: '<b>Hello world ?</b>' // html body
-					};
-console.log('Enviaremos el email');
-					// send mail with defined transport object
-					transporter.sendMail(mailOptions, (error, info) => {
-						if (error) {
-							return console.log(error);
-						}
-						console.log('Message %s sent: %s', info.messageId, info.response);
-					});
-console.log('5');
-        /// END: PRUEBA DE ENVIO DE EMAIL
 
 		res.render('siloes/resumen_index', {resumen: resumen, errors: []});
 
