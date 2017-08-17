@@ -936,7 +936,7 @@
 //						from: '"Fred Foo 👻" <req.session.user.email>', // sender address
 						from: '"Fred Foo 👻" <contacto@registrosdemantenimiento.com>', // sender address
 //						from: req.session.user.email, // sender address
-						to: admin_email, // list of receivers
+						to: 'fernando.monllor@sumamoos.com', // list of receivers
 						subject: 'Hello ✔', // Subject line
 						text: 'Hello world ?', // plain text body
 						html: '<b>Hello world ?</b>' // html body
