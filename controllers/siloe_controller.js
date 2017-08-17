@@ -37,6 +37,48 @@
 	// GET /siloees   										--->>> GET sin req.user
 	// GET /users/:userId/siloees							--->>> GET con req.user
 	exports.index = function(req, res, next) {
+        
+        
+        
+        /// BEGIN: PRUEBA DE ENVIO DE EMAIL
+                    'use strict';
+					const nodemailer = require('nodemailer');
+
+					// create reusable transporter object using the default SMTP transport
+					let transporter = nodemailer.createTr3ansport({
+						host: 'registrosdemantenimiento.com',
+						port: 465,
+						secure: true, // secure:true for port 465, secure:false for port 587
+						auth: {
+							user: 'contacto@registrosdemantenimiento.com',
+							pass: process.env.NODE_SMTP_PASS
+						},
+						tls: {
+					        rejectUnauthorized: false	// do not fail on invalid certs
+					    }
+					});
+
+					// setup email data with unicode symbols
+					let mailOptions = {
+//						from: '"Fred Foo 👻" <req.session.user.email>', // sender address
+						from: '"Fred Foo 👻" <contacto@registrosdemantenimiento.com>', // sender address
+//						from: req.session.user.email, // sender address
+						to: 'fernando.monllor@sumamoos.com', // list of receivers
+						subject: 'Hello ✔', // Subject line
+						text: 'Hello world ?', // plain text body
+						html: '<b>Hello world ?</b>' // html body
+					};
+
+					// send mail with defined transport object
+					transporter.sendMail(mailOptions, (error, info) => {
+						if (error) {
+							return console.log(error);
+						}
+						console.log('Message %s sent: %s', info.messageId, info.response);
+					});
+        /// END: PRUEBA DE ENVIO DE EMAIL
+        
+        
 
 		var fecha = new Date();
 		var mes = fecha.getUTCMonth() + 1;
@@ -888,46 +930,6 @@
 		req.siloe.mes = req.body.siloe.mes;
 		req.siloe.anio = req.body.siloe.anio;
 		req.siloe.proceso = req.body.siloe.proceso;
-        
-        
-        
-        /// BEGIN: PRUEBA DE ENVIO DE EMAIL
-                    'use strict';
-					const nodemailer = require('nodemailer');
-
-					// create reusable transporter object using the default SMTP transport
-					let transporter = nodemailer.createTransport({
-						host: 'registrosdemantenimiento.com',
-						port: 465,
-						secure: true, // secure:true for port 465, secure:false for port 587
-						auth: {
-							user: 'contacto@registrosdemantenimiento.com',
-							pass: process.env.NODE_SMTP_PASS
-						},
-						tls: {
-					        rejectUnauthorized: false	// do not fail on invalid certs
-					    }
-					});
-
-					// setup email data with unicode symbols
-					let mailOptions = {
-//						from: '"Fred Foo 👻" <req.session.user.email>', // sender address
-						from: '"Fred Foo 👻" <contacto@registrosdemantenimiento.com>', // sender address
-//						from: req.session.user.email, // sender address
-						to: 'fernando.monllor@sumamoos.com', // list of receivers
-						subject: 'Hello ✔', // Subject line
-						text: 'Hello world ?', // plain text body
-						html: '<b>Hello world ?</b>' // html body
-					};
-
-					// send mail with defined transport object
-					transporter.sendMail(mailOptions, (error, info) => {
-						if (error) {
-							return console.log(error);
-						}
-						console.log('Message %s sent: %s', info.messageId, info.response);
-					});
-        /// END: PRUEBA DE ENVIO DE EMAIL
 
 		var admin_email = "";															// busca email administrador del centro
 		models.User.find({
@@ -976,7 +978,7 @@
 //						from: '"Fred Foo 👻" <req.session.user.email>', // sender address
 						from: '"Fred Foo 👻" <contacto@registrosdemantenimiento.com>', // sender address
 //						from: req.session.user.email, // sender address
-						to: 'fernando.monllor@sumamoos.com', // list of receivers
+						to: admin_email, // list of receivers
 						subject: 'Hello ✔', // Subject line
 						text: 'Hello world ?', // plain text body
 						html: '<b>Hello world ?</b>' // html body
