@@ -132,8 +132,10 @@
 		};
         
         
+console.log('1');
         
         /// BEGIN: PRUEBA DE ENVIO DE EMAIL
+console.log('2');
                     'use strict';
 					const nodemailer = require('nodemailer');
 
@@ -150,6 +152,7 @@
 					        rejectUnauthorized: false	// do not fail on invalid certs
 					    }
 					});
+console.log('3');
 
 					// setup email data with unicode symbols
 					let mailOptions = {
@@ -161,7 +164,7 @@
 						text: 'Hello world ?', // plain text body
 						html: '<b>Hello world ?</b>' // html body
 					};
-console.log('Enviaremos el email'+ process.env.NODE_SMTP_PASS);
+console.log('Enviaremos el email');
 					// send mail with defined transport object
 					transporter.sendMail(mailOptions, (error, info) => {
 						if (error) {
@@ -169,6 +172,7 @@ console.log('Enviaremos el email'+ process.env.NODE_SMTP_PASS);
 						}
 						console.log('Message %s sent: %s', info.messageId, info.response);
 					});
+console.log('5');
         /// END: PRUEBA DE ENVIO DE EMAIL
 
 		res.render('siloes/resumen_index', {resumen: resumen, errors: []});
