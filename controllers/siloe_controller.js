@@ -918,8 +918,8 @@
 
 					let transporter = nodemailer.createTransport({				// create reusable transporter object using the default SMTP transport
 						host: 'registrosdemantenimiento.com',
-						port: 465,
-						secure: true, 											// secure:true for port 465, secure:false for port 587
+						port: 25,
+						secure: false, 											// secure:true for port 465, secure:false for port 587
 						auth: {
 							user: 'noreply@registrosdemantenimiento.com',
 							pass: process.env.NODE_SMTP_PASS
@@ -934,15 +934,13 @@
 						from: '"Supcounter \u00A9 - no responder - " <noreply@registrosdemantenimiento.com>',	 			// sender address
 //						from: req.session.user.email, 												// sender address
 						to: admin_email, 															// list of receivers
-						subject: 'Cierre de parte #' + req.siloe.id, 				// Subject line
-						text: 'Ha confirmado un parte de Ensayos', 											// plain text body
+						subject: 'Cierre de parte #' + req.siloe.id, 								// Subject line
+						text: 'Ha confirmado un parte de Ensayos', 									// plain text body
 						html:
 							'<p>El usuario ' + req.session.user.username
 							+ ' del centro ' + req.session.user.centro
 							+ ' ha confirmado un parte de Ensayos. </p>'
-//							+ '<br>'
 							+ '<p>Email: ' + req.session.user.email + '</p>'
-//							+ '<br>'
 							+ '<h5>Por favor no responda a este email. Si quiere puede ponerse en contacto con el usuario en su email personal arriba indicado.</h5>'
 					};
 
