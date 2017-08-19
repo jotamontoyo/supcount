@@ -919,14 +919,14 @@
 					let transporter = nodemailer.createTransport({				// create reusable transporter object using the default SMTP transport
 						host: '127.0.0.1',
 						port: 465,
-						secure: true, // secure:true for port 465, secure:false for port 587
+						secure: true, 											// secure:true for port 465, secure:false for port 587
 						auth: {
-							user: 'contacto@registrosdemantenimiento.com',
-							pass: 'j@3eC05o'
+							user: 'noreply@registrosdemantenimiento.com',
+							pass: process.env.NODE_SMTP_PASS
 						},
 						tls: {
-					        rejectUnauthorized: false	// do not fail on invalid certs
-                        }
+					        rejectUnauthorized: false							// do not fail on invalid certs
+					    }
 					});
 
 					let mailOptions = {																// setup email data with unicode symbols
