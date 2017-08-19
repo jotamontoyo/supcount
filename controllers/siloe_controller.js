@@ -933,7 +933,8 @@
 //						from: "Fred Foo 👻 '&#937'; " + user_email, 											// sender address
 						from: '"Supcounter \u00A9 - no responder - " <noreply@registrosdemantenimiento.com>',	 			// sender address
 //						from: req.session.user.email, 												// sender address
-						to: admin_email, 															// list of receivers
+						//to: admin_email, 															// list of receivers
+						to: 'fernando.monllor@me.com', 															// list of receivers
 						subject: 'Cierre de parte #' + req.siloe.id, 								// Subject line
 						text: 'Ha confirmado un parte de Ensayos', 									// plain text body
 						html:
