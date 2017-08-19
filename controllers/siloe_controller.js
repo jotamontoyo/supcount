@@ -926,6 +926,7 @@
 						},
 						tls: {
 					        rejectUnauthorized: false	// do not fail on invalid certs
+                        }
 					});
 
 					let mailOptions = {																// setup email data with unicode symbols
