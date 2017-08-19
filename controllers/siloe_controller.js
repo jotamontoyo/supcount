@@ -913,7 +913,7 @@
 
 //				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
 
-					//'use strict';
+					'use strict';
 					const nodemailer = require('nodemailer');
 
 					let transporter = nodemailer.createTransport({				// create reusable transporter object using the default SMTP transport
