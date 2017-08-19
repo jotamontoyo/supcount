@@ -917,7 +917,7 @@
 					const nodemailer = require('nodemailer');
 
 					let transporter = nodemailer.createTransport({				// create reusable transporter object using the default SMTP transport
-						host: '127.0.0.1',
+						host: 'registrosdemantenimiento.com',
 						port: 465,
 						secure: true, 											// secure:true for port 465, secure:false for port 587
 						auth: {
