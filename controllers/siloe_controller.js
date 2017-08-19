@@ -994,7 +994,7 @@
 
 //				};
 
-				res.redirect('/siloes');
+				res.redirect('/siloe3s');
 
 			});
 		};
