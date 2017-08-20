@@ -44,21 +44,18 @@
 			<tbody>
 				<% for (var i in siloes) { %>
 
-<!--					<% if (session.user.centro == siloes[i].centro) {%> -->
-
 					<tr>
-<!--						<td><a name="<%= siloes[i].tema %>" href="/temas/<%= siloes[i].tema %>"><%= siloes[i].tema %> </a></td> -->
 
 						<td class="text-center"><a href="/siloes/<%= siloes[i].id %>"><%= siloes[i].dia %>-<%= siloes[i].mes %>-<%= siloes[i].anio %></a></td>
 						<td class="text-center"><a href="/siloes/<%= siloes[i].id %>"><%= siloes[i].id %></a></td>
 						<td class="text-center"><a href="/siloes/<%= siloes[i].id %>"><%= siloes[i].UserName %></a></td>
-						<% if (siloes[i].estado === 'abierto') {%>
-							<td class="text-center"><span class="" aria-hidden="true"></span></td>
-						<%} else if (siloes[i].estado === 'cerrado') {%>
-							<td class="text-center"><i class="fa fa-check"></i></td>
-						<%}%>
-<!--						<td><%= siloes[i].proveedor %></td>
-						<td><%= siloes[i].pregunta %></td> -->
+						<td class="text-center">
+							<% if (siloes[i].estado === 'abierto') {%>
+								<span class="" aria-hidden="true"></span>
+							<%} else if (siloes[i].estado === 'cerrado') {%>
+								<i class="fa fa-check"></i>
+							<%}%>
+						</td>
 						<% if (session.user) {
 							if (session.user.isAdmin || session.user.id === siloes[i].UserId) {%>
 								<td style="width:40px"><a class="" href="/siloes/<%= siloes[i].id %>/edit">
@@ -71,16 +68,9 @@
 										</button>
 									</form>
 								</td>
-<!--								<% if (siloes[i].proceso) {%>
-									<td style="width:40px"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span></td>
-								<%} else {%>
-									<td style="width:40px"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-								<%}%> -->
 							<%}%>
 						<%}%>
 					</tr>
-
-<!--					<% } %> -->
 
 				<% } %>
 			</tbody>
