@@ -6,7 +6,7 @@
     process.env.NODE_SMTP_PASS = "Y3kxw4_0";
 
 	var express = require('express');
-	var busboy = require('connect-busboy');                //middleware for form/file upload
+	var busboy = require('connect-busboy');                 //middleware for form/file upload
 	var path = require('path');
 	var favicon = require('serve-favicon');
 	var logger = require('morgan');

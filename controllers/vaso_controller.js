@@ -54,7 +54,7 @@
                 temp_max: 30,
                 temp_min: 24,
                 recirculacion: 4,
-                transparencia: true,
+                transparencia: 'cumple',
                 extranios: false,
                 turbidez_max: 2,
                 isocianuro_max: 75,

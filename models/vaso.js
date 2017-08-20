@@ -64,8 +64,8 @@
             },
 
             transparencia: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: true
+                type: DataTypes.STRING,
+                defaultValue: 'cumple'
             },
 
             extranios: {

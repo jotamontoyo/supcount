@@ -217,8 +217,8 @@
 												    		<label for="transparencia" class="col-md-6 control-label">Transp m</label>
 												    		<div class="col-sm-6">
 												    			<select class="form-control" id="transparencia_m" name="ensayo[transparencia_m]">
-												    				<option value=true <%if (ensayos[index].transparencia_m) {%> selected <%}%>>Ok</option>
-												    				<option value=false <%if (!ensayos[index].transparencia_m) {%> selected <%}%>>Negativo</option>
+												    				<option value='cumple' <%if (ensayos[index].transparencia_m==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+												    				<option value='no cumple' <%if (ensayos[index].transparencia_m==='no cumple') {%> selected <%}%>>❌ No cumple</option>
 												    			</select>
 												    		</div>
 												    	</div>
@@ -227,24 +227,25 @@
 												    		<label for="transparencia" class="col-md-6 control-label">Transp t</label>
 												    		<div class="col-sm-6">
 												    			<select class="form-control" id="transparencia_t" name="ensayo[transparencia_t]">
-												    				<option value=true <%if (ensayos[index].transparencia_t) {%> selected <%}%>>Ok</option>
-												    				<option value=false <%if (!ensayos[index].transparencia_t) {%> selected <%}%>>Negativo</option>
+												    				<option value='cumple' <%if (ensayos[index].transparencia_t==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+												    				<option value='no cumple' <%if (ensayos[index].transparencia_t==='no cumple') {%> selected <%}%>>❌ No cumple</option>
 												    			</select>
 												    		</div>
 												    	</div>
 
-
-
+														<br>
 														<% if ((ensayos[index].transparencia_m  !== ensayos[index].transparencia)  ||
 																(ensayos[index].transparencia_t !== ensayos[index].transparencia)) { %>
 
-															<img class="center-block" src="/images/info4.png" alt="" />
-
+															<p class="text-center">👎</p>
 
 														<%}%>
+														<% if ((ensayos[index].transparencia_m  === ensayos[index].transparencia)  &&
+																(ensayos[index].transparencia_t === ensayos[index].transparencia)) { %>
 
-														<h6><%= ensayos[index].transparencia_cumple %></h6>
+															<p class="text-center">👍</p>
 
+														<%}%>
 
 													</div>
 

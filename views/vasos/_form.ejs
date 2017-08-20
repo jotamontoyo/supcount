@@ -122,8 +122,8 @@
     		<label for="transparencia" class="col-md-7 control-label">Transparencia:</label>
     		<div class="col-sm-5">
     			<select class="form-control" id="transparencia" name="vaso[transparencia]">
-    				<option value=true <%if (vaso.transparencia) {%> selected <%}%>>Ok</option>
-    				<option value=false <%if (!vaso.transparencia) {%> selected <%}%>>Negativo</option>
+    				<option value='cumple' <%if (vaso.transparencia==='cumple') {%> selected <%}%>>Cumple</option>
+    				<option value='no cumple' <%if (vaso.transparencia==='no cumple') {%> selected <%}%>>No cumple</option>
     			</select>
     		</div>
     	</div>

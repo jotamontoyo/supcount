@@ -95,28 +95,19 @@
 
 
 
-//		req.ensayo.transparencia_cumple = req.body.ensayo.transparencia_cumple;
+
 		req.ensayo.transparencia_m = req.body.ensayo.transparencia_m;
 		req.ensayo.transparencia_t = req.body.ensayo.transparencia_t;
-
 		if ((req.ensayo.transparencia_m != req.ensayo.transparencia) ||
 			(req.ensayo.transparencia_t != req.ensayo.transparencia)) {
-
-				req.ensayo.transparencia_cumple = false;
-
+				req.ensayo.transparencia_cumple = 'no cumple';
 		};
-
 		if ((req.ensayo.transparencia_m === req.ensayo.transparencia) &&
 			(req.ensayo.transparencia_t === req.ensayo.transparencia)) {
-
-				req.ensayo.transparencia_cumple = true;
-
+				req.ensayo.transparencia_cumple = 'cumple';
 		};
 
-		console.log('transparencia flag:  ' + req.ensayo.transparencia);
-		console.log('transparencia cumple:  ' + req.ensayo.transparencia_cumple);
-		console.log('transparencia m:  ' + req.ensayo.transparencia_m);
-		console.log('transparencia t:  ' + req.ensayo.transparencia_t);
+
 
 
 

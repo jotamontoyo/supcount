@@ -738,9 +738,9 @@
 							recirculacion_cumple: false,
 
 							transparencia: vasos[i].transparencia,
-							transparencia_m: true,
-							transparencia_t: true,
-							transparencia_cumple: true,
+							transparencia_m: 'cumple',
+							transparencia_t: 'cumple',
+							transparencia_cumple: 'cumple',
 
 							lectura_m: 0,
 							lectura_t: 0,

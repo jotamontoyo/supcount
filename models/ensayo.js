@@ -118,16 +118,20 @@
 
 
             transparencia: {
-                type: DataTypes.BOOLEAN
+                type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             transparencia_m: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             transparencia_t: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
 			transparencia_cumple: {
-				type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
 			},
 
 
