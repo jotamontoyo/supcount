@@ -45,12 +45,22 @@
 
 
 
-	<div class="form-group">
+<!--	<div class="form-group">
 		<label for="preg" class="col-sm-2 control-label">Status:</label>
 		<div class="col-sm-10">
 			<select class="form-control" id="proceso" name="siloe[proceso]">
 				<option value=true <%if (siloe.proceso) {%> selected <%}%>>Pendiente</option>
 				<option value=false <%if (!siloe.proceso) {%> selected <%}%>>Revisado</option>
+			</select>
+		</div>
+	</div> -->
+
+	<div class="form-group">
+		<label for="preg" class="col-sm-2 control-label">Estado:</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="estado" name="siloe[estado]">
+				<option value='abierto' <%if (siloe.estado==='abierto') {%> selected <%}%>>Abierto</option>
+				<option value='cerrado' <%if (siloe.estado==='cerrado') {%> selected <%}%>>Cerrado</option>
 			</select>
 		</div>
 	</div>

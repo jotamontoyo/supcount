@@ -52,9 +52,9 @@
 						<td class="text-center"><a href="/siloes/<%= siloes[i].id %>"><%= siloes[i].dia %>-<%= siloes[i].mes %>-<%= siloes[i].anio %></a></td>
 						<td class="text-center"><a href="/siloes/<%= siloes[i].id %>"><%= siloes[i].id %></a></td>
 						<td class="text-center"><a href="/siloes/<%= siloes[i].id %>"><%= siloes[i].UserName %></a></td>
-						<% if (siloes[i].proceso) {%>
+						<% if (siloes[i].estado === 'abierto') {%>
 							<td class="text-center"><span class="" aria-hidden="true"></span></td>
-						<%} else {%>
+						<%} else if (siloes[i].estado === 'cerrado') {%>
 							<td class="text-center"><i class="fa fa-check"></i></td>
 						<%}%>
 <!--						<td><%= siloes[i].proveedor %></td>

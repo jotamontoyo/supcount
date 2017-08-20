@@ -98,7 +98,7 @@
 	        		Siloe.count().then(function( count ) {
 	          			if(count === 0) {   																			// la tabla se inicializa solo si está vacía
 	            			Siloe.bulkCreate(
-	              				[{centro: "Central", UserId: 2, UserName: "pepe", proceso: true, dia: 0, mes: 0, anio: 0}]
+	              				[{centro: "Central", UserId: 2, UserName: "pepe", estado: 'abierto', dia: 0, mes: 0, anio: 0}]
 	              			).then(function(){console.log('Base de datos: tabla siloe inicializada')});
 	          			};
 	        		});

@@ -887,7 +887,8 @@
 		req.siloe.dia = req.body.siloe.dia;
 		req.siloe.mes = req.body.siloe.mes;
 		req.siloe.anio = req.body.siloe.anio;
-		req.siloe.proceso = req.body.siloe.proceso;
+//		req.siloe.proceso = req.body.siloe.proceso;
+		req.siloe.estado = req.body.siloe.estado;
 
 		var admin_email = "";															// busca email administrador del centro
 		models.User.find({
@@ -911,7 +912,7 @@
 			.save()
 			.then(function() {
 
-//				if (!req.siloe.proceso) {										// se envia cuando el proceso del siloe se cierra/revisado
+				if (req.siloe.estado === 'cerrado') {										// se envia cuando el estado del siloe se cierra/revisado
 
 					'use strict';
 					const nodemailer = require('nodemailer');
@@ -929,13 +930,11 @@
 					    }
 					});
 
-					let mailOptions = {																// setup email data with unicode symbols
-//						from: "Fred Foo 👻 '&#937'; " + user_email, 											// sender address
+					let mailOptions = {																						// setup email data with unicode symbols
 						from: '"Supcounter \u00A9 - no responder - " <noreply@registrosdemantenimiento.com>',	 			// sender address
-//						from: req.session.user.email, 												// sender address
 						to: admin_email, 															// list of receivers
 						subject: 'Cierre de parte #' + req.siloe.id, 								// Subject line
-						text: 'Ha confirmado un parte de Ensayos', 									// plain text body
+						text: 'Se ha confirmado un parte de Ensayos', 								// plain text body
 						html:
 							'<p>El usuario ' + req.session.user.username
 							+ ' del centro ' + req.session.user.centro
@@ -949,52 +948,10 @@
 							return console.log(error);
 						};
 						console.log('Message %s sent: %s', info.messageId, info.response);
-                        
 				        res.redirect('/siloes');
 					});
 
-
-
-
-
-/*					var helper = require('sendgrid').mail;
-					var fromEmail = new helper.Email(req.session.user.email);	// email del usuario
-					var toEmail = new helper.Email(admin_email);				// email del administrador del centro
-					var subject = 'El Parte de Ensayos nº: '
-						+ req.siloe.id
-						+ ' de fecha '
-						+ req.siloe.dia
-						+ '-' + req.siloe.mes
-						+ '-' + req.siloe.anio
-						+ ' ha sido revisado';
-					var content = new helper.Content(
-						'text/plain', 'El usuario '
-						+ req.session.user.username
-						+ ' del centro '
-						+ req.session.user.centro
-						+ ' ha revisado y confirmado un parte. Entre en '
-						+ 'https://supcounter.herokuapp.com para ver los resultados'
-					);
-					var mail = new helper.Mail(fromEmail, subject, toEmail, content);
-
-					var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
-					var request = sg.emptyRequest({
-						method: 'POST',
-						path: '/v3/mail/send',
-						body: mail.toJSON()
-					});
-
-					sg.API(request, function (error, response) {
-						if (error) {
-							console.log('Error response received');
-						};
-						console.log(response.statusCode);
-						console.log(response.body);
-						console.log(response.headers);
-					}); */
-
-//				};
-
+				} else {res.redirect('/siloes')};
 
 			});
 		};
@@ -1006,25 +963,68 @@
 
 
 
-
 	exports.destroy = function(req, res, next) {
-
-
-
 		req.siloe.destroy().then(function() {
-
 			models.Ensayo.findAll({
-
 				where: {SiloId: req.siloe.id}
-
 			}).then(function(ensayos) {
-
 				for (var i in ensayos) {
 					ensayos[i].destroy();
 				};
-
 			});
-
 			res.redirect('/siloes');
 		}).catch(function(error) {next(error)});
 	};
+
+
+
+
+
+
+
+
+
+
+	/*	process.env.SENDGRID_API_KEY = "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";
+		process.env.SENDGRID_PASSWORD = "eu0coa3b6878";
+		process.env.SENDGRID_USERNAME = "app66046690@heroku.com"; */
+
+
+
+	/*					var helper = require('sendgrid').mail;
+						var fromEmail = new helper.Email(req.session.user.email);	// email del usuario
+						var toEmail = new helper.Email(admin_email);				// email del administrador del centro
+						var subject = 'El Parte de Ensayos nº: '
+							+ req.siloe.id
+							+ ' de fecha '
+							+ req.siloe.dia
+							+ '-' + req.siloe.mes
+							+ '-' + req.siloe.anio
+							+ ' ha sido revisado';
+						var content = new helper.Content(
+							'text/plain', 'El usuario '
+							+ req.session.user.username
+							+ ' del centro '
+							+ req.session.user.centro
+							+ ' ha revisado y confirmado un parte. Entre en '
+							+ 'https://supcounter.herokuapp.com para ver los resultados'
+						);
+						var mail = new helper.Mail(fromEmail, subject, toEmail, content);
+
+						var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+						var request = sg.emptyRequest({
+							method: 'POST',
+							path: '/v3/mail/send',
+							body: mail.toJSON()
+						});
+
+						sg.API(request, function (error, response) {
+							if (error) {
+								console.log('Error response received');
+							};
+							console.log(response.statusCode);
+							console.log(response.body);
+							console.log(response.headers);
+						}); */
+
+	//				};

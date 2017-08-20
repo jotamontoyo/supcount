@@ -1,25 +1,13 @@
 
-//	process.env.DATABASE_URL = "postgres://rkybjxyluotzej:43099e66b7cf8f864aace6eeabe25f4e4ac7331fd379dd32dd71e420313ae87f@ec2-23-21-246-11.compute-1.amazonaws.com:5432/denu1l0mihcu43?ssl=true"; // URL HerokuPostgres
-//	process.env.DATABASE_URL = "mysql://ngqai7nm2awsuiyn:c72b9s4jpfcl9w3c@r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/q545n56wuza1pnfx"; // URL mysqul
-
-
 	process.env.DATABASE_URL = "mysql://supcounter_user:42!s1zZe@vcloud.mysql.sumamoos.com:3306/supcounter_db"; // URL registrosdemantenimiento.com
 //    process.env.DATABASE_URL = "sqlite://:@:/";           // activar para local
     process.env.DATABASE_STORAGE = "quiz.sqlite";
-
 	process.env.PASSWORD_ENCRYPTION_KEY= "asdfghjklzxcvbnmqwertyuiop";
-
     process.env.NODE_SMTP_PASS = "Y3kxw4_0";
-//    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
-/*	process.env.SENDGRID_API_KEY = "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";
-	process.env.SENDGRID_PASSWORD = "eu0coa3b6878";
-	process.env.SENDGRID_USERNAME = "app66046690@heroku.com"; */
 
 	var express = require('express');
-	var busboy = require('connect-busboy'); //middleware for form/file upload
+	var busboy = require('connect-busboy');                //middleware for form/file upload
 	var path = require('path');
-
 	var favicon = require('serve-favicon');
 	var logger = require('morgan');
 	var cookieParser = require('cookie-parser');
@@ -27,8 +15,6 @@
 	var partials = require('express-partials');             // paquete para manejar vistas parciales del layout.ejs
 	var methodOverride = require('method-override');
 	var session = require('express-session');
-
-
 	var routes = require('./routes/index');
 
 	var app = express();
