@@ -657,7 +657,7 @@
 		var anio = fecha.getUTCFullYear();
 
 		var siloe = models.Siloe.build( 																				// crea el objeto quiz, lo construye con buid() metodo de sequilize
-			{centro: "Central", proceso: true, dia: dia, mes: mes, anio: anio}		// asigna literales a los campos pregunta y respuestas para que se vea el texto en el <input> cuando creemos el formulario
+			{centro: "Central", estado: 'abierto', dia: dia, mes: mes, anio: anio}		// asigna literales a los campos pregunta y respuestas para que se vea el texto en el <input> cuando creemos el formulario
 		);
 
 		res.render('siloes/new', {siloe: siloe, errors: []});   							// renderiza la vista quizes/new
@@ -842,14 +842,16 @@
 						} else {
 							ensayo 																		// save: guarda en DB campos pregunta y respuesta de quiz
 							.save()
-							.then(function() {});
+							.then(function() {
+								res.redirect('/siloes');
+							});
 						};
 
 					};
 
 				});
 
-				res.redirect('/siloes');
+//				res.redirect('/siloes');
 
 			});
 
@@ -887,7 +889,6 @@
 		req.siloe.dia = req.body.siloe.dia;
 		req.siloe.mes = req.body.siloe.mes;
 		req.siloe.anio = req.body.siloe.anio;
-//		req.siloe.proceso = req.body.siloe.proceso;
 		req.siloe.estado = req.body.siloe.estado;
 
 		var admin_email = "";															// busca email administrador del centro
