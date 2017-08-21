@@ -69,8 +69,8 @@
             },
 
             extranios: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false
+                type: DataTypes.STRING,
+                defaultValue: 'cumple'
             },
 
             turbidez_max: {
@@ -123,24 +123,24 @@
 
 
             ecoli: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false
+                type: DataTypes.STRING,
+                defaultValue: 'cumple'
             },
             legionella_max: {
                 type: DataTypes.FLOAT,
                 defaultValue: 100
             },
             pseudomona: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false
+                type: DataTypes.STRING,
+                defaultValue: 'cumple'
             },
             enterococos: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false
+                type: DataTypes.STRING,
+                defaultValue: 'cumple'
             },
             staphlylococcus: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false
+                type: DataTypes.STRING,
+                defaultValue: 'cumple'
             },
 
 

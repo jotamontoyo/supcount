@@ -15,6 +15,12 @@
         margin-right: 10px;
     }
 
+    .ocultar_pc {
+
+        visibility: visible;
+        
+    }
+
 
     /* INICIO =============================================================== */
 

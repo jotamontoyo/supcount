@@ -747,9 +747,9 @@
 							lectura_cumple: false,
 
 							extranios: vasos[i].extranios,
-							extranios_m: false,
-							extranios_t: false,
-							extranios_cumple: true,
+							extranios_m: 'cumple',
+							extranios_t: 'cumple',
+							extranios_cumple: 'cumple',
 
 							turbidez_max: vasos[i].turbidez_max,
 							turbidez_m: 0,
@@ -794,9 +794,9 @@
 							co2_exterior_cumple: false,
 
 							ecoli: vasos[i].ecoli,
-							ecoli_m: false,
-							ecoli_t: false,
-							ecoli_cumple: true,
+							ecoli_m: 'cumple',
+							ecoli_t: 'cumple',
+							ecoli_cumple: 'cumple',
 
 							legionella_max: vasos[i].legionella_max,
 							legionella_m: 0,
@@ -804,19 +804,19 @@
 							legionella_cumple: false,
 
 							pseudomona: vasos[i].pseudomona,
-							pseudomona_m: false,
-							pseudomona_t: false,
-							pseudomona_cumple: true,
+							pseudomona_m: 'cumple',
+							pseudomona_t: 'cumple',
+							pseudomona_cumple: 'cumple',
 
 							enterococos: vasos[i].enterococos,
-							enterococos_m: false,
-							enterococos_t: false,
-							enterococos_cumple: true,
+							enterococos_m: 'cumple',
+							enterococos_t: 'cumple',
+							enterococos_cumple: 'cumple',
 
 							staphlylococcus: vasos[i].staphlylococcus,
-							staphlylococcus_m: false,
-							staphlylococcus_t: false,
-							staphlylococcus_cumple: true,
+							staphlylococcus_m: 'cumple',
+							staphlylococcus_t: 'cumple',
+							staphlylococcus_cumple: 'cumple',
 
 							langelier_max: vasos[i].langelier_max,
 							langelier_min: vasos[i].langelier_min,

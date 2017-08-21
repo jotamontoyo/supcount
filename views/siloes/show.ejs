@@ -103,9 +103,21 @@
 															</div>
 														</div>
 
-														<% if (!ensayos[index].ph_cumple) {%>
-															<img class="center-block" src="/images/info4.png" alt="" />
-														<%}%>
+
+														<br>
+														<div class="row pie_grupo_items_ensayo">
+
+															<div class="col-md-6 ocultar_pc">
+																<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+															</div>
+
+															<div class="col-md-6">
+																<% if (!ensayos[index].ph_cumple) { %>
+																	<img class="center-block" src="/images/info4.png" alt="" />
+																<%}%>
+															</div>
+
+														</div>
 
 
 													</div>
@@ -136,9 +148,21 @@
 															</div>
 														</div>
 
-														<% if (!ensayos[index].redox_cumple) {%>
-															<img class="center-block" src="/images/info4.png" alt="" />
-														<%}%>
+
+														<br>
+														<div class="row pie_grupo_items_ensayo">
+
+															<div class="col-md-6 ocultar_pc">
+																<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+															</div>
+
+															<div class="col-md-6">
+																<% if (!ensayos[index].redox_cumple) { %>
+																	<img class="center-block" src="/images/info4.png" alt="" />
+																<%}%>
+															</div>
+
+														</div>
 
 													</div>
 
@@ -168,9 +192,20 @@
 															</div>
 														</div>
 
-														<% if (!ensayos[index].temp_cumple) {%>
-															<img class="center-block" src="/images/info4.png" alt="" />
-														<%}%>
+														<br>
+														<div class="row pie_grupo_items_ensayo">
+
+															<div class="col-md-6 ocultar_pc">
+																<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+															</div>
+
+															<div class="col-md-6">
+																<% if (!ensayos[index].temp_cumple) { %>
+																	<img class="center-block" src="/images/info4.png" alt="" />
+																<%}%>
+															</div>
+
+														</div>
 
 													</div>
 
@@ -200,9 +235,21 @@
 															</div>
 														</div>
 
-														<% if (!ensayos[index].recirculacion_cumple) {%>
-															<img class="center-block" src="/images/info4.png" alt="" />
-														<%}%>
+
+														<br>
+														<div class="row pie_grupo_items_ensayo">
+
+															<div class="col-md-6 ocultar_pc">
+																<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+															</div>
+
+															<div class="col-md-6">
+																<% if (!ensayos[index].recirculacion_cumple) { %>
+																	<img class="center-block" src="/images/info4.png" alt="" />
+																<%}%>
+															</div>
+
+														</div>
 
 													</div>
 
@@ -234,18 +281,23 @@
 												    	</div>
 
 														<br>
-														<% if ((ensayos[index].transparencia_m  !== ensayos[index].transparencia)  ||
-																(ensayos[index].transparencia_t !== ensayos[index].transparencia)) { %>
 
-															<p class="text-center">👎</p>
+														<div class="row pie_grupo_items_ensayo">
 
-														<%}%>
-														<% if ((ensayos[index].transparencia_m  === ensayos[index].transparencia)  &&
-																(ensayos[index].transparencia_t === ensayos[index].transparencia)) { %>
+															<div class="col-md-6 ocultar_pc">
+																<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+															</div>
 
-															<p class="text-center">👍</p>
+															<div class="col-md-6">
+																<% if ((ensayos[index].transparencia_m  !== ensayos[index].transparencia)  ||
+																		(ensayos[index].transparencia_t !== ensayos[index].transparencia)) { %>
+																	<img class="center-block" src="/images/info4.png" alt="" />
+																<%}%>
+															</div>
 
-														<%}%>
+														</div>
+
+
 
 													</div>
 
@@ -297,8 +349,8 @@
 												    		<label for="extranios" class="col-md-6 control-label">Extraños m</label>
 												    		<div class="col-sm-6">
 												    			<select class="form-control" id="extranios_m" name="ensayo[extranios_m]">
-												    				<option value=true <%if (ensayos[index].extranios_m) {%> selected <%}%>>Ok</option>
-												    				<option value=false <%if (!ensayos[index].extranios_m) {%> selected <%}%>>Negativo</option>
+												    				<option value='cumple' <%if (ensayos[index].extranios_m==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+												    				<option value='no cumple' <%if (ensayos[index].extranios_m==='no cumple') {%> selected <%}%>>❌ No cumple</option>
 												    			</select>
 												    		</div>
 												    	</div>
@@ -307,21 +359,28 @@
 												    		<label for="extranios" class="col-md-6 control-label">Extraños t</label>
 												    		<div class="col-sm-6">
 												    			<select class="form-control" id="extranios_t" name="ensayo[extranios_t]">
-												    				<option value=true <%if (ensayos[index].extranios_t) {%> selected <%}%>>Ok</option>
-												    				<option value=false <%if (!ensayos[index].extranios_t) {%> selected <%}%>>Negativo</option>
+												    				<option value='cumple' <%if (ensayos[index].extranios_t==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+												    				<option value='no cumple' <%if (ensayos[index].extranios_t==='no cumple') {%> selected <%}%>>❌ No cumple</option>
 												    			</select>
 												    		</div>
 												    	</div>
 
-														<% if ((ensayos[index].extranios_m  !== ensayos[index].extranios)  ||
-																(ensayos[index].extranios_t !== ensayos[index].extranios)) { %>
 
-															<img class="center-block" src="/images/info4.png" alt="" />
+														<br>
+														<div class="row pie_grupo_items_ensayo">
 
+															<div class="col-md-6 ocultar_pc">
+																<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+															</div>
 
-														<%}%>
+															<div class="col-md-6">
+																<% if ((ensayos[index].extranios_m  !== ensayos[index].extranios)  ||
+																		(ensayos[index].extranios_t !== ensayos[index].extranios)) { %>
+																	<img class="center-block" src="/images/info4.png" alt="" />
+																<%}%>
+															</div>
 
-														<h6><%= ensayos[index].extranios_cumple %></h6>
+														</div>
 
 													</div>
 
@@ -590,28 +649,40 @@
 														<div class="marco_item_ensayo">
 
 															<div class="form-group">
-													    		<label for="ecoli" class="col-md-6 control-label">Ecoli m</label>
+													    		<label for="ecoli" class="col-md-6 control-label">Écoli m</label>
 													    		<div class="col-sm-6">
 													    			<select class="form-control" id="ecoli_m" name="ensayo[ecoli_m]">
-													    				<option value=true <%if (ensayos[index].ecoli_m) {%> selected <%}%>>Ok</option>
-													    				<option value=false <%if (!ensayos[index].ecoli_m) {%> selected <%}%>>Negativo</option>
+													    				<option value='cumple' <%if (ensayos[index].ecoli_m==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+													    				<option value='no cumple' <%if (ensayos[index].ecoli_m==='no cumple') {%> selected <%}%>>❌ No cumple</option>
 													    			</select>
 													    		</div>
 													    	</div>
 
 															<div class="form-group">
-													    		<label for="ecoli" class="col-md-6 control-label">Ecoli t</label>
+													    		<label for="ecoli" class="col-md-6 control-label">Écoli t</label>
 													    		<div class="col-sm-6">
 													    			<select class="form-control" id="ecoli_t" name="ensayo[ecoli_t]">
-													    				<option value=true <%if (ensayos[index].ecoli_t) {%> selected <%}%>>Ok</option>
-													    				<option value=false <%if (!ensayos[index].ecoli_t) {%> selected <%}%>>Negativo</option>
+													    				<option value='cumple' <%if (ensayos[index].ecoli_t==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+													    				<option value='no cumple' <%if (ensayos[index].ecoli_t==='no cumple') {%> selected <%}%>>❌ No cumple</option>
 													    			</select>
 													    		</div>
 													    	</div>
 
-															<% if (!ensayos[index].ecoli_cumple) {%>
-																<img class="center-block" src="/images/info4.png" alt="" />
-															<%}%>
+															<br>
+															<div class="row pie_grupo_items_ensayo">
+
+																<div class="col-md-6 ocultar_pc">
+																	<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+																</div>
+
+																<div class="col-md-6">
+																	<% if ((ensayos[index].ecoli_m  !== ensayos[index].ecoli)  ||
+																			(ensayos[index].ecoli_t !== ensayos[index].ecoli)) { %>
+																		<img class="center-block" src="/images/info4.png" alt="" />
+																	<%}%>
+																</div>
+
+															</div>
 
 														</div>
 
@@ -658,8 +729,8 @@
 													    		<label for="pseudomona" class="col-md-6 control-label">Pseudomona m</label>
 													    		<div class="col-sm-6">
 													    			<select class="form-control" id="pseudomona_m" name="ensayo[pseudomona_m]">
-													    				<option value=true <%if (ensayos[index].pseudomona_m) {%> selected <%}%>>Ok</option>
-													    				<option value=false <%if (!ensayos[index].pseudomona_m) {%> selected <%}%>>Negativo</option>
+													    				<option value='cumple' <%if (ensayos[index].pseudomona_m==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+													    				<option value='no cumple' <%if (ensayos[index].pseudomona_m==='no cumple') {%> selected <%}%>>❌ No cumple</option>
 													    			</select>
 													    		</div>
 													    	</div>
@@ -668,15 +739,27 @@
 													    		<label for="pseudomona" class="col-md-6 control-label">Pseudomona t</label>
 													    		<div class="col-sm-6">
 													    			<select class="form-control" id="pseudomona_t" name="ensayo[pseudomona_t]">
-													    				<option value=true <%if (ensayos[index].pseudomona_t) {%> selected <%}%>>Ok</option>
-													    				<option value=false <%if (!ensayos[index].pseudomona_t) {%> selected <%}%>>Negativo</option>
+													    				<option value='cumple' <%if (ensayos[index].pseudomona_t==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+													    				<option value='no cumple' <%if (ensayos[index].pseudomona_t==='no cumple') {%> selected <%}%>>❌ No cumple</option>
 													    			</select>
 													    		</div>
 													    	</div>
 
-															<% if (!ensayos[index].pseudomona_cumple) {%>
-																<img class="center-block" src="/images/info4.png" alt="" />
-															<%}%>
+															<br>
+															<div class="row pie_grupo_items_ensayo">
+
+																<div class="col-md-6 ocultar_pc">
+																	<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+																</div>
+
+																<div class="col-md-6">
+																	<% if ((ensayos[index].pseudomona_m  !== ensayos[index].pseudomona)  ||
+																			(ensayos[index].pseudomona_t !== ensayos[index].pseudomona)) { %>
+																		<img class="center-block" src="/images/info4.png" alt="" />
+																	<%}%>
+																</div>
+
+															</div>
 
 														</div>
 
@@ -698,28 +781,40 @@
 													<div class="marco_item_ensayo">
 
 														<div class="form-group">
-												    		<label for="enterococos" class="col-md-6 control-label">Enterococos m</label>
-												    		<div class="col-sm-6">
-												    			<select class="form-control" id="enterococos_m" name="ensayo[enterococos_m]">
-												    				<option value=true <%if (ensayos[index].enterococos_m) {%> selected <%}%>>Ok</option>
-												    				<option value=false <%if (!ensayos[index].enterococos_m) {%> selected <%}%>>Negativo</option>
-												    			</select>
-												    		</div>
-												    	</div>
+															<label for="enterococos" class="col-md-6 control-label">Enterococos m</label>
+															<div class="col-sm-6">
+																<select class="form-control" id="enterococos_m" name="ensayo[enterococos_m]">
+																	<option value='cumple' <%if (ensayos[index].enterococos_m==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+																	<option value='no cumple' <%if (ensayos[index].enterococos_m==='no cumple') {%> selected <%}%>>❌ No cumple</option>
+																</select>
+															</div>
+														</div>
 
 														<div class="form-group">
-												    		<label for="enterococos" class="col-md-6 control-label">Enterococos t</label>
-												    		<div class="col-sm-6">
-												    			<select class="form-control" id="enterococos_t" name="ensayo[enterococos_t]">
-												    				<option value=true <%if (ensayos[index].enterococos_t) {%> selected <%}%>>Ok</option>
-												    				<option value=false <%if (!ensayos[index].enterococos_t) {%> selected <%}%>>Negativo</option>
-												    			</select>
-												    		</div>
-												    	</div>
+															<label for="enterococos" class="col-md-6 control-label">Enterococos t</label>
+															<div class="col-sm-6">
+																<select class="form-control" id="enterococos_t" name="ensayo[enterococos_t]">
+																	<option value='cumple' <%if (ensayos[index].enterococos_t==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+																	<option value='no cumple' <%if (ensayos[index].enterococos_t==='no cumple') {%> selected <%}%>>❌ No cumple</option>
+																</select>
+															</div>
+														</div>
 
-														<% if (!ensayos[index].enterococos_cumple) {%>
-															<img class="center-block" src="/images/info4.png" alt="" />
-														<%}%>
+														<br>
+														<div class="row pie_grupo_items_ensayo">
+
+															<div class="col-md-6 ocultar_pc">
+																<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+															</div>
+
+															<div class="col-md-6">
+																<% if ((ensayos[index].enterococos_m  !== ensayos[index].enterococos)  ||
+																		(ensayos[index].enterococos_t !== ensayos[index].enterococos)) { %>
+																	<img class="center-block" src="/images/info4.png" alt="" />
+																<%}%>
+															</div>
+
+														</div>
 
 													</div>
 
@@ -732,28 +827,40 @@
 													<div class="marco_item_ensayo">
 
 														<div class="form-group">
-												    		<label for="staphlylococcus" class="col-md-6 control-label">Staphlylococcus m</label>
-												    		<div class="col-sm-6">
-												    			<select class="form-control" id="staphlylococcus_m" name="ensayo[staphlylococcus_m]">
-												    				<option value=true <%if (ensayos[index].staphlylococcus_m) {%> selected <%}%>>Ok</option>
-												    				<option value=false <%if (!ensayos[index].staphlylococcus_m) {%> selected <%}%>>Negativo</option>
-												    			</select>
-												    		</div>
-												    	</div>
+															<label for="staphlylococcus" class="col-md-6 control-label">Staphlylococcus m</label>
+															<div class="col-sm-6">
+																<select class="form-control" id="staphlylococcus_m" name="ensayo[staphlylococcus_m]">
+																	<option value='cumple' <%if (ensayos[index].staphlylococcus_m==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+																	<option value='no cumple' <%if (ensayos[index].staphlylococcus_m==='no cumple') {%> selected <%}%>>❌ No cumple</option>
+																</select>
+															</div>
+														</div>
 
 														<div class="form-group">
-												    		<label for="staphlylococcus" class="col-md-6 control-label">Staphlylococcus t</label>
-												    		<div class="col-sm-6">
-												    			<select class="form-control" id="staphlylococcus_t" name="ensayo[staphlylococcus_t]">
-												    				<option value=true <%if (ensayos[index].staphlylococcus_t) {%> selected <%}%>>Ok</option>
-												    				<option value=false <%if (!ensayos[index].staphlylococcus_t) {%> selected <%}%>>Negativo</option>
-												    			</select>
-												    		</div>
-												    	</div>
+															<label for="staphlylococcus" class="col-md-6 control-label">Staphlylococcus t</label>
+															<div class="col-sm-6">
+																<select class="form-control" id="staphlylococcus_t" name="ensayo[staphlylococcus_t]">
+																	<option value='cumple' <%if (ensayos[index].staphlylococcus_t==='cumple') {%> selected <%}%>>✔️ Cumple</option>
+																	<option value='no cumple' <%if (ensayos[index].staphlylococcus_t==='no cumple') {%> selected <%}%>>❌ No cumple</option>
+																</select>
+															</div>
+														</div>
 
-														<% if (!ensayos[index].staphlylococcus_cumple) {%>
-															<img class="center-block" src="/images/info4.png" alt="" />
-														<%}%>
+														<br>
+														<div class="row pie_grupo_items_ensayo">
+
+															<div class="col-md-6 ocultar_pc">
+																<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+															</div>
+
+															<div class="col-md-6">
+																<% if ((ensayos[index].staphlylococcus_m  !== ensayos[index].staphlylococcus)  ||
+																		(ensayos[index].staphlylococcus_t !== ensayos[index].staphlylococcus)) { %>
+																	<img class="center-block" src="/images/info4.png" alt="" />
+																<%}%>
+															</div>
+
+														</div>
 
 													</div>
 

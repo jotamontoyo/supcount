@@ -123,21 +123,16 @@
 
 
 
+
 		req.ensayo.extranios_m = req.body.ensayo.extranios_m;
 		req.ensayo.extranios_t = req.body.ensayo.extranios_t;
-
-		if ((req.ensayo.extranios_m !== req.ensayo.extranios) ||
-			(req.ensayo.extranios_t !== req.ensayo.extranios)) {
-
-				req.ensayo.extranios_cumple = false;
-
+		if ((req.ensayo.extranios_m != req.ensayo.extranios) ||
+			(req.ensayo.extranios_t != req.ensayo.extranios)) {
+				req.ensayo.extranios_cumple = 'no cumple';
 		};
-
 		if ((req.ensayo.extranios_m === req.ensayo.extranios) &&
 			(req.ensayo.extranios_t === req.ensayo.extranios)) {
-
-				req.ensayo.extranios_cumple = true;
-
+				req.ensayo.extranios_cumple = 'cumple';
 		};
 
 
@@ -229,7 +224,17 @@
 
 
 
-// faltan campos desplegables aqui
+
+		req.ensayo.ecoli_m = req.body.ensayo.ecoli_m;
+		req.ensayo.ecoli_t = req.body.ensayo.ecoli_t;
+		if ((req.ensayo.ecoli_m != req.ensayo.ecoli) ||
+			(req.ensayo.ecoli_t != req.ensayo.ecoli)) {
+				req.ensayo.ecoli_cumple = 'no cumple';
+		};
+		if ((req.ensayo.ecoli_m === req.ensayo.ecoli) &&
+			(req.ensayo.ecoli_t === req.ensayo.ecoli)) {
+				req.ensayo.ecoli_cumple = 'cumple';
+		};
 
 
 
@@ -246,8 +251,45 @@
 
 
 
-// faltan campos desplegables aqui
 
+
+
+		req.ensayo.pseudomona_m = req.body.ensayo.pseudomona_m;
+		req.ensayo.pseudomona_t = req.body.ensayo.pseudomona_t;
+		if ((req.ensayo.pseudomona_m != req.ensayo.pseudomona) ||
+			(req.ensayo.pseudomona_t != req.ensayo.pseudomona)) {
+				req.ensayo.pseudomona_cumple = 'no cumple';
+		};
+		if ((req.ensayo.pseudomona_m === req.ensayo.pseudomona) &&
+			(req.ensayo.pseudomona_t === req.ensayo.pseudomona)) {
+				req.ensayo.pseudomona_cumple = 'cumple';
+		};
+
+
+
+		req.ensayo.enterococos_m = req.body.ensayo.enterococos_m;
+		req.ensayo.enterococos_t = req.body.ensayo.enterococos_t;
+		if ((req.ensayo.enterococos_m != req.ensayo.enterococos) ||
+			(req.ensayo.enterococos_t != req.ensayo.enterococos)) {
+				req.ensayo.enterococos_cumple = 'no cumple';
+		};
+		if ((req.ensayo.enterococos_m === req.ensayo.enterococos) &&
+			(req.ensayo.enterococos_t === req.ensayo.enterococos)) {
+				req.ensayo.enterococos_cumple = 'cumple';
+		};
+
+
+
+		req.ensayo.staphlylococcus_m = req.body.ensayo.staphlylococcus_m;
+		req.ensayo.staphlylococcus_t = req.body.ensayo.staphlylococcus_t;
+		if ((req.ensayo.staphlylococcus_m != req.ensayo.staphlylococcus) ||
+			(req.ensayo.staphlylococcus_t != req.ensayo.staphlylococcus)) {
+				req.ensayo.staphlylococcus_cumple = 'no cumple';
+		};
+		if ((req.ensayo.staphlylococcus_m === req.ensayo.staphlylococcus) &&
+			(req.ensayo.staphlylococcus_t === req.ensayo.staphlylococcus)) {
+				req.ensayo.staphlylococcus_cumple = 'cumple';
+		};
 
 
 

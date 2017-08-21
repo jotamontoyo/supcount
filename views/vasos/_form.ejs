@@ -134,12 +134,14 @@
     		<label for="extranios" class="col-md-7 control-label">Cuerpos Extraños:</label>
     		<div class="col-sm-5">
     			<select class="form-control" id="extranios" name="vaso[extranios]">
-    				<option value=true <%if (vaso.extranios) {%> selected <%}%>>Ok</option>
-    				<option value=false <%if (!vaso.extranios) {%> selected <%}%>>Negativo</option>
+    				<option value='cumple' <%if (vaso.extranios==='cumple') {%> selected <%}%>>Cumple</option>
+    				<option value='no cumple' <%if (vaso.extranios==='no cumple') {%> selected <%}%>>No cumple</option>
     			</select>
     		</div>
     	</div>
     </div>
+
+
 
     <div class="col-md-6">
         <div class="form-group">
@@ -251,11 +253,11 @@
 
     <div class="col-md-6">
         <div class="form-group">
-    		<label for="ecoli" class="col-md-7 control-label">Ecoli:</label>
+    		<label for="ecoli" class="col-md-7 control-label">Écoli:</label>
     		<div class="col-sm-5">
     			<select class="form-control" id="ecoli" name="vaso[ecoli]">
-    				<option value=true <%if (vaso.ecoli) {%> selected <%}%>>Ok</option>
-    				<option value=false <%if (!vaso.ecoli) {%> selected <%}%>>Negativo</option>
+    				<option value='cumple' <%if (vaso.ecoli==='cumple') {%> selected <%}%>>Cumple</option>
+    				<option value='no cumple' <%if (vaso.ecoli==='no cumple') {%> selected <%}%>>No cumple</option>
     			</select>
     		</div>
     	</div>
@@ -266,8 +268,8 @@
     		<label for="pseudomona" class="col-md-7 control-label">Pseudomona:</label>
     		<div class="col-sm-5">
     			<select class="form-control" id="pseudomona" name="vaso[pseudomona]">
-    				<option value=true <%if (vaso.pseudomona) {%> selected <%}%>>Ok</option>
-    				<option value=false <%if (!vaso.pseudomona) {%> selected <%}%>>Negativo</option>
+    				<option value='cumple' <%if (vaso.pseudomona==='cumple') {%> selected <%}%>>Cumple</option>
+    				<option value='no cumple' <%if (vaso.pseudomona==='no cumple') {%> selected <%}%>>No cumple</option>
     			</select>
     		</div>
     	</div>
@@ -278,8 +280,8 @@
     		<label for="enterococos" class="col-md-7 control-label">Enterococos:</label>
     		<div class="col-sm-5">
     			<select class="form-control" id="enterococos" name="vaso[enterococos]">
-    				<option value=true <%if (vaso.enterococos) {%> selected <%}%>>Ok</option>
-    				<option value=false <%if (!vaso.enterococos) {%> selected <%}%>>Negativo</option>
+    				<option value='cumple' <%if (vaso.enterococos==='cumple') {%> selected <%}%>>Cumple</option>
+    				<option value='no cumple' <%if (vaso.enterococos==='no cumple') {%> selected <%}%>>No cumple</option>
     			</select>
     		</div>
     	</div>
@@ -290,8 +292,8 @@
     		<label for="staphlylococcus" class="col-md-7 control-label">Staphlylococcus:</label>
     		<div class="col-sm-5">
     			<select class="form-control" id="staphlylococcus" name="vaso[staphlylococcus]">
-    				<option value=true <%if (vaso.staphlylococcus) {%> selected <%}%>>Ok</option>
-    				<option value=false <%if (!vaso.staphlylococcus) {%> selected <%}%>>Negativo</option>
+    				<option value='cumple' <%if (vaso.staphlylococcus==='cumple') {%> selected <%}%>>Cumple</option>
+    				<option value='no cumple' <%if (vaso.staphlylococcus==='no cumple') {%> selected <%}%>>No cumple</option>
     			</select>
     		</div>
     	</div>
@@ -299,29 +301,9 @@
 
 
 
-
-
-
-
-
     <% if (session.user) {
         if (session.user.isAdmin) {%>
 
-
-<!--            <div class="col-md-12">
-                <div class="form-group">
-            		<div class="text-center" style="margin-top: 10px;">
-            			<a href="/vasos">
-            				<button class="btn btn-danger btn-sm" type="button">
-            					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
-            				</button>
-            			</a>
-            			<button class="btn btn-success btn-sm" type="submit" value="Salvar">
-            				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
-            			</button>
-            		</div>
-            	</div>
-            </div> -->
 
         <div class="col-md-12">
 

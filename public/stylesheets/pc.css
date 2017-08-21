@@ -273,6 +273,13 @@
 	}
 
 
+	.ocultar_pc {
+
+		visibility: hidden;
+	}
+
+
+
 
 /*	#front-panel, #quizes-panel, #temas-panel, #showbytema-panel, #stats-panel, #db-panel {
 		background-color: 	rgba(238, 238, 238, 0.6);
@@ -1139,7 +1146,8 @@
 	}
 
 
-	.grupo_items_ensayo {
+	.pie_grupo_items_ensayo {
+
 
 
 

@@ -139,16 +139,20 @@
 
 
             extranios: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             extranios_m: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             extranios_t: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
 			extranios_cumple: {
-				type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
 			},
 
 
@@ -281,16 +285,20 @@
 
 
             ecoli: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             ecoli_m: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             ecoli_t: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
 			ecoli_cumple: {
-				type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
 			},
 
 
@@ -311,46 +319,58 @@
 
 
             pseudomona: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             pseudomona_m: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             pseudomona_t: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
 			pseudomona_cumple: {
-				type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
 			},
 
 
 
             enterococos: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             enterococos_m: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             enterococos_t: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
 			enterococos_cumple: {
-				type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
 			},
 
 
 
             staphlylococcus: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             staphlylococcus_m: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
             staphlylococcus_t: {
-                type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
             },
 			staphlylococcus_cumple: {
-				type: DataTypes.BOOLEAN
+				type: DataTypes.STRING,
+				defaultValue: 'cumple'
 			},
 
 
