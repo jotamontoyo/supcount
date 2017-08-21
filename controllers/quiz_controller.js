@@ -378,7 +378,7 @@
 		req.quiz.respuesta = req.body.quiz.respuesta;
 		req.quiz.centro = req.body.quiz.centro;
 		req.quiz.proveedor = req.body.quiz.proveedor;
-		req.quiz.proceso = req.body.quiz.proceso;
+		req.quiz.estado = req.body.quiz.estado;
 
 		var fecha_actual = new Date();
 
@@ -392,7 +392,7 @@
 			if (((fecha_actual - req.quiz.fecha) < (48*60*60*1000)) || (req.session.user.isAdmin)) {				// control de la antiguedad del parte
 
 				req.quiz
-				.save({fields: ["fecha", "pregunta", "respuesta", "centro", "proveedor", "proceso", "dia", "mes", "anio"]})
+				.save({fields: ["fecha", "pregunta", "respuesta", "centro", "proveedor", "estado", "dia", "mes", "anio"]})
 				.then(function() {res.redirect('/quizes')});
 
 			} else {
@@ -477,7 +477,7 @@
 
 	exports.opened = function(req, res) {
 		models.Quiz.findAll({
-			where: {proceso: true, UserId: req.session.user.id}
+			where: {estado: true, UserId: req.session.user.id}
 		}).then(
 			function(quizes) {
 				res.render('quizes/index.ejs', {quizes: quizes, errors: []});
@@ -487,7 +487,7 @@
 
 	exports.closed = function(req, res) {
 		models.Quiz.findAll({
-			where: {proceso: false, UserId: req.session.user.id}
+			where: {estado: false, UserId: req.session.user.id}
 		}).then(
 			function(quizes) {
 				res.render('quizes/index.ejs', {quizes: quizes, errors: []});

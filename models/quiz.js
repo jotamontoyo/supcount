@@ -20,10 +20,10 @@
 			centro: {													// guarda el centro que la origina
 				type: DataTypes.STRING
 			},
-			proceso: {
-				type: DataTypes.BOOLEAN,
-				defaultValue: true
-			},
+			estado: {
+                type: DataTypes.STRING,
+                defaultValue: 'abierto'
+            },
 			UserName: {
 				type: DataTypes.STRING
 			},

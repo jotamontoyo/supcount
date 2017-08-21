@@ -59,6 +59,9 @@
 			req.ensayo.ph_cumple = true;
 		};
 
+
+
+
 		req.ensayo.redox_m = req.body.ensayo.redox_m;
 		req.ensayo.redox_t = req.body.ensayo.redox_t;
 		if ((req.ensayo.redox_m > req.ensayo.redox_max) ||
@@ -69,6 +72,9 @@
 		} else {
 			req.ensayo.redox_cumple = true;
 		};
+
+
+
 
 		req.ensayo.temp_m = req.body.ensayo.temp_m;
 		req.ensayo.temp_t = req.body.ensayo.temp_t;
@@ -81,6 +87,10 @@
 			req.ensayo.temp_cumple = true;
 		};
 
+
+
+
+
 		req.ensayo.recirculacion_m = req.body.ensayo.recirculacion_m;
 		req.ensayo.recirculacion_t = req.body.ensayo.recirculacion_t;
 		if ((req.ensayo.recirculacion_m > req.ensayo.recirculacion_max) ||
@@ -91,7 +101,6 @@
 		} else {
 			req.ensayo.recirculacion_cumple = true;
 		};
-
 
 
 
@@ -110,16 +119,8 @@
 
 
 
-
-
-
-
-
 		req.ensayo.lectura_m = req.body.ensayo.lectura_m;
 		req.ensayo.lectura_t = req.body.ensayo.lectura_t;
-
-
-
 
 
 
@@ -137,14 +138,6 @@
 
 
 
-
-
-
-
-
-
-
-
 		req.ensayo.turbidez_m = req.body.ensayo.turbidez_m;
 		req.ensayo.turbidez_t = req.body.ensayo.turbidez_t;
 		if ((req.ensayo.turbidez_m > req.ensayo.turbidez_max) ||
@@ -155,6 +148,8 @@
 		} else {
 			req.ensayo.turbidez_cumple = true;
 		};
+
+
 
 		req.ensayo.isocianuro_m = req.body.ensayo.isocianuro_m;
 		req.ensayo.isocianuro_t = req.body.ensayo.isocianuro_t;
@@ -167,6 +162,8 @@
 			req.ensayo.isocianuro_cumple = true;
 		};
 
+
+
 		req.ensayo.bromo_m = req.body.ensayo.bromo_m;
 		req.ensayo.bromo_t = req.body.ensayo.bromo_t;
 		if ((req.ensayo.bromo_m > req.ensayo.bromo_max) ||
@@ -177,6 +174,8 @@
 		} else {
 			req.ensayo.bromo_cumple = true;
 		};
+
+
 
 		req.ensayo.cloro_m = req.body.ensayo.cloro_m;
 		req.ensayo.cloro_t = req.body.ensayo.cloro_t;
@@ -189,6 +188,8 @@
 			req.ensayo.cloro_cumple = true;
 		};
 
+
+
 		req.ensayo.cloro_combinado_m = req.body.ensayo.cloro_combinado_m;
 		req.ensayo.cloro_combinado_t = req.body.ensayo.cloro_combinado_t;
 		if ((req.ensayo.cloro_combinado_m > req.ensayo.cloro_combinado_max) || (req.ensayo.cloro_combinado_t > req.ensayo.cloro_combinado_max)) {
@@ -196,6 +197,8 @@
 		} else {
 			req.ensayo.cloro_combinado_cumple = true;
 		};
+
+
 
 		req.ensayo.humedad_m = req.body.ensayo.humedad_m;
 		req.ensayo.humedad_t = req.body.ensayo.humedad_t;
@@ -205,6 +208,8 @@
 			req.ensayo.humedad_cumple = true;
 		};
 
+
+
 		req.ensayo.co2_interior_m = req.body.ensayo.co2_interior_m;
 		req.ensayo.co2_interior_t = req.body.ensayo.co2_interior_t;
 		if ((req.ensayo.co2_interior_m > req.ensayo.co2_interior_max) || (req.ensayo.co2_interior_t > req.ensayo.co2_interior_max)) {
@@ -213,6 +218,8 @@
 			req.ensayo.co2_interior_cumple = true;
 		};
 
+
+
 		req.ensayo.co2_exterior_m = req.body.ensayo.co2_exterior_m;
 		req.ensayo.co2_exterior_t = req.body.ensayo.co2_exterior_t;
 		if ((req.ensayo.co2_exterior_m > req.ensayo.co2_exterior_max) || (req.ensayo.co2_exterior_t > req.ensayo.co2_exterior_max)) {
@@ -220,8 +227,6 @@
 		} else {
 			req.ensayo.co2_exterior_cumple = true;
 		};
-
-
 
 
 
@@ -238,9 +243,6 @@
 
 
 
-
-
-
 		req.ensayo.legionella_m = req.body.ensayo.legionella_m;
 		req.ensayo.legionella_t = req.body.ensayo.legionella_t;
 		if ((req.ensayo.legionella_m > req.ensayo.legionella_max) || (req.ensayo.legionella_t > req.ensayo.legionella_max)) {
@@ -248,9 +250,6 @@
 		} else {
 			req.ensayo.legionella_cumple = true;
 		};
-
-
-
 
 
 
@@ -293,8 +292,6 @@
 
 
 
-
-
 		req.ensayo.langelier_m = req.body.ensayo.langelier_m;
 		req.ensayo.langelier_t = req.body.ensayo.langelier_t;
 		if ((req.ensayo.langelier_m > req.ensayo.langelier_max) ||
@@ -305,8 +302,6 @@
 		} else {
 			req.ensayo.langelier_cumple = true;
 		};
-
-
 
 
 
