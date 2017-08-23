@@ -953,6 +953,304 @@
 			});
 		};
 	};
+	
+	
+	
+	exports.downloadExcel = function(req, res, next) {
+		/*const WIDTH_L = 30;
+		const WIDTH_M = 20;
+		const HEADER_HEIGHT = 35;*/
+		
+		try {
+			// Obtenemos todos los vasos del usuario
+			models.Vaso.findAll({
+	            where: {centro: req.session.user.centro},
+	            order: [['id', 'ASC']]
+
+	        }).then(					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id
+		    	function(vasos) {
+		    		
+		    		var detalle = new Array();
+		    		
+		    		// Calculamos el detalle de los vasos
+		    		vasos.forEach(function(item, index) {
+		    			exports.resumenVaso(req.anio, item, function(vasoId, resumen) {
+		    				detalle[vasoId] = resumen;
+		    				
+		    				if (index == vasos.length - 1) {
+		    					// Generamos el excel
+		    					exports.generateExcel(req, res, next, vasos, detalle);
+		    				}
+		    			});
+		    		});
+		    	}
+		    ).catch(function(error){next(error)});
+		
+			
+			
+			// Creamos el excel
+			/*var Excel = require('exceljs');
+			const tempfile = require('tempfile');
+			var workbook = new Excel.Workbook();
+			
+			workbook.creator = 'Registros de mantenimiento';
+			workbook.lastModifiedBy = 'Registros de mantenimiento';
+			workbook.created = new Date();
+			workbook.modified = new Date();
+			workbook.lastPrinted = new Date();
+			
+			// Añadimos una hoja por cada vaso
+			var worksheet = workbook.addWorksheet('Tabla', {properties: {showGridLines: true}});
+			
+			worksheet.columns = [
+			    { header: '', key: 'id', width: WIDTH_L, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+			    { header: 'Muestros realizados', key: 'name', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+			    { header: 'Muestreos conformes', key: 'DOB', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+			    { header: 'Valor Medio', key: 'DOB', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+			    { header: 'Valor Máx', key: 'DOB', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+			    { header: 'Valor Mín', key: 'DOB', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+			    { header: 'Días Incumplimiento', key: 'DOB', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}}
+			];
+			
+			// Configuramos la cabecera
+			worksheet.getRow(1).height = HEADER_HEIGHT;
+			worksheet.getRow(1).font = {
+			    name: 'Calibri',
+			    color: { argb: 'FF000000' },
+			    family: 2,
+			    size: 11,
+			    bold: true
+			};
+			worksheet.getCell('A1').fill = {
+				type: 'pattern',
+				pattern: 'solid',
+				fgColor: {argb:'FFD9D9D9'}
+			};
+			worksheet.getCell('B1').fill = {
+				type: 'pattern',
+				pattern: 'solid',
+				fgColor: {argb:'FFD9D9D9'}
+			};
+			worksheet.getCell('C1').fill = {
+				type: 'pattern',
+				pattern: 'solid',
+				fgColor: {argb:'FFD9D9D9'}
+			};
+			worksheet.getCell('D1').fill = {
+				type: 'pattern',
+				pattern: 'solid',
+				fgColor: {argb:'FFD9D9D9'}
+			};
+			worksheet.getCell('E1').fill = {
+				type: 'pattern',
+				pattern: 'solid',
+				fgColor: {argb:'FFD9D9D9'}
+			};
+			worksheet.getCell('F1').fill = {
+				type: 'pattern',
+				pattern: 'solid',
+				fgColor: {argb:'FFD9D9D9'}
+			};
+			worksheet.getCell('G1').fill = {
+				type: 'pattern',
+				pattern: 'solid',
+				fgColor: {argb:'FFD9D9D9'}
+			};
+
+			// Rellenamos la tabla
+			worksheet.addRow({id: 1, name: 'John Doe', dob: new Date(1970,1,1)});
+			worksheet.addRow({id: 2, name: 'Jane Doe', dob: new Date(1965,1,7)});
+
+			worksheet.getCell('A2').fill = {
+				type: 'pattern',
+				pattern: 'solid',
+				fgColor: {argb:'FF4F6228'}
+			};
+			
+			worksheet.getCell('A2').font = {
+			    name: 'Calibri',
+			    color: { argb: 'FFFFFFFF' },
+			    family: 2,
+			    size: 11,
+			    bold: true
+			};
+			
+			
+			
+			
+			// Descargamos el excel
+			var tempFilePath = tempfile('.xlsx');
+	        workbook.xlsx.writeFile(tempFilePath).then(function() {
+	            console.log('file is written');
+	            res.sendFile(tempFilePath, function(err){
+	                console.log('---------- error downloading file: ' + err);
+	            });
+	        });*/
+		
+		} catch(err) {
+	        console.log('OOOOOOO this is the error: ' + err);
+	    }
+	}
+	
+
+	exports.generateExcel = function(req, res, next, vasos, detalle) {
+		const WIDTH_L = 30;
+		const WIDTH_M = 20;
+		const HEADER_HEIGHT = 35;
+		
+		try {
+			// Creamos el excel
+			var Excel = require('exceljs');
+			const tempfile = require('tempfile');
+			var workbook = new Excel.Workbook();
+			workbook.creator = 'Registros de mantenimiento';
+			workbook.lastModifiedBy = 'Registros de mantenimiento';
+			workbook.created = new Date();
+			workbook.modified = new Date();
+			workbook.lastPrinted = new Date();
+			
+			vasos.forEach(function(item) {
+				// Añadimos una hoja por cada vaso
+				var worksheet = workbook.addWorksheet('TABLA ' + item.nombre.toUpperCase(), {properties: {showGridLines: false}});
+				
+				worksheet.columns = [
+				    { header: '', key: 'name', width: WIDTH_L, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+				    { header: 'Muestros realizados', key: 'muestreos', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+				    { header: 'Muestreos conformes', key: 'cumple', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+				    { header: 'Valor Medio', key: 'media', width: WIDTH_M, style: {numFmt: '#,##0.00', alignment: { vertical: 'middle', horizontal: 'center' }}},
+				    { header: 'Valor Máx', key: 'max', width: WIDTH_M, style: {numFmt: '#,##0.00', alignment: { vertical: 'middle', horizontal: 'center' }}},
+				    { header: 'Valor Mín', key: 'min', width: WIDTH_M, style: {numFmt: '#,##0.00', alignment: { vertical: 'middle', horizontal: 'center' }}},
+				    { header: 'Días Incumplimiento', key: 'incumplidos', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}}
+				];
+				
+				// Configuramos la cabecera
+				worksheet.getRow(1).height = HEADER_HEIGHT;
+				worksheet.getRow(1).font = {
+				    name: 'Calibri',
+				    color: { argb: 'FF000000' },
+				    family: 2,
+				    size: 11,
+				    bold: true
+				};
+				worksheet.getCell('A1').fill = {
+					type: 'pattern',
+					pattern: 'solid',
+					fgColor: {argb:'FFD9D9D9'}
+				};
+				worksheet.getCell('B1').fill = {
+					type: 'pattern',
+					pattern: 'solid',
+					fgColor: {argb:'FFD9D9D9'}
+				};
+				worksheet.getCell('C1').fill = {
+					type: 'pattern',
+					pattern: 'solid',
+					fgColor: {argb:'FFD9D9D9'}
+				};
+				worksheet.getCell('D1').fill = {
+					type: 'pattern',
+					pattern: 'solid',
+					fgColor: {argb:'FFD9D9D9'}
+				};
+				worksheet.getCell('E1').fill = {
+					type: 'pattern',
+					pattern: 'solid',
+					fgColor: {argb:'FFD9D9D9'}
+				};
+				worksheet.getCell('F1').fill = {
+					type: 'pattern',
+					pattern: 'solid',
+					fgColor: {argb:'FFD9D9D9'}
+				};
+				worksheet.getCell('G1').fill = {
+					type: 'pattern',
+					pattern: 'solid',
+					fgColor: {argb:'FFD9D9D9'}
+				};
+				
+				// Rellenamos la fila
+				detalle[item.id].forEach(function(row, index) {
+					worksheet.addRow(detalle[item.id][index]);
+					
+					worksheet.getCell('A' + (index + 2)).fill = {
+						type: 'pattern',
+						pattern: 'solid',
+						fgColor: {argb:'FF4F6228'}
+					};
+					worksheet.getCell('A' + (index + 2)).font = {
+					    name: 'Calibri',
+					    color: { argb: 'FFFFFFFF' },
+					    family: 2,
+					    size: 11,
+					    bold: true
+					};
+				});
+				
+				// Dibujamos los bordes de las celdas
+				var borderStyles = {
+						  top: { style: "thin" },
+						  left: { style: "thin" },
+						  bottom: { style: "thin" },
+						  right: { style: "thin" }
+						};
+				worksheet.eachRow({ includeEmpty: true }, function(row, rowNumber) {
+					  row.eachCell({ includeEmpty: true }, function(cell, colNumber) {
+					    cell.border = borderStyles;
+					  });
+					});
+			});
+			
+			
+			
+			
+			
+			
+			// Descargamos el excel
+			var tempFilePath = tempfile('.xlsx');
+	        workbook.xlsx.writeFile(tempFilePath).then(function() {
+	            console.log('file is written');
+	            res.sendFile(tempFilePath, function(err){
+	                console.log('---------- error downloading file: ' + err);
+	            });
+	        });
+	        
+		} catch(err) {
+	        console.log('OOOOOOO this is the error: ' + err);
+	    }
+	}
+	
+	exports.resumenVaso = function(anio, vaso, callback) {
+		var resumen = new Array();
+		console.log(vaso);
+		
+		// Creamos una conexión a la base de datos
+		var sequelize = new Sequelize(process.env.DATABASE_URL);
+		
+		sequelize.query("SELECT count(*) as muestreo, " +
+							" sum(ph_cumple) as cumple, " +
+							" (avg(ph_m) + avg(ph_t)) / 2 as media, " +
+							" max(ph_m) as max_m, max(ph_t) as max_t, " +
+							" min(ph_m) as min_m, min(ph_t) as min_t " +
+						" FROM Ensayoes " +
+						" WHERE anio = 2017 AND vasoID = 1").spread((results, metadata) => {
+							
+			resumen.push({
+				name: 'ph',
+				muestreos: results[0].muestreo,
+				cumple: results[0].cumple,
+				media: results[0].media,
+				max: (results[0].max_m >= results[0].max_t ? results[0].max_m : results[0].max_t),
+				min: (results[0].min_m <= results[0].min_t ? results[0].min_m : results[0].min_t),
+				incumplidos: results[0].muestreo - results[0].cumple
+			});
+			
+			callback(vaso.id, resumen);
+		});
+		
+		
+		
+		return resumen;
+	}
 
 
 
