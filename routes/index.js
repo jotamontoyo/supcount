@@ -155,8 +155,9 @@
 	router.get('/siloes',			 						sessionController.loginRequired, siloeController.index);				// accede a la lista completa de partes /siloes/index.ejs
 	router.get('/siloes/mes_index',	 						sessionController.loginRequired, siloeController.mes_index);			// formulario para seleccionar mes y año
 	router.post('/siloes/mes_index_show',					sessionController.loginRequired, siloeController.mes_index_show);		// accede a la lista de partes /quizes/index.ejs selecionando mes y año
-	router.get('/siloes/resumen_index',			 			sessionController.loginRequired, siloeController.resumen_index);		// formulario para seleccionar mes y año del resumen
-	router.post('/siloes/resumen',			 				sessionController.loginRequired, siloeController.resumen);			// genera el informe
+	router.get('/siloes/resumen_index',			 			sessionController.loginRequired, siloeController.resumen_index);		// formulario para seleccionar año y descargar Excel
+	router.get('/siloes/resumen_index_vaso', 	 			sessionController.loginRequired, siloeController.resumen_index_vaso);   // formulario para seleccionar mes y año del resumen
+	router.put('/siloes/ver_resumen_vaso', 	 				sessionController.loginRequired, siloeController.ver_resumen_vaso);     // ejecuta la consulta con los parametros del formulario
 	router.get('/siloes/new',								sessionController.loginRequired, siloeController.new);					// carga el formulario /siloes/new si sessionController.loginRequired()
 	router.post('/siloes/create',							sessionController.loginRequired, siloeController.create);				// dispara controlador create cuando el boton <salvar> del formulario new.js
 	router.get('/siloes/:anio(\\d+)/excel',					sessionController.loginRequired, siloeController.downloadExcel);		// genera el informe de siloes
@@ -164,7 +165,7 @@
 	router.put('/siloes/:siloeId(\\d+)',					sessionController.loginRequired, siloeController.ownershipRequired, siloeController.update);	// dispara controlador update cuando el boton <salvar> del formulario edit.js
 	router.get('/siloes/:siloeId(\\d+)',					sessionController.loginRequired, siloeController.show);					// accede a una pregunta en concreto. envia al quizController la peticion GET con el parametro quizId (indice)
 	router.delete('/siloes/:siloeId(\\d+)/destroy',			sessionController.loginRequired, siloeController.destroy);
-	
+
 
 
 

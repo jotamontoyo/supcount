@@ -119,497 +119,6 @@
 
 
 
-
-
-	exports.resumen_index = function(req, res) {
-
-		var fecha = new Date();
-
-		var resumen = {
-//			mes: fecha.getUTCMonth() + 1,
-//			nombre_mes: '',
-			anio: fecha.getUTCFullYear()
-		};
-
-		res.render('siloes/resumen_index', {resumen: resumen, errors: []});
-
-	};
-
-
-
-
-
-
-
-
-
-
-	exports.resumen = function(req, res, next) {
-
-
-
-		var	anio = parseInt(req.body.resumen.anio);
-
-		var ph_true = 0;
-		var ph_false = 0;
-		var ph_maximo = 0;
-		var ph_minimo = 0;
-		var ph_total = 0;
-		var ph_medio = 0;
-
-		var redox_true = 0;
-		var redox_false = 0;
-		var redox_maximo = 0;
-		var redox_minimo = 0;
-		var redox_total = 0;
-		var redox_medio = 0;
-
-
-
-
-		var sql_vasos = {
-
-			where: {centro: req.session.user.centro, nombre: 'ACS'},
-			order: [['id', 'ASC']]
-
-		};
-
-
-
-
-		models.Vaso.find(sql_vasos).then( vaso => {
-
-
-
-//			for (let i in vasos) {
-
-/*				var resultados = new Array();
-				var ph_true = new Array();
-
-				ph_true[0] = 1;
-				console.log(ph_true[0]);
-
-				ph_true[1] = 2;
-				console.log(ph_true[1]);
-
-				ph_true[2] = 3;
-				console.log(ph_true[2]);
-
-				resultados[0] = ph_true;
-
-				console.log(resultados[0][0]); */
-
-
-
-
-
-
-/*				var ph_array = new Array();
-
-				var sql_ensayos = {
-					where: {vasoId: vaso.id, anio: anio}
-				};
-
-				models.Ensayo.findAll(sql_ensayos).then( ensayos => {
-
-
-					for (var i in ensayos) {
-
-						if (ensayos[i].ph_cumple) {
-							ph_true = ph_true + 1;
-						};
-
-						ph_array[i] = ensayos[i].ph_m;
-
-					};
-
-					ph_maximo = Math.max(...ph_array);
-
-					console.log(ph_true);
-					console.log(ph_maximo);
-
-
-				});
-
-				ph_true = 0; */
-
-
-
-
-
-
-
-
-
-
-
-
-/*				var squel = require('squel').useFlavour('postgres');
-
-				var pg = require('pg');
-				var client = new pg.Client("postgres://rkybjxyluotzej:43099e66b7cf8f864aace6eeabe25f4e4ac7331fd379dd32dd71e420313ae87f@ec2-23-21-246-11.compute-1.amazonaws.com:5432/denu1l0mihcu43?ssl=true");
-
-				var query = squel.select({ separator: "\n" })
-				        .from("client.Ensayo")
-						.where("vasoId = vaso.id")
-						.where("anio = anio")
-//				        .field("ph_m")
-//				        .field("MIN(ph_m)")
-				        .field("MAX(ph_m)")
-//				        .field("GROUP_CONCAT(DISTINCT ph_m ORDER BY ph_m DESC SEPARATOR ' ')")
-//				        .group("ph_m")
-				        .toString();
-
-
-
-
-
-			client.connect(function (err, data) {
-
-			if (err) {
-				console.log("'Error connecting to PG'", err);
-
-	    	} else {
-
-					client.query(query.toString(), function (err, res) {
-				        if (err) throw err;
-
-						console.log("result " + JSON.stringify(res));
-
-
-		/*		        var x = JSON.stringify(res);
-				        var y = x.split(",")
-				        // console.log(y[7])
-				        console.log(y.length);
-				        for (var i=0; i<y.length; i++){
-				            // console.log(y[i]);
-				            if (y[i].indexOf('"asnumber":') > 0)
-				            {
-				                console.log(y[i])
-				                outputJSON.push(y[i]);
-				            }
-				        };
-				        // console.log("result "+JSON.stringify(res))
-						}); */
-/*					});
-
-				};
-			}); */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*				var p = new Promise(function (resolve, reject) {
-				    models.Ensayo.findAll(sql_ensayos, function(err, ensayos) {
-				    	if (err)
-				            reject(err);
-				        else
-				            resolve(ensayos);
-				    });
-				});
-
-				p.then(function(result) {
-
-					ph_true = result.length;
-					console.log('ph_true cantidad.....:' + ph_true);
-				    return res.json(result);
-
-				}).catch(function(err) {
-
-				    next(err);
-
-				}); */
-
-
-
-
-				var sql_ensayos = {
-					where: {vasoId: vaso.id, anio: anio, ph_cumple: true}
-				};
-
-
-
-
-/*				var contarEnsayos = function(sql_ensayos) {
-
-			  		return new Promise((resolve, reject) => {
-
-				    	models.Ensayo.count(sql_ensayos).then(function(ensayos) {
-				      		resolve(ensayos);
-				    	}).catch(function(error) {
-				      		reject(error)
-				    	});
-
-					});
-
-				};
-
-
-				var mediaEnsayos = function(sql_ensayos) {
-
-			  		return new Promise((resolve, reject) => {
-
-				    	models.Ensayo.findAll(sql_ensayos).then(function(ensayos) {
-				      		resolve(ensayos);
-				    	}).catch(function(error) {
-				      		reject(error)
-				    	});
-
-					});
-
-				};
-
-
-
-
-
-
-
-				contarEnsayos(sql_ensayos)
-					.then( ensayos => {
-
-						console.log('ensayos...: ' + ensayos);
-						ph_true = ensayos;
-
-					}).catch( err => {
-						next(error);
-					});
-
-
-
-
-
-				sql_ensayos = {
-					where: {vasoId: vaso.id, anio: anio, redox_cumple: true}
-				};
-
-				contarEnsayos(sql_ensayos)
-					.then( ensayos => {
-
-						console.log('ensayos...: ' + ensayos);
-						redox_true = ensayos;
-
-					}).catch( err => {
-						next(error);
-					});
-
-
-
-
-
-				sql_ensayos = {
-					where: {vasoId: vaso.id, anio: anio, ph_cumple: false}
-				};
-
-				contarEnsayos(sql_ensayos)
-					.then( ensayos => {
-
-						console.log('ensayos...: ' + ensayos);
-						ph_false = ensayos;
-
-					}).catch( err => {
-						next(error);
-					});
-
-
-
-
-
-
-
-
-				sql_ensayos = {
-					where: {vasoId: vaso.id, anio: anio, ph_cumple: true},
-					attributes: ['ph_m', [models.sequelize.fn('AVG', models.sequelize.col('ph_m')), 'ph_m_count']],
-					group: 'ph_m',
-					order: [[models.sequelize.fn('AVG', models.sequelize.col('ph_m')), 'DESC']]
-				};
-
-				mediaEnsayos(sql_ensayos)
-					.then( ensayos => {
-
-
-/*						for (var i in ensayos) {													// itera para acumular los valores solo de los seleccionados
-							ph_medio = ph_medio + ensayos[i].ph_m + ensayos[i].ph_t;				// tanto de la mañana como la tarde
-						};
-
-
-						console.log('ph_true.......: ' + ph_true);
-						ph_medio = ph_medio / (ph_true * 2);	*/									// la condicion true aplica al conjunto de valores de mañana y tarde. por ello para la media se multiplica por dos la cantidad de casos true
-
-
-/*						ph_medio = ensayos;
-						console.log('ph_medio.......: ' + ph_medio);
-
-
-					}).catch( err => {
-						next(error);
-					}); */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				models.Ensayo.findAll(sql_ensayos).then( c => {
-
-					ph_true = c.length;
-					redox_true = c.length;
-
-					for (var i in c) {											// itera para acumular los valores solo de los seleccionados
-						ph_medio = ph_medio + c[i].ph_m + c[i].ph_t;			// tanto de la mañana como la tarde
-					};
-
-					ph_medio = ph_medio / (ph_true * 2);						// la condicion true aplica al conjunto de valores de mañana y tarde. por ello para la media se multiplica por dos la cantidad de casos true
-
-					sql_ensayos = {
-						where: {vasoId: vaso.id, anio: anio, ph_cumple: false}
-					};
-
-					models.Ensayo.count(sql_ensayos).then( c => {
-
-						ph_false = c;
-						redox_false = c;
-
-						sql_ensayos = {
-							where: {vasoId: vaso.id, anio: anio}
-						};
-
-						models.Ensayo.max('ph_m', sql_ensayos).then( c => {
-
-							ph_maximo = c;
-
-							models.Ensayo.max('ph_t', sql_ensayos).then( c => {
-
-								if (c > ph_maximo) { ph_maximo = c };
-
-								sql_ensayos = {
-									where: {vasoId: vaso.id, anio: anio}
-								};
-								models.Ensayo.min('ph_m', sql_ensayos).then( c => {
-
-									ph_minimo = c;
-
-									models.Ensayo.min('ph_t', sql_ensayos).then( c => {
-
-										if (c < ph_minimo) { ph_minimo = c };
-
-										sql_ensayos = {
-											where: {vasoId: vaso.id, anio: anio}
-										};
-										models.Ensayo.count(sql_ensayos).then( c => {
-
-											ph_total = c;
-
-											res.render('siloes/resumen', {vaso: vaso, ph_true: ph_true, ph_false: ph_false, ph_maximo: ph_maximo,
-												ph_minimo: ph_minimo, ph_total: ph_total, ph_medio: ph_medio, redox_true: redox_true, redox_false: redox_false,
-												redox_maximo: redox_maximo, redox_medio: redox_medio, errors: []});
-										});
-
-									});
-
-								});
-
-							});
-
-						});
-
-					});
-
-				});
-
-
-//			};
-
-
-
-
-
-
-		}).catch(function(error){next(error)});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*		var options = {
-			where: Sequelize.or(				// segun la version de Sequelize he de usar una u otra estructura de consulta
-				Sequelize.and(
-					{anio: anio},
-					{centro: req.session.user.centro}
-				),
-				Sequelize.and(
-					{dia: 1},
-					{mes: 1},
-					{anio: anio + 1},
-					{centro: req.session.user.centro}
-				)
-			),
-			include: [{model: models.Ensayo}],
-			order: [['fecha', 'ASC'], [models.Ensayo, 'id', 'ASC' ]]
-		};
-
-
-
-		models.Siloe.findAll(options).then(function(siloes) {
-			models.Vaso.findAll({
-				where: {centro: req.session.user.centro},
-				order: [['id', 'ASC']]
-			}).then(function(vasos) { */
-
-
-/*				var anterior = 0;
-				for (let i in siloes) {								// hallar consumo
-
-					if (i > 0) {anterior = i - 1};
-
-					for (let x in siloes[i].ensayos) {
-						if (siloes[anterior].ensayos[x]) {						// por si no hay lectura anterior. para que no dé error undefined
-							if (!siloes[anterior].ensayos[x].deposito) {		// pregunta si es o no deposito para hacer el calculo
-								siloes[anterior].ensayos[x].consumo = (siloes[i].ensayos[x].lectura_actual - siloes[anterior].ensayos[x].lectura_actual);
-							} else {
-								siloes[anterior].ensayos[x].consumo = (siloes[anterior].ensayos[x].lectura_actual - (siloes[i].ensayos[x].lectura_actual - siloes[anterior].ensayos[x].carga)); // .replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-							};
-							if (siloes[anterior].ensayos[x].consumo > siloes[anterior].ensayos[x].maximo) { siloes[anterior].ensayos[x].cumple = false };
-						};
-					};
-
-
-				}; */
-
-
-	};
-
-
-
 	exports.imprimir_resumen = function(req, res) {
 
 		console.log(req.body.quizes);
@@ -617,9 +126,6 @@
 		res.render('quizes/resumen_impreso', {quizes: req.body.quizes, contadores: req.contadores, errors: []});
 
 	};
-
-
-
 
 
 
@@ -948,14 +454,86 @@
 				        res.redirect('/siloes');
 					});
 
-				} else {res.redirect('/siloes')};
+				} else {
+
+					res.redirect('/siloes');
+
+
+
+					models.Vaso.find({
+
+						where: {id: 2}
+
+					}).then( vaso => {
+
+						exports.resumenVaso(2017, vaso, function(vasoId, resumen) {
+
+	                      	console.log(vasoId);
+
+	                        console.log(resumen);
+
+	                    });
+
+
+					})
+
+
+
+
+				};
 
 			});
 		};
 	};
-	
-	
-	
+
+
+
+
+	exports.resumen_index = function(req, res) {		// para excel de todos los vasos
+
+		var fecha = new Date();
+
+		var anio = fecha.getUTCFullYear();
+
+		res.render('siloes/resumen_index', {anio: anio, errors: []});
+
+
+	};
+
+
+	exports.resumen_index_vaso = function(req, res) {
+		var fecha = new Date();
+		var anio = fecha.getUTCFullYear();
+		models.Vaso.findAll().then( vasos => {
+			res.render('siloes/resumen_index_vaso', {anio: anio, vasos: vasos, errors: []});
+		});
+	};
+
+
+	exports.ver_resumen_vaso = function(req, res) {
+
+		var vasoid = req.body.vaso;
+		var anio = req.body.anio;
+
+		models.Vaso.find({
+			where: {id: vasoid}
+		}).then( vaso => {
+
+			exports.resumenVaso(anio, vaso, function(vasoId, resumen) {
+
+				console.log(vasoId);
+				console.log(resumen);
+
+				res.render('siloes/resumen_index_vaso_imforme', {resumen: resumen, vaso: vaso, errors: []});
+
+			});
+
+
+		})
+
+	};
+
+
 	exports.downloadExcel = function(req, res, next) {
 
 		try {
@@ -966,14 +544,14 @@
 
 	        }).then(					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id
 		    	function(vasos) {
-		    		
+
 		    		var detalle = new Array();
-		    		
+
 		    		// Calculamos el detalle de los vasos
 		    		vasos.forEach(function(item, index) {
 		    			exports.resumenVaso(req.params.anio, item, function(vasoId, resumen) {
 		    				detalle[vasoId] = resumen;
-		    				
+
 		    				if (index == vasos.length - 1) {
 		    					// Generamos el excel
 		    					exports.generateExcel(req, res, next, vasos, detalle);
@@ -982,18 +560,18 @@
 		    		});
 		    	}
 		    ).catch(function(error){next(error)});
-		
+
 		} catch(err) {
 	        console.log('OOOOOOO this is the error: ' + err);
 	    }
 	}
-	
+
 
 	exports.generateExcel = function(req, res, next, vasos, detalle) {
 		const WIDTH_L = 30;
 		const WIDTH_M = 20;
 		const HEADER_HEIGHT = 35;
-		
+
 		try {
 			// Creamos el excel
 			var Excel = require('exceljs');
@@ -1004,7 +582,7 @@
 			workbook.created = new Date();
 			workbook.modified = new Date();
 			workbook.lastPrinted = new Date();
-			
+
 			vasos.forEach(function(item) {
 				// Añadimos una hoja por cada vaso
 				var worksheet = workbook.addWorksheet('TABLA ' + item.nombre.toUpperCase(), {views: [ {state: 'nomral', showGridLines: false} ], pageSetup:{fitToPage: true, paperSize: 9, orientation: 'landscape'}});
@@ -1017,7 +595,7 @@
 				    { header: 'Valor Mín', key: 'min', width: WIDTH_M, style: {numFmt: '#,##0.00', alignment: { vertical: 'middle', horizontal: 'center' }}},
 				    { header: 'Días Incumplimiento', key: 'incumplidos', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}}
 				];
-				
+
 				// Configuramos la cabecera
 				worksheet.getRow(1).height = HEADER_HEIGHT;
 				worksheet.getRow(1).font = {
@@ -1062,11 +640,11 @@
 					pattern: 'solid',
 					fgColor: {argb:'FFD9D9D9'}
 				};
-				
+
 				// Rellenamos la fila
 				detalle[item.id].forEach(function(row, index) {
 					worksheet.addRow(detalle[item.id][index]);
-					
+
 					worksheet.getCell('A' + (index + 2)).fill = {
 						type: 'pattern',
 						pattern: 'solid',
@@ -1080,7 +658,7 @@
 					    bold: true
 					};
 				});
-				
+
 				// Dibujamos los bordes de las celdas
 				var borderStyles = {
 						  top: { style: "thin" },
@@ -1094,41 +672,41 @@
 					  });
 					});
 			});
-			
+
 			// Descargamos el excel
 			var tempFilePath = tempfile('.xlsx');
 	        workbook.xlsx.writeFile(tempFilePath).then(function() {
 	            console.log('file is written');
-	            
+
 	            var today = new Date();
 	            var filename = today.getFullYear() + '' + ("0" + (today.getMonth() + 1)).slice(-2) + '' + ("0" + (today.getDate())).slice(-2) + ' - Tabla SILOE ' + req.params.anio + ".xlsx";
-	            	
+
 	            res.setHeader('Content-Disposition', 'attachment; filename=' + filename);
 	            res.setHeader('Content-Transfer-Encoding', 'binary');
 	            res.setHeader('Content-Type', 'application/octet-stream');
 
-	            
+
 	            res.sendFile(tempFilePath, function(err){
 	                console.log('---------- error downloading file: ' + err);
 	            });
 	        });
-	        
+
 		} catch(err) {
 	        console.log('OOOOOOO this is the error: ' + err);
 	    }
 	}
-	
+
 	exports.resumenVaso = function(anio, vaso, callback) {
 		var resumen = new Array();
-		
+
 		// Creamos una conexión a la base de datos
 		var sequelize = new Sequelize(process.env.DATABASE_URL, {
 			  storage: process.env.DATABASE_STORAGE
 		});
-		
+
 		// Construimos el WHERE aplicando el filtro por año y vaso
 		var where = " WHERE anio = " + anio + " AND vasoID = " + vaso.id + " ";
-		
+
 		var queries = [
 			// PH
 			"SELECT 'ph' as nombre, " +
@@ -1138,7 +716,7 @@
 				" max(ph_m) as max_m, max(ph_t) as max_t, " +
 				" min(ph_m) as min_m, min(ph_t) as min_t " +
 			" FROM Ensayoes " + where,
-			
+
 			// REDOX
 			"SELECT 'potencial redox' as nombre, " +
 				" count(*) as muestreo, " +
@@ -1192,7 +770,7 @@
 				" max(turbidez_m) as max_m, max(turbidez_t) as max_t, " +
 				" min(turbidez_m) as min_m, min(turbidez_t) as min_t " +
 			" FROM Ensayoes " + where,
-			
+
 			// Acido Isocianurico
 			"SELECT 'Ácido Isocianúrico' as nombre, " +
 				" count(*) as muestreo, " +
@@ -1300,9 +878,9 @@
 				" max(langelier_m) as max_m, max(langelier_t) as max_t, " +
 				" min(langelier_m) as min_m, min(langelier_t) as min_t " +
 			" FROM Ensayoes " + where
-			
+
 		].join(' UNION ALL ');
-		
+
 		sequelize.query(queries).spread((results, metadata) => {
 			results.forEach(function(item) {
 				var ref = item;
@@ -1319,12 +897,12 @@
 					incumplidos: ref.muestreo - ref.cumple
 				});
 			})
-			
+
 			callback(vaso.id, resumen);
 		});
-		
-		
-		
+
+
+
 		return resumen;
 	}
 
