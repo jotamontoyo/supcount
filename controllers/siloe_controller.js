@@ -960,7 +960,6 @@
 		/*const WIDTH_L = 30;
 		const WIDTH_M = 20;
 		const HEADER_HEIGHT = 35;*/
-		
 		try {
 			// Obtenemos todos los vasos del usuario
 			models.Vaso.findAll({
@@ -974,7 +973,7 @@
 		    		
 		    		// Calculamos el detalle de los vasos
 		    		vasos.forEach(function(item, index) {
-		    			exports.resumenVaso(req.anio, item, function(vasoId, resumen) {
+		    			exports.resumenVaso(req.params.anio, item, function(vasoId, resumen) {
 		    				detalle[vasoId] = resumen;
 		    				
 		    				if (index == vasos.length - 1) {
@@ -1114,7 +1113,7 @@
 				var worksheet = workbook.addWorksheet('TABLA ' + item.nombre.toUpperCase(), {properties: {showGridLines: false}});
 				
 				worksheet.columns = [
-				    { header: '', key: 'name', width: WIDTH_L, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
+				    { header: 'Medición', key: 'name', width: WIDTH_L, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
 				    { header: 'Muestros realizados', key: 'muestreos', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
 				    { header: 'Muestreos conformes', key: 'cumple', width: WIDTH_M, style: {alignment: { vertical: 'middle', horizontal: 'center' }}},
 				    { header: 'Valor Medio', key: 'media', width: WIDTH_M, style: {numFmt: '#,##0.00', alignment: { vertical: 'middle', horizontal: 'center' }}},
@@ -1200,15 +1199,19 @@
 					});
 			});
 			
-			
-			
-			
-			
-			
 			// Descargamos el excel
 			var tempFilePath = tempfile('.xlsx');
 	        workbook.xlsx.writeFile(tempFilePath).then(function() {
 	            console.log('file is written');
+	            
+	            var today = new Date();
+	            var filename = today.getFullYear() + '' + ("0" + (today.getMonth() + 1)).slice(-2) + '' + ("0" + (today.getDate())).slice(-2) + ' - Tabla SILOE ' + req.params.anio + ".xlsx";
+	            	
+	            res.setHeader('Content-Disposition', 'attachment; filename=' + filename);
+	            res.setHeader('Content-Transfer-Encoding', 'binary');
+	            res.setHeader('Content-Type', 'application/octet-stream');
+
+	            
 	            res.sendFile(tempFilePath, function(err){
 	                console.log('---------- error downloading file: ' + err);
 	            });
@@ -1221,28 +1224,203 @@
 	
 	exports.resumenVaso = function(anio, vaso, callback) {
 		var resumen = new Array();
-		console.log(vaso);
 		
 		// Creamos una conexión a la base de datos
-		var sequelize = new Sequelize(process.env.DATABASE_URL);
+		var sequelize = new Sequelize(process.env.DATABASE_URL, {
+			  dialectOptions: {
+				    multipleStatements: true
+				  }
+		});
 		
-		sequelize.query("SELECT count(*) as muestreo, " +
-							" sum(ph_cumple) as cumple, " +
-							" (avg(ph_m) + avg(ph_t)) / 2 as media, " +
-							" max(ph_m) as max_m, max(ph_t) as max_t, " +
-							" min(ph_m) as min_m, min(ph_t) as min_t " +
-						" FROM Ensayoes " +
-						" WHERE anio = 2017 AND vasoID = 1").spread((results, metadata) => {
-							
-			resumen.push({
-				name: 'ph',
-				muestreos: results[0].muestreo,
-				cumple: results[0].cumple,
-				media: results[0].media,
-				max: (results[0].max_m >= results[0].max_t ? results[0].max_m : results[0].max_t),
-				min: (results[0].min_m <= results[0].min_t ? results[0].min_m : results[0].min_t),
-				incumplidos: results[0].muestreo - results[0].cumple
-			});
+		// Construimos el WHERE aplicando el filtro por año y vaso
+		var where = " WHERE anio = " + anio + " AND vasoID = " + vaso.id + " ";
+		
+		var queries = [
+			// PH
+			"SELECT 'ph' as name, " +
+				" count(*) as muestreo, " +
+				" sum(ph_cumple) as cumple, " +
+				" (avg(ph_m) + avg(ph_t)) / 2 as media, " +
+				" max(ph_m) as max_m, max(ph_t) as max_t, " +
+				" min(ph_m) as min_m, min(ph_t) as min_t " +
+			" FROM Ensayoes " + where,
+			
+			// REDOX
+			"SELECT 'potencial redox' as name, " +
+				" count(*) as muestreo, " +
+				" sum(redox_cumple) as cumple, " +
+				" (avg(redox_m) + avg(redox_t)) / 2 as media, " +
+				" max(redox_m) as max_m, max(redox_t) as max_t, " +
+				" min(redox_m) as min_m, min(redox_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Tª agua
+			"SELECT 'Tª agua' as name, " +
+				" count(*) as muestreo, " +
+				" sum(temp_cumple) as cumple, " +
+				" (avg(temp_m) + avg(temp_t)) / 2 as media, " +
+				" max(temp_m) as max_m, max(temp_t) as max_t, " +
+				" min(temp_m) as min_m, min(temp_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Tiempo recirculacion
+			"SELECT 'Tiempo recirculación' as name, " +
+				" count(*) as muestreo, " +
+				" sum(recirculacion_cumple) as cumple, " +
+				" (avg(recirculacion_m) + avg(recirculacion_t)) / 2 as media, " +
+				" max(recirculacion_m) as max_m, max(recirculacion_t) as max_t, " +
+				" min(recirculacion_m) as min_m, min(recirculacion_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Transparencia
+			"SELECT 'Transparencia' as name, " +
+				" count(*) as muestreo, " +
+				" sum(transparencia_cumple) as cumple, " +
+				" null as media, " +
+				" null as max_t, " +
+				" null as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Espumas, Grasas y Materias …
+			"SELECT 'Espumas, Grasas y Materias …' as name, " +
+				" count(*) as muestreo, " +
+				" sum(extranios_cumple) as cumple, " +
+				" null as media, " +
+				" null as max_t, " +
+				" null as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Turbidez
+			"SELECT 'Turbidez' as name, " +
+				" count(*) as muestreo, " +
+				" sum(turbidez_cumple) as cumple, " +
+				" (avg(turbidez_m) + avg(turbidez_t)) / 2 as media, " +
+				" max(turbidez_m) as max_m, max(turbidez_t) as max_t, " +
+				" min(turbidez_m) as min_m, min(turbidez_t) as min_t " +
+			" FROM Ensayoes " + where,
+			
+			// Acido Isocianurico
+			"SELECT 'Ácido Isocianúrico' as name, " +
+				" count(*) as muestreo, " +
+				" sum(isocianuro_cumple) as cumple, " +
+				" (avg(isocianuro_m) + avg(isocianuro_t)) / 2 as media, " +
+				" max(isocianuro_m) as max_m, max(isocianuro_t) as max_t, " +
+				" min(isocianuro_m) as min_m, min(isocianuro_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Bromo total
+			"SELECT 'Bromo total' as name, " +
+				" count(*) as muestreo, " +
+				" sum(bromo_cumple) as cumple, " +
+				" (avg(bromo_m) + avg(bromo_t)) / 2 as media, " +
+				" max(bromo_m) as max_m, max(bromo_t) as max_t, " +
+				" min(bromo_m) as min_m, min(bromo_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Cloro
+			"SELECT 'Cloro libre' as name, " +
+				" count(*) as muestreo, " +
+				" sum(cloro_cumple) as cumple, " +
+				" (avg(cloro_m) + avg(cloro_t)) / 2 as media, " +
+				" max(cloro_m) as max_m, max(cloro_t) as max_t, " +
+				" min(cloro_m) as min_m, min(cloro_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Cloro combinado
+			"SELECT 'Cloro combinado' as name, " +
+				" count(*) as muestreo, " +
+				" sum(cloro_combinado_cumple) as cumple, " +
+				" (avg(cloro_combinado_m) + avg(cloro_combinado_t)) / 2 as media, " +
+				" max(cloro_combinado_m) as max_m, max(cloro_combinado_t) as max_t, " +
+				" min(cloro_combinado_m) as min_m, min(cloro_combinado_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Humedad
+			"SELECT 'Humedad' as name, " +
+				" count(*) as muestreo, " +
+				" sum(humedad_cumple) as cumple, " +
+				" (avg(humedad_m) + avg(humedad_t)) / 2 as media, " +
+				" max(humedad_m) as max_m, max(humedad_t) as max_t, " +
+				" min(humedad_m) as min_m, min(humedad_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Diferencia CO2
+			"SELECT 'Diferencia CO2' as name, " +
+				" count(*) as muestreo, " +
+				" sum(co2_interior_cumple = 1 AND co2_exterior_cumple = 1) as cumple, " +
+				" (avg(co2_interior_m - co2_exterior_m) + avg(co2_interior_t - co2_exterior_t)) / 2 as media, " +
+				" max(co2_interior_m - co2_exterior_m) as max_m, max(co2_interior_t - co2_exterior_t) as max_t, " +
+				" min(co2_interior_m - co2_exterior_m) as min_m, min(co2_interior_t - co2_exterior_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// E.Coli
+			"SELECT 'E.Coli' as name, " +
+				" count(*) as muestreo, " +
+				" sum(ecoli_cumple) as cumple, " +
+				" null as media, " +
+				" null as max_t, " +
+				" null as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Legionella spp
+			"SELECT 'Legionella spp' as name, " +
+				" count(*) as muestreo, " +
+				" sum(legionella_cumple) as cumple, " +
+				" (avg(legionella_m) + avg(legionella_t)) / 2 as media, " +
+				" max(legionella_m) as max_m, max(legionella_t) as max_t, " +
+				" min(legionella_m) as min_m, min(legionella_t) as min_t " +
+			" FROM Ensayoes " + where,
+
+			// P.Aeruginosa
+			"SELECT 'P.Aeruginosa' as name, " +
+				" count(*) as muestreo, " +
+				" sum(pseudomona_cumple) as cumple, " +
+				" null as media, " +
+				" null as max_t, " +
+				" null as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Enterococos
+			"SELECT 'Enterococos' as name, " +
+				" count(*) as muestreo, " +
+				" sum(enterococos_cumple) as cumple, " +
+				" null as media, " +
+				" null as max_t, " +
+				" null as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Staphlylococos
+			"SELECT 'Staphlylococos' as name, " +
+				" count(*) as muestreo, " +
+				" sum(staphlylococcus_cumple) as cumple, " +
+				" null as media, " +
+				" null as max_t, " +
+				" null as min_t " +
+			" FROM Ensayoes " + where,
+
+			// Indice de Langelier
+			"SELECT 'Indice de Langelier' as name, " +
+				" count(*) as muestreo, " +
+				" sum(langelier_cumple) as cumple, " +
+				" (avg(langelier_m) + avg(langelier_t)) / 2 as media, " +
+				" max(langelier_m) as max_m, max(langelier_t) as max_t, " +
+				" min(langelier_m) as min_m, min(langelier_t) as min_t " +
+			" FROM Ensayoes " + where
+			
+		].join(' ; ');
+		
+		sequelize.query(queries).spread((results, metadata) => {
+			results.forEach(function(item) {
+				resumen.push({
+					name: item[0].name,
+					muestreos: item[0].muestreo,
+					cumple: item[0].cumple,
+					media: item[0].media,
+					max: (item[0].max_m >= item[0].max_t ? item[0].max_m : item[0].max_t),
+					min: (item[0].min_m <= item[0].min_t ? item[0].min_m : item[0].min_t),
+					incumplidos: item[0].muestreo - item[0].cumple
+				});
+			})
 			
 			callback(vaso.id, resumen);
 		});
