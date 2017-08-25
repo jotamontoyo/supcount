@@ -441,6 +441,8 @@
 		position: absolute;
 		z-index: 3;
 
+		font-size: 1.2vw;
+
 	}
 
 	#menu-inicio img {
@@ -449,6 +451,19 @@
 
 
 	}
+
+	.navbar-nav > li > .dropdown-menu {
+
+		background-color: #000;
+
+	}
+
+	.navbar-nav > li > .dropdown-menu .dropdown-item {
+		margin-left: 10px;
+	}
+
+
+
 
 
 	/* ====SECCION INICIO ================================================================== */
@@ -1185,6 +1200,47 @@
 
 
 
+	#informe_siloe {
+
+		margin-top: 90px;
+		position: relative;
+
+	}
+
+	#informe_siloe img {
+
+		width: 32px;
+
+	}
+
+	#panel_ensayos {
+
+		padding: 10px;
+
+	}
+
+	.grupos_ensayo {
+
+		border: 1px solid #D8D8D8;
+		border-radius: 1.5px;
+
+	}
+
+	.item_ensayo_informe {
+
+		padding: 0px 0px 0px 10px;
+
+
+	}
+
+	.nombre_ensayo {
+		text-align: right;
+		float: left;
+	}
+
+
+
+
 	/* ========= FORMULARIO CONTADOR PARTE USUARIO ===================== */
 
 	#contador_form, #parte_form, #user_form, #centro_form, #siloe_form  {
@@ -1298,7 +1354,8 @@
 	#resumen_index, #mes_index {				/* formulario para elejir mes para el informe de consumos  */
 
 		max-width: 600px;
-		margin-top: 10vh;
+		margin: 20vh auto 0px auto;
+
 
 		border: 1px solid #ccc;
 

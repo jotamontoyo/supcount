@@ -5,12 +5,13 @@
     <div class="panel" style="border:none;">
 
         <h4>Siloe</h4>
+        <h6>Se descargará un archivo de formato Excel en su equipo con los resultados de todos los vasos del año selecionado.</h6>
         <br>
 
         <form class="form-horizontal" action="/siloes/<%= anio %>/excel" method="get">
 
             <div class="form-group">
-        		<label for="anio" class="col-sm-2">Año:</label>
+        		<label for="anio" class="col-sm-2 control-label">Año:</label>
         		<div class="col-sm-10">
         			<select class="form-control" id="anio" name="anio">
 
@@ -27,7 +28,7 @@
 
             <div class="form-group text-center">
 
-                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Descargar Excel</button>
+                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Descargar Excel</button>
 
             </div>
 

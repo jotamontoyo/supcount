@@ -1,18 +1,82 @@
 
+<div class="container" id="informe_siloe">
 
-<div class="pre">
-
+    <h4><img src="/images/vasos.png" alt="" /> Informe Siloe del vaso <%= vaso.nombre %> - Año <%= anio %></h4>
     <br>
 
-    <h4 style="margin-top: 50px">Siloe Vaso: <%= vaso.nombre %></h4>
-    <br>
+    <% for (var i in resumen) {%>
 
-    <h5>Nombre: <%= resumen[0].nombre %></h5>
-    <h5>Muestreos: <%= resumen[0].muestreos %> </h5>
-    <h5>Cumplen: <%= resumen[0].cumple %></h5>
-    <h5>Media: <%= resumen[0].media %></h5>
-    <h5>Máximo: <%= resumen[0].max %></h5>
-    <h5>Mínimo: <%= resumen[0].min %></h5>
-    <h5>No Cumplen: <%= resumen[0].incumplidos %></h5>
+        <div class="col-md-4 col-sm-4 col-xs-12" id="panel_ensayos">
+
+            <div class="grupos_ensayo">
+
+                <div class="row item_ensayo_informe">
+                    <div class="col-md-6 nombre_ensayo">
+                        <h5>Nombre:</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><strong><%= resumen[i].nombre %></strong></h5>
+                    </div>
+                </div>
+
+                <div class="row item_ensayo_informe">
+                    <div class="col-md-6 nombre_ensayo">
+                        <h5>Muestreos:</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><%= resumen[i].muestreos %></h5>
+                    </div>
+                </div>
+
+                <div class="row item_ensayo_informe">
+                    <div class="col-md-6 nombre_ensayo">
+                        <h5>Cumplen:</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><%= resumen[i].cumple %></h5>
+                    </div>
+                </div>
+
+                <div class="row item_ensayo_informe">
+                    <div class="col-md-6 nombre_ensayo">
+                        <h5>Media:</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><%= resumen[i].media %></h5>
+                    </div>
+                </div>
+
+                <div class="row item_ensayo_informe">
+                    <div class="col-md-6 nombre_ensayo">
+                        <h5>Máximo:</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><%= resumen[i].max %></h5>
+                    </div>
+                </div>
+
+                <div class="row item_ensayo_informe">
+                    <div class="col-md-6 nombre_ensayo">
+                        <h5>Mínimo:</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><%= resumen[i].min %></h5>
+                    </div>
+                </div>
+
+                <div class="row item_ensayo_informe">
+                    <div class="col-md-6 nombre_ensayo">
+                        <h5>No Cumplen:</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><%= resumen[i].incumplidos %></h5>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    <%}%>
 
 </div>

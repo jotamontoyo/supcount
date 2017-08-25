@@ -458,28 +458,6 @@
 
 					res.redirect('/siloes');
 
-
-
-					models.Vaso.find({
-
-						where: {id: 2}
-
-					}).then( vaso => {
-
-						exports.resumenVaso(2017, vaso, function(vasoId, resumen) {
-
-	                      	console.log(vasoId);
-
-	                        console.log(resumen);
-
-	                    });
-
-
-					})
-
-
-
-
 				};
 
 			});
@@ -489,19 +467,14 @@
 
 
 
-	exports.resumen_index = function(req, res) {		// para excel de todos los vasos
-
+	exports.resumen_index = function(req, res) {				// para excel de todos los vasos
 		var fecha = new Date();
-
 		var anio = fecha.getUTCFullYear();
-
 		res.render('siloes/resumen_index', {anio: anio, errors: []});
-
-
 	};
 
 
-	exports.resumen_index_vaso = function(req, res) {
+	exports.resumen_index_vaso = function(req, res) {			// seleccionar vaso y año para informe siloe
 		var fecha = new Date();
 		var anio = fecha.getUTCFullYear();
 		models.Vaso.findAll().then( vasos => {
@@ -510,27 +483,16 @@
 	};
 
 
-	exports.ver_resumen_vaso = function(req, res) {
-
+	exports.ver_resumen_vaso = function(req, res) {				// visuazar informe
 		var vasoid = req.body.vaso;
 		var anio = req.body.anio;
-
 		models.Vaso.find({
 			where: {id: vasoid}
 		}).then( vaso => {
-
 			exports.resumenVaso(anio, vaso, function(vasoId, resumen) {
-
-				console.log(vasoId);
-				console.log(resumen);
-
-				res.render('siloes/resumen_index_vaso_imforme', {resumen: resumen, vaso: vaso, errors: []});
-
+				res.render('siloes/resumen_index_vaso_imforme', {resumen: resumen, vaso: vaso, anio: anio, errors: []});
 			});
-
-
-		})
-
+		});
 	};
 
 
@@ -541,8 +503,7 @@
 			models.Vaso.findAll({
 	            where: {centro: req.session.user.centro},
 	            order: [['id', 'ASC']]
-
-	        }).then(					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id
+	        }).then(
 		    	function(vasos) {
 
 		    		var detalle = new Array();

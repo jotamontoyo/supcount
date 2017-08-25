@@ -87,9 +87,16 @@
 
 					<li><a href="/siloes"><img src="/images/probetas.png" alt="" /> Ensayos </a></li>
 					<li><a href="/vasos"><img src="/images/vasos.png" alt="" /> Vasos </a></li>
-					<li><a href="/siloes/resumen_index"><img src="/images/consumos2.png" alt="" /> Siloes Excel </a></li>
-					<li><a href="/siloes/resumen_index_vaso"><img src="/images/consumos2.png" alt="" /> Siloes Vaso </a></li>
 
+					<li class="dropdown show">
+						<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    	<img src="/images/consumos2.png" alt="" /> Siloes
+					  	</a>
+					  	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<a class="dropdown-item" href="/siloes/resumen_index_vaso"><img src="/images/vasos.png" alt="" /> Vaso</a><br>
+							<a class="dropdown-item" href="/siloes/resumen_index"><img src="/images/excel.png" alt="" /> Excel</a><br>
+					  	</div>
+				  	</li>
 
 					<% if (session.user) {
 						if (session.user.isSuperAdmin) {%>
