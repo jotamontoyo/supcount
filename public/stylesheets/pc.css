@@ -465,7 +465,6 @@
 
 
 
-
 	/* ====SECCION INICIO ================================================================== */
 	/* ====SECCION INICIO ================================================================== */
 	/* ====SECCION INICIO ================================================================== */
@@ -1206,7 +1205,7 @@
 
 
 
-	#informe_siloe {
+	#informe_siloe {			/* formato de la visualizacion en pantalla */
 
 		margin-top: 90px;
 		position: relative;
@@ -1225,12 +1224,6 @@
 
 	}
 
-	.grupos_ensayo {
-
-		border: 1px solid #D8D8D8;
-		border-radius: 1.5px;
-
-	}
 
 	.item_ensayo_informe {
 
@@ -1247,7 +1240,7 @@
 
 
 
-	/* ========= FORMULARIO CONTADOR PARTE USUARIO ===================== */
+	/* ========= FORMULARIO CONTADOR PARTE USUARIO CENTRO SILOE===================== */
 
 	#contador_form, #parte_form, #user_form, #centro_form, #siloe_form  {
 

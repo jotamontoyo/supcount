@@ -477,7 +477,10 @@
 	exports.resumen_index_vaso = function(req, res) {			// seleccionar vaso y año para informe siloe
 		var fecha = new Date();
 		var anio = fecha.getUTCFullYear();
-		models.Vaso.findAll().then( vasos => {
+		models.Vaso.findAll({
+			where: {centro: req.session.user.centro},
+			order: [['id', 'ASC']]
+		}).then( vasos => {
 			res.render('siloes/resumen_index_vaso', {anio: anio, vasos: vasos, errors: []});
 		});
 	};
@@ -490,7 +493,7 @@
 			where: {id: vasoid}
 		}).then( vaso => {
 			exports.resumenVaso(anio, vaso, function(vasoId, resumen) {
-				res.render('siloes/resumen_index_vaso_imforme', {resumen: resumen, vaso: vaso, anio: anio, errors: []});
+				res.render('siloes/resumen_index_vaso_informe', {resumen: resumen, vaso: vaso, anio: anio, errors: []});
 			});
 		});
 	};
