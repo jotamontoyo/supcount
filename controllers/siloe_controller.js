@@ -711,7 +711,7 @@
 			// Transparencia
 			"SELECT 'Transparencia' as nombre, " +
 				" count(*) as muestreo, " +
-				" sum(transparencia_cumple) as cumple, " +
+				" sum(transparencia_cumple = 'cumple') as cumple, " +
 				" null as media, " +
 				" null as max_m, null as max_t, " +
 				" null as min_m, null as min_t " +
@@ -720,7 +720,7 @@
 			// Espumas, Grasas y Materias …
 			"SELECT 'Espumas, Grasas y Materias …' as nombre, " +
 				" count(*) as muestreo, " +
-				" sum(extranios_cumple) as cumple, " +
+				" sum(extranios_cumple = 'cumple') as cumple, " +
 				" null as media, " +
 				" null as max_m, null as max_t, " +
 				" null as min_m, null as min_t " +
@@ -792,7 +792,7 @@
 			// E.Coli
 			"SELECT 'E.Coli' as nombre, " +
 				" count(*) as muestreo, " +
-				" sum(ecoli_cumple) as cumple, " +
+				" sum(ecoli_cumple = 'cumple') as cumple, " +
 				" null as media, " +
 				" null as max_m, null as max_t, " +
 				" null as min_m, null as min_t " +
@@ -810,7 +810,7 @@
 			// P.Aeruginosa
 			"SELECT 'P.Aeruginosa' as nombre, " +
 				" count(*) as muestreo, " +
-				" sum(pseudomona_cumple) as cumple, " +
+				" sum(pseudomona_cumple = 'cumple') as cumple, " +
 				" null as media, " +
 				" null as max_m, null as max_t, " +
 				" null as min_m, null as min_t " +
@@ -819,7 +819,7 @@
 			// Enterococos
 			"SELECT 'Enterococos' as nombre, " +
 				" count(*) as muestreo, " +
-				" sum(enterococos_cumple) as cumple, " +
+				" sum(enterococos_cumple = 'cumple') as cumple, " +
 				" null as media, " +
 				" null as max_m, null as max_t, " +
 				" null as min_m, null as min_t " +
@@ -828,7 +828,7 @@
 			// Staphlylococos
 			"SELECT 'Staphlylococos' as nombre, " +
 				" count(*) as muestreo, " +
-				" sum(staphlylococcus_cumple) as cumple, " +
+				" sum(staphlylococcus_cumple = 'cumple') as cumple, " +
 				" null as media, " +
 				" null as max_m, null as max_t, " +
 				" null as min_m, null as min_t " +
