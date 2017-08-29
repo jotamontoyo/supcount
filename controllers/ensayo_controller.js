@@ -45,7 +45,8 @@
 
 
 
-	exports.update = function(req, res, next) {								// actualiza la lectura del contador
+	exports.update = function(req, res, next) {
+
 
 
 		req.ensayo.ph_m = req.body.ensayo.ph_m;
@@ -106,14 +107,14 @@
 
 
 		req.ensayo.transparencia_m = req.body.ensayo.transparencia_m;
-		req.ensayo.transparencia_t = req.body.ensayo.transparencia_t;
-		if ((req.ensayo.transparencia_m != req.ensayo.transparencia) ||
-			(req.ensayo.transparencia_t != req.ensayo.transparencia)) {
+		if (req.ensayo.transparencia_m === 'no cumple') {
 				req.ensayo.transparencia_cumple = 'no cumple';
 		};
-		if ((req.ensayo.transparencia_m === req.ensayo.transparencia) &&
-			(req.ensayo.transparencia_t === req.ensayo.transparencia)) {
+		if (req.ensayo.transparencia_m === 'cumple') {
 				req.ensayo.transparencia_cumple = 'cumple';
+		};
+		if (req.ensayo.transparencia_m === 'no ensaya') {
+				req.ensayo.transparencia_cumple = 'no ensaya';
 		};
 
 
@@ -127,8 +128,8 @@
 
 		req.ensayo.extranios_m = req.body.ensayo.extranios_m;
 		req.ensayo.extranios_t = req.body.ensayo.extranios_t;
-		if ((req.ensayo.extranios_m != req.ensayo.extranios) ||
-			(req.ensayo.extranios_t != req.ensayo.extranios)) {
+		if ((req.ensayo.extranios_m !== req.ensayo.extranios) ||
+			(req.ensayo.extranios_t !== req.ensayo.extranios)) {
 				req.ensayo.extranios_cumple = 'no cumple';
 		};
 		if ((req.ensayo.extranios_m === req.ensayo.extranios) &&
@@ -232,14 +233,18 @@
 
 		req.ensayo.ecoli_m = req.body.ensayo.ecoli_m;
 		req.ensayo.ecoli_t = req.body.ensayo.ecoli_t;
-		if ((req.ensayo.ecoli_m != req.ensayo.ecoli) ||
-			(req.ensayo.ecoli_t != req.ensayo.ecoli)) {
+		if ((req.ensayo.ecoli_m !== req.ensayo.ecoli) ||
+			(req.ensayo.ecoli_t !== req.ensayo.ecoli)) {
 				req.ensayo.ecoli_cumple = 'no cumple';
 		};
 		if ((req.ensayo.ecoli_m === req.ensayo.ecoli) &&
 			(req.ensayo.ecoli_t === req.ensayo.ecoli)) {
 				req.ensayo.ecoli_cumple = 'cumple';
 		};
+
+
+
+		console.log('ecoli:............ ' + req.body.ensayo.ecoli_m);
 
 
 
@@ -255,12 +260,12 @@
 
 		req.ensayo.pseudomona_m = req.body.ensayo.pseudomona_m;
 		req.ensayo.pseudomona_t = req.body.ensayo.pseudomona_t;
-		if ((req.ensayo.pseudomona_m != req.ensayo.pseudomona) ||
-			(req.ensayo.pseudomona_t != req.ensayo.pseudomona)) {
+		if ((req.ensayo.pseudomona_m !== req.ensayo.pseudomona) ||
+			(req.ensayo.pseudomona_t !== req.ensayo.pseudomona)) {
 				req.ensayo.pseudomona_cumple = 'no cumple';
 		};
 		if ((req.ensayo.pseudomona_m === req.ensayo.pseudomona) &&
-			(req.ensayo.pseudomona_t === req.ensayo.pseudomona)) {
+			(req.ensayo.pseudomona_t === req.ensayo.pseudomona)) {		// se añade esta condicion por si el campo esta oculto en form --> viene con valor undefined
 				req.ensayo.pseudomona_cumple = 'cumple';
 		};
 
@@ -268,8 +273,8 @@
 
 		req.ensayo.enterococos_m = req.body.ensayo.enterococos_m;
 		req.ensayo.enterococos_t = req.body.ensayo.enterococos_t;
-		if ((req.ensayo.enterococos_m != req.ensayo.enterococos) ||
-			(req.ensayo.enterococos_t != req.ensayo.enterococos)) {
+		if ((req.ensayo.enterococos_m !== req.ensayo.enterococos) ||
+			(req.ensayo.enterococos_t !== req.ensayo.enterococos)) {
 				req.ensayo.enterococos_cumple = 'no cumple';
 		};
 		if ((req.ensayo.enterococos_m === req.ensayo.enterococos) &&
@@ -281,8 +286,8 @@
 
 		req.ensayo.staphlylococcus_m = req.body.ensayo.staphlylococcus_m;
 		req.ensayo.staphlylococcus_t = req.body.ensayo.staphlylococcus_t;
-		if ((req.ensayo.staphlylococcus_m != req.ensayo.staphlylococcus) ||
-			(req.ensayo.staphlylococcus_t != req.ensayo.staphlylococcus)) {
+		if ((req.ensayo.staphlylococcus_m !== req.ensayo.staphlylococcus) ||
+			(req.ensayo.staphlylococcus_t !== req.ensayo.staphlylococcus)) {
 				req.ensayo.staphlylococcus_cumple = 'no cumple';
 		};
 		if ((req.ensayo.staphlylococcus_m === req.ensayo.staphlylococcus) &&

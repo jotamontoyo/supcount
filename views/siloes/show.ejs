@@ -266,19 +266,12 @@
 												    			<select class="form-control" id="transparencia_m" name="ensayo[transparencia_m]">
 												    				<option value='cumple' <%if (ensayos[index].transparencia_m==='cumple') {%> selected <%}%>>✔️ Cumple</option>
 												    				<option value='no cumple' <%if (ensayos[index].transparencia_m==='no cumple') {%> selected <%}%>>❌ No cumple</option>
+												    				<option value='no ensaya' <%if (ensayos[index].transparencia_m==='no ensaya') {%> selected <%}%>>🔒 No ensaya</option>
 												    			</select>
 												    		</div>
 												    	</div>
 
-														<div class="form-group">
-												    		<label for="transparencia" class="col-md-6 control-label">Transp t</label>
-												    		<div class="col-sm-6">
-												    			<select class="form-control" id="transparencia_t" name="ensayo[transparencia_t]">
-												    				<option value='cumple' <%if (ensayos[index].transparencia_t==='cumple') {%> selected <%}%>>✔️ Cumple</option>
-												    				<option value='no cumple' <%if (ensayos[index].transparencia_t==='no cumple') {%> selected <%}%>>❌ No cumple</option>
-												    			</select>
-												    		</div>
-												    	</div>
+
 
 														<br>
 
@@ -289,8 +282,7 @@
 															</div>
 
 															<div class="col-md-6">
-																<% if ((ensayos[index].transparencia_m  !== ensayos[index].transparencia)  ||
-																		(ensayos[index].transparencia_t !== ensayos[index].transparencia)) { %>
+																<% if (ensayos[index].transparencia_m  === 'no cumple') { %>
 																	<img class="center-block" src="/images/info4.png" alt="" />
 																<%}%>
 															</div>
@@ -604,7 +596,7 @@
 											<div class="row"> <!-- 3er bloque de datos -->
 
 
-												<% if (ensayos[index].interior) {%>	<!-- solo si es vaso interior -->
+												<!-- solo si es vaso interior ESTA MAL CODIFICADO ARREGLAR quitar ! -->
 
 													<div class="col-md-2 col-sm-4 grupo_items_ensayo"> <!-- humedad -->
 
@@ -866,14 +858,14 @@
 
 
 
-												<%}%>	<!-- fin de campos de interior -->
+													<!-- fin de campos de interior -->
 
 											</div>
 
 
 											<div class="row"> <!-- 4º bloque de datos-->
 
-											<% if (ensayos[index].tipo_ensayo === "Completo") {%>
+											  <!-- aqui empieza el tipo_ensayo="Completo" -->
 
 												<div class="col-md-2 col-sm-4 grupo_items_ensayo"> <!-- enterococos -->
 
@@ -1007,8 +999,8 @@
 
 												</div>
 
+												<!-- fin campos "completo" -->
 
-											<%}%>
 
 											</div>
 

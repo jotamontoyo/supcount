@@ -65,7 +65,7 @@
 
             transparencia: {
                 type: DataTypes.STRING,
-                defaultValue: 'cumple'
+                defaultValue: 'no ensaya'
             },
 
             extranios: {

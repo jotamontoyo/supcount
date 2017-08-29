@@ -119,19 +119,15 @@
 
             transparencia: {
                 type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
             transparencia_m: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
-            },
-            transparencia_t: {
-				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
 			transparencia_cumple: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
 			},
 
 

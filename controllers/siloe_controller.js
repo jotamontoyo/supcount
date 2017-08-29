@@ -244,9 +244,9 @@
 							recirculacion_cumple: false,
 
 							transparencia: vasos[i].transparencia,
-							transparencia_m: 'cumple',
-							transparencia_t: 'cumple',
-							transparencia_cumple: 'cumple',
+							transparencia_m: vasos[i].transparencia,
+//							transparencia_t: vasos[i].transparencia,
+							transparencia_cumple: vasos[i].transparencia,
 
 							lectura_m: 0,
 							lectura_t: 0,
@@ -710,20 +710,20 @@
 
 			// Transparencia
 			"SELECT 'Transparencia' as nombre, " +
-				" count(*) as muestreo, " +
+				" count(transparencia_cumple <> 'no ensaya') as muestreo, " +
 				" sum(transparencia_cumple = 'cumple') as cumple, " +
-				" null as media, " +
-				" null as max_m, null as max_t, " +
-				" null as min_m, null as min_t " +
+				" 'n/a' as media, " +
+				" 'n/a' as max_m, 'n/a' as max_t, " +
+				" 'n/a' as min_m, 'n/a' as min_t " +
 			" FROM Ensayoes " + where,
 
 			// Espumas, Grasas y Materias …
 			"SELECT 'Espumas, Grasas y Materias …' as nombre, " +
 				" count(*) as muestreo, " +
 				" sum(extranios_cumple = 'cumple') as cumple, " +
-				" null as media, " +
-				" null as max_m, null as max_t, " +
-				" null as min_m, null as min_t " +
+				" 'n/a' as media, " +
+				" 'n/a' as max_m, 'n/a' as max_t, " +
+				" 'n/a' as min_m, 'n/a' as min_t " +
 			" FROM Ensayoes " + where,
 
 			// Turbidez
@@ -793,9 +793,9 @@
 			"SELECT 'E.Coli' as nombre, " +
 				" count(*) as muestreo, " +
 				" sum(ecoli_cumple = 'cumple') as cumple, " +
-				" null as media, " +
-				" null as max_m, null as max_t, " +
-				" null as min_m, null as min_t " +
+				" 'n/a' as media, " +
+				" 'n/a' as max_m, 'n/a' as max_t, " +
+				" 'n/a' as min_m, 'n/a' as min_t " +
 			" FROM Ensayoes " + where,
 
 			// Legionella spp
@@ -811,27 +811,27 @@
 			"SELECT 'P.Aeruginosa' as nombre, " +
 				" count(*) as muestreo, " +
 				" sum(pseudomona_cumple = 'cumple') as cumple, " +
-				" null as media, " +
-				" null as max_m, null as max_t, " +
-				" null as min_m, null as min_t " +
+				" 'n/a' as media, " +
+				" 'n/a' as max_m, 'n/a' as max_t, " +
+				" 'n/a' as min_m, 'n/a' as min_t " +
 			" FROM Ensayoes " + where,
 
 			// Enterococos
 			"SELECT 'Enterococos' as nombre, " +
 				" count(*) as muestreo, " +
 				" sum(enterococos_cumple = 'cumple') as cumple, " +
-				" null as media, " +
-				" null as max_m, null as max_t, " +
-				" null as min_m, null as min_t " +
+				" 'n/a' as media, " +
+				" 'n/a' as max_m, 'n/a' as max_t, " +
+				" 'n/a' as min_m, 'n/a' as min_t " +
 			" FROM Ensayoes " + where,
 
 			// Staphlylococos
 			"SELECT 'Staphlylococos' as nombre, " +
 				" count(*) as muestreo, " +
 				" sum(staphlylococcus_cumple = 'cumple') as cumple, " +
-				" null as media, " +
-				" null as max_m, null as max_t, " +
-				" null as min_m, null as min_t " +
+				" 'n/a' as media, " +
+				" 'n/a' as max_m, 'n/a' as max_t, " +
+				" 'n/a' as min_m, 'n/a' as min_t " +
 			" FROM Ensayoes " + where,
 
 			// Indice de Langelier
