@@ -243,19 +243,17 @@
 							recirculacion_t: 0,
 							recirculacion_cumple: false,
 
-							transparencia: vasos[i].transparencia,
-							transparencia_m: vasos[i].transparencia,
-//							transparencia_t: vasos[i].transparencia,
-							transparencia_cumple: vasos[i].transparencia,
+							transparencia: vasos[i].transparencia,					// valor de referencia
+							transparencia_m: vasos[i].transparencia,				// valor del formulario
+							transparencia_cumple: vasos[i].transparencia,			// valor status: cumple / no cumple / no ensaya
 
 							lectura_m: 0,
 							lectura_t: 0,
 							lectura_cumple: false,
 
 							extranios: vasos[i].extranios,
-							extranios_m: 'cumple',
-							extranios_t: 'cumple',
-							extranios_cumple: 'cumple',
+							extranios_m: vasos[i].extranios,
+							extranios_cumple: vasos[i].extranios,
 
 							turbidez_max: vasos[i].turbidez_max,
 							turbidez_m: 0,
@@ -300,9 +298,8 @@
 							co2_exterior_cumple: false,
 
 							ecoli: vasos[i].ecoli,
-							ecoli_m: 'cumple',
-							ecoli_t: 'cumple',
-							ecoli_cumple: 'cumple',
+							ecoli_m: vasos[i].ecoli,
+							ecoli_cumple: vasos[i].ecoli,
 
 							legionella_max: vasos[i].legionella_max,
 							legionella_m: 0,
@@ -310,19 +307,16 @@
 							legionella_cumple: false,
 
 							pseudomona: vasos[i].pseudomona,
-							pseudomona_m: 'cumple',
-							pseudomona_t: 'cumple',
-							pseudomona_cumple: 'cumple',
+							pseudomona_m: vasos[i].pseudomona,
+							pseudomona_cumple: vasos[i].pseudomona,
 
 							enterococos: vasos[i].enterococos,
-							enterococos_m: 'cumple',
-							enterococos_t: 'cumple',
-							enterococos_cumple: 'cumple',
+							enterococos_m: vasos[i].enterococos,
+							enterococos_cumple: vasos[i].enterococos,
 
 							staphlylococcus: vasos[i].staphlylococcus,
-							staphlylococcus_m: 'cumple',
-							staphlylococcus_t: 'cumple',
-							staphlylococcus_cumple: 'cumple',
+							staphlylococcus_m: vasos[i].staphlylococcus,
+							staphlylococcus_cumple: vasos[i].staphlylococcus,
 
 							langelier_max: vasos[i].langelier_max,
 							langelier_min: vasos[i].langelier_min,
@@ -710,7 +704,7 @@
 
 			// Transparencia
 			"SELECT 'Transparencia' as nombre, " +
-				" count(transparencia_cumple <> 'no ensaya') as muestreo, " +
+				" sum(case when transparencia_cumple = 'no ensaya' then 0 else 1 end) as muestreo, " +
 				" sum(transparencia_cumple = 'cumple') as cumple, " +
 				" 'n/a' as media, " +
 				" 'n/a' as max_m, 'n/a' as max_t, " +
@@ -719,7 +713,7 @@
 
 			// Espumas, Grasas y Materias …
 			"SELECT 'Espumas, Grasas y Materias …' as nombre, " +
-				" count(*) as muestreo, " +
+				" sum(case when extranios_cumple = 'no ensaya' then 0 else 1 end) as muestreo, " +
 				" sum(extranios_cumple = 'cumple') as cumple, " +
 				" 'n/a' as media, " +
 				" 'n/a' as max_m, 'n/a' as max_t, " +
@@ -791,7 +785,7 @@
 
 			// E.Coli
 			"SELECT 'E.Coli' as nombre, " +
-				" count(*) as muestreo, " +
+				" sum(case when ecoli_cumple = 'no ensaya' then 0 else 1 end) as muestreo, " +
 				" sum(ecoli_cumple = 'cumple') as cumple, " +
 				" 'n/a' as media, " +
 				" 'n/a' as max_m, 'n/a' as max_t, " +
@@ -809,7 +803,7 @@
 
 			// P.Aeruginosa
 			"SELECT 'P.Aeruginosa' as nombre, " +
-				" count(*) as muestreo, " +
+				" sum(case when pseudomona_cumple = 'no ensaya' then 0 else 1 end) as muestreo, " +
 				" sum(pseudomona_cumple = 'cumple') as cumple, " +
 				" 'n/a' as media, " +
 				" 'n/a' as max_m, 'n/a' as max_t, " +
@@ -818,7 +812,7 @@
 
 			// Enterococos
 			"SELECT 'Enterococos' as nombre, " +
-				" count(*) as muestreo, " +
+				" sum(case when enterococos_cumple = 'no ensaya' then 0 else 1 end) as muestreo, " +
 				" sum(enterococos_cumple = 'cumple') as cumple, " +
 				" 'n/a' as media, " +
 				" 'n/a' as max_m, 'n/a' as max_t, " +
@@ -827,7 +821,7 @@
 
 			// Staphlylococos
 			"SELECT 'Staphlylococos' as nombre, " +
-				" count(*) as muestreo, " +
+				" sum(case when staphlylococcus_cumple = 'no ensaya' then 0 else 1 end) as muestreo, " +
 				" sum(staphlylococcus_cumple = 'cumple') as cumple, " +
 				" 'n/a' as media, " +
 				" 'n/a' as max_m, 'n/a' as max_t, " +

@@ -70,7 +70,7 @@
 
             extranios: {
                 type: DataTypes.STRING,
-                defaultValue: 'cumple'
+                defaultValue: 'no ensaya'
             },
 
             turbidez_max: {
@@ -124,7 +124,7 @@
 
             ecoli: {
                 type: DataTypes.STRING,
-                defaultValue: 'cumple'
+                defaultValue: 'no ensaya'
             },
             legionella_max: {
                 type: DataTypes.FLOAT,
@@ -132,15 +132,15 @@
             },
             pseudomona: {
                 type: DataTypes.STRING,
-                defaultValue: 'cumple'
+                defaultValue: 'no ensaya'
             },
             enterococos: {
                 type: DataTypes.STRING,
-                defaultValue: 'cumple'
+                defaultValue: 'no ensaya'
             },
             staphlylococcus: {
                 type: DataTypes.STRING,
-                defaultValue: 'cumple'
+                defaultValue: 'no ensaya'
             },
 
 

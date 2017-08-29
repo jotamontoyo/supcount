@@ -136,19 +136,15 @@
 
             extranios: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
             extranios_m: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
-            },
-            extranios_t: {
-				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
 			extranios_cumple: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
 			},
 
 
@@ -282,19 +278,15 @@
 
             ecoli: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
             ecoli_m: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
-            },
-            ecoli_t: {
-				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
 			ecoli_cumple: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
 			},
 
 
@@ -316,34 +308,26 @@
 
             pseudomona: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
             pseudomona_m: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
-            },
-            pseudomona_t: {
-				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
 			pseudomona_cumple: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
 			},
 
 
 
             enterococos: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
             enterococos_m: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
-            },
-            enterococos_t: {
-				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
 			enterococos_cumple: {
 				type: DataTypes.STRING,
@@ -354,19 +338,15 @@
 
             staphlylococcus: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
             staphlylococcus_m: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
-            },
-            staphlylococcus_t: {
-				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
             },
 			staphlylococcus_cumple: {
 				type: DataTypes.STRING,
-				defaultValue: 'cumple'
+				defaultValue: 'no ensaya'
 			},
 
 

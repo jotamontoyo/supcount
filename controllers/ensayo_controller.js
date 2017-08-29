@@ -127,14 +127,14 @@
 
 
 		req.ensayo.extranios_m = req.body.ensayo.extranios_m;
-		req.ensayo.extranios_t = req.body.ensayo.extranios_t;
-		if ((req.ensayo.extranios_m !== req.ensayo.extranios) ||
-			(req.ensayo.extranios_t !== req.ensayo.extranios)) {
+		if (req.ensayo.extranios_m === 'no cumple') {
 				req.ensayo.extranios_cumple = 'no cumple';
 		};
-		if ((req.ensayo.extranios_m === req.ensayo.extranios) &&
-			(req.ensayo.extranios_t === req.ensayo.extranios)) {
+		if (req.ensayo.extranios_m === 'cumple') {
 				req.ensayo.extranios_cumple = 'cumple';
+		};
+		if (req.ensayo.extranios_m === 'no ensaya') {
+				req.ensayo.extranios_cumple = 'no ensaya';
 		};
 
 
@@ -231,20 +231,19 @@
 
 
 
+
 		req.ensayo.ecoli_m = req.body.ensayo.ecoli_m;
-		req.ensayo.ecoli_t = req.body.ensayo.ecoli_t;
-		if ((req.ensayo.ecoli_m !== req.ensayo.ecoli) ||
-			(req.ensayo.ecoli_t !== req.ensayo.ecoli)) {
+		if (req.ensayo.ecoli_m === 'no cumple') {
 				req.ensayo.ecoli_cumple = 'no cumple';
 		};
-		if ((req.ensayo.ecoli_m === req.ensayo.ecoli) &&
-			(req.ensayo.ecoli_t === req.ensayo.ecoli)) {
+		if (req.ensayo.ecoli_m === 'cumple') {
 				req.ensayo.ecoli_cumple = 'cumple';
+		};
+		if (req.ensayo.ecoli_m === 'no ensaya') {
+				req.ensayo.ecoli_cumple = 'no ensaya';
 		};
 
 
-
-		console.log('ecoli:............ ' + req.body.ensayo.ecoli_m);
 
 
 
@@ -258,41 +257,45 @@
 
 
 
+
 		req.ensayo.pseudomona_m = req.body.ensayo.pseudomona_m;
-		req.ensayo.pseudomona_t = req.body.ensayo.pseudomona_t;
-		if ((req.ensayo.pseudomona_m !== req.ensayo.pseudomona) ||
-			(req.ensayo.pseudomona_t !== req.ensayo.pseudomona)) {
+		if (req.ensayo.pseudomona_m === 'no cumple') {
 				req.ensayo.pseudomona_cumple = 'no cumple';
 		};
-		if ((req.ensayo.pseudomona_m === req.ensayo.pseudomona) &&
-			(req.ensayo.pseudomona_t === req.ensayo.pseudomona)) {		// se añade esta condicion por si el campo esta oculto en form --> viene con valor undefined
+		if (req.ensayo.pseudomona_m === 'cumple') {
 				req.ensayo.pseudomona_cumple = 'cumple';
 		};
+		if (req.ensayo.pseudomona_m === 'no ensaya') {
+				req.ensayo.pseudomona_cumple = 'no ensaya';
+		};
+
+
 
 
 
 		req.ensayo.enterococos_m = req.body.ensayo.enterococos_m;
-		req.ensayo.enterococos_t = req.body.ensayo.enterococos_t;
-		if ((req.ensayo.enterococos_m !== req.ensayo.enterococos) ||
-			(req.ensayo.enterococos_t !== req.ensayo.enterococos)) {
+		if (req.ensayo.enterococos_m === 'no cumple') {
 				req.ensayo.enterococos_cumple = 'no cumple';
 		};
-		if ((req.ensayo.enterococos_m === req.ensayo.enterococos) &&
-			(req.ensayo.enterococos_t === req.ensayo.enterococos)) {
+		if (req.ensayo.enterococos_m === 'cumple') {
 				req.ensayo.enterococos_cumple = 'cumple';
 		};
+		if (req.ensayo.enterococos_m === 'no ensaya') {
+				req.ensayo.enterococos_cumple = 'no ensaya';
+		};
+
 
 
 
 		req.ensayo.staphlylococcus_m = req.body.ensayo.staphlylococcus_m;
-		req.ensayo.staphlylococcus_t = req.body.ensayo.staphlylococcus_t;
-		if ((req.ensayo.staphlylococcus_m !== req.ensayo.staphlylococcus) ||
-			(req.ensayo.staphlylococcus_t !== req.ensayo.staphlylococcus)) {
+		if (req.ensayo.staphlylococcus_m === 'no cumple') {
 				req.ensayo.staphlylococcus_cumple = 'no cumple';
 		};
-		if ((req.ensayo.staphlylococcus_m === req.ensayo.staphlylococcus) &&
-			(req.ensayo.staphlylococcus_t === req.ensayo.staphlylococcus)) {
+		if (req.ensayo.staphlylococcus_m === 'cumple') {
 				req.ensayo.staphlylococcus_cumple = 'cumple';
+		};
+		if (req.ensayo.staphlylococcus_m === 'no ensaya') {
+				req.ensayo.staphlylococcus_cumple = 'no ensaya';
 		};
 
 
