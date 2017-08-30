@@ -22,39 +22,11 @@
 
 				<% for (var index in ensayos) {%>
 
-<!--					<div class="container"> -->
-
-<!--						<% if (!session.user && ensayos[index].publicado) {%>
-
-							<div class="comment-panel">
-
-								<div class="container-fluid">
-
-									<div class="form-group">
-
-										<h5>id: <%= ensayos[index].id %></h5>
-										<h5>Código: <%= ensayos[index].vasoId %></h5>
-										<h5>Nombre: <%= ensayos[index].nombre %></h5>
-										<h5>Lectura: <%= ensayos[index].lectura_actual %></h5>
-
-									</div>
-
-								</div>
-								<div class="container-fluid">
-									<h6><span class="badge">#<%= ensayos[index].id %></span>
-									<small><%= ensayos[index].createdAt.toLocaleString() %></small></h6>
-								</div>
-							</div>
-						<%}%> -->
-
 						<% if (session.user) {%>
 							<div class="ensayo-panel">
 
 								<div class="container-fluid">
-
 									<% if ((session.user.isAdmin || (session.user && siloe.UserId === session.user.id))) {%>
-
-
 										<h5><span class="badge">#<%=ensayos[index].id%></span></h5>
 										<h5>Vaso: <strong><%= ensayos[index].vasoId %> - <%= ensayos[index].nombre %></strong></h5>
 										<h5>Ubicación: <strong><%= ensayos[index].ubicacion %></strong></h5>
@@ -69,30 +41,25 @@
 											</strong>
 										</h5>
 										<h5>Tipo de ensayo: <strong><%= ensayos[index].tipo_ensayo %></strong></h5>
-
 										<br>
-
 
 										<form class="form-horizontal" method="post" action="/siloes/<%=siloe.id%>/ensayos/<%=ensayos[index].id%>/update?_method=put">
 
-
 											<div class="container">
 
-
-												<div id="accordion" role="tablist">
-
+												<div id="accordion" role="tablist" aria-multiselectable="true">
 
 											  		<div class="card">
 
 											    		<div class="card-header" role="tab" id="headingOne">
 											      			<h5 class="mb-0">
-											        			<a class="collapsed" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											        			<a class="collapsed" data-toggle="collapse" href="#<%= ensayos[index].id + 10 %>" aria-expanded="true" aria-controls="<%= ensayos[index].id + 10 %>">
 											          				Bacteriológicos
 											        			</a>
 											      			</h5>
 											    		</div>
 
-											    		<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+											    		<div id="<%= ensayos[index].id + 10 %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
 											      			<div class="card-body">
 																<div class="marco_item_ensayo">
 
@@ -228,35 +195,44 @@
 
 
 
-											  <div class="card">
-											    <div class="card-header" role="tab" id="headingTwo">
-											      <h5 class="mb-0">
-											        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-											          Collapsible Group Item #2
-											        </a>
-											      </h5>
-											    </div>
-											    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-											      <div class="card-body">
-											        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											      </div>
-											    </div>
-											  </div>
-											  <div class="card">
-											    <div class="card-header" role="tab" id="headingThree">
-											      <h5 class="mb-0">
-											        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-											          Collapsible Group Item #3
-											        </a>
-											      </h5>
-											    </div>
-											    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-											      <div class="card-body">
-											        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-											      </div>
-											    </div>
-											  </div>
-											</div>
+												  	<div class="card">
+												    	<div class="card-header" role="tab" id="headingTwo">
+												      		<h5 class="mb-0">
+												        		<a class="collapsed" data-toggle="collapse" href="#<%= ensayos[index].id + 100 %>" aria-expanded="false" aria-controls="<%= ensayos[index].id + 100 %>">
+												          			Collapsible Group Item #2
+												        		</a>
+												      		</h5>
+												    	</div>
+												    	<div id="<%= ensayos[index].id + 100 %>" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+												      		<div class="card-body">
+																<h4><%= ensayos[index].id + 100 %></h4>
+												        		Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+												      		</div>
+												    	</div>
+												  	</div>
+
+
+													<div class="card">
+													   	<div class="card-header" role="tab" id="headingThree">
+													    	<h5 class="mb-0">
+													        	<a class="collapsed" data-toggle="collapse" href="#<%= ensayos[index].id + 1000 %>" aria-expanded="false" aria-controls="<%= ensayos[index].id + 1000 %>">
+													          		Collapsible Group Item #3
+													        	</a>
+													      	</h5>
+													    </div>
+													    <div id="<%= ensayos[index].id + 1000 %>" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+													     	<div class="card-body">
+																<h4><%= ensayos[index].id + 1000 %></h4>
+													        	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+													      	</div>
+													    </div>
+													</div>
+
+
+
+
+
+												</div>
 
 
 
