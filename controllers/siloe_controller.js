@@ -219,12 +219,21 @@
 							capacidad: vasos[i].capacidad,
 							interior: vasos[i].interior,
 							tipo_ensayo: vasos[i].tipo_ensayo,
+							publicado: true,
+							texto: '',
+							fecha: siloe.fecha,
+							dia: siloe.dia,
+							mes: siloe.mes,
+							anio: siloe.anio,
+							SiloId: siloe.id,											// al comment se le pasa el quizId del siloe para establecer la integridad referencial entre Quiz y Comment. indice secundario de Comment
+
 
 							ph_max: vasos[i].ph_max,
 							ph_min: vasos[i].ph_min,
 							ph_m: 0,
 							ph_t: 0,
 							ph_cumple: false,
+
 
 							redox_max: vasos[i].redox_max,
 							redox_min: vasos[i].redox_min,
@@ -322,16 +331,13 @@
 							langelier_min: vasos[i].langelier_min,
 							langelier_m: 0,
 							langelier_t: 0,
-							langelier_cumple: false,
+							langelier_cumple: false
 
-							publicado: true,
-							texto: '',
-							fecha: siloe.fecha,
-							dia: siloe.dia,
-							mes: siloe.mes,
-							anio: siloe.anio,
-							SiloId: siloe.id											// al comment se le pasa el quizId del siloe para establecer la integridad referencial entre Quiz y Comment. indice secundario de Comment
+
 						});
+
+
+
 
 						var errors = ensayo.validate();
 						if (errors) {

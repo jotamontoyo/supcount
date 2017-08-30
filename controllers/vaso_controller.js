@@ -49,6 +49,7 @@
                 tipo_ensayo: "Completo",
                 ph_max: 8.0,
                 ph_min: 7.2,
+                ph_procesar: 1,
                 redox_max: 900,
                 redox_min: 250,
                 temp_max: 30,
@@ -161,6 +162,13 @@
 
         req.vaso.ph_max = req.body.vaso.ph_max;
         req.vaso.ph_min = req.body.vaso.ph_min;
+        if (req.body.vaso.ph_ensayar) {
+            req.vaso.ph_ensayar = 1;
+        } else {
+            req.vaso.ph_ensayar = 0;
+        };
+
+
         req.vaso.redox_max = req.body.vaso.redox_max;
         req.vaso.redox_min = req.body.vaso.redox_min;
         req.vaso.temp_max = req.body.vaso.temp_max;

@@ -38,6 +38,10 @@
                 type: DataTypes.FLOAT,
                 defaultValue: 7.2
             },
+            ph_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
 
 
             redox_max: {
