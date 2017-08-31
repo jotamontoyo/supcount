@@ -368,21 +368,6 @@
 			},
 
 
-			// *****************
-
-
-
-
-            lectura_m: {						// lectura contador recirculacion
-                type: DataTypes.FLOAT
-            },
-            lectura_t: {						// lectura contador recirculacion
-                type: DataTypes.FLOAT
-            },
-			lectura_cumple: {
-				type: DataTypes.BOOLEAN
-			},
-
 
 
 			cumple: {

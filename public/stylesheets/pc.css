@@ -1174,12 +1174,21 @@
 	}
 
 
+	.marco_grupo {
 
-	.marco_item_ensayo {
+		border:	1px solid #ddd;
+		border-radius: 1.5px;
+		padding: 20px;
+	}
+
+
+
+	.marco {
 
 		min-height: 160px;
-		margin-bottom: 30px;
-		padding: 10px;
+
+		padding: 20px;
+
 		border:	1px solid #ddd;
 		border-radius: 1.5px;
 		font-size: 12px;
@@ -1187,16 +1196,18 @@
 		background-color: #3d4045;
 		background-color: white; */
 
-
-
-
 	}
 
 
 	.items_ensayo {
 
-		padding: 10px;
+		padding: 40px; 
 
+	}
+
+	.item_caja {
+
+		padding: 20px;
 	}
 
 

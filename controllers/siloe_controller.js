@@ -256,10 +256,6 @@
 							transparencia_m: vasos[i].transparencia,				// valor del formulario
 							transparencia_cumple: vasos[i].transparencia,			// valor status: cumple / no cumple / no ensaya
 
-							lectura_m: 0,
-							lectura_t: 0,
-							lectura_cumple: false,
-
 							extranios: vasos[i].extranios,
 							extranios_m: vasos[i].extranios,
 							extranios_cumple: vasos[i].extranios,
@@ -333,11 +329,7 @@
 							langelier_t: 0,
 							langelier_cumple: false
 
-
 						});
-
-
-
 
 						var errors = ensayo.validate();
 						if (errors) {

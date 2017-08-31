@@ -119,13 +119,6 @@
 
 
 
-
-		req.ensayo.lectura_m = req.body.ensayo.lectura_m;
-		req.ensayo.lectura_t = req.body.ensayo.lectura_t;
-
-
-
-
 		req.ensayo.extranios_m = req.body.ensayo.extranios_m;
 		if (req.ensayo.extranios_m === 'no cumple') {
 				req.ensayo.extranios_cumple = 'no cumple';
