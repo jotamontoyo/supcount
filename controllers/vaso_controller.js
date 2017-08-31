@@ -49,7 +49,7 @@
                 tipo_ensayo: "Completo",
                 ph_max: 8.0,
                 ph_min: 7.2,
-                ph_procesar: 1,
+                ph_ensayar: 1,
                 redox_max: 900,
                 redox_min: 250,
                 temp_max: 30,
