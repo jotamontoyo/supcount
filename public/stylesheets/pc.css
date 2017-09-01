@@ -1168,6 +1168,17 @@
 	}
 
 
+
+
+
+   /* ========== acordeon items ensayo =============  */
+
+
+   .card {
+
+	   margin-bottom: 20px;
+   }
+
 	.pie_grupo_items_ensayo {
 
 		padding: 10px;
@@ -1176,8 +1187,11 @@
 	}
 
 
-	.marco_grupo_desplegables {  /* solo desplegable */
 
+
+
+
+	.marco_grupo_desplegables {  		/* solo desplegables */
 		border:	1px solid #ddd;
 		border-radius: 1.5px;
 		padding: 20px;
@@ -1185,42 +1199,29 @@
 
 
 	.marco_grupo_items {
-
 		border:	1px solid #ddd;
 		border-radius: 1.5px;
-
 	}
 
 
 
 	.marco_item {
-
 		min-height: 160px;
-
 		padding: 20px;
-
 		border:	1px solid #ddd;
 		border-radius: 1.5px;
 		font-size: 12px;
-
 	}
 
-
-	.items_ensayo {
-
+	.items_ensayo {   					/* cada row de items */
 		padding: 30px;
-
 	}
 
 
 
 
 	.item_ensayo {
-
-
-
 		text-align: right;
-
 	}
 
 

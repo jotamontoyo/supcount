@@ -78,15 +78,26 @@
 
 	}
 
-    .marco_grupo {
-		padding: 2px;
+    .marco_grupo_desplegables {  		/* solo desplegables */
+		padding: 10px;
 	}
 
-    .marco {
-        padding: 5px;
+    .marco_grupo_items {
+
+		padding: 10px;
+	}
+
+    .marco_item {
+        padding: 15px;
         color: white;
 		background-color: #3d4045;
     }
+
+    .items_ensayo {
+
+		padding: 10px;
+
+	}
 
 
 
