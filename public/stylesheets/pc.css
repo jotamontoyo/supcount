@@ -1170,13 +1170,13 @@
 
 	.pie_grupo_items_ensayo {
 
-
+		padding: 10px;
 
 
 	}
 
 
-	.marco_grupo {
+	.marco_grupo_desplegables {  /* solo desplegable */
 
 		border:	1px solid #ddd;
 		border-radius: 1.5px;
@@ -1184,8 +1184,16 @@
 	}
 
 
+	.marco_grupo_items {
 
-	.marco {
+		border:	1px solid #ddd;
+		border-radius: 1.5px;
+
+	}
+
+
+
+	.marco_item {
 
 		min-height: 160px;
 
@@ -1194,23 +1202,16 @@
 		border:	1px solid #ddd;
 		border-radius: 1.5px;
 		font-size: 12px;
-/*		color: white;
-		background-color: #3d4045;
-		background-color: white; */
 
 	}
 
 
 	.items_ensayo {
 
-		padding: 40px;
+		padding: 30px;
 
 	}
 
-	.item_caja {
-
-		padding: 20px;
-	}
 
 
 
