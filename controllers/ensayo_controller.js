@@ -94,10 +94,8 @@
 
 		req.ensayo.recirculacion_m = req.body.ensayo.recirculacion_m;
 		req.ensayo.recirculacion_t = req.body.ensayo.recirculacion_t;
-		if ((req.ensayo.recirculacion_m > req.ensayo.recirculacion_max) ||
-			(req.ensayo.recirculacion_m < req.ensayo.recirculacion_min) ||
-			(req.ensayo.recirculacion_t > req.ensayo.recirculacion_max) ||
-			(req.ensayo.recirculacion_t < req.ensayo.recirculacion_min)) {
+		if ((req.ensayo.recirculacion_m < req.ensayo.recirculacion) ||
+			(req.ensayo.recirculacion_t < req.ensayo.recirculacion)) {
 				req.ensayo.recirculacion_cumple = false;
 		} else {
 			req.ensayo.recirculacion_cumple = true;

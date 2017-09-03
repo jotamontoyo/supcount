@@ -1171,7 +1171,7 @@
 
 
 
-   /* ========== acordeon items ensayo =============  */
+   	/* ==== CAMPOS DE LOS ACORDEONES ========================================================== */
 
 
    .card {
@@ -1185,10 +1185,6 @@
 
 
 	}
-
-
-
-
 
 
 	.marco_grupo_desplegables {  		/* solo desplegables */
@@ -1264,29 +1260,21 @@
 
 	/* ========= FORMULARIO CONTADOR PARTE USUARIO CENTRO SILOE===================== */
 
-	#contador_form, #parte_form, #user_form, #centro_form, #siloe_form  {
-
+	#contador_form, #parte_form, #user_form, #centro_form, #vaso_form, #siloe_form  {
 		max-width: 600px;
 		padding: 20px 20px 20px 20px;
-
 		border: 1px solid #D8D8D8;
 		border-radius: 1.5px;
-
-
 	}
+
 
 	#contador_form img, #parte_form img, #user_form img, #centro_form img, #contacto_form img, #vaso_form img, #siloe_form img {
-
-
 		width: 32px;
-
 	}
 
-	#borrar_cuenta. #borrar_contacto {
-
+	#borrar_cuenta, #borrar_contacto {
 		padding: 10px;
 		text-align: center;
-
 	}
 
 

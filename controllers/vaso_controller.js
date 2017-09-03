@@ -47,32 +47,32 @@
                 capacidad: 0.0,
                 interior: false,
                 tipo_ensayo: "Completo",
-                ph_max: 8.0,
-                ph_min: 7.2,
+                ph_max: 8.00,
+                ph_min: 7.20,
                 ph_ensayar: 1,
-                redox_max: 900,
-                redox_min: 250,
-                temp_max: 30,
-                temp_min: 24,
+                redox_max: 900.00,
+                redox_min: 250.00,
+                temp_max: 30.00,
+                temp_min: 24.00,
                 recirculacion: 4,
                 transparencia: 'no ensaya',
                 extranios: 'no ensaya',
-                turbidez_max: 2,
-                isocianuro_max: 75,
-                bromo_max: 5,
-                bromo_min: 2,
-                cloro_max: 2.0,
-                cloro_min: 0.8,
-                cloro_combinado_max: 0.6,
-                co2_interior: 0.0,
-                co2_exterior: 0.0,
+                turbidez_max: 2.00,
+                isocianuro_max: 75.00,
+                bromo_max: 5.00,
+                bromo_min: 2.00,
+                cloro_max: 2.00,
+                cloro_min: 0.80,
+                cloro_combinado_max: 0.60,
+                co2_interior: 0.00,
+                co2_exterior: 0.00,
                 ecoli: 'no ensaya',
-                legionella_max: 100,
+                legionella_max: 100.00,
                 pseudomona: 'no ensaya',
                 enterococos: 'no ensaya',
                 staphlylococcus: 'no ensaya',
-                langelier_max: 0.5,
-                langelier_min: -0.5
+                langelier_max: 0.50,
+                langelier_min: -0.50
             }
 		);
 
@@ -202,9 +202,11 @@
             for (var prop in errors) errores[i++] = {message: errors[prop]};
             res.render('vasos/edit', {vaso: req.vaso, errors: errores});
         } else {
-            req.vaso 															// save: guarda en DB campos pregunta y respuesta de quiz
+            req.vaso
             .save()
-            .then(function() {res.redirect('/vasos')});
+            .then(function() {
+                res.redirect('/vasos');
+            });
         };
     };
 
