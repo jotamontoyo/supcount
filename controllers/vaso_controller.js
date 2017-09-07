@@ -171,28 +171,121 @@
 
         req.vaso.redox_max = req.body.vaso.redox_max;
         req.vaso.redox_min = req.body.vaso.redox_min;
+        if (req.body.vaso.redox_ensayar) {
+            req.vaso.redox_ensayar = 1;
+        } else {
+            req.vaso.redox_ensayar = 0;
+        };
+
+
         req.vaso.temp_max = req.body.vaso.temp_max;
         req.vaso.temp_min = req.body.vaso.temp_min;
+        if (req.body.vaso.temp_ensayar) {
+            req.vaso.temp_ensayar = 1;
+        } else {
+            req.vaso.temp_ensayar = 0;
+        };
+
+
         req.vaso.recirculacion = req.body.vaso.recirculacion;
+        if (req.body.vaso.recirculacion_ensayar) {
+            req.vaso.recirculacion_ensayar = 1;
+        } else {
+            req.vaso.recirculacion_ensayar = 0;
+        };
+
+
         req.vaso.transparencia = req.body.vaso.transparencia;
         req.vaso.extranios = req.body.vaso.extranios;
+
+
         req.vaso.turbidez_max = req.body.vaso.turbidez_max;
+        if (req.body.vaso.turbidez_ensayar) {
+            req.vaso.turbidez_ensayar = 1;
+        } else {
+            req.vaso.turbidez_ensayar = 0;
+        };
+
+
         req.vaso.isocianuro_max = req.body.vaso.isocianuro_max;
+        if (req.body.vaso.isocianuro_ensayar) {
+            req.vaso.isocianuro_ensayar = 1;
+        } else {
+            req.vaso.isocianuro_ensayar = 0;
+        };
+
+
         req.vaso.bromo_max = req.body.vaso.bromo_max;
         req.vaso.bromo_min = req.body.vaso.bromo_min;
+        if (req.body.vaso.bromo_ensayar) {
+            req.vaso.bromo_ensayar = 1;
+        } else {
+            req.vaso.bromo_ensayar = 0;
+        };
+
+
         req.vaso.cloro_max = req.body.vaso.cloro_max;
         req.vaso.cloro_min = req.body.vaso.cloro_min;
+        if (req.body.vaso.cloro_ensayar) {
+            req.vaso.cloro_ensayar = 1;
+        } else {
+            req.vaso.cloro_ensayar = 0;
+        };
+
+
         req.vaso.cloro_combinado_max = req.body.vaso.cloro_combinado_max;
+        if (req.body.vaso.cloro_combinado_ensayar) {
+            req.vaso.cloro_combinado_ensayar = 1;
+        } else {
+            req.vaso.cloro_combinado_ensayar = 0;
+        };
+
+
         req.vaso.humedad_max = req.body.vaso.humedad_max;
+        if (req.body.vaso.humedad_ensayar) {
+            req.vaso.humedad_ensayar = 1;
+        } else {
+            req.vaso.humedad_ensayar = 0;
+        };
+
+
         req.vaso.co2_interior = req.body.vaso.co2_interior;
+        if (req.body.vaso.co2_interior_ensayar) {
+            req.vaso.co2_interior_ensayar = 1;
+        } else {
+            req.vaso.co2_interior_ensayar = 0;
+        };
+
+
         req.vaso.co2_exterior = req.body.vaso.co2_exterior;
-        req.vaso.ecoli = req.body.vaso.ecoli;
+        if (req.body.vaso.co2_exterior_ensayar) {
+            req.vaso.co2_exterior_ensayar = 1;
+        } else {
+            req.vaso.co2_exterior_ensayar = 0;
+        };
+
+
         req.vaso.legionella_max = req.body.vaso.legionella_max;
+        if (req.body.vaso.legionella_ensayar) {
+            req.vaso.legionella_ensayar = 1;
+        } else {
+            req.vaso.legionella_ensayar = 0;
+        };
+
+
+        req.vaso.ecoli = req.body.vaso.ecoli;
         req.vaso.pseudomona = req.body.vaso.pseudomona;
         req.vaso.enterococos = req.body.vaso.enterococos;
         req.vaso.staphlylococcus = req.body.vaso.staphlylococcus;
+
+
         req.vaso.langelier_max = req.body.vaso.langelier_max;
         req.vaso.langelier_min = req.body.vaso.langelier_min;
+        if (req.body.vaso.langelier_ensayar) {
+            req.vaso.langelier_ensayar = 1;
+        } else {
+            req.vaso.langelier_ensayar = 0;
+        };
 
 
         var errors = req.vaso.validate();

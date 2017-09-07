@@ -169,13 +169,13 @@
 
                         </div> <!-- fin 2º row -->
 
-                        <div class="row pie_grupo_items_ensayo">
+                    <!--    <div class="row pie_grupo_items_ensayo">
                             <div class="col-md-1">
                                 <a class="collapsed" data-toggle="collapse" href="#bacteriologicos" aria-expanded="true" aria-controls="bacteriologicos">
                                     <h3><span class="glyphicon glyphicon-compressed" aria-hidden="true"></span></h3>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -250,6 +250,16 @@
                                             <input type="number" class="form-control" id="temp_min" name="vaso[temp_min]" value="<%= vaso.temp_min.toFixed(2) %>" step="0.01"/>
                                         </div>
                                     </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.temp_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="temp_ensayar" name="vaso[temp_ensayar]" value="<%= vaso.temp_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="temp_ensayar" name="vaso[temp_ensayar]" value="<%= vaso.temp_ensayar %>" />
+                                            <%}%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -263,6 +273,16 @@
                                             <input type="number" class="form-control" id="turbidez_max" name="vaso[turbidez_max]" value="<%= vaso.turbidez_max.toFixed(2) %>" step="0.01"/>
                                         </div>
                                     </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.turbidez_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="turbidez_ensayar" name="vaso[turbidez_ensayar]" value="<%= vaso.turbidez_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="turbidez_ensayar" name="vaso[turbidez_ensayar]" value="<%= vaso.turbidez_ensayar %>" />
+                                            <%}%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -274,6 +294,16 @@
                                         </div>
                                         <div class="col-md-6">
                                             <input type="number" class="form-control" id="recirculacion" name="vaso[recirculacion]" value="<%= vaso.recirculacion.toFixed(2) %>" step="0.1"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.recirculacion_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="recirculacion_ensayar" name="vaso[recirculacion_ensayar]" value="<%= vaso.recirculacion_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="recirculacion_ensayar" name="vaso[recirculacion_ensayar]" value="<%= vaso.recirculacion_ensayar %>" />
+                                            <%}%>
                                         </div>
                                     </div>
                                 </div>
@@ -300,18 +330,28 @@
                                             <input type="number" class="form-control" id="redox_min" name="vaso[redox_min]" value="<%= vaso.redox_min.toFixed(2) %>" step="0.01"/>
                                         </div>
                                     </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.redox_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="redox_ensayar" name="vaso[redox_ensayar]" value="<%= vaso.redox_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="redox_ensayar" name="vaso[redox_ensayar]" value="<%= vaso.redox_ensayar %>" />
+                                            <%}%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                         </div> <!-- fin 2º row -->
 
-                        <div class="row pie_grupo_items_ensayo">
+                    <!--    <div class="row pie_grupo_items_ensayo">
                             <div class="col-md-1">
                                 <a class="collapsed" data-toggle="collapse" href="#fisicos" aria-expanded="true" aria-controls="fisicos">
                                     <h3><span class="glyphicon glyphicon-compressed" aria-hidden="true"></span></h3>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -350,6 +390,16 @@
                                             <input type="number" class="form-control" id="cloro_min" name="vaso[cloro_min]" value="<%= vaso.cloro_min.toFixed(2) %>" step="0.01"/>
                                         </div>
                                     </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.cloro_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="cloro_ensayar" name="vaso[cloro_ensayar]" value="<%= vaso.cloro_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="cloro_ensayar" name="vaso[cloro_ensayar]" value="<%= vaso.cloro_ensayar %>" />
+                                            <%}%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -361,6 +411,16 @@
                                         </div>
                                         <div class="col-md-6">
                                             <input type="number" class="form-control" id="cloro_combinado_max" name="vaso[cloro_combinado_max]" value="<%= vaso.cloro_combinado_max.toFixed(2) %>" step="0.01"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.cloro_combinado_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="cloro_combinado_ensayar" name="vaso[cloro_combinado_ensayar]" value="<%= vaso.cloro_combinado_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="cloro_combinado_ensayar" name="vaso[cloro_combinado_ensayar]" value="<%= vaso.cloro_combinado_ensayar %>" />
+                                            <%}%>
                                         </div>
                                     </div>
                                 </div>
@@ -384,6 +444,16 @@
                                             <input type="number" class="form-control" id="bromo_min" name="vaso[bromo_min]" value="<%= vaso.bromo_min.toFixed(2) %>" step="0.01"/>
                                         </div>
                                     </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.bromo_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="bromo_ensayar" name="vaso[bromo_ensayar]" value="<%= vaso.bromo_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="bromo_ensayar" name="vaso[bromo_ensayar]" value="<%= vaso.bromo_ensayar %>" />
+                                            <%}%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -397,18 +467,28 @@
                                             <input type="number" class="form-control" id="isocianuro_max" name="vaso[isocianuro_max]" value="<%= vaso.isocianuro_max.toFixed(2) %>" step="0.01"/>
                                         </div>
                                     </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.isocianuro_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="isocianuro_ensayar" name="vaso[isocianuro_ensayar]" value="<%= vaso.isocianuro_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="isocianuro_ensayar" name="vaso[isocianuro_ensayar]" value="<%= vaso.isocianuro_ensayar %>" />
+                                            <%}%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                         </div> <!-- fin 1er row -->
 
-                        <div class="row pie_grupo_items_ensayo">
+                    <!--    <div class="row pie_grupo_items_ensayo">
                             <div class="col-md-1">
                                 <a class="collapsed" data-toggle="collapse" href="#quimicos" aria-expanded="true" aria-controls="quimicos">
                                     <h3><span class="glyphicon glyphicon-compressed" aria-hidden="true"></span></h3>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -438,6 +518,16 @@
                                             <input type="number" class="form-control" id="humedad_max" name="vaso[humedad_max]" value="<%= vaso.humedad_max.toFixed(2) %>" step="0.01"/>
                                         </div>
                                     </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.humedad_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="humedad_ensayar" name="vaso[humedad_ensayar]" value="<%= vaso.humedad_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="humedad_ensayar" name="vaso[humedad_ensayar]" value="<%= vaso.humedad_ensayar %>" />
+                                            <%}%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -451,7 +541,16 @@
                                             <input type="number" class="form-control" id="co2_interior" name="vaso[co2_interior]" value="<%= vaso.co2_interior.toFixed(2) %>" step="0.01"/>
                                         </div>
                                     </div>
-
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.co2_interior_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="co2_interior_ensayar" name="vaso[co2_interior_ensayar]" value="<%= vaso.co2_interior_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="co2_interior_ensayar" name="vaso[co2_interior_ensayar]" value="<%= vaso.co2_interior_ensayar %>" />
+                                            <%}%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -463,6 +562,16 @@
                                         </div>
                                         <div class="col-md-6">
                                             <input type="number" class="form-control" id="co2_exterior" name="vaso[co2_exterior]" value="<%= vaso.co2_exterior.toFixed(2) %>" step="0.01"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.co2_exterior_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="co2_exterior_ensayar" name="vaso[co2_exterior_ensayar]" value="<%= vaso.co2_exterior_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="co2_exterior_ensayar" name="vaso[co2_exterior_ensayar]" value="<%= vaso.co2_exterior_ensayar %>" />
+                                            <%}%>
                                         </div>
                                     </div>
                                 </div>
@@ -477,6 +586,16 @@
                                         </div>
                                         <div class="col-md-6">
                                             <input type="number" class="form-control" id="legionella_max" name="vaso[legionella_max]" value="<%= vaso.legionella_max.toFixed(2) %>" step="0.01"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.legionella_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="legionella_ensayar" name="vaso[legionella_ensayar]" value="<%= vaso.legionella_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="legionella_ensayar" name="vaso[legionella_ensayar]" value="<%= vaso.legionella_ensayar %>" />
+                                            <%}%>
                                         </div>
                                     </div>
                                 </div>
@@ -504,18 +623,28 @@
                                             <input type="number" class="form-control" id="langelier_min" name="vaso[langelier_min]" value="<%= vaso.langelier_min.toFixed(2) %>" step="0.01"/>
                                         </div>
                                     </div>
+                                    <div class="form-group pie_grupo_items_ensayo">
+                                        <label for="ensayar" class="col-md-6 control-label">Ensayar:</label>
+                                        <div class="col-md-3">
+                                            <% if (vaso.langelier_ensayar) { %>
+                                                <input type="checkbox" class="form-control" checked id="langelier_ensayar" name="vaso[langelier_ensayar]" value="<%= vaso.langelier_ensayar %>" />
+                                            <%} else { %>
+                                                <input type="checkbox" class="form-control" id="langelier_ensayar" name="vaso[langelier_ensayar]" value="<%= vaso.langelier_ensayar %>" />
+                                            <%}%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                         </div> <!-- fin 2º row -->
 
-                        <div class="row pie_grupo_items_ensayo">
+                        <!-- <div class="row pie_grupo_items_ensayo">
                             <div class="col-md-1">
                                 <a class="collapsed" data-toggle="collapse" href="#interiores" aria-expanded="true" aria-controls="interiores">
                                     <h3><span class="glyphicon glyphicon-compressed" aria-hidden="true"></span></h3>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div> <!-- fin marco_grupo_items -->
 

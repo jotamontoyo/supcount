@@ -61,6 +61,9 @@
 			ph_cumple: {
 				type: DataTypes.BOOLEAN
 			},
+			ph_ensayar: {
+				type: DataTypes.BOOLEAN
+			},
 
 
             redox_max: {
@@ -76,6 +79,9 @@
                 type: DataTypes.FLOAT
             },
 			redox_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+			redox_ensayar: {
 				type: DataTypes.BOOLEAN
 			},
 
@@ -97,6 +103,9 @@
 			temp_cumple: {
 				type: DataTypes.BOOLEAN
 			},
+			temp_ensayar: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -111,6 +120,9 @@
                 type: DataTypes.FLOAT
             },
 			recirculacion_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+			recirculacion_ensayar: {
 				type: DataTypes.BOOLEAN
 			},
 
@@ -162,6 +174,9 @@
 			turbidez_cumple: {
 				type: DataTypes.BOOLEAN
 			},
+			turbidez_ensayar: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -176,6 +191,9 @@
                 type: DataTypes.FLOAT
             },
 			isocianuro_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+			isocianuro_ensayar: {
 				type: DataTypes.BOOLEAN
 			},
 
@@ -197,6 +215,9 @@
 			bromo_cumple: {
 				type: DataTypes.BOOLEAN
 			},
+			bromo_ensayar: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -215,6 +236,9 @@
 			cloro_cumple: {
 				type: DataTypes.BOOLEAN
 			},
+			cloro_ensayar: {
+				type: DataTypes.BOOLEAN
+			},
 
 
 
@@ -229,6 +253,9 @@
                 type: DataTypes.FLOAT
             },
 			cloro_combinado_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+			cloro_combinado_ensayar: {
 				type: DataTypes.BOOLEAN
 			},
 
@@ -246,6 +273,9 @@
 			humedad_cumple: {
 				type: DataTypes.BOOLEAN
 			},
+			humedad_ensayar: {
+				type: DataTypes.BOOLEAN
+			},
 
 
             co2_interior_max: {
@@ -260,6 +290,9 @@
 			co2_interior_cumple: {
 				type: DataTypes.BOOLEAN
 			},
+			co2_interior_ensayar: {
+				type: DataTypes.BOOLEAN
+			},
 
 
             co2_exterior_max: {
@@ -272,6 +305,9 @@
                 type: DataTypes.FLOAT
             },
 			co2_exterior_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+			co2_exterior_ensayar: {
 				type: DataTypes.BOOLEAN
 			},
 
@@ -301,6 +337,9 @@
                 type: DataTypes.FLOAT
             },
 			legionella_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+			legionella_ensayar: {
 				type: DataTypes.BOOLEAN
 			},
 
@@ -364,6 +403,9 @@
                 type: DataTypes.FLOAT
             },
 			langelier_cumple: {
+				type: DataTypes.BOOLEAN
+			},
+			langelier_ensayar: {
 				type: DataTypes.BOOLEAN
 			},
 

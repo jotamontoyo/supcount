@@ -308,11 +308,8 @@
 
 		req.ensayo
 			.save()
-			.then(function() {
-				res.redirect('/siloes/' + req.params.siloeId);
-			})
+			.then(function() {res.redirect('/siloes/' + req.params.siloeId)})
 			.catch(function(error) {next(error)});
-
 
 	};
 
@@ -339,6 +336,6 @@
 
 	exports.destroy = function(req, res) {
 		req.ensayo.destroy().then(function() {
-			res.redirect('/quizes/' + req.params.quizId);
+			res.redirect('/siloes/' + req.params.siloeId);
 		}).catch(function(error) {next(error)});
 	};

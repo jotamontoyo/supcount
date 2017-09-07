@@ -52,6 +52,10 @@
                 type: DataTypes.FLOAT,
                 defaultValue: 250
             },
+            redox_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
 
             temp_max: {
                 type: DataTypes.FLOAT,
@@ -61,10 +65,18 @@
                 type: DataTypes.FLOAT,
                 defaultValue: 24
             },
+            temp_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
 
             recirculacion: {
                 type: DataTypes.FLOAT,
                 defaultValue: 4
+            },
+            recirculacion_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
             },
 
             transparencia: {
@@ -81,10 +93,18 @@
                 type: DataTypes.FLOAT,
                 defaultValue: 2
             },
+            turbidez_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
 
             isocianuro_max: {
                 type: DataTypes.FLOAT,
                 defaultValue: 75
+            },
+            isocianuro_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
             },
 
             bromo_max: {
@@ -95,6 +115,10 @@
                 type: DataTypes.FLOAT,
                 defaultValue: 2
             },
+            bromo_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
 
             cloro_max: {
                 type: DataTypes.FLOAT,
@@ -104,10 +128,18 @@
                 type: DataTypes.FLOAT,
                 defaultValue: 0.8
             },
+            cloro_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
 
             cloro_combinado_max: {
                 type: DataTypes.FLOAT,
                 defaultValue: 0.6
+            },
+            cloro_combinado_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
             },
 
 
@@ -116,13 +148,26 @@
                 type: DataTypes.FLOAT,
                 defaultValue: 65
             },
+            humedad_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
 
 
             co2_interior: {
                 type: DataTypes.FLOAT
             },
+            co2_interior_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
+
             co2_exterior: {
                 type: DataTypes.FLOAT
+            },
+            co2_exterior_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
             },
 
 
@@ -130,18 +175,26 @@
                 type: DataTypes.STRING,
                 defaultValue: 'no ensaya'
             },
+
             legionella_max: {
                 type: DataTypes.FLOAT,
                 defaultValue: 100
             },
+            legionella_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
+
             pseudomona: {
                 type: DataTypes.STRING,
                 defaultValue: 'no ensaya'
             },
+
             enterococos: {
                 type: DataTypes.STRING,
                 defaultValue: 'no ensaya'
             },
+
             staphlylococcus: {
                 type: DataTypes.STRING,
                 defaultValue: 'no ensaya'
@@ -156,7 +209,11 @@
             langelier_min: {
                 type: DataTypes.FLOAT,
                 defaultValue: -0.5
-            }
+            },
+            langelier_ensayar: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: 1
+            },
 
 
 

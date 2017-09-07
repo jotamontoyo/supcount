@@ -233,6 +233,7 @@
 							ph_m: 0,
 							ph_t: 0,
 							ph_cumple: false,
+							ph_ensayar: vasos[i].ph_ensayar,
 
 
 							redox_max: vasos[i].redox_max,
@@ -240,17 +241,20 @@
 							redox_m: 0,
 							redox_t: 0,
 							redox_cumple: false,
+							redox_ensayar: vasos[i].redox_ensayar,
 
 							temp_max: vasos[i].temp_max,
 							temp_min: vasos[i].temp_min,
 							temp_m: 0,
 							temp_t: 0,
 							temp_cumple: false,
+							temp_ensayar: vasos[i].temp_ensayar,
 
 							recirculacion: vasos[i].recirculacion,
 							recirculacion_m: 0,
 							recirculacion_t: 0,
 							recirculacion_cumple: false,
+							recirculacion_ensayar: vasos[i].recirculacion_ensayar,
 
 							transparencia: vasos[i].transparencia,					// valor de referencia
 							transparencia_m: vasos[i].transparencia,				// valor del formulario
@@ -264,43 +268,51 @@
 							turbidez_m: 0,
 							turbidez_t: 0,
 							turbidez_cumple: false,
+							turbidez_ensayar: vasos[i].turbidez_ensayar,
 
 							isocianuro_max: vasos[i].isocianuro_max,
 							isocianuro_m: 0,
 							isocianuro_t: 0,
 							isocianuro_cumple: false,
+							isocianuro_ensayar: vasos[i].isocianuro_ensayar,
 
 							bromo_max: vasos[i].bromo_max,
 							bromo_min: vasos[i].bromo_min,
 							bromo_m: 0,
 							bromo_t: 0,
 							bromo_cumple: false,
+							bromo_ensayar: vasos[i].bromo_ensayar,
 
 							cloro_max: vasos[i].cloro_max,
 							cloro_min: vasos[i].cloro_min,
 							cloro_m: 0,
 							cloro_t: 0,
 							cloro_cumple: false,
+							cloro_ensayar: vasos[i].cloro_ensayar,
 
 							cloro_combinado_max: vasos[i].cloro_combinado_max,
 							cloro_combinado_m: 0,
 							cloro_combinado_t: 0,
 							cloro_combinado_cumple: false,
+							cloro_combinado_ensayar: vasos[i].cloro_combinado_ensayar,
 
 							humedad_max: vasos[i].humedad_max,
 							humedad_m: 0,
 							humedad_t: 0,
 							humedad_cumple: false,
+							humedad_ensayar: vasos[i].humedad_ensayar,
 
 							co2_interior_max: vasos[i].co2_interior,
 							co2_interior_m: 0,
 							co2_interior_t: 0,
 							co2_interior_cumple: false,
+							co2_interior_ensayar: vasos[i].co2_interior_ensayar,
 
 							co2_exterior_max: vasos[i].co2_exterior_max,
 							co2_exterior_m: 0,
 							co2_exterior_t: 0,
 							co2_exterior_cumple: false,
+							co2_exterior_ensayar: vasos[i].co2_exterior_ensayar,
 
 							ecoli: vasos[i].ecoli,
 							ecoli_m: vasos[i].ecoli,
@@ -310,6 +322,7 @@
 							legionella_m: 0,
 							legionella_t: 0,
 							legionella_cumple: false,
+							legionella_ensayar: vasos[i].legionella_ensayar,
 
 							pseudomona: vasos[i].pseudomona,
 							pseudomona_m: vasos[i].pseudomona,
@@ -327,7 +340,8 @@
 							langelier_min: vasos[i].langelier_min,
 							langelier_m: 0,
 							langelier_t: 0,
-							langelier_cumple: false
+							langelier_cumple: false,
+							langelier_ensayar: vasos[i].langelier_ensayar
 
 						});
 
@@ -341,13 +355,15 @@
 							ensayo 																		// save: guarda en DB campos pregunta y respuesta de quiz
 							.save()
 							.then(function() {
-								res.redirect('/siloes');
+
 							});
 						};
 
 					};
 
 				});
+
+				res.redirect('/siloes');
 
 			});
 
@@ -666,12 +682,12 @@
 		var queries = [
 			// PH
 			"SELECT 'ph' as nombre, " +
-				" count(*) as muestreo, " +
-				" sum(ph_cumple) as cumple, " +
-				" (avg(ph_m) + avg(ph_t)) / 2 as media, " +
-				" max(ph_m) as max_m, max(ph_t) as max_t, " +
-				" min(ph_m) as min_m, min(ph_t) as min_t " +
-			" FROM Ensayoes " + where,
+               " count(*) as muestreo, " +
+               " sum(ph_cumple) as cumple, " +
+               " (avg(ph_m) + avg(ph_t)) / 2 as media, " +
+               " max(ph_m) as max_m, max(ph_t) as max_t, " +
+               " min(ph_m) as min_m, min(ph_t) as min_t " +
+           " FROM Ensayoes " + where + 'AND ph_ensayar',
 
 			// REDOX
 			"SELECT 'potencial redox' as nombre, " +
@@ -680,7 +696,7 @@
 				" (avg(redox_m) + avg(redox_t)) / 2 as media, " +
 				" max(redox_m) as max_m, max(redox_t) as max_t, " +
 				" min(redox_m) as min_m, min(redox_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND redox_ensayar',
 
 			// Tª agua
 			"SELECT 'Tª agua' as nombre, " +
@@ -689,7 +705,7 @@
 				" (avg(temp_m) + avg(temp_t)) / 2 as media, " +
 				" max(temp_m) as max_m, max(temp_t) as max_t, " +
 				" min(temp_m) as min_m, min(temp_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND temp_ensayar',
 
 			// Tiempo recirculacion
 			"SELECT 'Tiempo recirculación' as nombre, " +
@@ -698,7 +714,7 @@
 				" (avg(recirculacion_m) + avg(recirculacion_t)) / 2 as media, " +
 				" max(recirculacion_m) as max_m, max(recirculacion_t) as max_t, " +
 				" min(recirculacion_m) as min_m, min(recirculacion_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND recirculacion_ensayar',
 
 			// Transparencia
 			"SELECT 'Transparencia' as nombre, " +
@@ -725,7 +741,7 @@
 				" (avg(turbidez_m) + avg(turbidez_t)) / 2 as media, " +
 				" max(turbidez_m) as max_m, max(turbidez_t) as max_t, " +
 				" min(turbidez_m) as min_m, min(turbidez_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND turbidez_ensayar',
 
 			// Acido Isocianurico
 			"SELECT 'Ácido Isocianúrico' as nombre, " +
@@ -734,7 +750,7 @@
 				" (avg(isocianuro_m) + avg(isocianuro_t)) / 2 as media, " +
 				" max(isocianuro_m) as max_m, max(isocianuro_t) as max_t, " +
 				" min(isocianuro_m) as min_m, min(isocianuro_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND isocianuro_ensayar',
 
 			// Bromo total
 			"SELECT 'Bromo total' as nombre, " +
@@ -743,7 +759,7 @@
 				" (avg(bromo_m) + avg(bromo_t)) / 2 as media, " +
 				" max(bromo_m) as max_m, max(bromo_t) as max_t, " +
 				" min(bromo_m) as min_m, min(bromo_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND bromo_ensayar',
 
 			// Cloro
 			"SELECT 'Cloro libre' as nombre, " +
@@ -752,7 +768,7 @@
 				" (avg(cloro_m) + avg(cloro_t)) / 2 as media, " +
 				" max(cloro_m) as max_m, max(cloro_t) as max_t, " +
 				" min(cloro_m) as min_m, min(cloro_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND cloro_ensayar',
 
 			// Cloro combinado
 			"SELECT 'Cloro combinado' as nombre, " +
@@ -761,7 +777,7 @@
 				" (avg(cloro_combinado_m) + avg(cloro_combinado_t)) / 2 as media, " +
 				" max(cloro_combinado_m) as max_m, max(cloro_combinado_t) as max_t, " +
 				" min(cloro_combinado_m) as min_m, min(cloro_combinado_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND cloro_combinado_ensayar',
 
 			// Humedad
 			"SELECT 'Humedad' as nombre, " +
@@ -770,7 +786,7 @@
 				" (avg(humedad_m) + avg(humedad_t)) / 2 as media, " +
 				" max(humedad_m) as max_m, max(humedad_t) as max_t, " +
 				" min(humedad_m) as min_m, min(humedad_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND humedad_ensayar',
 
 			// Diferencia CO2
 			"SELECT 'Diferencia CO2' as nombre, " +
@@ -779,7 +795,7 @@
 				" (avg(co2_interior_m - co2_exterior_m) + avg(co2_interior_t - co2_exterior_t)) / 2 as media, " +
 				" max(co2_interior_m - co2_exterior_m) as max_m, max(co2_interior_t - co2_exterior_t) as max_t, " +
 				" min(co2_interior_m - co2_exterior_m) as min_m, min(co2_interior_t - co2_exterior_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND co2_interior_ensayar',
 
 			// E.Coli
 			"SELECT 'E.Coli' as nombre, " +
@@ -797,7 +813,7 @@
 				" (avg(legionella_m) + avg(legionella_t)) / 2 as media, " +
 				" max(legionella_m) as max_m, max(legionella_t) as max_t, " +
 				" min(legionella_m) as min_m, min(legionella_t) as min_t " +
-			" FROM Ensayoes " + where,
+			" FROM Ensayoes " + where + 'AND legionella_ensayar',
 
 			// P.Aeruginosa
 			"SELECT 'P.Aeruginosa' as nombre, " +
@@ -833,7 +849,7 @@
 				" (avg(langelier_m) + avg(langelier_t)) / 2 as media, " +
 				" max(langelier_m) as max_m, max(langelier_t) as max_t, " +
 				" min(langelier_m) as min_m, min(langelier_t) as min_t " +
-			" FROM Ensayoes " + where
+			" FROM Ensayoes " + where + 'AND langelier_ensayar'
 
 		].join(' UNION ALL ');
 
