@@ -9,6 +9,7 @@
 
 								<div class="container">
 									<% if ((session.user.isAdmin || (session.user && siloe.UserId === session.user.id))) {%>
+										
 										<h5><span class="badge">#<%=ensayos[index].id%></span></h5>
 										<h5>Vaso: <strong><%= ensayos[index].vasoId %> - <%= ensayos[index].nombre %></strong></h5>
 										<h5>Ubicación: <strong><%= ensayos[index].ubicacion %></strong></h5>

@@ -286,11 +286,12 @@
 
 	}
 
-    .marco_grupo {
+    .marco_grupo_desplegables, .marco_grupo_items {
 		padding: 2px;
+        border: none;
 	}
 
-    .marco {
+    .marco_item {
         padding: 5px;
         color: white;
 		background-color: #3d4045;
