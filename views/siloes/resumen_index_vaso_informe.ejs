@@ -25,10 +25,10 @@
                         <tr>
                             <td class="text-center"><%= resumen[i].nombre %></td>
                             <td class="text-center"><%= resumen[i].muestreos %></td>
-                            <td class="text-center"><%= resumen[i].cumple %></td>
-                            <td class="text-center"><%= resumen[i].media %></td>
-                            <td class="text-center"><%= resumen[i].max %></td>
-                            <td class="text-center"><%= resumen[i].min %></td>
+                            <td class="text-center"><%= (Number(resumen[i].cumple)).formatNumber(0, ',', '.') %></td>
+                            <td class="text-center"><%= (Number(resumen[i].media)).formatNumber(2, ',', '.') %></td>
+                            <td class="text-center"><%= (Number(resumen[i].max)).formatNumber(2, ',', '.') %></td>
+                            <td class="text-center"><%= (Number(resumen[i].min)).formatNumber(2, ',', '.') %></td>
                             <td class="text-center"><%= resumen[i].incumplidos %></td>
                         </tr>
                     <%}%>
@@ -39,6 +39,5 @@
         </div>
 
         <br>
-
 
     </div>
