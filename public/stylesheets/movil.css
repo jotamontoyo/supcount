@@ -273,7 +273,7 @@
 
     .item_ensayo {
 
-        text-align: left;
+        text-align: right;
 
     }
 
@@ -292,7 +292,8 @@
 	}
 
     .marco_item {
-        padding: 5px;
+        /*min-height: 0px;*/
+        padding: 20px;
         color: white;
 		background-color: #3d4045;
     }

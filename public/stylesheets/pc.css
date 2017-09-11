@@ -15,7 +15,7 @@
 	body {
 
 		/*background-color: #CEE3F6;*/
-		background-color: #424242;
+		background-color: #2E2E2E;
 
 		font-family     : 'Kalinga', Calibri, Arial, sans-serif;
 		color: #BDBDBD;
@@ -123,7 +123,7 @@
 
 	.table-striped > tbody > tr:hover {						/* estilo de los row :hover de todas las tablas */
 
-		background-color: #6E6E6E;
+		background-color: #848484;
 		-moz-transition: all 0.3s;
 		-o-transition: all 0.3s;
 		-webkit-transition: all 0.3s;
@@ -1332,7 +1332,7 @@
 	#contador_form, #parte_form, #user_form, #centro_form, #vaso_form, #siloe_form  {
 		max-width: 600px;
 		padding: 20px 20px 20px 20px;
-		border: 1px solid #fff;
+		border: 1px solid #BDBDBD;
 		border-radius: 1.5px;
 	}
 
