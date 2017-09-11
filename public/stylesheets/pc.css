@@ -96,14 +96,14 @@
 
 	table {
 
-		color: #424242;
-		background-color: #848484;
+		color: #2E2E2E;
+		background-color: #A4A4A4;
 
 	}
 
 	table a {
 
-		color: #424242;
+		color: #2E2E2E;
 
 	}
 
@@ -111,13 +111,13 @@
 	.table-striped > tbody > tr:nth-of-type(2n+1) {			/* estilo de los row impares de todas las tablas */
 
 		padding: 5px;
-		background-color: #A4A4A4;
+		background-color: #BDBDBD;
 
 	}
 	.table-striped > tbody > tr:nth-of-type(2n+0) {			/* estilo de los row pares de todas las tablas */
 
 		padding: 5px;
-		background-color: #848484;
+		background-color: #A4A4A4;
 
 	}
 
