@@ -57,6 +57,9 @@
 						</td>
 						<% if (session.user) {
 							if (session.user.isAdmin || session.user.id === siloes[i].UserId) {%>
+								<td style="width:40px"><a class="" href="/siloes/<%= siloes[i].id %>/print">
+									<img src="/images/printer.png" style="width: 20px;"/>
+								</a></td>
 								<td style="width:40px"><a class="" href="/siloes/<%= siloes[i].id %>/edit">
 									<img src="/images/edit3.png" style="width: 20px;"/>
 								</a></td>

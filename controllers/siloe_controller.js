@@ -119,13 +119,13 @@
 
 
 
-	exports.imprimir_resumen = function(req, res) {
-
-		console.log(req.body.quizes);
-
-		res.render('quizes/resumen_impreso', {quizes: req.body.quizes, contadores: req.contadores, errors: []});
-
-	};
+	// exports.imprimir_resumen = function(req, res) {
+	//
+	// 	console.log(req.body.quizes);
+	//
+	// 	res.render('quizes/resumen_impreso', {quizes: req.body.quizes, contadores: req.contadores, errors: []});
+	//
+	// };
 
 
 
@@ -141,13 +141,25 @@
             res.render('siloes/show', {siloe: req.siloe, ensayos: ensayos, errors: []});
         });
 
-//		res.render('siloes/show', {siloe: req.siloe, errors: []});				// renderiza la vista /quizes/show del quizId selecionado con load find()
-
 	};
 
 
 
+	exports.print = function(req, res) {
 
+		models.Ensayo.findAll({
+
+			where: {SiloId: req.siloe.id},
+			order: [['vasoId', 'ASC']]
+
+		}).then( ensayos => {
+
+			res.render('siloes/imprimirensayos', {ensayos: ensayos, siloe: req.siloe, errors: []});
+
+
+		});
+
+	};
 
 
 

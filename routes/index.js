@@ -163,7 +163,8 @@
 	router.get('/siloes/:anio(\\d+)/excel',					sessionController.loginRequired, siloeController.downloadExcel);		// genera el informe de siloes
 	router.get('/siloes/:siloeId(\\d+)/edit',				sessionController.loginRequired, siloeController.ownershipRequired, siloeController.edit);				// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
 	router.put('/siloes/:siloeId(\\d+)',					sessionController.loginRequired, siloeController.ownershipRequired, siloeController.update);	// dispara controlador update cuando el boton <salvar> del formulario edit.js
-	router.get('/siloes/:siloeId(\\d+)',					sessionController.loginRequired, siloeController.show);					// accede a una pregunta en concreto. envia al quizController la peticion GET con el parametro quizId (indice)
+	router.get('/siloes/:siloeId(\\d+)',					sessionController.loginRequired, siloeController.show);
+	router.get('/siloes/:siloeId(\\d+)/print',				sessionController.loginRequired, siloeController.ownershipRequired, siloeController.print);
 	router.delete('/siloes/:siloeId(\\d+)/destroy',			sessionController.loginRequired, siloeController.destroy);
 
 

@@ -1,0 +1,102 @@
+
+<div class="container-fluid margen_superior" style="width:auto">
+
+    <h4>Centro: <%= siloe.centro %></h4>
+    <h5>Realizado por: <%= siloe.UserName %></h5>
+    <h5>Fecha: <%= siloe.dia %>-<%= siloe.mes %>-<%= siloe.anio %></h5>
+
+
+        <div class="panel panel-default table-responsive" style="min-width:2200px;">
+
+
+
+            <table class="table table-striped table-hover">
+
+
+
+                <thead>
+                    <tr>
+
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Ph m</th>
+                        <th class="text-center">Ph t</th>
+                        <th class="text-center">Temp m</th>
+                        <th class="text-center">Temp t</th>
+                        <th class="text-center">Turb m</th>
+                        <th class="text-center">Turb t</th>
+                        <th class="text-center">Recirc m</th>
+                        <th class="text-center">Recirc t</th>
+                        <th class="text-center">Redox m</th>
+                        <th class="text-center">Redox t</th>
+                        <th class="text-center">Cloro m</th>
+                        <th class="text-center">Cloro t</th>
+                        <th class="text-center">Cloro C m</th>
+                        <th class="text-center">Cloro C t</th>
+                        <th class="text-center">Bromo m</th>
+                        <th class="text-center">Bromo t</th>
+                        <th class="text-center">Isocianuro m</th>
+                        <th class="text-center">Isocianuro t</th>
+                        <th class="text-center">Humedad m</th>
+                        <th class="text-center">Humedad t</th>
+                        <th class="text-center">CO2 Int m</th>
+                        <th class="text-center">CO2 Int t</th>
+                        <th class="text-center">CO2 Ext m</th>
+                        <th class="text-center">CO2 Ext t</th>
+                        <th class="text-center">Legionella m</th>
+                        <th class="text-center">Legionella t</th>
+                        <th class="text-center">Langelier m</th>
+                        <th class="text-center">Langelier t</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% for (var i in ensayos) {%>
+                        <tr>
+                            <td class="text-center"><%= ensayos[i].nombre %></td>
+                            <td class="text-center"><%= ensayos[i].ph_m %></td>
+                            <td class="text-center"><%= ensayos[i].ph_t %></td>
+                            <td class="text-center"><%= ensayos[i].temp_m %></td>
+                            <td class="text-center"><%= ensayos[i].temp_t %></td>
+                            <td class="text-center"><%= ensayos[i].turbidez_m %></td>
+                            <td class="text-center"><%= ensayos[i].turbidez_t %></td>
+                            <td class="text-center"><%= ensayos[i].recirculacion_m %></td>
+                            <td class="text-center"><%= ensayos[i].recirculacion_t %></td>
+                            <td class="text-center"><%= ensayos[i].redox_m %></td>
+                            <td class="text-center"><%= ensayos[i].redox_t %></td>
+                            <td class="text-center"><%= ensayos[i].cloro_m %></td>
+                            <td class="text-center"><%= ensayos[i].cloro_t %></td>
+                            <td class="text-center"><%= ensayos[i].cloro_combinado_m %></td>
+                            <td class="text-center"><%= ensayos[i].cloro_combinado_t %></td>
+                            <td class="text-center"><%= ensayos[i].bromo_m %></td>
+                            <td class="text-center"><%= ensayos[i].bromo_t %></td>
+                            <td class="text-center"><%= ensayos[i].isocianuro_m %></td>
+                            <td class="text-center"><%= ensayos[i].isocianuro_t %></td>
+                            <td class="text-center"><%= ensayos[i].humedad_m %></td>
+                            <td class="text-center"><%= ensayos[i].humedad_t %></td>
+                            <td class="text-center"><%= ensayos[i].co2_interior_m %></td>
+                            <td class="text-center"><%= ensayos[i].co2_interior_t %></td>
+                            <td class="text-center"><%= ensayos[i].co2_exterior_m %></td>
+                            <td class="text-center"><%= ensayos[i].co2_exterior_t %></td>
+                            <td class="text-center"><%= ensayos[i].legionella_m %></td>
+                            <td class="text-center"><%= ensayos[i].legionella_t %></td>
+                            <td class="text-center"><%= ensayos[i].langelier_m %></td>
+                            <td class="text-center"><%= ensayos[i].langelier_t %></td>
+                        </tr>
+
+                    <%}%>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+
+            window.print();
+
+        </script>
+
+
+
+</div>
