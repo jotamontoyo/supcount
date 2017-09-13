@@ -148,15 +148,10 @@
 	exports.print = function(req, res) {
 
 		models.Ensayo.findAll({
-
 			where: {SiloId: req.siloe.id},
 			order: [['vasoId', 'ASC']]
-
 		}).then( ensayos => {
-
 			res.render('siloes/imprimirensayos', {ensayos: ensayos, siloe: req.siloe, errors: []});
-
-
 		});
 
 	};
@@ -179,8 +174,6 @@
 		);
 
 		res.render('siloes/new', {siloe: siloe, errors: []});   							// renderiza la vista quizes/new
-
-
 
 	};
 

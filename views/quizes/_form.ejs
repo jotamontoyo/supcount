@@ -6,36 +6,36 @@
 
 
 	<div class="form-group">
-		<label for="preg" class="col-sm-2 control-label">Día:</label>
-		<div class="col-sm-10">
+		<label for="preg" class="col-md-4 col-sm-2 control-label">Día:</label>
+		<div class="col-md-4 col-sm-10">
 			<input type="number" min="1" max="31" class="form-control" id="dia" name="quiz[dia]" value="<%= quiz.dia %>" placeholder="mes"/>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="preg" class="col-sm-2 control-label">Mes:</label>
-		<div class="col-sm-10">
+		<label for="preg" class="col-md-4 col-sm-2 control-label">Mes:</label>
+		<div class="col-md-4 col-sm-10">
 			<input type="number" min="1" max="12" class="form-control" id="mes" name="quiz[mes]" value="<%= quiz.mes %>" placeholder="mes"/>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="preg" class="col-sm-2 control-label">Año:</label>
-		<div class="col-sm-10">
+		<label for="preg" class="col-md-4 col-sm-2 control-label">Año:</label>
+		<div class="col-md-4 col-sm-10">
 			<input type="number" min="2016" max="2030" class="form-control" id="anio" name="quiz[anio]" value="<%= quiz.anio %>" placeholder="fecha"/>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="preg" class="col-sm-2 control-label">Motivo:</label>
-		<div class="col-sm-10">
+		<label for="preg" class="col-md-4 col-sm-2 control-label">Motivo:</label>
+		<div class="col-md-4 col-sm-10">
 			<input type="text" class="form-control" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" placeholder="motivo"/>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="preg" class="col-sm-2 control-label">Proveedor:</label>
-		<div class="col-sm-10">
+		<label for="preg" class="col-md-4 col-sm-2 control-label">Proveedor:</label>
+		<div class="col-md-4 col-sm-10">
 			<select class="form-control" id="pro" name="quiz[proveedor]">
 				<% for (var index in proveedor) {%>
 					<option value="<%=proveedor[index].nombre%>" <% if (quiz.proveedor===proveedor[index].nombre) {%> selected <%}%>><%=proveedor[index].nombre%></option>
@@ -47,8 +47,8 @@
 
 
 	<div class="form-group">
-		<label for="preg" class="col-sm-2 control-label">Estado:</label>
-		<div class="col-sm-10">
+		<label for="preg" class="col-md-4 col-sm-2 control-label">Estado:</label>
+		<div class="col-md-4 col-sm-10">
 			<select class="form-control" id="estado" name="quiz[estado]">
 				<option value='abierto' <%if (quiz.estado==='abierto') {%> selected <%}%>>Abierto</option>
 				<option value='cerrado' <%if (quiz.estado==='cerrado') {%> selected <%}%>>Cerrado - 📧</option>
@@ -56,39 +56,25 @@
 		</div>
 	</div>
 
-<!--	<div class="form-group text-center">
-		<div class="col-sm-offset-2 col-sm-10">
-			<a href="/quizes">
-				<button class="btn btn-danger btn-sm" type="button">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
-				</button>
-			</a>
-			<button class="btn btn-success btn-sm" type="submit" id="grabar" value="Salvar">
-				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
-			</button>
-		</div>
-	</div> -->
+	<br>
 
 
+</div>
 
+<br><br>
 
-	<div class="form-group text-center">
+<div class="form-group text-center">
 
-		<ul class="tira_botones">
+	<ul class="tira_botones">
 
-			<li><a class="btn btn_gral btn_cancelar" href="/quizes">
-				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
-			</a></li>
+		<li><a class="btn btn_gral btn_cancelar" href="/quizes">
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+		</a></li>
 
-			<li><button class="btn btn_gral" type="submit" id="grabar" value="Salvar">
-				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
-			</button></li>
+		<li><button class="btn btn_gral" type="submit" id="grabar" value="Salvar">
+			<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Grabar
+		</button></li>
 
-		</ul>
-
-	</div>
-
-
-
+	</ul>
 
 </div>
