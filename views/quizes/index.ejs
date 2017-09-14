@@ -1,5 +1,5 @@
 
-<div class="container-fluid animated animated-fast fadeIn margen_superior" id="partes_index">
+<div class="container animated animated-fast fadeIn margen_superior" id="partes_index">
 
 	<h4><img src="/images/partes3.png" alt="" /> Partes de Lecturas</h4>
 
@@ -65,6 +65,9 @@
 						<td><%= quizes[i].pregunta %></td> -->
 						<% if (session.user) {
 							if (session.user.isAdmin || session.user.id === quizes[i].UserId) {%>
+								<td style="width:40px"><a class="" href="/quizes/<%= quizes[i].id %>/print">
+									<img src="/images/printer.png" style="width: 20px;"/>
+								</a></td>
 								<td style="width:40px"><a class="" href="/quizes/<%= quizes[i].id %>/edit">
 									<img src="/images/edit3.png" style="width: 20px;"/>
 								</a></td>

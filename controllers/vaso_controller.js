@@ -26,11 +26,11 @@
             where: {centro: req.session.user.centro},
             order: [['id', 'ASC']]
 
-        }).then(					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id
-	    	function(vasos) {
-	      		res.render('vasos/index', {vasos: vasos, errors: []});
-	    	}
-	  	).catch(function(error){next(error)});
+        }).then(function(vasos) {					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id
+
+	    	res.render('vasos/index', {vasos: vasos, errors: []});
+            
+	  	}).catch(function(error){next(error)});
 
 	};
 
@@ -45,34 +45,46 @@
                 centro: "",
                 ubicacion: "",
                 capacidad: 0.0,
-                interior: false,
+                interior: 0,
                 tipo_ensayo: "Completo",
                 ph_max: 8.00,
                 ph_min: 7.20,
                 ph_ensayar: 1,
                 redox_max: 900.00,
                 redox_min: 250.00,
+                redox_ensayar: 1,
                 temp_max: 30.00,
                 temp_min: 24.00,
+                temp_ensayar: 1,
                 recirculacion: 4,
+                recirculacion_ensayar: 1,
                 transparencia: 'no ensaya',
                 extranios: 'no ensaya',
                 turbidez_max: 2.00,
+                turbidez_ensayar: 1,
                 isocianuro_max: 75.00,
+                isocianuro_ensayar: 1,
                 bromo_max: 5.00,
                 bromo_min: 2.00,
+                bromo_ensayar: 1,
                 cloro_max: 2.00,
                 cloro_min: 0.80,
+                cloro_ensayar: 1,
                 cloro_combinado_max: 0.60,
+                cloro_combinado_ensayar: 1,
                 co2_interior: 0.00,
+                co2_interior_ensayar: 1,
                 co2_exterior: 0.00,
+                co2_exterior_ensayar: 1,
                 ecoli: 'no ensaya',
                 legionella_max: 100.00,
+                legionella_ensayar: 1,
                 pseudomona: 'no ensaya',
                 enterococos: 'no ensaya',
                 staphlylococcus: 'no ensaya',
                 langelier_max: 0.50,
-                langelier_min: -0.50
+                langelier_min: -0.50,
+                langelier_ensayar: 1
             }
 		);
 
@@ -98,9 +110,50 @@
                     var vaso = models.Vaso.build( req.body.vaso );		        // construccion de objeto para luego introducir en la tabla
                     vaso.centro = centro.nombre;
 
-                    if (req.body.vaso.interior) {vaso.interior = true};
-                    if (!req.body.vaso.interior) {vaso.interior = false};
+                    if (req.body.vaso.interior) {vaso.interior = 1};
+                    if (!req.body.vaso.interior) {vaso.interior = 0};
 
+                    if (req.body.vaso.ph_ensayar) {vaso.ph_ensayar = 1};
+                    if (!req.body.vaso.ph_ensayar) {vaso.ph_ensayar = 0};
+
+                    if (req.body.vaso.temp_ensayar) {vaso.temp_ensayar = 1};
+                    if (!req.body.vaso.temp_ensayar) {vaso.temp_ensayar = 0};
+
+                    if (req.body.vaso.turbidez_ensayar) {vaso.turbidez_ensayar = 1};
+                    if (!req.body.vaso.turbidez_ensayar) {vaso.turbidez_ensayar = 0};
+
+                    if (req.body.vaso.recirculacion_ensayar) {vaso.recirculacion_ensayar = 1};
+                    if (!req.body.vaso.recirculacion_ensayar) {vaso.recirculacion_ensayar = 0};
+
+                    if (req.body.vaso.redox_ensayar) {vaso.redox_ensayar = 1};
+                    if (!req.body.vaso.redox_ensayar) {vaso.redox_ensayar = 0};
+
+                    if (req.body.vaso.cloro_ensayar) {vaso.cloro_ensayar = 1};
+                    if (!req.body.vaso.cloro_ensayar) {vaso.cloro_ensayar = 0};
+
+                    if (req.body.vaso.cloro_combinado_ensayar) {vaso.cloro_combinado_ensayar = 1};
+                    if (!req.body.vaso.cloro_combinado_ensayar) {vaso.cloro_combinado_ensayar = 0};
+
+                    if (req.body.vaso.bromo_ensayar) {vaso.bromo_ensayar = 1};
+                    if (!req.body.vaso.bromo_ensayar) {vaso.bromo_ensayar = 0};
+
+                    if (req.body.vaso.isocianuro_ensayar) {vaso.isocianuro_ensayar = 1};
+                    if (!req.body.vaso.isocianuro_ensayar) {vaso.isocianuro_ensayar = 0};
+
+                    if (req.body.vaso.humedad_ensayar) {vaso.humedad_ensayar = 1};
+                    if (!req.body.vaso.humedad_ensayar) {vaso.humedad_ensayar = 0};
+
+                    if (req.body.vaso.co2_interior_ensayar) {vaso.co2_interior_ensayar = 1};
+                    if (!req.body.vaso.co2_interior_ensayar) {vaso.co2_interior_ensayar = 0};
+
+                    if (req.body.vaso.co2_exterior_ensayar) {vaso.co2_exterior_ensayar = 1};
+                    if (!req.body.vaso.co2_exterior_ensayar) {vaso.co2_exterior_ensayar = 0};
+
+                    if (req.body.vaso.legionella_ensayar) {vaso.legionella_ensayar = 1};
+                    if (!req.body.vaso.legionella_ensayar) {vaso.legionella_ensayar = 0};
+
+                    if (req.body.vaso.langelier_ensayar) {vaso.langelier_ensayar = 1};
+                    if (!req.body.vaso.langelier_ensayar) {vaso.langelier_ensayar = 0};
 
                     var errors = vaso.validate();
             		if (errors) {
@@ -153,9 +206,9 @@
         req.vaso.capacidad = req.body.vaso.capacidad;
 
         if (req.body.vaso.interior) {
-            req.vaso.interior = true;
+            req.vaso.interior = 1;
         } else {
-            req.vaso.interior = false;
+            req.vaso.interior = 0;
         };
 
         req.vaso.tipo_ensayo = req.body.vaso.tipo_ensayo;

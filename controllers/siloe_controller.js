@@ -151,7 +151,7 @@
 			where: {SiloId: req.siloe.id},
 			order: [['vasoId', 'ASC']]
 		}).then( ensayos => {
-			res.render('siloes/imprimirensayos', {ensayos: ensayos, siloe: req.siloe, errors: []});
+			res.render('siloes/imprimir_ensayos', {ensayos: ensayos, siloe: req.siloe, errors: []});
 		});
 
 	};
@@ -232,14 +232,12 @@
 							anio: siloe.anio,
 							SiloId: siloe.id,											// al comment se le pasa el quizId del siloe para establecer la integridad referencial entre Quiz y Comment. indice secundario de Comment
 
-
 							ph_max: vasos[i].ph_max,
 							ph_min: vasos[i].ph_min,
 							ph_m: 0,
 							ph_t: 0,
 							ph_cumple: false,
 							ph_ensayar: vasos[i].ph_ensayar,
-
 
 							redox_max: vasos[i].redox_max,
 							redox_min: vasos[i].redox_min,
@@ -678,7 +676,7 @@
 
 		// Creamos una conexión a la base de datos
 		var sequelize = new Sequelize(process.env.DATABASE_URL, {
-			  storage: process.env.DATABASE_STORAGE
+				storage: process.env.DATABASE_STORAGE
 		});
 
 		// Construimos el WHERE aplicando el filtro por año y vaso
@@ -878,8 +876,6 @@
 			callback(vaso.id, resumen);
 		});
 
-
-
 		return resumen;
 	}
 
@@ -901,56 +897,3 @@
 			res.redirect('/siloes');
 		}).catch(function(error) {next(error)});
 	};
-
-
-
-
-
-
-
-
-
-
-	/*	process.env.SENDGRID_API_KEY = "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";
-		process.env.SENDGRID_PASSWORD = "eu0coa3b6878";
-		process.env.SENDGRID_USERNAME = "app66046690@heroku.com"; */
-
-
-
-	/*					var helper = require('sendgrid').mail;
-						var fromEmail = new helper.Email(req.session.user.email);	// email del usuario
-						var toEmail = new helper.Email(admin_email);				// email del administrador del centro
-						var subject = 'El Parte de Ensayos nº: '
-							+ req.siloe.id
-							+ ' de fecha '
-							+ req.siloe.dia
-							+ '-' + req.siloe.mes
-							+ '-' + req.siloe.anio
-							+ ' ha sido revisado';
-						var content = new helper.Content(
-							'text/plain', 'El usuario '
-							+ req.session.user.username
-							+ ' del centro '
-							+ req.session.user.centro
-							+ ' ha revisado y confirmado un parte. Entre en '
-							+ 'https://supcounter.herokuapp.com para ver los resultados'
-						);
-						var mail = new helper.Mail(fromEmail, subject, toEmail, content);
-
-						var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
-						var request = sg.emptyRequest({
-							method: 'POST',
-							path: '/v3/mail/send',
-							body: mail.toJSON()
-						});
-
-						sg.API(request, function (error, response) {
-							if (error) {
-								console.log('Error response received');
-							};
-							console.log(response.statusCode);
-							console.log(response.body);
-							console.log(response.headers);
-						}); */
-
-	//				};

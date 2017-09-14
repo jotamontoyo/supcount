@@ -119,26 +119,18 @@
 
 
 
-
-
-
 	exports.resumen_index = function(req, res) {
 
 		var fecha = new Date();
 
 		var resumen = {
 			mes: fecha.getUTCMonth() + 1,
-//			nombre_mes: '',
 			anio: fecha.getUTCFullYear()
 		};
 
 		res.render('quizes/resumen_index', {resumen: resumen, errors: []});
 
 	};
-
-
-
-
 
 
 
@@ -202,14 +194,18 @@
 
 
 
-	exports.imprimir_resumen = function(req, res) {
 
-		console.log(req.body.quizes);
 
-		res.render('quizes/resumen_impreso', {quizes: req.body.quizes, contadores: req.contadores, errors: []});
+	exports.print = function(req, res) {
+
+		models.Comment.findAll({
+			where: {QuizId: req.quiz.id},
+			order: [['nombre', 'ASC']]
+		}).then( comments => {
+			res.render('quizes/imprimir_lecturas', {comments: comments, quiz: req.quiz, errors: []});
+		});
 
 	};
-
 
 
 

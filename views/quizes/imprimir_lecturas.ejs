@@ -1,0 +1,60 @@
+
+    <div class="container margen_superior">
+
+        <h4>Centro: <%= quiz.centro %></h4>
+        <h5>Realizado por: <%= quiz.UserName %></h5>
+        <h5>Fecha: <%= quiz.dia %>-<%= quiz.mes %>-<%= quiz.anio %></h5>
+
+
+
+        <br>
+
+        <% for (var i in comments) {%>
+
+            <div class="col-md-3">
+
+                <div class="marco_item">
+
+                    <!-- <div class="row">
+                        <div class="col-md-8 col-sm-8 col-xs-8">
+                            <h5>Contador nº:</h5>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <h5><%= comments[i].codigo %></h5>
+                        </div>
+                    </div> -->
+
+
+                    <h5>Contador nº: <%= comments[i].codigo %></h5>
+                    <h5>Nombre: <%= comments[i].nombre %></h5>
+                    <h5>Ubicación: <%= comments[i].ubicacion %></h5>
+                    <h5>Lectura: <%= comments[i].lectura_actual %></h5>
+                    <h5>Depósito:
+                        <% if (comments[i].deposito) {%>
+                            ✔️
+                        <%} else {%>
+                            ❌
+                        <%}%>
+                    </h5>
+                    <h5>Carga: <%= comments[i].carga %></h5>
+                    <h5>Máximo: <%= comments[i].maximo %></h5>
+                    <h5>% Tolerancia: <%= comments[i].tolerancia %></h5>
+                    <h5>Obs: <%= comments[i].texto %></h5>
+
+
+                </div>
+
+
+            </div>
+
+
+
+        <%}%>
+
+        <script type="text/javascript">
+
+            window.print();
+
+        </script>
+
+    </div>
