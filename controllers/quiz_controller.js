@@ -32,16 +32,16 @@
 
 
 
+	var fecha = new Date();
+	var mes = fecha.getUTCMonth() + 1;
+	var anio = fecha.getUTCFullYear();
+
 
 
 
 	// GET /quizes   										--->>> GET sin req.user
 	// GET /users/:userId/quizes							--->>> GET con req.user
 	exports.index = function(req, res, next) {
-
-		var fecha = new Date();
-		var mes = fecha.getUTCMonth() + 1;
-		var anio = fecha.getUTCFullYear();
 
 		var options = {
 			where: {mes: mes, anio: anio},
@@ -70,7 +70,7 @@
 
 	exports.mes_index = function(req, res) {
 
-		var fecha = new Date();
+		fecha = new Date();
 
 		var mes_index = {
 			mes: fecha.getUTCMonth() + 1,
@@ -87,8 +87,8 @@
 	// GET /users/:userId/quizes							--->>> GET con req.user
 	exports.mes_index_show = function(req, res, next) {
 
-		var mes = Number(req.body.mes_index.mes);
-		var anio = Number(req.body.mes_index.anio);
+		mes = Number(req.body.mes_index.mes);
+		anio = Number(req.body.mes_index.anio);
 
 		var options = {
 			where: {mes: mes, anio: anio},

@@ -31,6 +31,9 @@
 
 
 
+	var fecha = new Date();										// variables globales para mantener el mes seleccionado
+	var mes = fecha.getUTCMonth() + 1;
+	var anio = fecha.getUTCFullYear();
 
 
 
@@ -38,21 +41,10 @@
 	// GET /users/:userId/siloees							--->>> GET con req.user
 	exports.index = function(req, res, next) {
 
-		var fecha = new Date();
-		var mes = fecha.getUTCMonth() + 1;
-		var anio = fecha.getUTCFullYear();
-
 		var options = {
 			where: {centro: req.session.user.centro, mes: mes, anio: anio},
 			order: [['fecha', 'ASC']]
 		};
-
-	 //  	if (req.user) {									// req.user se crea en autoload de user_controller si hay un GET con un user logueado
-		// 	options = {
-		// 		where: {UserId: req.user.id, centro: req.session.user.centro, mes: mes, anio: anio},
-		// 		order: [['fecha', 'ASC']]
-		// 	};
-		//  	};
 
 	  	models.Siloe.findAll(options).then(					// si hubo req.user ---> options contiene el SQL where UserId: req.user.id
 	    	function(siloes) {
@@ -69,7 +61,7 @@
 
 	exports.mes_index = function(req, res) {
 
-		var fecha = new Date();
+		fecha = new Date();
 
 		var mes_index = {
 			mes: fecha.getUTCMonth() + 1,
@@ -86,8 +78,8 @@
 	// GET /users/:userId/quizes							--->>> GET con req.user
 	exports.mes_index_show = function(req, res, next) {
 
-		var mes = Number(req.body.mes_index.mes);
-		var anio = Number(req.body.mes_index.anio);
+		mes = Number(req.body.mes_index.mes);
+		anio = Number(req.body.mes_index.anio);
 
 		var options = {
 			where: {mes: mes, anio: anio},
