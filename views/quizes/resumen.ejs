@@ -102,7 +102,6 @@
 						<%}%>
 
 
-
                         <% for (var x in quizes[i].comments) { %>
 
                             <% if (quizes[i].comments[x].cumple) {%>
@@ -111,7 +110,6 @@
 
                                     <% if (quizes[i].comments[x].texto) {%>
 
-
                                         <a style="color:black;" role="button" data-toggle="collapse" data-parent="#accordion" href="#<%= quizes[i].comments[x].id %>" aria-expanded="true" aria-controls="collapseOne">
                                             <%= (quizes[i].comments[x].consumo).formatNumber(2, ',', '.') %>
                                             <img src="/images/info5.png" />
@@ -119,9 +117,7 @@
 
                                         <div id="<%= quizes[i].comments[x].id %>" class="info_desvio panel-collapse collapse" role="tabpanel">
                                             <div class="panel-body">
-
                                                 <h6><%= quizes[i].UserName %>: "<%= quizes[i].comments[x].texto %>"</h6>
-
                                             </div>
                                         </div>
 
@@ -159,24 +155,15 @@
                                                 <img src="/images/alert1.png" />
                                             <%}%>
 
-
-
                                         <%} else {%>
 
-
-
                                             <% if (quizes[i].comments[x].consumo >= (quizes[i].comments[x].maximo + ((quizes[i].comments[x].consumo * quizes[i].comments[x].tolerancia)/100))) {%>
-
                                                 <img src="/images/info4.png" />
-
                                             <%}%>
 
                                             <% if ((quizes[i].comments[x].consumo < (quizes[i].comments[x].maximo + ((quizes[i].comments[x].consumo * quizes[i].comments[x].tolerancia)/100))) && (quizes[i].comments[x].consumo > quizes[i].comments[x].maximo)) {%>
-
                                                 <img src="/images/info7.png" style="width: 14px" />
-
                                             <%}%>
-
 
                                         <%}%>
 
@@ -200,11 +187,7 @@
 
                             <%}%>
 
-
-
                         <%}%>
-
-
 
                     </tr>
 
@@ -212,15 +195,6 @@
             </tbody>
         </table>
     </div>
-
-    <script language="JavaScript">
-        function doPrint() {
-/*            $(".noprint").css('visibility', 'hidden');
-            window.print();
-            $(".noprint").css('visibility', 'visible'); */
-
-        }
-    </script>
 
 
 </div>

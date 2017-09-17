@@ -21,6 +21,7 @@
 		userController.autenticar(login, password, function(error, user) {							// llamada al callback userController.autenticar().
 			if (error) {  																			// si hay error retornamos mensajes de error de sesión
 				req.session.errors = [{"message": 'Se ha producido un error: ' + error}];
+				console.error('****** error de sesion ******');
 				res.redirect("/login");
 				return;
 			}

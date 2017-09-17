@@ -21,7 +21,7 @@
 	var ensayoController = require('../controllers/ensayo_controller');
 
 	router.get('/', function (req, res) {													/* GET home page. */
-		res.render('index', {title: 'SupCounter', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
+		res.render('index', {title: 'Registros de Mantemiento', errors: []});				// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
 	});
 
 	router.param('quizId', 								quizController.load);				// autoload de comandos. peticiones GET con SQL
@@ -65,6 +65,8 @@
 	router.get('/quizes/resumen_index',			 		sessionController.loginRequired, quizController.resumen_index);		// formulario para seleccionar mes y año del resumen
 	router.post('/quizes/resumen',			 			sessionController.loginRequired, quizController.resumen);			// genera el informe
 	router.get('/quizes/:quizId(\\d+)/print',			sessionController.loginRequired, quizController.ownershipRequired, quizController.print);
+	router.get('/quizes/chart_consumos',				sessionController.loginRequired, quizController.chart_consumos);
+
 	router.get('/quizes/opened',			 			quizController.opened);												// accede a la lista de partes abiertos /quizes/index.ejs
 	router.get('/quizes/closed',			 			quizController.closed);												// accede a la lista de partes cerrados /quizes/index.ejs
 	router.get('/quizes/:quizId(\\d+)',					sessionController.loginRequired, quizController.show);				// accede a una pregunta en concreto. envia al quizController la peticion GET con el parametro quizId (indice)

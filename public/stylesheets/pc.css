@@ -140,9 +140,7 @@
 
 	.table > thead > tr > th {
 
-/*		border-bottom: 1px solid #81BEF7;					/* borde del thead */
 		border-bottom: 1px solid #ddd;					/* borde del thead */
-
 
 	}
 
@@ -516,7 +514,7 @@
 		position: absolute;
 		z-index: 3;
 
-		font-size: 16px;
+		font-size: 15px;
 
 	}
 
@@ -1012,15 +1010,11 @@
 	#pie {
 
 		width: 100%;
-		min-height: 70px;
-
-/*		position: fixed;
-		bottom: 0px; */
-
+		min-height: 40px;
+		/*position: fixed;
+		bottom: 0px;*/
  		background-color: rgba(0, 0, 0, 0.8);
-
 		color: #A4A4A4;
-
 
 
 		text-align: center;
@@ -1030,6 +1024,11 @@
 		flex-direction: 			column;
 		-webkit-justify-content: 	space-around;
 		justify-content: 			space-around;
+	}
+
+	#pie a {
+
+		font-size: 8px;
 	}
 
 
