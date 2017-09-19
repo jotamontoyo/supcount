@@ -20,30 +20,31 @@
                 <tbody>
                     <% for (let i in user) { %>
                         <tr>
+                            <% if (!user[i].isSuperAdmin) {%>
+                                <td><%= user[i].id %></td>
+                                <td><%= user[i].username %></td>
+                                <td><%= user[i].centro %></td>
+                                <td>
+                                    <% if (user[i].isAdmin) {%>
+                                        <i class="fa fa-check"></i>
+                                    <%}%>
+                                </td>
 
-                            <td><%= user[i].id %></td>
-                            <td><%= user[i].username %></td>
-                            <td><%= user[i].centro %></td>
-                            <td>
-                                <% if (user[i].isAdmin) {%>
-                                    <i class="fa fa-check"></i>
+                                <% if (session.user) {
+                                    if (session.user.isAdmin) {%>
+                                        <td style="width:40px"> <a class="" href="/user/<%= user[i].id %>/edit">
+                                            <img src="/images/edit3.png" style="width: 20px;"/>
+                                        </a></td>
+                                        <td style="width:40px">
+                                            <form method="post" action="/user/<%= user[i].id %>/destroy?_method=delete">
+                                                <button class="btn btn-danger btn-xs" type="submit" onClick="return confirm('Borrar el Usuario: <%= user[i].username %>');">
+                                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    <%}%>
                                 <%}%>
-                            </td>
 
-
-                            <% if (session.user) {
-                                if (session.user.isAdmin) {%>
-                                    <td style="width:40px"> <a class="" href="/user/<%= user[i].id %>/edit">
-                                        <img src="/images/edit3.png" style="width: 20px;"/>
-                                    </a></td>
-                                    <td style="width:40px">
-                                        <form method="post" action="/user/<%= user[i].id %>/destroy?_method=delete">
-                                            <button class="btn btn-danger btn-xs" type="submit" onClick="return confirm('Borrar el Usuario: <%= user[i].username %>');">
-                                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                            </button>
-                                        </form>
-                                    </td>
-                                <%}%>
                             <%}%>
 
                         </tr>
@@ -64,4 +65,6 @@
             <%}%>
         <%}%>
 
+        <br>
+        
     </div>

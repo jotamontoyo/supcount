@@ -553,12 +553,21 @@
 
 
 
-		max-height: 70vh;
-		min-height: 500px;
+		/*max-height: 70vh;*/
+		min-height: 100vh;
 		padding: 0px;
 
 		color: #FAFAFA;
 		overflow: 	hidden;
+
+		text-align: center;
+		display: 			-webkit-flex;
+		display: 			flex;
+		-webkit-flex-direction: 	column;
+		flex-direction: 			column;
+		-webkit-justify-content: 	space-around;
+		justify-content: 			space-around;
+
 
 	}
 
@@ -583,12 +592,8 @@
 	#inicio-panel {
 
 		width: 100%;
-
-		position: absolute;
-		top: 5vw;
-
+		position: relative;
 		z-index: 3;
-
 
 	}
 
@@ -743,6 +748,7 @@
 		position: relative;
 		overflow: 	hidden;
 
+		background-color: white;
 
 		display: 			-webkit-flex;
 		display: 			flex;
@@ -1011,9 +1017,9 @@
 
 		width: 100%;
 		min-height: 40px;
-		/*position: fixed;
-		bottom: 0px;*/
- 		background-color: rgba(0, 0, 0, 0.8);
+		/*position: relative;*/
+		/*bottom: 0px;*/
+ 		background-color: #2E2E2E;
 		color: #A4A4A4;
 
 

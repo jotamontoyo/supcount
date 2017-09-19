@@ -83,23 +83,23 @@
 			</div>
 
 
-			<div class="collapse navbar-collapse" id="menu-inicio-items">
+			<div class="collapse navbar-collapse animated fadeIn" id="menu-inicio-items">
 				<ul class="nav navbar-nav">
 
-					<li style="background-color:#2E2E2E;"><a data-toggle="modal"data-target="#ver-mas-modal" style="color:#337ab7;">Supcounter ©️</a></li>
+					<li class="menu-inicio-item" style="background-color:#2E2E2E;"><a data-toggle="modal"data-target="#ver-mas-modal" style="color:#337ab7;">Supcounter ©️</a></li>
 					<!-- <li><a href="/"><img src="/images/home.png" alt="" /> Inicio <span class="sr-only">(current)</span></a></li> -->
-					<li><a href="/quizes"><img src="/images/partes3.png" alt="" /> Lecturas <span class="sr-only">(current)</span></a></li>
-					<li><a href="/contadores"><img src="/images/contador2.png" alt="" /> Contadores </a></li>
-					<li><a href="/quizes/resumen_index"><img src="/images/grifo.png" alt="" /> Consumos </a></li>
-					<li><a href="/siloes"><img src="/images/probetas.png" alt="" /> Ensayos </a></li>
-					<li><a href="/vasos"><img src="/images/vasos.png" alt="" /> Vasos </a></li>
-					<li class="dropdown show">
+					<li class="menu-inicio-item"><a href="/quizes"><img src="/images/partes3.png" alt="" /> Lecturas <span class="sr-only">(current)</span></a></li>
+					<li class="menu-inicio-item"><a href="/contadores"><img src="/images/contador2.png" alt="" /> Contadores </a></li>
+					<li class="menu-inicio-item"><a href="/quizes/resumen_index"><img src="/images/grifo.png" alt="" /> Consumos </a></li>
+					<li class="menu-inicio-item"><a href="/siloes"><img src="/images/probetas.png" alt="" /> Ensayos </a></li>
+					<li class="menu-inicio-item"><a href="/vasos"><img src="/images/vasos.png" alt="" /> Vasos </a></li>
+					<li class="dropdown show menu-inicio-item">
 						<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    	<img src="/images/consumos2.png" alt="" /> Siloes
 					  	</a>
 					  	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<a class="dropdown-item" href="/siloes/resumen_index_vaso"><img src="/images/vasos.png" alt="" /> Vaso</a><br>
-							<a class="dropdown-item" href="/siloes/resumen_index"><img src="/images/excel.png" alt="" /> Excel</a><br>
+							<a class="dropdown-item animated fadeIn" href="/siloes/resumen_index_vaso"><img src="/images/vasos.png" alt="" /> Vaso</a><br>
+							<a class="dropdown-item animated fadeIn" href="/siloes/resumen_index"><img src="/images/excel.png" alt="" /> Excel</a><br>
 					  	</div>
 				  	</li>
 
@@ -109,7 +109,7 @@
 							<li><a href="/contactos"><img src="/images/contacts.png" alt=""> Contactos </a></li>
 						<%}%>
 					<%}%>
-					<li><a href="/user"><img src="/images/user.png" alt=""> Usuarios </a></li>
+					<li class="menu-inicio-item"><a href="/user"><img src="/images/user.png" alt=""> Usuarios </a></li>
 <!-- 					<li><a href="/proveedores"><i class="fa fa-lemon-o"></i> Proveedores </a></li>
 					<li><a href="/quizes/statistics"><i class="fa fa-newspaper-o"></i> Estadísticas </a></li>
 					<li><a href="/db/index"><i class="fa fa-database"></i> DB </a></li> -->
@@ -123,11 +123,11 @@
 					<button type="submit" class="btn btn-default" value="Enviar">Submit</button>
 				</form> -->
 
-				<ul class="nav navbar-nav navbar-right">
+				<ul class="nav navbar-nav navbar-right text-center">
 					<div class="form-group" style="color: white; font-size: 11px">
-						<%if(!session.user){%>
+						<%if (!session.user) {%>
 							<a href="/login"><img src="/images/user2.png" alt=""> Login&nbsp;</a></li>
-						<%}else{%>
+						<%} else {%>
 							<li><img src="/images/user2.png" alt=""> <%=session.user.username%> -
 								<img src="/images/centros.png" alt=""> <%=session.user.centro%> -
 								<a href="/user/<%=session.user.id%>/quizes">
