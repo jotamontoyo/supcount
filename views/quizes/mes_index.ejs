@@ -1,7 +1,7 @@
 
 <div class="container animated animated-fast fadeIn centrado-v-h margen_superior" id="mes_index">
 
-    <div class="panel" style="border:none;">
+    <div class="" style="border:none;">
 
         <h4>Seleccionar periodo</h4>
         <br>
@@ -18,8 +18,8 @@
 
 
             <div class="form-group">
-        		<label for="mes" class="col-sm-3">Mes:</label>
-        		<div class="col-sm-9">
+        		<label for="mes" class="col-md-3 col-sm-3 col-xs-3 control-label">Mes:</label>
+        		<div class="col-md-9 col-sm-9 col-xs-9">
         			<select class="form-control" id="mes" name="mes_index[mes]">
 
                         <option value=1 <%if (mes_index.mes===1) {%> selected <%}%>>Enero</option>
@@ -43,8 +43,8 @@
 
 
             <div class="form-group">
-        		<label for="anio" class="col-sm-3">Año:</label>
-        		<div class="col-sm-9">
+        		<label for="anio" class="col-md-3 col-sm-3 col-xs-3 control-label">Año:</label>
+        		<div class="col-md-9 col-sm-9 col-xs-9">
         			<select class="form-control" id="anio" name="mes_index[anio]">
 
         				<option value=2015 <%if (mes_index.anio===2015) {%> selected <%}%>>2015</option>
@@ -58,7 +58,7 @@
         		</div>
         	</div>
 
-
+            <br>
 
 
 
@@ -71,11 +71,11 @@
 
             <div class="form-group text-center">
 
-                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Seleccionar</button>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Seleccionar</button>
 
             </div>
 
-
+            <br>
 
         </form>
 

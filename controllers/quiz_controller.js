@@ -124,6 +124,7 @@
 		var fecha = new Date();
 
 		var resumen = {
+			imprimir: 0,
 			mes: fecha.getUTCMonth() + 1,
 			anio: fecha.getUTCFullYear()
 		};
@@ -138,6 +139,8 @@
 
 
 	exports.resumen = function(req, res, next) {
+
+		var imprimir = req.body.resumen.imprimir;
 
 		var mes = parseInt(req.body.resumen.mes),
 			mes_siguiente = mes + 1,
@@ -186,7 +189,7 @@
 						};
 					};
 				};
-				res.render('quizes/resumen', {quizes: quizes, contadores: contadores, errors: []});
+				res.render('quizes/resumen', {quizes: quizes, contadores: contadores, imprimir: imprimir, errors: []});
 			}).catch(function(error){next(error)});
 		}).catch(function(error){next(error)});
 
@@ -266,17 +269,11 @@
 
 
 
-
-
 	exports.show = function(req, res) {											// GET /quizes/:id
 
 		res.render('quizes/show', {quiz: req.quiz, errors: []});				// renderiza la vista /quizes/show del quizId selecionado con load find()
 
 	};
-
-
-
-
 
 
 

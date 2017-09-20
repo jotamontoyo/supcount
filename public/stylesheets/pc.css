@@ -145,7 +145,13 @@
 	}
 
 
+	/*.navbar-inverse .navbar-nav > li > a:active {
 
+		text-decoration: none;
+		color: #eb9837;
+		outline: 0;
+
+	}*/
 
 
 
@@ -1353,6 +1359,19 @@
 
 
 
+	#resumen_index, #mes_index {				/* formulario para elejir mes para el informe de consumos. tambien para seleccionar el mes de partes o ensayos */
+
+		max-width: 600px;
+		margin: 20vh auto 0px auto;
+		/*padding: 10px;*/
+		color: black;
+		background-color: white;
+		border: 1px solid #ccc;
+
+	}
+
+
+
 
 	/*  CONTADORES ================================================================= */
 
@@ -1432,14 +1451,4 @@
 		color: #eb9837;
 		text-decoration: none;
 		outline: none;
-	}
-
-	#resumen_index, #mes_index {				/* formulario para elejir mes para el informe de consumos  */
-
-		max-width: 600px;
-		margin: 20vh auto 0px auto;
-
-		background-color: white;
-		border: 1px solid #ccc;
-
 	}

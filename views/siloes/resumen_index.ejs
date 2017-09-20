@@ -11,8 +11,8 @@
         <form class="form-horizontal" action="/siloes/<%= anio %>/excel" method="get">
 
             <div class="form-group">
-        		<label for="anio" class="col-sm-2 control-label">Año:</label>
-        		<div class="col-sm-10">
+        		<label for="anio" class="col-md-3 col-sm-3 col-xs-3 control-label">Año:</label>
+        		<div class="col-md-6 col-sm-6 col-xs-6">
         			<select class="form-control" id="anio" name="anio">
 
         				<option value=2015 <%if (anio===2015) {%> selected <%}%>>2015</option>
@@ -26,9 +26,11 @@
         		</div>
         	</div>
 
+            <br>
+
             <div class="form-group text-center">
 
-                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Descargar Excel</button>
+                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Descargar Excel</button>
 
             </div>
 

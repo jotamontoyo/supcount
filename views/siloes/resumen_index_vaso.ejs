@@ -10,8 +10,8 @@
         <form class="form-horizontal" action="/siloes/ver_resumen_vaso?_method=put" method="post">
 
             <div class="form-group">
-				<label for="vasos" class="col-sm-3 control-label">Vaso:</label>
-				<div class="col-sm-9">
+				<label for="vasos" class="col-md-3 col-sm-3 col-xs-3 control-label">Vaso:</label>
+				<div class="col-md-9 col-sm-9 col-xs-9">
 					<select class="form-control" id="vaso" name="vaso">
 						<% for (var index in vasos) {%>
 							<option value="<%=vasos[index].id%>" <% if (vasos[index].id===vasos[index].id) {%> selected <%}%>><%=vasos[index].nombre%></option>
@@ -21,8 +21,8 @@
 			</div>
 
             <div class="form-group">
-        		<label for="anio" class="col-sm-3 control-label">Año:</label>
-        		<div class="col-sm-9">
+        		<label for="anio" class="col-md-3 col-sm-3 col-xs-3 control-label">Año:</label>
+        		<div class="col-md-9 col-sm-9 col-xs-9">
         			<select class="form-control" id="anio" name="anio">
         				<option value=2015 <%if (anio===2015) {%> selected <%}%>>2015</option>
         				<option value=2016 <%if (anio===2016) {%> selected <%}%>>2016</option>
@@ -34,8 +34,10 @@
         		</div>
         	</div>
 
+            <br>
+
             <div class="form-group text-center">
-                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ver Informe</button>
+                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ver Informe</button>
             </div>
 
         </form>

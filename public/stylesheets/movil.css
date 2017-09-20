@@ -339,4 +339,15 @@
 		background-color: #3d4045;
     }
 
+    /* ========================================================================== */
+    /*  FORMULAROS SELECCIONAR MES O VASO PARA SILOE============================= */
+    /* ========================================================================== */
+
+    #resumen_index, #mes_index {				/* formulario para elejir mes para el informe de consumos. tambien para seleccionar el mes de partes o ensayos */
+
+        margin-right: 10px;
+        margin-left: 10px;
+
+    }
+
 }
