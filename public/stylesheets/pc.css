@@ -310,10 +310,22 @@
 
 	.centrado-v-h {
 
-		display: flex;							/* necesario para alineacion */
-		align-items: center; 					/* alineacion vertical */
-		vertical-align: middle;
-		justify-content: center;				/* alineacion horizontal */
+
+		text-align: left;
+		display: 			-webkit-flex;
+		display: 			flex;
+		-webkit-flex-direction: 	column;
+		flex-direction: 			column;
+		-webkit-justify-content: 	space-around;
+		justify-content: 			space-around;
+
+
+
+
+	/*	display: flex;							/* necesario para alineacion */
+	/*	align-items: center; 					/* alineacion vertical */
+	/*	vertical-align: middle;
+	/*	justify-content: center;				/* alineacion horizontal */
 	}
 
 	.centrado-v {
@@ -505,41 +517,6 @@
 
 
 
-
-
-	/* ********** MENU INICIO *******************************************************************/
-	/* ********** MENU INICIO *******************************************************************/
-	/* ********** MENU INICIO *******************************************************************/
-
-
-	#menu-inicio {
-
-		width: 100%;
-		margin-right: 10px;
-
-		position: absolute;
-		z-index: 3;
-
-		font-size: 15px;
-
-	}
-
-	#menu-inicio img {
-
-		width: 18px;
-
-
-	}
-
-	.navbar-nav > li > .dropdown-menu {
-
-		background-color: #000;
-
-	}
-
-	.navbar-nav > li > .dropdown-menu .dropdown-item {
-		margin-left: 10px;
-	}
 
 
 

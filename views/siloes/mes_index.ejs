@@ -1,9 +1,10 @@
 
 <div class="container animated animated-fast fadeIn centrado-v-h margen_superior" id="mes_index">
 
-    <div class="panel" style="border:none;">
+    <div class="" style="border:none;">
 
-        <h4>Seleccionar periodo</h4>
+        <br>
+        <h4 class="text-center">Seleccionar periodo</h4>
         <br>
 
         <form class="form-horizontal" action="/siloes/mes_index_show" method="post">
@@ -19,7 +20,7 @@
 
             <div class="form-group">
         		<label for="mes" class="col-md-3 col-sm-3 col-xs-3 control-label">Mes:</label>
-        		<div class="col-md-9 col-sm-9 col-xs-9">
+        		<div class="col-md-6 col-sm-6 col-xs-6">
         			<select class="form-control" id="mes" name="mes_index[mes]">
 
                         <option value=1 <%if (mes_index.mes===1) {%> selected <%}%>>Enero</option>
@@ -44,7 +45,7 @@
 
             <div class="form-group">
         		<label for="anio" class="col-md-3 col-sm-3 col-xs-3 control-label">Año:</label>
-        		<div class="col-md-9 col-sm-9 col-xs-9">
+        		<div class="col-md-6 col-sm-6 col-xs-6">
         			<select class="form-control" id="anio" name="mes_index[anio]">
 
         				<option value=2015 <%if (mes_index.anio===2015) {%> selected <%}%>>2015</option>

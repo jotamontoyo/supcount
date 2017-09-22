@@ -2,9 +2,10 @@
 
 <div class="container animated animated-fast fadeIn centrado-v-h margen_superior" id="resumen_index">
 
-    <div class="panel" style="border:none;">
+    <div class="" style="border:none;">
 
-        <h4>Resumen mensual de consumos</h4>
+        <br>
+        <h4 class="text-center">Resumen mensual de consumos</h4>
         <br>
 
         <form class="form-horizontal" action="/quizes/resumen" method="post">
@@ -19,7 +20,7 @@
 
             <div class="form-group">
         		<label for="mes" class="col-md-3 col-sm-3 col-xs-3 control-label">Mes:</label>
-        		<div class="col-md-9 col-sm-9 col-xs-9">
+        		<div class="col-md-6 col-sm-6 col-xs-6">
         			<select class="form-control" id="mes" name="resumen[mes]">
 
                         <option value=1 <%if (resumen.mes===1) {%> selected <%}%>>Enero</option>
@@ -44,7 +45,7 @@
 
             <div class="form-group">
         		<label for="anio" class="col-md-3 col-sm-3 col-xs-3 control-label">Año:</label>
-        		<div class="col-md-9 col-sm-9 col-xs-9">
+        		<div class="col-md-6 col-sm-6 col-xs-6">
         			<select class="form-control" id="anio" name="resumen[anio]">
 
         				<option value=2015 <%if (resumen.anio===2015) {%> selected <%}%>>2015</option>
@@ -59,10 +60,10 @@
         	</div>
 
 
-            <div class="form-group form-check">
-                <label for="imprimir" class="col-md-3 col-sm-3 col-xs-3 form-check-label">Imprimir:</label>
-                <div class="col-md-9 col-sm-9 col-xs-9">
-                    <input type="checkbox" class="form-check-input" id="imprimir" name="resumen[imprimir]" value="<%= resumen.imprimir %>" />
+            <div class="form-group">
+                <label for="imprimir" class="col-md-3 col-sm-3 col-xs-3 control-label">Imprimir:</label>
+                <div class="col-md-1 col-sm-1 col-xs-1">
+                    <input type="checkbox" class="form-control" id="imprimir" name="resumen[imprimir]" value="<%= resumen.imprimir %>" />
                 </div>
             </div>
 
@@ -71,6 +72,7 @@
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ver resumen</button>
             </div>
 
+            <br>
 
         </form>
 

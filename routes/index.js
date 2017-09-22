@@ -66,7 +66,6 @@
 	router.post('/quizes/resumen',			 			sessionController.loginRequired, quizController.resumen);			// genera el informe
 	router.get('/quizes/:quizId(\\d+)/print',			sessionController.loginRequired, quizController.ownershipRequired, quizController.print);
 	router.get('/quizes/chart_consumos',				sessionController.loginRequired, quizController.chart_consumos);
-
 	router.get('/quizes/opened',			 			quizController.opened);												// accede a la lista de partes abiertos /quizes/index.ejs
 	router.get('/quizes/closed',			 			quizController.closed);												// accede a la lista de partes cerrados /quizes/index.ejs
 	router.get('/quizes/:quizId(\\d+)',					sessionController.loginRequired, quizController.show);				// accede a una pregunta en concreto. envia al quizController la peticion GET con el parametro quizId (indice)
@@ -79,15 +78,12 @@
 	router.get('/quizes/statistics',					statisticsController.calculate, statisticsController.show);
 	router.get('/quizes/:quizId(\\d+)/image', 			quizController.image);												// se dispara cuando se carga una img en el formulario show
 	router.post('/quizes/uploadimg',                    quizController.uploadimg);
-	router.get('/quizes?search',                    	quizController.search);
+	// router.get('/quizes:search',	                	quizController.search);
 
 
 
 
 	// Definición de rutas de comments
-//	router.get('/quizes/:quizId(\\d+)/comments/new',							commentController.new);						// carga formulario /quizes/:quizId(\\d+)/comments/new y dispara el controlador new de comment_Controller
-//	router.post('/quizes/:quizId(\\d+)/comments',								commentController.create);					// dispara controlador create cuando el boton <enviar> del formulario /comments/new.ejs
-//	router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/edit',			sessionController.loginRequired, commentController.ownershipRequired, commentController.edit);
 	router.put('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/update',		sessionController.loginRequired, commentController.ownershipRequired, commentController.update);
 	router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish',   	sessionController.loginRequired, commentController.ownershipRequired, commentController.publish);	//
 	router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/unpublish',   	sessionController.loginRequired, commentController.ownershipRequired, commentController.unpublish);	//
@@ -129,7 +125,6 @@
 
 	// Definición de rutas de Contacto
 	router.get('/contactos',			 					sessionController.loginRequired, contactoController.index);				// accede a la lista completa de proveedores
-//	router.get('/contactos/:contactoId(\\d+)',				contactoController.show);												// accede a una pregunta en concreto. envia al proveedorController la peticion GET con el parametro proveedorId (indice)
 	router.get('/contactos/new',							sessionController.loginRequired, contactoController.new);				// carga el formulario /proveedores/new si sessionController.loginRequired()
 	router.post('/contactos/create',						sessionController.loginRequired, contactoController.create);			// dispara controlador create cuando el boton <salvar> del formulario tanto del index ppral como de la vista webform
 	router.post('/contactos/webcreate',						contactoController.webcreate);											// dispara controlador webcreate cuando el boton <salvar> del formulario new.js
@@ -178,15 +173,16 @@
 
 
 
-
 	// Definición de rutas de proveedor
 	router.get('/proveedores',			 					sessionController.loginRequired, proveedorController.index);												// accede a la lista completa de proveedores
-//	router.get('/proveedor/:proveedorId(\\d+)',				proveedorController.show);												// accede a una pregunta en concreto. envia al proveedorController la peticion GET con el parametro proveedorId (indice)
 	router.get('/proveedores/new',							sessionController.loginRequired, proveedorController.new);				// carga el formulario /proveedores/new si sessionController.loginRequired()
 	router.post('/proveedores/create',						sessionController.loginRequired, proveedorController.create);			// dispara controlador create cuando el boton <salvar> del formulario new.js
 	router.get('/proveedores/:proveedorId(\\d+)/edit',		sessionController.loginRequired, proveedorController.edit);				// carga formulario proveedores/proveedores:Id(\\d+)/edit y dispara el controlador edit de proveedorController
 	router.put('/proveedores/:proveedorId(\\d+)',			sessionController.loginRequired, proveedorController.update);			// dispara controlador update cuando el boton <salvar> del formulario edit.js
 	router.delete('/proveedores/:proveedorId(\\d+)',		sessionController.loginRequired, proveedorController.destroy);
+
+
+
 
 	router.get('/temas',			 						quizController.showtemas);
 	router.get('/temas/:tema', 								quizController.showbytema);

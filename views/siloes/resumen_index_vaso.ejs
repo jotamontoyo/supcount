@@ -1,17 +1,18 @@
 
 <div class="container animated animated-fast fadeIn centrado-v-h margen_superior" id="resumen_index">
 
-    <div class="panel" style="border:none;">
+    <div class="" style="border:none;">
 
-        <h4>Siloe</h4>
-        <h6>Se visualizará un informe con los resultados del vaso y año seleccionado.</h6>
+        <br>
+        <h4 class="text-center">Siloe</h4>
+        <h6 class="text-center">Se visualizará un informe con los resultados del vaso y año seleccionado.</h6>
         <br>
 
         <form class="form-horizontal" action="/siloes/ver_resumen_vaso?_method=put" method="post">
 
             <div class="form-group">
 				<label for="vasos" class="col-md-3 col-sm-3 col-xs-3 control-label">Vaso:</label>
-				<div class="col-md-9 col-sm-9 col-xs-9">
+				<div class="col-md-6 col-sm-6 col-xs-6">
 					<select class="form-control" id="vaso" name="vaso">
 						<% for (var index in vasos) {%>
 							<option value="<%=vasos[index].id%>" <% if (vasos[index].id===vasos[index].id) {%> selected <%}%>><%=vasos[index].nombre%></option>
@@ -22,7 +23,7 @@
 
             <div class="form-group">
         		<label for="anio" class="col-md-3 col-sm-3 col-xs-3 control-label">Año:</label>
-        		<div class="col-md-9 col-sm-9 col-xs-9">
+        		<div class="col-md-6 col-sm-6 col-xs-6">
         			<select class="form-control" id="anio" name="anio">
         				<option value=2015 <%if (anio===2015) {%> selected <%}%>>2015</option>
         				<option value=2016 <%if (anio===2016) {%> selected <%}%>>2016</option>
@@ -39,6 +40,8 @@
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ver Informe</button>
             </div>
+
+            <br>
 
         </form>
 

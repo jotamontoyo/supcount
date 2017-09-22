@@ -511,16 +511,29 @@
         });
     };
 
-	exports.search = function(req, res, next) {
-		models.Quiz.findAll({
-			where: {pregunta: req.param.search}
-		}).then(
-			function(quizes) {
-				res.render('quizes/index.ejs', { quizes: quizes, errors: []});
-			}
-		).catch(function(error) {next(error)});
-		console.log('hola search');
-	};
+
+
+	// exports.search = function(req, res, next) {
+	//
+	// 	models.Quiz.findAll({
+	// 		where: {
+	// 			id: req.params.search,
+	// 			centro: req.session.user.centro
+	// 		},
+	// 		order: [['id', 'ASC']]
+	// 	}).then( quizes => {
+	//
+	// 		console.log('search.......:' + req.params.search);
+	// 		res.render('quizes/index.ejs', {quizes: quizes, errors: []});
+	//
+	// 	}).catch( error => {
+	// 		next(error);
+	// 	});
+	//
+	// };
+
+
+
 
 	exports.opened = function(req, res) {
 		models.Quiz.findAll({
