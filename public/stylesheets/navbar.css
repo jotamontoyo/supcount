@@ -1,9 +1,9 @@
 
 
 
-/* ********** MENU INICIO *******************************************************************/
-/* ********** MENU INICIO *******************************************************************/
-/* ********** MENU INICIO *******************************************************************/
+    /* ********** MENU INICIO *******************************************************************/
+    /* ********** MENU INICIO *******************************************************************/
+    /* ********** MENU INICIO *******************************************************************/
 
 
     #menu-inicio {
@@ -22,20 +22,13 @@
 
 
 
-    .navbar.navbar-inverse {
-      background-image: linear-gradient(#9f9f9f, #535353 3%, #1f1f1f 17%, #212121 49%, #191919 89%, #000000 100%);
-      border-top: 0.5px inset rgba(255, 255, 255, 0.1);
-      /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);*/
-      border-radius: 5px;
-      /*margin-top: 10px;*/
-    }
 
     .navbar .navbar-nav > li > a {
       color: #d1d1d1;
       /*font-weight: 700;*/
       text-rendering: optimizeLegibility;
       text-shadow: 0px -1px black, 0px 1px rgba(255, 255, 255, 0.25);
-      line-height: 18px;
+      line-height: 28px;
     }
 
     .navbar .navbar-nav > li.active {
@@ -53,4 +46,85 @@
 
     .navbar-nav > li > .dropdown-menu .dropdown-item {
         margin-left: 10px;
+    }
+
+
+    .navbar-toggle {									/* estilos boton toggle del menu-inicio */
+
+
+		width: 47px;
+		height: 46px;
+        padding: 5px 5px 5px 12px;
+		background-color: rgba(0, 0, 0, 1);
+		top: 0px;
+
+	}
+
+
+    .navbar-right {
+
+        font-size: 10px
+    }
+
+
+    /* ========================================================================================================== */
+    /* CONTROL FORMATO PANTALLA MOVIL =========================================================================== */
+    /* ========================================================================================================== */
+
+    @media handheld, only screen and (max-width: 767px) {			/* movil */
+
+
+
+        .navbar.navbar-inverse {
+            /*position: absolute;*/
+            /*background: url(/images/logos/logo_7islas.jpg) no-repeat top center;*/
+            border-radius: 5px;
+
+
+
+            /*background: rgba(76,76,76,1);
+            background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 5%, rgba(102,102,102,1) 8%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(5%, rgba(89,89,89,1)), color-stop(8%, rgba(102,102,102,1)), color-stop(18%, rgba(71,71,71,1)), color-stop(28%, rgba(44,44,44,1)), color-stop(47%, rgba(0,0,0,1)), color-stop(100%, rgba(19,19,19,1)));
+            background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 5%, rgba(102,102,102,1) 8%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 5%, rgba(102,102,102,1) 8%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 5%, rgba(102,102,102,1) 8%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 5%, rgba(102,102,102,1) 8%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );*/
+
+
+            background: rgba(76,76,76,1);
+            background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(0%, rgba(102,102,102,1)), color-stop(2%, rgba(89,89,89,1)), color-stop(18%, rgba(71,71,71,1)), color-stop(28%, rgba(44,44,44,1)), color-stop(47%, rgba(0,0,0,1)), color-stop(100%, rgba(19,19,19,1)));
+            background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
+
+
+
+        }
+
+
+        .navbar .navbar-nav > li > a {
+            line-height: 18px;
+            /*background-color: rgba(0, 0, 0, 1);*/
+        }
+
+
+
+        .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+            /*background-color: rgba(0, 0, 0, 1);*/
+            /*background: rgba(76,76,76,1);
+            background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(0%, rgba(102,102,102,1)), color-stop(2%, rgba(89,89,89,1)), color-stop(18%, rgba(71,71,71,1)), color-stop(28%, rgba(44,44,44,1)), color-stop(47%, rgba(0,0,0,1)), color-stop(100%, rgba(19,19,19,1)));
+            background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 2%, rgba(71,71,71,1) 18%, rgba(44,44,44,1) 28%, rgba(0,0,0,1) 47%, rgba(19,19,19,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );*/
+        }
+
+
+
     }
