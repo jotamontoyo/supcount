@@ -105,6 +105,8 @@
 	// Deficion de rutas de Criterios
 	router.get('/contadores/:contadorId(\\d+)/criterios/new',								criterioController.new);						// carga el formulario new
 	router.post('/contadores/:contadorId(\\d+)/criterios/create',							criterioController.create);
+	router.get('/contadores/:contadorId(\\d+)/criterios/:criterioId(\\d+)/edit',   			sessionController.loginRequired, criterioController.ownershipRequired, criterioController.edit);
+	router.put('/contadores/:contadorId(\\d+)/criterios/:criterioId(\\d+)/update',   		sessionController.loginRequired, criterioController.ownershipRequired, criterioController.update);
 	router.delete('/contadores/:contadorId(\\d+)/criterios/:criterioId(\\d+)/destroy',   	criterioController.destroy);
 
 

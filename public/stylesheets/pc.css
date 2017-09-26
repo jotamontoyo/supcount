@@ -1317,7 +1317,7 @@
 
 	/* ========= FORMULARIO CONTADOR PARTE USUARIO CENTRO SILOE===================== */
 
-	#contador_form, #parte_form, #user_form, #centro_form, #vaso_form, #siloe_form  {
+	#contador_form, #criterio_form, #parte_form, #user_form, #centro_form, #vaso_form, #siloe_form  {
 		max-width: 600px;
 		padding: 20px 20px 20px 20px;
 		border: 1px solid #BDBDBD;
@@ -1372,23 +1372,11 @@
 	}
 
 
-	#criterios {
+	#panel_criterios {
 
-		margin-bottom: 20px;
-		padding: 20px;
-		color: #fff;
-		background-color: 	rgba(0, 0, 0, 0.8);
-		border: 		1px solid #D8D8D8;
-	}
-
-	#criterio_form {
-
-		max-width: 500px;
-		margin-bottom: 20px;
-		padding: 20px;
+		max-width: 800px;
 
 
-		border: 1px solid #D8D8D8;
 	}
 
 

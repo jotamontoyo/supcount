@@ -1,6 +1,26 @@
 
     var models = require('../models/models.js');
 
+    exports.ownershipRequired = function(req, res, next){		// MW que permite acciones solamente si el quiz al que pertenece el comentario objeto pertenece al usuario logeado o si es cuenta admin
+        models.Contador.find({
+                where: {
+                      id: Number(req.criterio.ContadorId)			// SQL del QuizId del comment
+                }
+            }).then(function(contador) {
+                if (contador) {
+                    var objQuizOwner = contador.UserId;						// userId del quiz
+                    var logUser = req.session.user.id;					// userId de la sesion
+                    var isAdmin = req.session.user.isAdmin;				// valor de isAdmin
+                    console.log(objQuizOwner, logUser, isAdmin);
+                    if (isAdmin || objQuizOwner === logUser) {			// comprueba que el user del quiz es el mismo que el user logueado
+                        next();
+                    } else {
+                        res.redirect('/');
+                    }
+                } else{next(new Error('No existe contadorId=' + contadorId))}
+            }
+        ).catch(function(error){next(error)});
+    };
 
 
     exports.load = function(req, res, next, criterioId) {									// Autoload :id de comentarios
@@ -23,14 +43,25 @@
 
     exports.new = function(req, res) {														// GET /quizes/:quizId/comments/new, baja el formulario /views/comment.ejs
 
-		res.render('criterios/new.ejs', {contadorid: req.params.contadorId, errors: []}); 			// renderiza la vista comments/new del quiz -->> quizid: req.params.quizId
+        var fecha = new Date();
+
+        var criterio = {
+            mes: fecha.getUTCMonth() + 1,
+            max: 0,
+            min: 0
+        };
+
+        var contador = {
+            id: req.params.contadorId
+        };
+
+		res.render('criterios/new.ejs', {contador: contador, criterio: criterio, errors: []}); 			// renderiza la vista comments/new del quiz -->> quizid: req.params.quizId
 
 	};
 
 
 
 	exports.create = function(req, res, next) {													// POST /quizes/:quizId/comments
-
 
 		var criterio = models.Criterio.build({												// construccion objeto comment para lugego introducir en la tabla
 			mes: req.body.criterio.mes,													// texto que llega del formulario
@@ -52,6 +83,32 @@
 		};
 
 	};
+
+
+
+
+    exports.edit = function(req, res) {
+
+        res.render('criterios/edit', {contador: req.contador, criterio: req.criterio, errors: []});
+
+    };
+
+
+    exports.update = function(req, res, next) {
+
+        req.criterio.mes = req.body.criterio.mes;
+        req.criterio.max = req.body.criterio.max;
+        req.criterio.min = req.body.criterio.min;
+
+        req.criterio
+            .save()
+			.then(function() {res.redirect('/contadores/' + req.params.contadorId);})
+			.catch(function(error) {next(error)});
+
+    };
+
+
+
 
 
 

@@ -1,0 +1,15 @@
+
+
+    <div class="container margen_superior" id="new-edit">
+
+        <h4>Editar criterio: </h4>
+
+        <form class="form-horizontal"
+                method="post"
+                action="/contadores/<%= contador.id %>/criterios/<%= criterio.id %>/update?_method=put">
+
+            <% include _form.ejs %>
+
+        </form>
+
+    </div>

@@ -2,119 +2,86 @@
 <div class="container animated animated-fast fadeIn margen_superior">
 
 	<div class="row">
-
-
-
-
-
-			<h5>Contador nº: <strong><%= contador.id %> </strong></h5>
-			<h5>Nombre: <strong><%= contador.nombre %> </strong></h5>
-			<h5>Depósito:
-
-				<strong>
-
-					<% if (contador.deposito) { %>
-						Sí
-					<%} else {%>
-						No
-					<%}%>
-
-				</strong>
-			</h5>
-
-
-<!--			<div class="row">
-
-
-				<div class="col-md-2 col-xs-2">
-					<h5>Contador nº:</h5>
-				</div>
-				<div class="col-md-6 col-xs-6">
-					<h4><%= contador.id %></h4>
-				</div>
-
-			</div>
-
-			<div class="row">
-				<div class="col-md-2 col-xs-2">
-					<h5>Nombre:</h5>
-				</div>
-				<div class="col-md-6 col-xs-6">
-					<h4><%= contador.nombre %></h4>
-				</div>
-
-			</div>
-
-			<div class="row">
-
-				<div class="col-md-2 col-xs-2">
-					<h5>Depósito:</h5>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<h4><%= contador.deposito %></h4>
-				</div>
-
-			</div> -->
-
-
-
-
-
-
+		<h5>Contador nº: <strong><%= contador.id %> </strong></h5>
+		<h5>Nombre: <strong><%= contador.nombre %> </strong></h5>
+		<h5>Depósito:
+			<strong>
+				<% if (contador.deposito) { %>
+					Sí
+				<%} else {%>
+					No
+				<%}%>
+			</strong>
+		</h5>
 	</div>
 
-	<div class="container">
+
+	<div class="container" id="panel_criterios">
 
 		<br>
 		<p><strong>Criterios:</strong></p>
 
+		<table class="table table-striped table-hover">
+
+			<thead>
+				<tr>
+					<th class="text-center">Mes</th>
+					<th class="text-center">Máximo</th>
+					<th class="text-center">Mínimo</th>
+				</tr>
+			</thead>
 
 
-				<% for (var index in criterios) {%>
+			<tbody>
 
-					<div class="col-sm-4">
+				<% for (var i in criterios) {%>
 
-							<div id="criterios">
+					<tr>
 
-								<div class="container-fluid">
+						<td class="text-center"><a href="/contadores/<%= contador.id %>/criterios/<%= criterios[i].id %>/edit"><%= criterios[i].mes %></a></td>
+						<td class="text-center"><%= criterios[i].max %></td>
+						<td class="text-center"><%= criterios[i].min %></td>
 
-										<h5>Mes: <strong><%= criterios[index].mes %></strong></h5>
-										<h5>Máximo: <strong><%= (criterios[index].max).formatNumber(2, ',', '.') %></strong></h5>
-										<h5>Mínimo: <strong><%= (criterios[index].min).formatNumber(2, ',', '.') %></strong></h5>
+						<% if (session.user) {
+							if (session.user.isAdmin) {%>
 
-								</div>
+								<td style="width:40px"> <a class="" href="/contadores/<%= contador.id %>/criterios/<%= criterios[i].id %>/edit">
+									<img src="/images/edit3.png" style="width: 20px;"/>
+								</a></td>
 
-								<br>
+								<td style="width:40px">
+									<form method="post" action="/contadores/<%= contador.id %>/criterios/<%= criterios[i].id %>/destroy?_method=delete">
+										<button class="btn btn-danger btn-xs" type="submit" onClick="return confirm('Borrar el criterio mes: <%= criterios[i].mes %>');">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+									</form>
+								</td>
+							<%}%>
+						<%}%>
 
-								<% if (session.user) {
-	                                if (session.user.isAdmin) {%>
+					</tr>
 
-										<form method="post" action="/contadores/<%=contador.id%>/criterios/<%=criterios[index].id%>/destroy?_method=delete">
-											<button class="btn btn-danger btn-sm" type="submit" onClick="return confirm('Borrar Criterio del mes: <%= criterios[index].mes %>');">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-										</form>
-
-									<%}%>
-								<%}%>
-
-							</div>
-
-					</div>
 
 				<%}%>
 
+			</tbody>
+		</table>
+
+
+		<% if (session.user) {
+			if (session.user.isAdmin) {%>
+				<ul class="tira_botones">
+					<li><a class="btn btn_gral" href="/contadores/<%= contador.id %>/criterios/new">
+						<i class="fa fa-plus" alt=""></i> Nuevo Criterio
+					</a></li>
+				</ul>
+			<%}%>
+		<%}%>
 
 
 
 	</div>
 
-	<% if (session.user) {
-		if (session.user.isAdmin) {%>
-			<a href="/contadores/<%= contador.id %>/criterios/new"><button type="button" class="btn btn-primary">
-				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo criterio</button>
-			</a>
-		<%}%>
-	<%}%>
+
 
 </div>
