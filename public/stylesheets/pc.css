@@ -170,7 +170,9 @@
 /*		border-top: 2px solid rgba(256, 256, 256, 0.8); */
 /*		width: 80%; */
 /*		border-top: 1px solid #c6c7cc; */
-		border-bottom: 1px solid #c6c7cc;
+		/*border-bottom: 1px solid #c6c7cc;*/
+		border: 1px solid #81BEF7;
+
 
 
 	}
@@ -190,11 +192,27 @@
 	}
 
 
-	.avisos {
+	.avisos {										/* alertas alcance maximo contadores o vasos */
 		max-width: 700px;
 		margin: 100px auto 20px auto;
 		position: relative;
 	}
+
+
+	.alineacion_dcha {
+
+		text-align: right;
+	}
+	.alineacion_izda {
+
+		text-align: left;
+	}
+	.alineacion_centro {
+		text-align: center;
+	}
+
+
+
 
 
 	/* BOTON subir-inicio ************************************************************* */

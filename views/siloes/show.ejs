@@ -10,20 +10,62 @@
 								<div class="container">
 									<% if ((session.user.isAdmin || (session.user && siloe.UserId === session.user.id))) {%>
 
-										<h5><span class="badge">#<%=ensayos[index].id%></span></h5>
-										<h5>Vaso: <strong><%= ensayos[index].vasoId %> - <%= ensayos[index].nombre %></strong></h5>
-										<h5>Ubicación: <strong><%= ensayos[index].ubicacion %></strong></h5>
-										<h5>Capacidad: <strong><%= ensayos[index].capacidad %></strong></h5>
-										<h5>Interior:
-											<strong>
-												<% if (ensayos[index].interior) { %>
-													Sí
-												<%} else {%>
-													No
-												<%}%>
-											</strong>
-										</h5>
-										<h5>Tipo de ensayo: <strong><%= ensayos[index].tipo_ensayo %></strong></h5>
+										<div class="row">
+
+											<div class="col-md-6 col-sm-6">
+
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
+													<h5>Ensayo nº: </h5>
+												</div>
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
+													<h5><span class="badge">#<%=ensayos[index].id%></span></h5>
+												</div>
+
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
+													<h5>Vaso: </h5>
+												</div>
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
+													<h5><strong><%= ensayos[index].vasoId %> - <%= ensayos[index].nombre %></strong></h5>
+												</div>
+
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
+													<h5>Ubicación:</h5>
+												</div>
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
+													<h5><strong><%= ensayos[index].ubicacion %></strong></h5>
+												</div>
+
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
+													<h5>Capacidad: </h5>
+												</div>
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
+													<h5><strong><%= ensayos[index].capacidad %></strong></h5>
+												</div>
+
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
+													<h5>Interior: </h5>
+												</div>
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
+													<h5><strong>
+														<% if (ensayos[index].interior) { %>
+															Sí
+														<%} else {%>
+															No
+														<%}%>
+													</strong></h5>
+												</div>
+
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
+													<h5>Tipo de ensayo: </h5>
+												</div>
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
+													<h5><strong><%= ensayos[index].tipo_ensayo %></strong></h5>
+												</div>
+
+											</div>
+
+										</div>
+										
 										<br>
 
 										<form class="form-horizontal" method="post" action="/siloes/<%=siloe.id%>/ensayos/<%=ensayos[index].id%>/update?_method=put">

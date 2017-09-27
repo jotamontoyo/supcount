@@ -8,21 +8,21 @@
     <div class="form-group">
         <label for="nombre" class="col-md-3 control-label">Nombre:</label>
         <div class="col-md-9">
-            <input type="text" class="form-control" id="nombre" name="vaso[nombre]" value="<%= vaso.nombre %>" placeholder="nombre"/>
+            <input type="text" class="form-control" id="nombre" name="vaso[nombre]" value="<%= vaso.nombre %>" placeholder="nombre" required/>
         </div>
     </div>
 
     <div class="form-group">
         <label for="ubicacion" class="col-md-3 control-label">Ubicación:</label>
         <div class="col-md-9">
-            <input type="text" class="form-control" id="ubicacion" name="vaso[ubicacion]" value="<%= vaso.ubicacion %>" placeholder="ubicacion"/>
+            <input type="text" class="form-control" id="ubicacion" name="vaso[ubicacion]" value="<%= vaso.ubicacion %>" placeholder="ubicacion" required/>
         </div>
     </div>
 
     <div class="form-group">
         <label for="capacidad" class="col-md-3 control-label">Capacidad:</label>
         <div class="col-md-9">
-            <input type="text" class="form-control" id="capacidad" name="vaso[capacidad]" value="<%= vaso.capacidad %>" placeholder="capacidad"/>
+            <input type="number" class="form-control" id="capacidad" name="vaso[capacidad]" value="<%= vaso.capacidad %>" placeholder="capacidad" required step="0.1"/>
         </div>
     </div>
 
