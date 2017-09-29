@@ -1,6 +1,7 @@
+
 <div class="container-fluid animated animated-fast fadeIn margen_superior">
 
-		<h4>Ensayos <%= siloe.dia %>-<%= siloe.mes %>-<%= siloe.anio %>:</h4>
+		<h4 class="texto_tipo_3 text-center">Ensayos del <%= siloe.dia %>-<%= siloe.mes %>-<%= siloe.anio %></h4>
 		<br>
 				<% for (var index in ensayos) {%>
 
@@ -12,72 +13,71 @@
 
 										<div class="row">
 
-											<div class="col-md-6 col-sm-6">
+											<div class="col-md-6 col-sm-6 datos_cabeceras">
 
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 													<h5>Ensayo nº: </h5>
 												</div>
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
-													<h5><span class="badge">#<%=ensayos[index].id%></span></h5>
+													<h5><span class="texto_tipo_1"><%=ensayos[index].id%></span></h5>
 												</div>
 
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 													<h5>Vaso: </h5>
 												</div>
-												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
-													<h5><strong><%= ensayos[index].vasoId %> - <%= ensayos[index].nombre %></strong></h5>
+												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda texto_tipo_1">
+													<h5><%= ensayos[index].vasoId %> - <%= ensayos[index].nombre %></h5>
 												</div>
 
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 													<h5>Ubicación:</h5>
 												</div>
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
-													<h5><strong><%= ensayos[index].ubicacion %></strong></h5>
+													<h5><%= ensayos[index].ubicacion %></h5>
 												</div>
 
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 													<h5>Capacidad: </h5>
 												</div>
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
-													<h5><strong><%= ensayos[index].capacidad %></strong></h5>
+													<h5><%= ensayos[index].capacidad %></h5>
 												</div>
 
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 													<h5>Interior: </h5>
 												</div>
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
-													<h5><strong>
+													<h5>
 														<% if (ensayos[index].interior) { %>
-															Sí
+															<span class="texto_tipo_2">Sí </span><span class="texto_tipo_0"> No</span>
 														<%} else {%>
-															No
+															<span class="texto_tipo_0">Sí </span><span class="texto_tipo_2"> No</span>
 														<%}%>
-													</strong></h5>
+													</h5>
 												</div>
 
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 													<h5>Tipo de ensayo: </h5>
 												</div>
 												<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
-													<h5><strong><%= ensayos[index].tipo_ensayo %></strong></h5>
+													<h5><%= ensayos[index].tipo_ensayo %></h5>
 												</div>
 
 											</div>
 
 										</div>
-										
-										<br>
+
 
 										<form class="form-horizontal" method="post" action="/siloes/<%=siloe.id%>/ensayos/<%=ensayos[index].id%>/update?_method=put">
 											<div class="container">
-												<div id="accordion" role="tablist" aria-multiselectable="true">
+												<div id="accordion" role="tablist">
 
 											  		<div class="card">
 
 											    		<div class="card-header" role="tab" id="headingOne">
 											      			<h5 class="mb-0">
-											        			<a class="collapsed" data-toggle="collapse" href="#<%= ensayos[index].id + 10 %>" aria-expanded="true" aria-controls="<%= ensayos[index].id + 10 %>">
-											          				<strong>Bacteriológicos:</strong> E. Coli, Psudomoma, Enterococos, Staphlylococos ...
+											        			<a data-toggle="collapse" href="#<%= ensayos[index].id + 10 %>" aria-expanded="true" aria-controls="<%= ensayos[index].id + 10 %>">
+											          				<strong> Bacteriológicos:</strong> E. Coli, Psudomoma, Enterococos, Staphlylococos ...
 																	<% if ((ensayos[index].transparencia_m  === 'no cumple') ||
 																		(ensayos[index].extranios_m  === 'no cumple') ||
 																		(ensayos[index].ecoli_m  === 'no cumple') ||
@@ -226,8 +226,8 @@
 												  	<div class="card">
 												    	<div class="card-header" role="tab" id="headingTwo">
 												      		<h5 class="mb-0">
-												        		<a class="collapsed" data-toggle="collapse" href="#<%= ensayos[index].id + 100 %>" aria-expanded="false" aria-controls="<%= ensayos[index].id + 100 %>">
-												          			<strong>Físicos:</strong> Ph, Temperatura, Turbidez, Recirculación, Redox ...
+												        		<a data-toggle="collapse" href="#<%= ensayos[index].id + 100 %>" aria-expanded="false" aria-controls="<%= ensayos[index].id + 100 %>">
+												          			<strong> Físicos:</strong> Ph, Temperatura, Turbidez, Recirculación, Redox ...
 																	<% if (((!ensayos[index].ph_cumple) && (ensayos[index].ph_ensayar)) ||
 																		((!ensayos[index].temp_cumple) && (ensayos[index].temp_ensayar)) ||
 																		((!ensayos[index].turbidez_cumple) && (ensayos[index].turbidez_ensayar)) ||
@@ -410,8 +410,8 @@
 													<div class="card">
 													   	<div class="card-header" role="tab" id="headingThree">
 													    	<h5 class="mb-0">
-													        	<a class="collapsed" data-toggle="collapse" href="#<%= ensayos[index].id + 1000 %>" aria-expanded="false" aria-controls="<%= ensayos[index].id + 1000 %>">
-													          		<strong>Químicos:</strong> Cloro, Cloro combinado, Bromo, Isocianuro ...
+													        	<a data-toggle="collapse" href="#<%= ensayos[index].id + 1000 %>" aria-expanded="false" aria-controls="<%= ensayos[index].id + 1000 %>">
+													          		<strong> Químicos:</strong> Cloro, Cloro combinado, Bromo, Isocianuro ...
 																	<% if (((!ensayos[index].cloro_cumple) && (ensayos[index].cloro_ensayar)) ||
 																		((!ensayos[index].cloro_combinado_cumple) && (ensayos[index].cloro_combinado_ensayar)) ||
 																		((!ensayos[index].bromo_cumple) && (ensayos[index].bromo_ensayar)) ||
@@ -556,8 +556,8 @@
 													<div class="card">
 													   	<div class="card-header" role="tab" id="headingFour">
 													    	<h5 class="mb-0">
-													        	<a class="collapsed" data-toggle="collapse" href="#<%= ensayos[index].id + 10000 %>" aria-expanded="false" aria-controls="<%= ensayos[index].id + 10000 %>">
-													          		<strong>Interior:</strong> Humedad, Co2, Legionella, Langelier ...
+													        	<a data-toggle="collapse" href="#<%= ensayos[index].id + 10000 %>" aria-expanded="false" aria-controls="<%= ensayos[index].id + 10000 %>">
+													          		<strong> Interior:</strong> Humedad, Co2, Legionella, Langelier ...
 																	<% if (((!ensayos[index].humedad_cumple) && (ensayos[index].humedad_ensayar)) ||
 																		((!ensayos[index].co2_interior_cumple) && (ensayos[index].co2_interior_ensayar)) ||
 																		((!ensayos[index].co2_exterior_cumple) && (ensayos[index].co2_exterior_ensayar)) ||
@@ -750,7 +750,7 @@
 																		<% if (!ensayos[index].texto) { %>
 																			<i class="fa fa-plus"></i> Añadir comentarios
 																		<%} else {%>
-																			<i class="fa fa-arrow-down"></i> Ver comentarios
+																			<i class="fa fa-arrow-down texto_tipo_2"></i> Ver comentarios
 																		<%}%>
 						                                            </a>
 						                                        </h4>
@@ -773,6 +773,7 @@
 												<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Confirmar</button>
 
 											</div>
+
 
 										</form>
 

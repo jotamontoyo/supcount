@@ -3,46 +3,44 @@
 
 	<div class="row">
 
-		<div class="col-md-6 col-sm-6">
+		<div class="col-md-6 col-sm-6 datos_cabeceras">
 
 			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 				<h5>Contador nº: </h5>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
-				<h5><strong><%= contador.id %> </strong></h5>
+				<h5><%= contador.id %></h5>
 			</div>
 
 			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 				<h5>Nombre: </h5>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
-				<h5><strong><%= contador.nombre %> </strong></h5>
+				<h5 class="texto_tipo_1"><%= contador.nombre %></h5>
 			</div>
 
 			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 				<h5>Depósito: </h5>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
-				<h5><strong>
+				<h5>
 					<% if (contador.deposito) { %>
-						Sí
+						<span class="texto_tipo_2">Sí </span><span class="texto_tipo_0"> No</span>
 					<%} else {%>
-						No
+						<span class="texto_tipo_0">Sí </span><span class="texto_tipo_2"> No</span>
 					<%}%>
-				</strong></h5>
+				</h5>
 			</div>
 
-
 		</div>
-	</div>
 
-	<br>
+	</div>
 
 
 	<div class="container" id="panel_criterios">
 
 		<br>
-		<p><strong>Criterios:</strong></p>
+		<h4 class="texto_tipo_3">Criterios:</h4>
 
 		<div class="panel">
 

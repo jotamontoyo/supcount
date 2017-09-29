@@ -47,6 +47,42 @@
 	}
 
 
+	/* ==== FORMATOS DE TEXTO ==============================================*/
+
+
+	.texto_tipo_0 {
+
+		color: rgba(112, 128, 144, 0.2);		/* gris para campos desativados */
+	}
+
+	.texto_tipo_1 {
+
+        color: #BDBDBD;							/* gris igual resto proyecto */
+
+    }
+
+	.texto_tipo_2 {
+
+		color: rgba(255, 140, 0, 1);			/* naranja */
+	}
+
+	.texto_tipo_3 {								/* amarillo */
+
+		color: rgba(255, 215, 0, 1);
+	}
+
+	.texto_tipo_4 {
+
+        color: #7fff00;                 /* verde claro */
+
+    }
+
+	.texto_tipo_5 {
+
+		color: #FA5858;
+	}
+
+
 
 	/* =========================== TABLAS COLORES CLAROS ========================================= */
 
@@ -388,7 +424,13 @@
 	}
 
 
+	.datos_cabeceras {								/* estilos de los datos de cabecera que aparecen en los show.ejs de lecturas, contadores y siloes  */
 
+		margin-top: 15px;
+		margin-bottom: 15px;
+		max-width: 600px;
+
+	}
 
 /*	#front-panel, #quizes-panel, #temas-panel, #showbytema-panel, #stats-panel, #db-panel {
 		background-color: 	rgba(238, 238, 238, 0.6);
