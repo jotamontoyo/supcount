@@ -77,44 +77,6 @@
     }
 
 
-    #inicio_form {
-
-
-    }
-
-
-
-
-
-
-
-
-
-    .marco_grupo_desplegables {  		/* solo desplegables */
-		padding: 10px;
-	}
-
-    .marco_grupo_items {
-
-		padding: 10px;
-	}
-
-    .marco_item {
-        padding: 15px;
-        color: white;
-		background-color: #3d4045;
-    }
-
-    .items_ensayo {
-
-		padding: 10px;
-
-	}
-
-
-
-
-
 
 
 
@@ -287,20 +249,14 @@
     /*  SILOE                 =================================================== */
     /* ========================================================================== */
 
-    .item_ensayo {
 
-        text-align: right;
-
-    }
-
-
-
-    .ensayo-panel input, .ensayo-panel textarea {
-
-
-
-
+    .items_ensayo {
+		padding: 10px;
 	}
+
+    .item_ensayo {
+        text-align: right;
+    }
 
     .marco_grupo_desplegables, .marco_grupo_items {
 		padding: 2px;
@@ -308,11 +264,13 @@
 	}
 
     .marco_item {
-        /*min-height: 0px;*/
         padding: 20px;
         color: white;
 		background-color: #3d4045;
     }
+
+
+
 
     /* ========================================================================== */
     /*  FORMULAROS SELECCIONAR MES O VASO PARA SILOE============================= */

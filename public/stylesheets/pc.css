@@ -79,7 +79,7 @@
 
 	.texto_tipo_5 {
 
-		color: #FA5858;
+		color: #FA5858;					/* rojo */
 	}
 
 
@@ -189,6 +189,8 @@
 
 	}*/
 
+	/* ================================================================================================ */
+
 
 
 	a:active, a:focus, a:hover {
@@ -277,6 +279,15 @@
 	} */
 
 
+	/* ********* RALENTIZA TRANSICIONES  ************************************************** */
+
+	.transicion_lenta {
+		-moz-transition: all 0.3s;
+		-o-transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+
 
 
 	/*  ESTILO DE LOS BOTONES DE LOS FORM ************************************************** */
@@ -286,13 +297,9 @@
 		padding: 0px;
 	}
 
-
-
 	.tira_botones li {
 		position: relative;
 		display: inline;
-
-
 	}
 
 	.tira_botones button {
@@ -303,32 +310,32 @@
 		width: 180px;
 		margin-top: 4px;
 		position: relative;
-/*		color: #eb9837; */
 		background-color: transparent;
 		text-align: center;
 		border: 1px solid #81BEF7;
 		border-radius: 1.5px;
-/*		border-radius: 5px 5px 5px 5px; */
+		/*border-radius: 5px 5px 5px 5px; */
 		text-decoration: none;
 		outline: 0;
-
 	}
 
 	.btn_cancelar {
-
 		border: 1px solid #FA5858;
-
 	}
-
-
-
-
 
 	.btn_gral:hover {
-
 		color: #eb9837;
-
 	}
+
+	form .tira_botones > li > .btn_gral:hover {
+		color: #7fff00;
+	}
+
+	form .tira_botones > li > .btn_cancelar:hover {
+		color: #FA5858;
+	}
+
+
 
 
 
