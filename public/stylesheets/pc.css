@@ -489,13 +489,18 @@
 
 	}
 
+	.comments {
+
+
+	}
+
 	.comment-panel {						/* estilo de las lecturas */
 
-		min-height: 340px;
+		/*min-height: 340px;*/
 		margin-bottom: 20px;
 		padding-bottom: 10px;
 		color: #fff;
-		background-color: 	rgba(0, 0, 0, 0.8); */
+		/*background-color: 	rgba(0, 0, 0, 0.8); */*/
 		border: 		1px solid #D8D8D8;
 	}
 
@@ -1248,6 +1253,8 @@
 	}
 
 
+	/* ****SILOE******************************************************* */
+	/* ****SILOE******************************************************* */
 	/* ****SILOE******************************************************* */
 
 	#siloes_index {

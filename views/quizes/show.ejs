@@ -10,14 +10,14 @@
 			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 				<h5>Parte nº: </h5>
 			</div>
-			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
+			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda texto_tipo_1">
 				<h5><%= quiz.id %></h5>
 			</div>
 
 			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_dcha">
 				<h5>Fecha: </h5>
 			</div>
-			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda">
+			<div class="col-md-6 col-sm-6 col-xs-6 alineacion_izda texto_tipo_1">
 				<h5><%= quiz.dia %>-<%= quiz.mes %>-<%= quiz.anio %></h5>
 			</div>
 
@@ -39,24 +39,27 @@
 
 	</div>
 
+	<h4 class="text-center texto_tipo_3">Lecturas</h4>
+	<hr>
+
 
 	<div class="container comments">
 
-		<h4 class="texto_tipo_3">Lecturas:</h4>
-
-		<br>
 
 				<% for (var index in quiz.comments) {%>
+
 
 					<div class="col-sm-4">
 
 						<% if (!session.user && quiz.comments[index].publicado) {%>
-
 							<div class="comment-panel">
-
 								<div class="container-fluid">
-
 									<div class="form-group">
+
+										<div class="container-fluid">
+											<h6><span class="badge">#<%= quiz.comments[index].id %></span>
+											<small><%= quiz.comments[index].createdAt.toLocaleString() %></small></h6>
+										</div>
 
 										<h5>id: <%= quiz.comments[index].id %></h5>
 										<h5>Código: <%= quiz.comments[index].codigo %></h5>
@@ -67,116 +70,120 @@
 										<%}%>
 
 									</div>
-
-								</div>
-								<div class="container-fluid">
-									<h6><span class="badge">#<%= quiz.comments[index].id %></span>
-									<small><%= quiz.comments[index].createdAt.toLocaleString() %></small></h6>
 								</div>
 							</div>
 						<%}%>
 
 						<% if (session.user) {%>
 							<div class="comment-panel">
-
 								<div class="container-fluid">
-
 									<% if ((session.user.isAdmin || (session.user && quiz.UserId === session.user.id))) {%>
+										<div id="accordion" role="tablist">
 
+											<div class="card">
 
-										<h5><span class="badge">#<%=quiz.comments[index].id%></span></h5>
-										<h4 class="text-center"><strong><%= quiz.comments[index].codigo %> - <%= quiz.comments[index].nombre %></strong></h4>
-										<h5>Ubicación: <strong><%= quiz.comments[index].ubicacion %></strong></h5>
-
-
-										<form class="form-horizontal" method="post" action="/quizes/<%=quiz.id%>/comments/<%=quiz.comments[index].id%>/update?_method=put">
-
-											<input type="text" class="form-control hidden" id="codigo" name="comment[codigo]" value="<%=quiz.comments[index].codigo%>" pattern="[0-9]{1,}"/></h5>
-
-											<div class="form-group">
-												<div class="col-md-3" style="margin-top: 6px;">
-													<label for="lectura_actual">Lectura</label>
+												<div class="card-header" role="tab" id="headingOne">
+													<h5 class="mb-0">
+														<a data-toggle="collapse" href="#<%= quiz.comments[index].id %>" aria-expanded="false" aria-controls="<%= quiz.comments[index].id %>">
+															<h5><span class="badge">#<%=quiz.comments[index].id%></span>
+																<strong> Contador:</strong> <%= quiz.comments[index].nombre %>
+																<% if (!quiz.comments[index].lectura_actual > 0) {%>
+																	⚠️
+																<%}%>
+															</h5>
+														</a>
+														<h5><small>Ubicación: <%= quiz.comments[index].ubicacion %></small></h5>
+														<h5><small>Lectura: <span class="texto_tipo_2"><%= (quiz.comments[index].lectura_actual).formatNumber(2, ',', '.') %></span></small></h5>
+													</h5>
 												</div>
-												<div class="col-md-9">
-													<input type="number" min="0.0" class="form-control" id="lectura_actual" name="comment[lectura_actual]" value="<%= (quiz.comments[index].lectura_actual).toFixed(2) %>" step="0.1"/>
-												</div>
+
+												<div id="<%= quiz.comments[index].id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+													<div class="card-body">
+														<div class="marco_grupo_items animated fadeIn">
+															<div class="items_ensayo">
+
+																<div class="marco_item">
+
+																	<form class="form-horizontal" method="post" action="/quizes/<%=quiz.id%>/comments/<%=quiz.comments[index].id%>/update?_method=put">
+
+																		<!-- <h5>Ubicación: <strong><%= quiz.comments[index].ubicacion %></strong></h5> -->
+
+																		<input type="text" class="form-control hidden" id="codigo" name="comment[codigo]" value="<%=quiz.comments[index].codigo%>" pattern="[0-9]{1,}"/></h5>
+
+																		<div class="form-group">
+																			<div class="col-md-3" style="margin-top: 6px;">
+																				<label for="lectura_actual">Lectura</label>
+																			</div>
+																			<div class="col-md-9">
+																				<input type="number" min="0.0" class="form-control" id="lectura_actual" name="comment[lectura_actual]" value="<%= (quiz.comments[index].lectura_actual).toFixed(2) %>" required step="0.1"/>
+																			</div>
+																		</div>
+
+																		<% if (quiz.comments[index].deposito) { %>
+																			<div class="form-group">
+																				<div class="col-md-3" style="margin-top: 6px;">
+																					<label for="carga">Carga</label>
+																				</div>
+																				<div class="col-md-9">
+																					<input type="number" min="0" class="form-control" id="carga" name="comment[carga]" value="<%= (quiz.comments[index].carga).toFixed(2) %>" step="0.1"/>
+																				</div>
+																			</div>
+																		<%} else {%>
+																			<div class="form-group">
+
+																				<div class="col-md-3" style="margin-top: 6px;">
+
+																				</div>
+																				<div class="col-md-9">
+
+																				</div>
+																			</div>
+																		<%}%>
+
+																		<div class="col-md-12">
+												                            <div class="panel-group" id="agregar-comentario" role="tablist" aria-multiselectable="true">
+												                                <div class="faq">
+												                                    <div class="panel-heading" role="tab" id="agregar">
+												                                        <h4 class="panel-title">
+												                                            <a id="ver-textaera" role="button" data-toggle="collapse" data-parent="#agregar-comentario" href="#<%= quiz.comments[index].id + 100 %>" aria-expanded="true" aria-controls="collapseOne">
+																								<% if (!quiz.comments[index].texto) { %>
+																									<i class="fa fa-plus"></i> Añadir comentarios
+																								<%} else {%>
+																									<i class="fa fa-arrow-down texto_tipo_2"></i> Ver comentarios
+																								<%}%>
+												                                            </a>
+												                                        </h4>
+												                                    </div>
+												                                    <div id="<%= quiz.comments[index].id + 100 %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="agregar">
+												                                        <div class="panel-body">
+												                                            <div class="form-group">
+												                			    				<textarea class="form-control comment-row" rows="5" name="comment[texto]"><%=quiz.comments[index].texto%></textarea>
+												                							</div>
+												                                        </div>
+												                                    </div>
+												                                </div>
+													                            </div>
+																		</div>
+
+																		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Confirmar</button>
+
+																	</form>
+
+																</div>
+
+															</div> <!-- fin 1er row -->
+														</div>
+													</div>
+												</div> <!--fin 1er card -->
 											</div>
-
-											<% if (quiz.comments[index].deposito) { %>
-												<div class="form-group">
-
-													<div class="col-md-3" style="margin-top: 6px;">
-														<label for="carga">Carga</label>
-													</div>
-													<div class="col-md-9">
-														<input type="number" min="0" class="form-control" id="carga" name="comment[carga]" value="<%= (quiz.comments[index].carga).toFixed(2) %>" step="0.1"/>
-													</div>
-												</div>
-											<%} else {%>
-												<div class="form-group">
-
-													<div class="col-md-3" style="margin-top: 6px;">
-
-													</div>
-													<div class="col-md-9">
-
-													</div>
-												</div>
-											<%}%>
-
-
-
-											<div class="col-md-12">
-
-					                            <div class="panel-group" id="agregar-comentario" role="tablist" aria-multiselectable="true">
-
-					                                <div class="faq">
-					                                    <div class="panel-heading" role="tab" id="agregar">
-					                                        <h4 class="panel-title">
-					                                            <a id="ver-textaera" role="button" data-toggle="collapse" data-parent="#agregar-comentario" href="#<%=quiz.comments[index].id%>" aria-expanded="true" aria-controls="collapseOne">
-																	<% if (!quiz.comments[index].texto) { %>
-																		<i class="fa fa-plus"></i> Añadir comentarios
-																	<%} else {%>
-																		<i class="fa fa-arrow-down"></i> Ver comentarios
-
-																	<%}%>
-
-
-					                                            </a>
-					                                        </h4>
-					                                    </div>
-					                                    <div id="<%=quiz.comments[index].id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="agregar">
-					                                        <div class="panel-body">
-
-					                                            <div class="form-group">
-
-					                			    				<textarea class="form-control comment-row" rows="5" name="comment[texto]"><%=quiz.comments[index].texto%></textarea>
-
-					                							</div>
-
-					                                        </div>
-					                                    </div>
-					                                </div>
-
-					                            </div>
-											</div>
-
-											<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Confirmar</button>
-
-
-										</form>
-
+										</div>
 
 									<%} else if (quiz.comments[index].publicado) {%>
-
 
 										<h5><span class="badge">#<%=quiz.comments[index].id%></span></h5>
 										<h5>Código: <%= quiz.comments[index].codigo %></h5>
 										<h5>Nombre: <%= quiz.comments[index].nombre %></h5>
 										<h5>Lectura: <%= (quiz.comments[index].lectura_actual).toFixed(2) %></h5>
-
-
-
 
 									<%}%>
 
@@ -184,7 +191,7 @@
 
 								<br>
 
-								<div class="container-fluid">
+								<!-- <div class="container-fluid">
 									<%if ((session.user.isAdmin || (session.user && quiz.UserId === session.user.id))) {%>
 							 			<%if (!quiz.comments[index].publicado) {%>
 											<h6>
@@ -209,14 +216,11 @@
 										</h6>
 
 									<%}%>
-								</div>
-
+								</div> -->
 							</div>
 						<%}%>
 					</div>
 				<%}%>
-
-
 
 <!--		<p><a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-primary">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo comentario</button></a>
