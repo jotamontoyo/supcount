@@ -359,6 +359,7 @@
 	#principal {
 /*		background: url(/images/inicio/06.jpg) no-repeat fixed center; */
 
+		margin-bottom: 60px;
 		padding: 0px;
 
 
@@ -420,14 +421,14 @@
 
 
 
-	.ocultar {																/* a esta esta clase le cambio css desde autoscroll.js */
+	.ocultar {
     	opacity: 0;
 	}
 
 
 	.ocultar_pc {
 
-		visibility: hidden;
+		display: none;
 	}
 
 
@@ -1071,11 +1072,12 @@
 	#pie {
 
 		width: 100%;
-		min-height: 40px;
-		/*position: relative;*/
-		/*bottom: 0px;*/
- 		background-color: #2E2E2E;
+		height: 40px;
+		position: fixed;
+		bottom: 0px;
+ 		background-color: rgba(46, 46, 46, 0.9);
 		color: #A4A4A4;
+		border-top:	1px solid #424242;
 
 
 		text-align: center;
@@ -1087,9 +1089,12 @@
 		justify-content: 			space-around;
 	}
 
-	#pie a {
+	#pie img {
 
-		font-size: 8px;
+		/*font-size: 8px;*/
+
+		width: 60px;
+		padding: 5px;
 	}
 
 

@@ -17,7 +17,8 @@
 
     .ocultar_pc {
 
-        visibility: visible;
+        /*visibility: visible;*/
+        display: inline-block;
 
     }
 
@@ -38,6 +39,12 @@
     }
 
 
+
+    /* ==== LAYOUT principal ==============================================*/
+
+    #principal {
+        margin-bottom: 10px;
+    }
 
 
     /* INICIO =============================================================== */
