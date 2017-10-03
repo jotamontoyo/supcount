@@ -222,7 +222,7 @@
 							dia: siloe.dia,
 							mes: siloe.mes,
 							anio: siloe.anio,
-							SiloId: siloe.id,											// al comment se le pasa el quizId del siloe para establecer la integridad referencial entre Quiz y Comment. indice secundario de Comment
+							SiloId: siloe.id,											// al ensayo se le pasa el siloe.id del siloe para establecer la integridad referencial entre Quiz y Comment. indice secundario de Comment
 
 							ph_max: vasos[i].ph_max,
 							ph_min: vasos[i].ph_min,

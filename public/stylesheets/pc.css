@@ -1068,6 +1068,24 @@
 	/* PIE ===========================================================================*/
 
 
+	/*#sub_pie {
+		width: 100%;
+		height: 40px;
+		position: fixed;
+		bottom: 0px;
+		background-color: rgba(46, 46, 46, 0.9);
+		-webkit-filter: blur(6px);
+		filter: blur(4px);
+	}
+
+	#mini_pie {
+		width: 100%;
+		height: 9px;
+		position: fixed;
+		bottom: 0px;
+		background-color: rgba(46, 46, 46, 0.7);
+	}*/
+
 
 	#pie {
 
@@ -1076,8 +1094,11 @@
 		position: fixed;
 		bottom: 0px;
  		background-color: rgba(46, 46, 46, 0.9);
+		/*background-color: transparent;*/
 		color: #A4A4A4;
 		border-top:	1px solid #424242;
+		/*border-top: 	2px inset black;*/
+		/*border-top: 	2px groove #c6c7cc;*/
 
 
 		text-align: center;
