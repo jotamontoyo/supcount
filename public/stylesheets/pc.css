@@ -457,8 +457,7 @@
 
 	#partes_index {
 
-		margin-top: 80px;
-		/*max-width: 1080px;*/
+		max-width: 1200px;
 
 	}
 
@@ -559,7 +558,7 @@
 	#usuarios {
 
 		margin-top: 80px;
-		max-width: 960px;
+		max-width: 1200px;
 
 	}
 
@@ -1249,6 +1248,12 @@
 
 	/* VASOS ******************************************************************************************/
 
+	#vasos {
+
+		max-width: 1200px;
+
+	}
+
 	#vasos img {
 
 		width: 32px;
@@ -1299,7 +1304,7 @@
 
 
 
-		border: 1px solid #BDBDBD;
+		border: 1px solid #6E6E6E;
 		font-size: 14px;
 
 /*		background-color: #3d4045;
@@ -1356,7 +1361,7 @@
 	.marco_item {
 		min-height: 160px;
 		padding: 20px;
-		border:	1px solid #BDBDBD;
+		border:	1px solid #6E6E6E;
 		border-radius: 1.5px;
 		font-size: 12px;
 	}
@@ -1410,12 +1415,14 @@
 
 
 
+
+
 	/* ========= FORMULARIO CONTADOR PARTE USUARIO CENTRO SILOE===================== */
 
 	#contador_form, #criterio_form, #parte_form, #user_form, #centro_form, #vaso_form, #siloe_form  {
 		max-width: 600px;
 		padding: 20px 20px 20px 20px;
-		border: 1px solid #BDBDBD;
+		border: 1px solid #6E6E6E;
 		border-radius: 1.5px;
 	}
 
@@ -1450,7 +1457,7 @@
 
 	#contadores {
 
-
+		max-width: 1200px;
 
 	}
 
